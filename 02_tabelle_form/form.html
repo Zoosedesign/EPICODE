@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" title="Tabelle">Tabelle</a> | <a href="form.html" title="Forms">Forms</a>
+    </nav>
+
+    <h2>Form semplice</h2>
+
+    <form method="POST" action="index.html">
+        <label for="username">Nome Utente</label>
+        <input type="text" id="username" name="username" placeholder="Inserire il nome utente">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Inserire la password">
+        <br><br>
+        <button type="submit" id="invia">INVIA</button>
+        <button type="reset" id="cancella">CANCELLA</button>
+    </form>
+
+    <hr>
+
+    <h2>Form complesso</h2>
+
+    <form>
+
+        <fieldset>
+            <legend>Anagrafica</legend>
+            <label for="nome">Nome*</label>
+            <input type="text" id="nome" name="nome" required>
+            <label for="cognome">Cognome*</label>
+            <input type="text" id="cognome" name="cognome" required>
+            <label for="data">Data di nascita</label>
+            <input type="date" id="data" name="data">
+            <br><br>
+            <label for="indirizzo">Indirizzo</label>
+            <textarea rows="2" cols="40"></textarea>
+            <br><br>
+            <label for="CAP">CAP</label>
+            <input type="text" id="CAP" name="CAP">
+            <label for="citta">Città</label>
+            <input type="text" id="citta" name="citta">
+            <label for="provincia">Prov.</label>
+            <input type="text" minlength="2" maxlength="2" id="provincia" name="provincia">
+        </fieldset>
+
+        <p>&nbsp;</p>
+
+        <fieldset>
+            <legend>Contatti</legend>
+            <label for="telefono">Telefono</label>
+            <input type="tel" id="telefono" name="telefono">
+            <label for="email">Email*</label>
+            <input type="email" id="email" name="email" required>
+            <label for="whatsapp">Contatto WhatsApp</label>
+            <input type="tel" id="whatsapp" name="whatsapp">
+            <br><br>
+            <label for="altri">Altri contatti</label>
+            <textarea id="altri" name="altri" rows="2" cols="30"></textarea>
+        </fieldset>
+
+        <p>&nbsp;</p>
+
+        <fieldset>
+            <legend>Preferenze</legend>
+            <label for="corso">Tipo di corso scelto</label>
+            <select id="corso" name="corso">
+                <option value="" selected></option>
+                <option value="front">Front-End</option>
+                <option value="back">Back-End</option>
+                <option value="full">Full Stack</option>
+            <!-- JavaScript ragionerà semper sul campo value="full" -->
+            </select>
+            <p>Linguaggi conosciuti</p>
+            <input type="checkbox" name="html" id="html">
+            <label for="html">HTML</label>
+            <input type="checkbox" name="css" id="css">
+            <label for="css">CSS</label>
+            <input type="checkbox" name="js" id="js">
+            <label for="js">JavaScript</label>
+            <p>Time Format</p>
+            <input type="radio" id="fullTime" name="format">
+            <label for="fullTime">Full-time</label>
+            <input type="radio" id="partTime" name="format">
+            <label for="partTime">Part-time</label>
+            <input type="radio" id="serale" name="format">
+            <!-- per funzionare il type="radio" deve avere lo stesso campo name="" -->
+            <label for="serale">Serale</label>
+        </fieldset>
+
+        <br><br>
+
+        <button type="submit" id="invia">INVIA</button>
+        <button type="reset" id="cancella">CANCELLA</button>
+
+    </form>
+
+    <hr>
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/1JYjcwW9MmM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+    <br><br>
+
+    <iframe src="https://www.repubblica.it/" width="500" height="500"></iframe>
+    
+</body>
+</html>

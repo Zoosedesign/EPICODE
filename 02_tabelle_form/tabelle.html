@@ -17,6 +17,10 @@
 </head>
 <body>
 
+    <nav>
+        <a href="index.html" title="Tabelle">Tabelle</a> | <a href="form.html" title="Forms">Forms</a>
+    </nav>
+    
     <h2>Tabella semplice</h2>
 
     <table>
@@ -31,7 +35,7 @@
             <td>CELLA 3</td>
         </tr>
     </table>
-
+    
     <hr>
 
     <h2>Tabella completa</h2>
@@ -65,27 +69,32 @@
         </tfoot>
     </table>
 
-    <h2>Tabelle complesse</h2>
+    <hr>
+
+    <h2>Tabella complessa</h2>
 
     <table>
         <tr>
-            <td colspan="2" rowspan="2"></td>
-            <td></td>
-            <td></td>
+            <td colspan="2" rowspan="2">Cella 1/2 Colonna 1/2 riga 1/2</td>
+            <td>Cella 3 colonna 3 riga 1</td>
+            <td>Cella 4 colonna 4 riga 1</td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td colspan="2">Cella 3/4 colonna 3/4 riga 2</td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>Cella 1 colonna 1 riga 3</td>
+            <td colspan="3" rowspan="2">Cella 2/3/4 colonna 2/3/4 riga 3/4</td>
+        </tr>
+        <tr>
+            <td>Cella 1 colonna 1 riga 4</td>
+        </tr>
+        <tr>
+            <td>Cella 1 colonna 1 riga 5</td>
+            <td colspan="2">Cella 2/3 colonna 2/3 riga 5</td>
+            <td>Cella 4 colonna 4 riga 5</td>
         </tr>
     </table>
 
 </body>
-
-
 </html>
