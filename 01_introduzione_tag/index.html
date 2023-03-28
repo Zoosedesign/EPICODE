@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!-- digitando html:5 visual code crea la streuttura base della pagina -->
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> obsoleto da eliminare -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Andre Zucchetti corso front-end FS0223">
+    <meta name="description" content="lezione1">
+    <meta name="keywords" content="HTML, CSS">
+    <title>Corso FS0223 giorno 1 settimana 1</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <h1 id="inizio">40px Lezione settimana 1 giorno 1 </h1>
+    <h2>32px Sottotitolo</h2>
+    <h3>24px</h3>
+    <h4>16px Titolo blocco di testo in grassetto</h4>
+    <p>il tag p è uguale a h4, 16px infatti è la misura predefinita</p>
+    <h5>12px</h5>
+    <h6>10px</h6>
+    <!-- i tag h vengono utilizzati solo nelle cose che vogliamo siano indicizzate -->
+
+    <hr>
+    <span id="list"></span>
+    <ul>
+        <li>Elemento1</li>
+        <li>Elemento2</li>
+        <li>Elemento3</li>
+        <li>Elemento4s</li>
+    </ul>
+    <ol>
+        <li>Elemento1</li>
+        <li>Elemento2</li>
+        <li>Elemento3</li>
+        <li>Elemento4s</li>
+    </ol>
+    <dl>
+        <dt><b>Definizione 1</b></dt>
+        <li>Descrizione definizione 1</li>
+        <dt>Definizione 2</dt>
+        <li>Descrizione definizione 2</li>
+        <dt>Definizione 3</dt>
+        <li>Descrizione definizione 3</li>
+    </dl>
+
+    <hr>
+    <span id="address"></span>
+    <address>infomazioni di contatto - Azienda XYZ - via Pupparuolo 13 - 00100 Roma - info@xyz.it</address>
+    <blockquote cite="autore">Questa è una citazione con la fonte nascosta</blockquote>
+    <blockquote>Questa è una citazione
+        <br>
+        <cite>Autore</cite>
+    </blockquote>
+
+    <hr>
+    <span id=""></span>
+    <strong>grassetto importante indicizzato</strong>
+    <em>corsivo importante enfatizzato e indicizzato ma non importante quanto il testo in strong</em>
+    <b>semplicemnte grassetto</b>
+    <i>semplicemente corsivo</i>
+    <p>
+        Questo <del>testo</del> è sostituito da <ins>questo</ins>
+    </p>
+
+    <hr>
+    <p>
+        Il tag abbr si definiscono gli acronimi tipo <abbr title="Hyper Text Markup Language">HTML</abbr>.<br>
+        Il tag <code>&lt;code&gt;</code> stampa il carattere monospace tipico degli editor di codice.<br>
+        Il tag <mark>mark</mark> evidenzia il testo in giallo, il tag <q>Q</q> inserisce le virgolette inglesi.
+    </p>
+
+    <hr>
+    <p>
+        con il tag &lt;pre&gt; forziamo il browser a leggere spazi e accapo<br>
+    <p>
+    <pre>
+            Questo testo rientrato,ù
+            va accapo
+            e legge           questi spazi.
+            Appare come il carattere monospace
+            tipico degli editor di codice
+        </pre>
+    </p>
+    </p>
+    <p>
+        con il tag keyboard rappresentiamo un comando da tastiera
+        <kbd>Cmd+C</kbd>
+    </p>
+    <p>
+        <samp>samp una finestra di dialogo</samp>
+        <var>rappresenta una variabile</var>
+        <sub>sub rappresenta pedice</sub>
+        <sup>sub rappresenta apice</sup>
+    </p>
+
+    <hr>
+    <img src="https://images.pexels.com/photos/7175450/pexels-photo-7175450.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        alt="immagine di prova con cappello" height="400px">
+    <figure>
+        <figcaption>Immagini di cani da <a href="https://www.pexels.com/it-it/" title="pixabay">Pixabay</a></figcaption>
+        <p>href è il tag che comunica la parte cliccabile / il title che spiega a dove punterà il titolo / target serve
+            a capire dove si aprirà la pagina, molto spesso il target blank si utilizza per aumentare il page rank della
+            pagina che si vuole evidenziare, in maniera che rimanga aperta</p>
+        <ul>
+            <li>Href è il tag che comunica la parte cliccabile.</li>
+            <li>Il title che spiega a dove punterà il titolo.</li>
+            <li>Target serve a capire dove si aprirà la pagina, molto spesso il target blank si utilizza per aumentare il page rank della
+                pagina che si vuole evidenziare nel caso di apertura a pagine o risorse esterne.</li>
+            <li>Rel serve a definire la relazione tra la pagina in essere e quella che si aprirà, sopratutto a livello CEO, diciamo è semantico e obbligatorio.
+                Tramite rel si evidenzieranno le pagine a cascate nel browser relative (follow) e non relative (nofollow) all'articolo iniziale.
+            </li>
+        </ul>
+        <img src="https://images.pexels.com/photos/7175450/pexels-photo-7175450.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            alt="immagine di prova con cappello" height="400px">
+    </figure>
+
+    <a href="#inizio" title="Torno a inizio pagina">Torna su</a>
+    <a href="#list" title="Torno a inizio pagina">Liste</a>
+    <a href="#address" title="Torno a inizio pagina">Address</a>
+    <a href="#text" title="Torno a inizio pagina">Blocchi di testo</a>
+    praticamente cliccando l'elemento in a, ritornerà all'inizio o all'id di riferimento scritto in href.
+    Questi id per navigare all'interno della pagina si chiamano Anchor.
+</body>
+
+</html>

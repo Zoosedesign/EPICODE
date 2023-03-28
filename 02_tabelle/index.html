@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabelle</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        td, th {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Tabella semplice</h2>
+
+    <table>
+        <tr>
+            <td>CELLA 1</td>
+            <td>CELLA 2</td>
+            <td>CELLA 3</td>
+        </tr>
+        <tr>
+            <td>CELLA 1</td>
+            <td>CELLA 2</td>
+            <td>CELLA 3</td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <h2>Tabella completa</h2>
+
+    <table>
+        <caption>Tabella completa</caption>
+        <thead>
+            <tr>
+                <th>COLONNA 1</th>
+                <th>COLONNA 2</th>
+                <th>COLONNA 3</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>CELLA 1</td>
+                <td>CELLA 2</td>
+                <td>CELLA 3</td>
+            </tr>
+            <tr>
+                <td>CELLA 1</td>
+                <td>CELLA 2</td>
+                <td>CELLA 3</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="2">Totale celle</td>
+                <td>9</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <h2>Tabelle complesse</h2>
+
+    <table>
+        <tr>
+            <td colspan="2" rowspan="2"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+</body>
+
+
+</html>
