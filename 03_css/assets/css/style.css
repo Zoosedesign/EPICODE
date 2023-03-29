@@ -206,6 +206,10 @@ a:hover {
 	height: 100%;
 }
 
+.vw-100 {
+	width: 100%;
+}
+
 .vw-50 {
 	width: 50vw;
 }
