@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&family=Roboto&display=swap');
+
+html, body {
+    font-family: 'Roboto', sans-serif;
+}
+
+p {
+    font-family: 'Raleway', sans-serif;
+}
+
+h1 {
+    text-align: center;
+    text-shadow: 4px 4px 8px #666, -4px -4px 8px #666;
+}
+
+i.fa-bookmark {
+    color: red;
+}
+
+/* SELETTORE DI DISCENDENTI */
+
+#discendenti h3 {
+    font-size: 25px;
+    color: red;
+}
+
+/* SELETTORE DI FIGLI DIRETTI */
+
+#figliDiretti > h3 {
+    font-size: 25px;
+    color: red;
+}
+
+/* SELETTORE DI FRATELLI ADIACENTI */
+
+h2 + h3 {
+    text-decoration: underline;
+}
+
+/* SELETTORE GENERALE DI FRATELLI */
+
+#fratelli ~ h3 {
+    text-decoration: underline;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+    color: green;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: red;
+}
+
+#figlio li:nth-child(2) {
+    color: red;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+td {
+    border: 1px solid black;
+}
+
+table tr:nth-child(even) {
+    background-color: gray;
+}
+
+#studenti li::before {
+    content: 'Studente: ';
+}
+
+#studenti li::after {
+    font-weight: bold;
+    content: ' - Corso Epicode FS0223';
+}

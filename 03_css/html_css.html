@@ -3,61 +3,145 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Titolo della pagina</title>
-
-    <!-- collegamento a foglio di stile -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <!-- le cdn convengono perchè caricano solo una piccola parte di css
-         e se è già stata caricata non deve neanche farlo -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Struttura (da slide)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <header>
-        <h1>
-            <a href=""></a>
-            <img src="" alt="logo">
-        </h1>
 
+    <h1><i class="fa-solid fa-bookmark"></i>Primi elementi di CSS</h1>
+
+    <header>
         <nav>
             <ul>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
+                <li><a href="#">Link 1</a></li>
+                <li><a href="#">Link 2</a></li>
+                <li><a href="#">Link 3</a></li>
+                <li><a href="#">Link 4</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <article>
-            <section>
-                <h3></h3>
-                <p></p>
-            </section>
+        <p>
+            <strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum asperiores nihil est! Eveniet iste
+                eius dolore harum veritatis repellat fugit voluptas, nesciunt magni cumque nostrum soluta quaerat sunt
+                quos itaque!</strong>
+            <a href="#">Linkk 5</a>
+        </p>
 
-            <section>
-                <h3></h3>
-                <p></p>
-            </section>
-        </article>
+        <ul id="figlio">
+            <li><em>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum officia atque sed deleniti labore
+                    quisquam fugiat tempore. Sequi nulla quisquam eligendi cum adipisci blanditiis quia, vel vero
+                    itaque. Praesentium, vel.</em></li>
+            <li><em>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum officia atque sed deleniti labore
+                    quisquam fugiat tempore. Sequi nulla quisquam eligendi cum adipisci blanditiis quia, vel vero
+                    itaque. Praesentium, vel.</em></li>
+            <li><em>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum officia atque sed deleniti labore
+                    quisquam fugiat tempore. Sequi nulla quisquam eligendi cum adipisci blanditiis quia, vel vero
+                    itaque. Praesentium, vel.</em></li>
+        </ul>
 
-        <section>
-            <h3></h3>
-            <p></p>
-        </section>
+        <p>
+            <em>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum officia atque sed deleniti labore
+                quisquam fugiat tempore. Sequi nulla quisquam eligendi cum adipisci blanditiis quia, vel vero itaque.
+                Praesentium, vel.</em>
+        </p>
+
+        <table>
+            <tr>
+                <td>Cella 1</td>
+                <td>Cella 2</td>
+                <td>Cella 3</td>
+            </tr>
+            <tr>
+                <td>Cella 1</td>
+                <td>Cella 2</td>
+                <td>Cella 3</td>
+            </tr>
+            <tr>
+                <td>Cella 1</td>
+                <td>Cella 2</td>
+                <td>Cella 3</td>
+            </tr>
+            <tr>
+                <td>Cella 1</td>
+                <td>Cella 2</td>
+                <td>Cella 3</td>
+            </tr>
+            <tr>
+                <td>Cella 1</td>
+                <td>Cella 2</td>
+                <td>Cella 3</td>
+            </tr>
+            <tr>
+                <td>Cella 1</td>
+                <td>Cella 2</td>
+                <td>Cella 3</td>
+            </tr>
+        </table>
+
+        <ul id="studenti">
+            <li>Andrea Cudini</li>
+            <li>Andrea De Pasquale</li>
+            <li>Sofia Sapienza</li>
+            <li>Damiano Charubini</li>
+        </ul>
+
+        <hr>
+
+        <h1>SELETTORI COMBINATORI</h1>
+
+        <h2>Selettore di discendenti</h2>
+        <div id="discendenti">
+            <h3>Titolo del container</h3>
+            <h4>contenuto</h4>
+        </div>
+        <h3>Contenuto esterno al container</h3>
+
+        <hr>
+
+        <h2>Selettore di figli DIRETTI</h2>
+
+        <div id="figliDiretti">
+            <h3>Titolo sezione</h3>
+            <nav>
+                <h3>Titolo menu</h3>
+            </nav>
+            <h3>Titolo articolo</h3>
+        </div>
+
+        <hr>
+
+        <h2>Selettore di fratelli ADIACENTI (vicini)</h2>
+
+        <h2>Titolo capitolo</h2>
+        <h3>Titolo paragrafo 1</h3>
+        <p>testo paragrafo 1</p>
+        <h3>Titolo paragrafo 2</h3>
+        <p>testo paragrafo 2</p>
+
+        <hr>
+
+        <h2>Selettore GENERALE di fratelli</h2>
+
+        <h2 id="fratelli">Titolo capitolo</h2>
+        <h3>Titolo paragrafo 1</h3>
+        <p>testo paragrafo 1</p>
+        <h3>Titolo paragrafo 2</h3>
+        <p>testo paragrafo 2</p>
+
     </main>
 
-    <aside>
-        <h3></h3>
-        <p></p>
-    </aside>
-
     <footer>
-        <h6>Copyright &copy; 2023 Nome dell'autore</p>
+        <p>
+            <a href="#">Link 6</a> | <a href="#">Link 7</a>
+        </p>
     </footer>
+
 </body>
 
 </html>
