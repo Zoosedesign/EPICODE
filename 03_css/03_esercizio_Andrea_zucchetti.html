@@ -28,7 +28,10 @@
                 <p class="pv">Wow your taste buds with this festive focaccia appetizer topped with sweet caramelized
                     onions, tart
                     cranberries, and creamy brie. It will become your new favorite holiday starter!</p>
-                <figure class="bg-focaccia"></figure>
+                <video id="my-video" controls="true" width="480" height="270" crossorigin="anonymous">
+                    <source src="https://jplayer.org/video/webm/Big_Buck_Bunny_Trailer.webm" type="video/webm" />
+                    <source src="https://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v" type="video/mp4" />
+                </video>
                 <figcaption>Image: Sally Vegas</figcaption>
             </section>
             <span class="vw-25">&nbsp;</span>
@@ -84,8 +87,19 @@
 
     <footer class="flexbox row pv">
         <span class="vw-25">&nbsp;</span>
-        <div class="vw-50">
-        <h5>Read more<a href="https://www.simplyrecipes.com" target="_blank"> on Simply recipes</a></h5>
+        <div class="vw-50 flexbox row">
+            <h5 class="vw-25">Read more<a
+                    href="https://www.simplyrecipes.com/recipes/focaccia_with_caramelized_onions_cranberries_and_brie/"
+                    target="_blank"> on Simply recipes</a>
+            </h5>
+            <form action="https://example.com" class="vw-25 txt-right">
+                <label>
+                    Enter your birthday:
+                    <input type="date" name="bday" />
+                </label>
+
+                <button>Submit</button>
+            </form>
         </div>
         <span class="vw-25">&nbsp;</span>
     </footer>
