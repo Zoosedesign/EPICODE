@@ -1,108 +1,150 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ricetta focaccia with Caramelized Onions, Cranberries, and Briea</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Andrea Zucchetti">
+  <meta name="description" content="Sviluppo di una pagina web - Blog Epicode">
+  <meta name="keywords" content="blog,html,template,codice,tutorial,developer">
 
-    <!-- collegamento a foglio di stile -->
-    <!-- per usare css da github come CDN usare https://www.jsdelivr.com/github -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Zoosedesign/EPICODE@main/03_css/assets/css/style.css">
+  <!-- favivon dimensioni 32x32 (32bit schermo retina)-->
+  <link rel="icon" href="https://epicode.com/wp-content/uploads/2022/06/favicon-300x300.png">
+  <title>Esercizio lezione 1</title>
 </head>
 
-<body class="bg-grad vh-100">
-    <h1 class="flexbox row pb">
-        <a href="https://www.simplyrecipes.com" target="_blank">
-            <img src="https://raw.githubusercontent.com/Zoosedesign/EPICODE/main/03_css/assets/img/logo.png" alt="logo">
-        </a>
+<body>
+  <header>
+    <h1>
+      <a href="https://epicode.com/it/"></a>
+      <img height="200px" src="https://s3-eu-west-1.amazonaws.com/tpd/logos/62a6277627ee655c1226b624/0x0.png"
+        alt="logo_epicode">
     </h1>
-    <header class="flexbox row pv bg-white">
-        <p>Part of <strong class="green">SIMPLY FABULOUS THANKSGIVING</strong></p>
-    </header>
+    <figcaption>
+      <p>Epicode &hyphen; Il blog dei developers</p>
+    </figcaption>
+    <nav>
+      <button><a href="https://epicode.com/it/"><b>HOME</b></a></button>
+      <button><a href="https://epicode.com/it/landing-web-developer-a/"><b>Articoli</b></a></button>
+      <button><a href="https://epicode.com/it/candidati/"><b>JOB</b></a></button>
+    </nav>
 
-    <main class="pt">
-        <article class="flexbox row pv">
-            <span class="vw-25">&nbsp;</span>
-            <section class="vw-50 txt-center">
-                <h2>Focaccia with Caramelized Onions, Cranberries, and Brie</h2>
-                <p class="pv">Wow your taste buds with this festive focaccia appetizer topped with sweet caramelized
-                    onions, tart
-                    cranberries, and creamy brie. It will become your new favorite holiday starter!</p>
-                <video class="vw-100" controls poster="https://raw.githubusercontent.com/Zoosedesign/EPICODE/main/03_css/assets/img/focaccia.png">
-                    <source src="https://cdn.jsdelivr.net/gh/Zoosedesign/EPICODE@64e620af272b22d743a7dbaa01a78c6bd47ffd6f/03_css/assets/img/brotsky-bakery.mp4" type="video/mp4">
-                </video>
-                <figcaption>Image: Sally Vegas</figcaption>
-            </section>
-            <span class="vw-25">&nbsp;</span>
+    <hr>
+
+    <main>
+      <article>
+        <section>
+          <h3>Come creare un template per i post</h3>
+          <p>di Mario Rossi &hyphen; pubblicato il 25&hyphen;10&hyphen;2020</p>
+          <p>
+            La prima cosa da fare è suddividere in blocchi logici la pagina, identificando le <b>parti comuni</b> da
+            applicare a tutte le pagine.
+          </p>
+          <p>Le varie aeree saranno suddivise in:</p>
+          <ul>
+            <li>Contenuti di intestazione del tag &lsaquo;header&rsaquo;</li>
+            <li>Contenuti centrali variabili del tag &lsaquo;main&rsaquo; &lpar;corpo principale&rpar;</li>
+            <li>Contenuti di intestazione del tag &lsaquo;header&rsaquo;</li>
+          </ul>
+
+          <h3>Formattazione del codice</h3>
+          <p>Il testo dell'articolo dovrà essere formattato per identificare tutte le parti da <b>selezionare con i
+              CSS</b>. Perciò i passi saranno:</p>
+          <ol>
+            <li>Progettare su carta il markup finale, assegnando ad ogni specifico testo il tag appropriato</li>
+            <li>Scrivere l'HTML dai tag esterni a quelli interni e dall'alto verso il basso</li>
+            <li>Applicare gli stili CSS</li>
+          </ol>
+
+          <p>L'applicazione di stili CSS è cresciuta negli anni fino a raggiungere la diffusione pressoché totale.</p>
+
+          <table>
+            <caption>Diffusione dei CSS</caption>
+            <thead>
+              <tr>
+                <th><b>Anno</b></th>
+                <th><b>&percnt; di utilizzo</b></th>
+                <th><b>Supporto browser</b></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2000</td>
+                <td>20&percnt;</td>
+                <td>17&percnt;</td>
+              </tr>
+              <tr>
+                <td>2002</td>
+                <td>35&percnt;</td>
+                <td>22&percnt;</td>
+              </tr>
+              <tr>
+                <td>2004</td>
+                <td>45&percnt;</td>
+                <td>42&percnt;</td>
+              </tr>
+              <tr>
+                <td>2008</td>
+                <td>80&percnt;</td>
+                <td>51&percnt;</td>
+              </tr>
+              <tr>
+                <td>2012</td>
+                <td>100&percnt;</td>
+                <td>76&percnt;</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>
+            Un test di validazione potrà essere fatto tramite il <a href="" target="_blank">tool online</a> dedicato
+            allo scopo. Una volta ottimizzato<br>
+            il tutto, avremo raggiunto il nostro obiettivo ed essere stati dei veri developers
+            come loro:
+          </p>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/NqWPuzpSKPY" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </section>
+      </article>
+
+      <aside>
+        <h3>Novità</h3>
+        <p>Vuoi rimanere aggiornato su altre novità del blog? Iscriviti alla nostra newsletter:</p>
+        <fieldset>
+          <input type="email" id="email" name="email" placeholder="&nbsp; inserisci l'email" required>
+          <button type="submit" id="iscriviti">Iscriviti!</button>
+        </fieldset>
+      </aside>
+
+      <footer>
+        <h3>Articoli Correlati</h3>
+        <article>
+          <a href="">Validare il codice HTML</a>
+          <p>Categoria: develop</p>
+          <p>Data: 18-9-2020</p>
+        </article>
+        <article>
+          <a href="">Correggere la sintassi</a>
+          <p>Categoria: develop</p>
+          <p>Data: 16-9-2020</p>
+        </article>
+        <article>
+          <a href="">Meno Kb nella pagina</a>
+          <p>Categoria: ottimizzazione</p>
+          <p>Data: 30-9-2020</p>
         </article>
 
-        <aside class="flexbox row pv">
-            <span class="vw-25">&nbsp;</span>
-            <div class="vw-50 bl-white pl">
-                <h3><b class="green">FEATURED IN:</b></h3>
-                <a href="https://www.simplyrecipes.com/recipes/cranberry_sauce/" target="_blank">Fresh Cranberry Recipes
-                    That Go Beyond Sauce</a>
-            </div>
-            <span class="vw-25">&nbsp;</span>
-        </aside>
+        <hr>
 
-        <article class="flexbox row pv" id="ingredients">
-            <span class="vw-25">&nbsp;</span>
-            <section class="vw-50">
-                <h2>Ingredients</h2>
-
-                <hr>
-
-                <p class="pv"><b>For the focaccia:</b></p>
-                <ul>
-                    <li>&bull; 4 cups (500g) all-purpose flour</li>
-                    <li>&bull; 1 1/2 teaspoons instant yeast</li>
-                    <li>&bull; 1 1/2 teaspoons salt</li>
-                    <li>&bull; 1 3/4 cups (350g) lukewarm water</li>
-                    <li>&bull; 1/4 cup extra virgin olive oil, plus more for the pan</li>
-                </ul>
-                <p class="pv"><b>For the topping:</b></p>
-                <ul>
-                    <li>&bull; 3 medium yellow onions, thinly sliced</li>
-                    <li>&bull; 1 tablespoon balsamic vinegar</li>
-                    <li>&bull; 1-2 tablespoons olive oil, for brushing on top</li>
-                    <li>&bull; 10 ounces brie, cut into cubes (scrape rind off with a paring knife if desired, though
-                        it’s not necessary)</li>
-                    <li>&bull; 1 1/2 cups fresh or frozen cranberries</li>
-                </ul>
-
-                <h2 class="pt">Method</h2>
-                <hr>
-                <p class="pt pw"><b>1. Make the focaccia dough</b><br>
-                    <span>In a medium-sized mixing bowl, or in a stand mixer with a paddle attachment, mix together all
-                        the dough ingredients until the flour is fully absorbed. You don't need to actually knead the
-                        dough, though I sometimes knead it a few times in the bowl when mixing by hand to incorporate
-                        the last of the flour...</span>
-                </p>
-            </section>
-            <span class="vw-25">&nbsp;</span>
-        </article>
+        <p>Blog Epicode &copy;2021
+        <p>
+          <em>Testata online di Mario Rossi, registrata con prot. n.213/2018 - via Luigi Einaudi 2 - Milano. P.IVA
+            00112233. <a href="mailto:info@epicode.school">info@epicode.school</a></em>
+      </footer>
     </main>
-
-    <footer class="flexbox row pv">
-        <span class="vw-25">&nbsp;</span>
-        <div class="vw-50 flexbox row">
-            <h5 class="vw-25">Read more<a
-                    href="https://www.simplyrecipes.com/recipes/focaccia_with_caramelized_onions_cranberries_and_brie/"
-                    target="_blank"> on Simply recipes</a>
-            </h5>
-            <form action="https://example.com" class="vw-25 txt-right">
-                <label>
-                    Date:
-                    <input type="date" name="bday" />
-                </label>
-
-                <button>Submit</button>
-            </form>
-        </div>
-        <span class="vw-25">&nbsp;</span>
-    </footer>
+  </header>
 </body>
 
 </html>
