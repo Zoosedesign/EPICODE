@@ -45,6 +45,10 @@ table {
 	padding: 20px 0;
 }
 
+.pw {
+	padding: 0 20px;
+}
+
 .pb {
 	padding-bottom: 20px;
 }
@@ -59,6 +63,15 @@ table {
 
 .cornice {
 	margin: 30px;
+}
+
+.cornice-int {
+	padding: 30px;
+}
+
+th,
+td {
+	padding: 20px;
 }
 
 .pw25 {
@@ -95,7 +108,8 @@ table {
 
 /* codice ad hoc pagina */
 
-header b {
+header b,
+.white {
 	color: white;
 }
 
@@ -108,17 +122,31 @@ a:hover {
 	color: red;
 }
 
+/* even disapri, odd pari */
+
+tr:nth-child(even) {
+	background-color: #f2f2f2;
+	border-top: 2px solid #e2e2e2;
+	border-bottom: 2px solid #e2e2e2;
+}
+
 strong {
 	color: #a02571;
 	font-size: ;
 }
 
-.bg-code {
-	background-color: #969494;
+code {
+	border: 2px solid #b1b1b1;
+	border-radius: 0.3em;
 }
 
-.bg-lightgray {
-	background-color: #f3f3f3;
+.bg-white {
+	background-color: #fff;
+}
+
+.bg-gray,
+code {
+	background-color: #e1e1e1;
 }
 
 .bg-blue {
@@ -148,7 +176,22 @@ nav a {
 h2 {
 	font-size: 2em;
 	line-height: 1.5em;
-} 
+}
+
+main ul li {
+	line-height: 2em;
+}
+
+.block-w {
+	width: calc(100vw - 120px);
+}
+
+iframe {
+	border-radius: 1.5em;
+	max-width: 800px;
+	width: 100%;
+	height: 400px;
+}
 
 /* media queries */
 
