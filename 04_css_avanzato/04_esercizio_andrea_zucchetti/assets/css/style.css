@@ -95,9 +95,7 @@ table {
 
 /* codice ad hoc pagina */
 
-a:link,
-a:visited,
-h2 {
+header b {
 	color: white;
 }
 
@@ -131,6 +129,11 @@ strong {
 	background: linear-gradient(160deg,rgba(0, 160, 198, 1),rgba(3,109,134,1));
 }
 
+.bg-sfondo {
+	background: url("../img/sfondo.png") center center no-repeat;
+	background-size: cover;
+}
+
 nav ul,
 nav a {
 	list-style: none;
@@ -141,6 +144,11 @@ nav a {
 .shadow {
 	box-shadow: 0 2px 4px 2px #333;
 }
+
+h2 {
+	font-size: 2em;
+	line-height: 1.5em;
+} 
 
 /* media queries */
 
