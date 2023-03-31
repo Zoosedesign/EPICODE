@@ -48,7 +48,11 @@ table {
 /* inizio framework*/
 
 .p-all {
-	padding: 1.4rem;
+	padding: 5rem 10rem;
+}
+
+.pl {
+	padding-left: 1.5rem;
 }
 
 .pb {
@@ -67,6 +71,10 @@ table {
 	margin-top: 1.5rem;
 }
 
+.ml {
+	margin-left: 1.5rem;
+}
+
 .mb {
 	margin-bottom: 1.5rem;
 }
@@ -79,6 +87,10 @@ table {
 .mw {
 	margin-left: 1.5rem;
 	margin-right: 1.5rem;
+}
+
+.left {
+	text-align: left;
 }
 
 .white {
@@ -133,8 +145,32 @@ button:hover {
 	width: 100%;
 }
 
+.p-card {
+	padding: 1.4rem;
+}
+
 .b-card {
 	border: 1px solid #dee1e3
+}
+
+/* flexbox */
+
+.d-flex {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.v-space {
+	width: 1.5em;
+}
+
+.box-33 {
+	width: 33.33%;
+}
+
+.box-50 {
+	width: 50%;
 }
 
 /* codice contenuto pagina */
@@ -152,7 +188,7 @@ p {
 }
 
 cite {
-	font-size: 0.9em;
+	font-size: 1.5em;
 }
 
 .bg-red div p:nth-child(3) {

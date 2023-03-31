@@ -11,7 +11,7 @@
 
     <link rel="icon" href="assets/img/favicon.svg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style_desktop.css">
 
     <title> Corso Web Developer - Epicode school</title>
 
@@ -19,7 +19,7 @@
 
 <body>
     <header class="bg-black pb">
-        <h1>
+        <h1 class="left pl mw">
             <img src="assets/img/logo.svg" alt="logo epicode">
         </h1>
     </header>
@@ -33,22 +33,28 @@
             <button class="b-0 mh"><a class="white" href="#skill">Partiamo!</a></button>
         </section>
 
-        <article class="p-all">
-            <h3 class="pt">Tutti ti cercheranno</h3>
-            <p class="mh">Sono 30.000 in Italia le posizioni di developer scoperte, scegli quella che<br> ti stimola di
-                più.</p>
-            <h3 class="pt">Lavora dove vuoi</h3>
-            <p class="mh">Lavora da casa, in riva al mare o in montagna.</p>
+        <article class="p-all d-flex">
+            <div class="box-50">
+                <img class="b-circle w-100" src="assets/img/notebook.jpg" alt="computer coding">
+            </div>
 
-            <img class="b-circle w-100" src="assets/img/notebook.jpg" alt="computer coding">
+            <span class="v-space mw"></span>
 
-            <h3 class="pt">Scegli il tuo ruolo</h3>
-            <p class="mh">Potrai scegliere se essere Azienda, Freelance o Startup.</p>
-            <h3 class="pt">Lavoro in libertà</h3>
-            <p class="mh">Non serve lavorare in ufficio per essere creatori di prodotti digitali.</p>
+            <section class="box-50 left">
+                <h3 class="pt">Tutti ti cercheranno</h3>
+                <p class="mh">Sono 30.000 in Italia le posizioni di developer scoperte,<br> scegli quella che ti stimola
+                    di
+                    più.</p>
+                <h3 class="pt">Lavora dove vuoi</h3>
+                <p class="mh">Lavora da casa, in riva al mare o in montagna.</p>
+                <h3 class="pt">Scegli il tuo ruolo</h3>
+                <p class="mh">Potrai scegliere se essere Azienda, Freelance o Startup.</p>
+                <h3 class="pt">Lavoro in libertà</h3>
+                <p class="mh">Non serve lavorare in ufficio per essere creatori di<br> prodotti digitali.</p>
+            </section>
         </article>
 
-        <aside class="bg-red white p-all mb">
+        <aside class="bg-red white p-all">
             <div class="pt">
                 <strong class="white">Epicode garantisce</strong>
                 <p class="mh"><cite>"3 mesi intensivi di corso che cambieranno radicalmente la tua vita"</cite></p>
@@ -57,45 +63,52 @@
             </div>
         </aside>
 
-        <article id="skill" class="p-all">
-            <section class="b-card mt">
+        <article id="skill" class="p-all d-flex">
+            <section class="b-card box-33">
                 <img class="w-100" src="assets/img/foto1.jpg" alt="Notebook su scrivania organizzata">
-                <div class="p-all">
+                <div class="p-card">
                     <h3>Il tuo PC</h3>
                     <p class="mh">Se vuoi diventare developer è l’unico strumento di cui hai bisogno.</p>
                 </div>
-
             </section>
-            <section class="b-card mt">
+
+            <span class="v-space"></span>
+
+            <section class="b-card box-33">
                 <img class="w-100" src="assets/img/foto2.jpg" alt="Notebook su scrivania organizzata">
-                <div class="p-all">
+                <div class="p-card">
                     <h3>Impara ora</h3>
                     <p class="mh">Impara da chi diventerai tra qualche anno, e diventa una rockstar come loro.</p>
                 </div>
             </section>
 
-            <section class="b-card mh">
+            <span class="v-space"></span>
+
+            <section class="b-card box-33">
                 <img class="w-100" src="assets/img/foto3.jpg" alt="Notebook su scrivania organizzata">
-                <div class="p-all">
+                <div class="p-card">
                     <h3>Lavora subito</h3>
                     <p class="mh">Sappiamo cosa vogliono le aziende, perché lavoriamo con loro.</p>
                 </div>
             </section>
         </article>
 
-        <footer class="mt bg-blue p-all">
-            <div class="mh">
+        <footer class="d-flex bg-blue p-all">
+            <div>
                 <strong class="white">Contattaci</strong>
                 <address class="lightgray mt">
-                    <ul>
-                        <li><i class="fa-solid fa-square-phone white"></i> <a class="lightgray" href="tel:+3911223456">&lpar;+39&rpar; 11223456</a></li>
-                        <li><i class="fa-solid fa-square-envelope white"></i> <a class="lightgray" href="mailto:info@epicode.school.it">info&commat;epicode.school</a></li>
+                    <ul class="left">
+                        <li><i class="fa-solid fa-square-phone white"></i> <a class="lightgray"
+                                href="tel:+3911223456">&lpar;+39&rpar; 11223456</a></li>
+                        <li><i class="fa-solid fa-square-envelope white"></i> <a class="lightgray"
+                                href="mailto:info@epicode.school.it">info&commat;epicode.school</a></li>
                         <li><i class="fa-solid fa-square-arrow-up-right white"></i> Via Appia 1 - 00100 Roma (RM)</li>
                     </ul>
 
                     <hr class="mh">
 
-                    <p class="mb">&copy; 2021. Immagini di <a class="lightgray" href="https://pixabay.com/">Pixabay</a></p>
+                    <p>&copy; 2021. Immagini di <a class="lightgray" href="https://pixabay.com/">Pixabay</a>
+                    </p>
                 </address>
             </div>
         </footer>
