@@ -34,7 +34,7 @@ body {
 	text-align: center;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, strong {
 	color: #25a2c3;
 	font-family: 'Montserrat', sans-serif;
 	line-height: 1em;
@@ -48,7 +48,7 @@ table {
 /* inizio framework*/
 
 .p-all {
-	padding: 1.5rem;
+	padding: 1.4rem;
 }
 
 .pb {
@@ -67,6 +67,10 @@ table {
 	margin-top: 1.5rem;
 }
 
+.mb {
+	margin-bottom: 1.5rem;
+}
+
 .mh {
 	margin-top: 1.5rem;
 	margin-bottom: 1.5rem;
@@ -77,7 +81,7 @@ table {
 	margin-right: 1.5rem;
 }
 
-.txt-white {
+.white {
 	color: #fff;
 }
 
@@ -135,7 +139,7 @@ header img {
 }
 
 h1, strong {
-	font-size: 1.9em;
+	font-size: 1.8em;
 }
 
 p {
@@ -150,10 +154,32 @@ cite {
 	font-weight: 400;
 }
 
-.bg-red div p:last-child {
+.bg-red div p:last-child,
+address p {
 	font-size: 0.7em;
 }
 
 .b-card div > p {
 	font-size: 0.9em;
+}
+
+address {
+	font-style: normal;
+}
+
+address ul li {
+	list-style: none;
+}
+
+address ul li a {
+	text-decoration: underline;
+}
+
+address ul li:last-child {
+	text-decoration: none;
+}
+
+hr {
+	border: 0.5px solid #fff;
+	width: 50%;
 }
