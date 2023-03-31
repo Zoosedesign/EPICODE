@@ -1,9 +1,9 @@
-@import url();
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans|Montserrat&display=swap');
+
 /* css reset */
 
 * {
 	box-sizing: border-box;
-	font-family: 'Poppins', sans-serif;
 }
 
 html, body, div, span, applet, object, iframe,
@@ -28,8 +28,16 @@ time, mark, audio, video {
 html,
 body {
 	font-size: 1.2em;
-	color: #333;
-	line-height: 1.2em;
+	color: #393d41;
+	font-family: 'Open Sans', sans-serif;
+	line-height: 1.65em;
+	text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: #25a2c3;
+	font-family: 'Montserrat', sans-serif;
+	line-height: 1em;
 }
 
 table {
@@ -38,22 +46,6 @@ table {
 }
 
 /* inizio framework*/
-
-.container-25 {
-	width: 25%;
-}
-
-.container-50 {
-	width: 50%;
-}
-
-.container-75 {
-	width: 75%;
-}
-
-.b-0 {
-	border: 0;
-}
 
 .p-all {
 	padding: 1.5rem;
@@ -75,52 +67,93 @@ table {
 	margin-top: 1.5rem;
 }
 
+.mh {
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
+}
+
 .mw {
 	margin-left: 1.5rem;
 	margin-right: 1.5rem;
 }
 
-.v-space {
-	width: 1.5em;
-}
-
-.white {
+.txt-white {
 	color: #fff;
 }
 
-.blue {
-	color: blue;
+.lightgray {
+	color: #c8e7f0;
+}
+
+.bg-black {
+	background-color: #000;
 }
 
 .bg-blue {
-	background-color: blue;
+	background-color: #25a2c3;
 }
 
 .bg-red {
-	background-color: red;
+	background-color: #e22d0e;
 }
 
-.txt-center {
-	text-align: center;
-}
-
-input {
-	height: 1.5rem;
+.bg-banner {
+	background: url("../img/banner.jpg") center center no-repeat;
+	background-size: cover;
 }
 
 button {
-	height: 1.5rem;
-	font-size: 70%;
-	padding: 0 0.5rem;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 0.75em;
 	font-weight: bold;
+	padding: 0.75rem 1.5rem;
+	border-radius: 0.2em;
 	text-transform: uppercase;
-	cursor: pointer;
+	background-color: #f04c2f;
 }
 
-.d-inline {
-	display: inline;
+.b-0 {
+	border: 0;
 }
 
-.d-flex {
-	display: flex;
+.b-circle {
+	border-radius: 50%;
+}
+
+.w-100 {
+	width: 100%;
+}
+
+.b-card {
+	border: 1px solid #dee1e3
+}
+
+/* codice contenuto pagina */
+
+header img {
+	width: 200px;
+}
+
+h1, strong {
+	font-size: 1.9em;
+}
+
+p {
+	font-weight: 200;
+}
+
+cite {
+	font-size: 0.9em;
+}
+
+.bg-red div p:nth-child(3) {
+	font-weight: 400;
+}
+
+.bg-red div p:last-child {
+	font-size: 0.7em;
+}
+
+.b-card div > p {
+	font-size: 0.9em;
 }

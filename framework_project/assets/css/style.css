@@ -1,0 +1,126 @@
+@import url();
+/* css reset */
+
+* {
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+}
+
+html,
+body {
+	font-size: 1.2em;
+	color: #333;
+	line-height: 1.2em;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* inizio framework*/
+
+.container-25 {
+	width: 25%;
+}
+
+.container-50 {
+	width: 50%;
+}
+
+.container-75 {
+	width: 75%;
+}
+
+.b-0 {
+	border: 0;
+}
+
+.p-all {
+	padding: 1.5rem;
+}
+
+.pb {
+	padding-bottom: 1.5rem;
+}
+
+.pb-0 {
+	padding-bottom: 0;
+}
+
+.pt {
+	padding-top: 1.5rem;
+}
+
+.mt {
+	margin-top: 1.5rem;
+}
+
+.mw {
+	margin-left: 1.5rem;
+	margin-right: 1.5rem;
+}
+
+.v-space {
+	width: 1.5em;
+}
+
+.white {
+	color: #fff;
+}
+
+.blue {
+	color: blue;
+}
+
+.bg-blue {
+	background-color: blue;
+}
+
+.bg-red {
+	background-color: red;
+}
+
+.txt-center {
+	text-align: center;
+}
+
+input {
+	height: 1.5rem;
+}
+
+button {
+	height: 1.5rem;
+	font-size: 70%;
+	padding: 0 0.5rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+.d-inline {
+	display: inline;
+}
+
+.d-flex {
+	display: flex;
+}
