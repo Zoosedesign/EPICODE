@@ -116,6 +116,11 @@ button {
 	background-color: #f04c2f;
 }
 
+button:hover {
+	background-color: #e22d0e;
+	cursor: pointer;
+}
+
 .b-0 {
 	border: 0;
 }
@@ -175,7 +180,8 @@ address ul li a {
 	text-decoration: underline;
 }
 
-address ul li:last-child {
+address ul li:last-child,
+button a {
 	text-decoration: none;
 }
 
