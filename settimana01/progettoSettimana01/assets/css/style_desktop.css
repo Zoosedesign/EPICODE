@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans|Montserrat&display=swap');
+
+/* css reset */
+
+* {
+	box-sizing: border-box;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+}
+
+html,
+body {
+	font-size: 1.2em;
+	color: #393d41;
+	font-family: 'Open Sans', sans-serif;
+	line-height: 1.65em;
+	text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6, strong {
+	color: #25a2c3;
+	font-family: 'Montserrat', sans-serif;
+	line-height: 1em;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* inizio framework*/
+
+.p-all {
+	padding: 1.4rem;
+}
+
+.pb {
+	padding-bottom: 1.5rem;
+}
+
+.pb-0 {
+	padding-bottom: 0;
+}
+
+.pt {
+	padding-top: 1.5rem;
+}
+
+.mt {
+	margin-top: 1.5rem;
+}
+
+.mb {
+	margin-bottom: 1.5rem;
+}
+
+.mh {
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
+}
+
+.mw {
+	margin-left: 1.5rem;
+	margin-right: 1.5rem;
+}
+
+.white {
+	color: #fff;
+}
+
+.lightgray {
+	color: #c8e7f0;
+}
+
+.bg-black {
+	background-color: #000;
+}
+
+.bg-blue {
+	background-color: #25a2c3;
+}
+
+.bg-red {
+	background-color: #e22d0e;
+}
+
+.bg-banner {
+	background: url("../img/banner.jpg") center center no-repeat;
+	background-size: cover;
+}
+
+button {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 0.75em;
+	font-weight: bold;
+	padding: 0.75rem 1.5rem;
+	border-radius: 0.2em;
+	text-transform: uppercase;
+	background-color: #f04c2f;
+}
+
+button:hover {
+	background-color: #e22d0e;
+	cursor: pointer;
+}
+
+.b-0 {
+	border: 0;
+}
+
+.b-circle {
+	border-radius: 50%;
+}
+
+.w-100 {
+	width: 100%;
+}
+
+.b-card {
+	border: 1px solid #dee1e3
+}
+
+/* codice contenuto pagina */
+
+header img {
+	width: 200px;
+}
+
+h1, strong {
+	font-size: 1.8em;
+}
+
+p {
+	font-weight: 200;
+}
+
+cite {
+	font-size: 0.9em;
+}
+
+.bg-red div p:nth-child(3) {
+	font-weight: 400;
+}
+
+.bg-red div p:last-child,
+address p {
+	font-size: 0.7em;
+}
+
+.b-card div > p {
+	font-size: 0.9em;
+}
+
+address {
+	font-style: normal;
+}
+
+address ul li {
+	list-style: none;
+}
+
+address ul li a {
+	text-decoration: underline;
+}
+
+address ul li:last-child,
+button a {
+	text-decoration: none;
+}
+
+hr {
+	border: 0.5px solid #fff;
+	width: 50%;
+}
