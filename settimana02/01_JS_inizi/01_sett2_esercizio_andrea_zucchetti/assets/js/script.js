@@ -8,4 +8,4 @@ console.log('criceto')
 console.log('giraffa')
 console.log('leone')
 
-document.write('<h3>Esercizio di allenamento a Javascript</h3>');
+document.write('<h6>Esercizio di allenamento a Javascript</h6>');
