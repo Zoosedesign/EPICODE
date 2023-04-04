@@ -1,15 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Esempi pratici variabili</title>
-    
+
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
-    
+    <div class="container">
+        <h1>verifica la tua età</h1>
+
+        <form>
+            <fieldset>
+                <label for="nome">Inserisci il tuo nome</label>
+                <input type="text" name="nome" id="nome"><br>
+                <label for="età">Inserisci l'anno di nascita</label>
+                <input type="number" name="anno" id="anno">
+            </fieldset>
+        </form>
+
+        <br>
+        <button type="button" id="verifica">VERIFICA</button>
+    </div>
+
+    <div id="stampa">
+        <h3 id="mioNome">&nbsp;</h3>
+        <h3 id="miaVerifica">&nbsp;</h3>
+    </div>
 
     <script src="assets/js/script.js"></script>
 </body>
+
 </html>
