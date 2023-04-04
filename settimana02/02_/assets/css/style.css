@@ -1,0 +1,14 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
+    text-align: left;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
