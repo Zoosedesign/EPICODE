@@ -26,7 +26,7 @@ document.getElementById('destr').innerHTML = docente.nome + ' ' + docente.cognom
 document.getElementById('stampa').innerHTML = docente.stampa();
 
 //COSTRUTTORE (chiamrlo sempre prima lettera maiuscola)
-function Docente2(_nome,_cognome,_eta,_occupato) {
+function Docente2 (_nome,_cognome,_anno,_occupato) {
     this.nome = _nome;
     this.cognome = _cognome;
     this.anno = _anno;
@@ -41,6 +41,10 @@ function Docente2(_nome,_cognome,_eta,_occupato) {
     }
 }
 
-var FS0223 = new Docente2('Dario', 'Del Giudice', 1967, true);
+const FS0223 = new Docente2('Dario', 'Del Giudice', 1967, true);
 
-document.getElementById('modello').innerHTML = fs0223b.stampaDocente();
+document.getElementById('modello').innerHTML = FS0223.stampaDocente();
+
+const FS0223b = new Docente2('Andrea', 'Zucchetti', 1991, true);
+
+document.getElementById('modello2').innerHTML = FS0223b.stampaDocente();
