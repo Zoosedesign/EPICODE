@@ -3,13 +3,13 @@ let a = 20;
 
 /* "if" è l'unico elemento obbligatorio, successivamente si potrà chiudere sia con "else" o "elseif" */
 if (a < 20) {
-    console.log('a è minore di 20')
+    console.log('a è minore di 20');
     // "if" e "else if" è true
 } else if (a > 20) {
-    console.log('a è maggiore di 20')
+    console.log('a è maggiore di 20');
     // "else" è false
 } else {
-    console.log('a è uguale a 20')
+    console.log('a è uguale a 20');
 }
 
 
