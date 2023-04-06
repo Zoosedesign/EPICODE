@@ -1,0 +1,52 @@
+Una funzione è un metodo dello script proprietario (cioè scritto da noi) che esegue un blocco di istruzioni in maniera separata dal flusso dello script, cioè le esegue solo quando viene chiamata in causa
+
+SINTASSI
+
+function miaFunzione(eventuali parametri) {
+	blocco di istruzioni
+}
+
+KEYWORD: function
+PARAMETRI: valori che arrivano alla funzione per eseguire il blocco di codice
+BLOCCO DI ISTRUZIONI: istruzioni eseguite nell'ordine nel quale vengono scritte
+
+KEYWORD return: viene inserita (se necessario) nel blocco di istruzioni e INTERROMPE SEMPRE l'esecuzione della funzione, eventualmente restituendo un valore
+
+DEFINIZIONE DI FUNZIONE
+function somma() {
+	let risultato = 5+7;
+	return risultato;
+}
+
+CHIAMATA DI FUNZIONE
+document.getElementById('risultato').innerHTML = somma();
+
+ALTRO ESEMPIO
+DEFINIZIONE DI FUNZIONE
+function somma() {
+	let risultato = 5+7;
+	document.getElementById('risultato').innerHTML = risultato;
+}
+
+CHIAMATA DI FUNZIONE
+somma();
+
+FUNZIONE PARAMETRICA
+var num1 = 5;
+var num2 = 7;
+
+function somma(val1, val2) { // funzione parametrica, che riceve cioè valori dall'esterno
+	let risultato = val1 + val2;
+	document.getElementById('risultato').innerHTML = risultato;
+	sottrazione(risultato, num2);
+}
+
+function sottrazione(val1, val2) {
+	let risultato = val2 - val1;
+	document.getElementById('risultato2').innerHTML = risultato;
+}
+
+somma(num2, num1); // chiamata a funzione parametrica, passando tra parentesi i valori richiesti dalla funzione
+
+
+
