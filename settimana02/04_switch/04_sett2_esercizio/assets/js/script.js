@@ -2,7 +2,9 @@ const starWarsCharacters = [
   {
     //questi sono oggetti
     name: "Luke Skywalker",
+    //name, height etc sono una proprietà dell'oggetto
     height: "172",
+    //172, 277 etc sono i valori delle propretà oggetto
     mass: "277",
     hair_color: "blond",
     skin_color: "fair",
@@ -138,7 +140,7 @@ console.log(femaleCharacters);
 
 //creo l'array "femaleCharacters" con il comando new Array
 
-let femaleCharacters2 = new Array({name: 'Leia Organa', hair_color: 'brown', eye_color: 'brown'});
+let femaleCharacters2 = new Array({ name: 'Leia Organa', hair_color: 'brown', eye_color: 'brown' });
 
 console.log(femaleCharacters2);
 
@@ -153,6 +155,7 @@ const EyeColor = {
   brown: [],
   red: [],
   blue_gray: [],
+  //ho scritto blue_gray e non blue-gray, perchè "-" è deprecato
 }
 
 console.log(EyeColor);
@@ -190,15 +193,15 @@ console.log(EyeColor);
   Usa un while loop per calcolare la massa totale dell'equipaggio
   */
 
-  let inizio = 0;
-  let totalMass = 0;
-  while(inizio < starWarsCharacters.length) {
-    //parseInt serve a trasformare tutte le stringhe in numeri
-    totalMass += parseInt (starWarsCharacters[inizio].mass)
-    inizio++ //per bloccare il ciclo infinito di c
-  }
+let inizio = 0;
+let totalMass = 0;
+while (inizio < starWarsCharacters.length) {
+  //parseInt serve a trasformare tutte le stringhe in numeri
+  totalMass += parseInt(starWarsCharacters[inizio].mass);
+  inizio++; //per bloccare il ciclo infinito di c
+}
 
-  console.log(`peso totale equipaggio : ${totalMass}`)
+console.log(`peso totale equipaggio : ${totalMass}`)
 
 /* ESERCIZIO 7
 
@@ -215,27 +218,40 @@ Una volta fatto, modifica la massa di qualche elemento dell'equipaggio e vedi se
 */
 
 //metto true per verificare quale caso di switch risulta vero secondo le info che ho messo, e il valore di "totalMass" risultante dall'esercizio 6
-switch(true){
+//TotalMass == 957
+switch (true) {
   case totalMass < 500:
     console.log('Ship is under loaded')
     break;
   case totalMass === 500:
     console.log('Ship is half loaded')
     break;
-  case totalMass > 700:
+  case totalMass > 700 && totalMass < 900:
     console.log('Warning: Load is over 700')
     break;
-  case totalMass > 900:
+  case totalMass > 900 && totalMass < 1000:
     console.log('Critical Load: Over 900')
     break;
   case totalMass > 1000:
     console.log('DANGER! OVERLOAD ALERT: Jump ship now!')
     break;
+  default:
+    console.log('No data provided')
 }
 
 /* ESERCIZIO 8
 Usa un for loop per cambiare il valore della proprietà "gender" di alcuni personaggi dal valore "n/a" a "robot" (Tip: puoi creare un nuovo array, o tentare la riassegnazione del valore corrispondente)
 */
+
+for (let i = 0; i < starWarsCharacters.length; i++) {
+  const character = starWarsCharacters[i];
+
+  if (character.gender === 'n/a') {
+    character.gender = 'robot';
+  }
+}
+
+console.log(starWarsCharacters);
 
 /* EXTRA ESERCIZIO 9
 
@@ -246,7 +262,69 @@ Usa uno più for loop per raggiungere il risultato
 
 Una volta fatto crea un conosle.log per controllare la proprietà length di "characters" prima e dopo l'operazione
 */
+console.log('CHARACTERS BEFORE', characters.length);
+
+for (let i = 0; i < characters.length; i++) {
+  const character = characters[i];
+
+  for (let j = 0; j < femaleCharacters.length; j++) {
+    const femCharacter = femaleCharacters[j];
+
+    if (femCharacter.name === character) {
+      console.log('FEMALE', character);
+      characters.splice(i, 1);
+    }
+  }
+}
+
+console.log('CHARACTERS AFTER', characters.length);
 
 /* EXTRA ESERCIZIO 10
 Crea una funzionalità che prenda un elemento casuale dall'array "starWarsCharacters" e ne stampi in console le proprietà in modo discorsivo
+--------------------------------------------------------------------------------------------------------------
 */
+
+/*
+1.Math.random() genera un numero casuale compreso tra 0 e 1 (escluso), che verrà moltiplicato per la proprietà "length" dell'array "starWarsCharacters", che restituisce il numero di elementi presenti nell'array.
+
+2.Il risultato della moltiplicazione viene quindi arrotondato tramite la funzione "Math.floor()", che restituisce il numero intero inferiore o uguale al risultato.
+
+3. Il numero intero risultante rappresenta un indice casuale valido per accedere a un elemento casuale dell'array "starWarsCharacters". Questo indice viene assegnato alla variabile "randomIndex".*/
+const randomIndex = Math.floor(Math.random() * starWarsCharacters.length);
+//L'elemento corrispondente all'indice casuale assegnato a "randomIndex" viene quindi assegnato "=" alla variabile "selectedCharacter" utilizzando la notazione con le parentesi quadre per accedere all'elemento dell'array.
+const selectedCharacter = starWarsCharacters[randomIndex];
+
+//qui vengono mostrati in console i valori casuali generati nella proprietà name all'interno dell'oggetto selectedCharacter
+console.log('The found character name is:', selectedCharacter.name);
+
+//qui verifico se in base se nella proprietà gender, ci sia female o viceversa, di scrivere l'altezza presente come valore nella proprietà height dell'oggetto "SelectedCharacter"
+if (selectedCharacter.gender === 'female') {
+  console.log('She is', selectedCharacter.height, 'cm tall');
+} else {
+  //in questo caso non è female quindi partirà questo log
+  console.log('He is', selectedCharacter.height, 'cm tall');
+}
+
+//qui verifico che se la proprietà Hair color presenterà un valore divero sia da "n/a" che ad "none", 
+if (selectedCharacter.hair_color !== 'n/a' && selectedCharacter.hair_color !== 'none') {
+  console.log('and has', selectedCharacter.hair_color, 'hair,');
+} else {
+  //in console da "and bald" vuol dire che il valore è "n/a" o "none"
+  console.log('and bald,');
+}
+
+console.log('with', selectedCharacter.skin_color, 'skin.');
+
+//creaiamo un array vuoto
+var chiavi = [];
+
+/* 
+1.L'istruzione "for...in" viene utilizzata per scorrere tutti gli attributi dell'oggetto.
+2. L'istruzione "let prop" crea una variabile locale "prop" che viene utilizzata per contenere il nome di ogni attributo durante ogni iterazione del ciclo. */
+for (let prop in starWarsCharacters[0]) {
+  //aggiungo ogni nome valore recuperato dal ciclo nell'array vuoto creato
+  chiavi.push(prop);
+}
+
+//trasmetto in console l'array vuoto così riempito
+console.log(chiavi);
