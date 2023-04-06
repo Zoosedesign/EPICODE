@@ -190,12 +190,12 @@ console.log(EyeColor);
   Usa un while loop per calcolare la massa totale dell'equipaggio
   */
 
-  let c = 0;
+  let inizio = 0;
   let totalMass = 0;
-  while(c < starWarsCharacters.length) {
+  while(inizio < starWarsCharacters.length) {
     //parseInt serve a trasformare tutte le stringhe in numeri
-    totalMass += parseInt (starWarsCharacters[c].mass)
-    c++ //per bloccare il ciclo infinito di c
+    totalMass += parseInt (starWarsCharacters[inizio].mass)
+    inizio++ //per bloccare il ciclo infinito di c
   }
 
   console.log(`peso totale equipaggio : ${totalMass}`)
