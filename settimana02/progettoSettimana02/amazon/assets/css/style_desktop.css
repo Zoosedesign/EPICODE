@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans|Montserrat&display=swap');
-
 /* css reset */
 
 * {
@@ -29,9 +27,8 @@ html,
 body {
 	font-size: 1.2em;
 	color: #393d41;
-	font-family: 'Open Sans', sans-serif;
-	line-height: 1.65em;
-	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 1.2em;
 }
 
 h1, h2, h3, h4, h5, h6, strong {
@@ -118,16 +115,6 @@ table {
 	background-size: cover;
 }
 
-button {
-	font-family: 'Montserrat', sans-serif;
-	font-size: 0.75em;
-	font-weight: bold;
-	padding: 0.75rem 1.5rem;
-	border-radius: 0.2em;
-	text-transform: uppercase;
-	background-color: #f04c2f;
-}
-
 button:hover {
 	background-color: #e22d0e;
 	cursor: pointer;
@@ -153,75 +140,8 @@ button:hover {
 	border: 1px solid #dee1e3
 }
 
-/* flexbox */
+/* box model */
 
-.d-flex {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
 
-.v-space {
-	width: 1.5em;
-}
-
-.box-33 {
-	width: 33.33%;
-}
-
-.box-50 {
-	width: 50%;
-}
 
 /* codice contenuto pagina */
-
-header img {
-	width: 200px;
-}
-
-h1, strong {
-	font-size: 1.8em;
-}
-
-p {
-	font-weight: 200;
-}
-
-cite {
-	font-size: 1.5em;
-}
-
-.bg-red div p:nth-child(3) {
-	font-weight: 400;
-}
-
-.bg-red div p:last-child,
-address p {
-	font-size: 0.7em;
-}
-
-.b-card div > p {
-	font-size: 0.9em;
-}
-
-address {
-	font-style: normal;
-}
-
-address ul li {
-	list-style: none;
-}
-
-address ul li a {
-	text-decoration: underline;
-}
-
-address ul li:last-child,
-button a {
-	text-decoration: none;
-}
-
-hr {
-	border: 0.5px solid #fff;
-	width: 50%;
-}
