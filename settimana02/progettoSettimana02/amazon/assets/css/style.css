@@ -56,6 +56,10 @@ a {
 	padding: 0.5rem 0.3rem 0.3rem 1rem;
 }
 
+.ph-xs {
+	padding: 0.5rem 0;
+}
+
 .ph {
 	padding: 3rem 0;
 }
@@ -108,6 +112,21 @@ nav a {
 
 .bg-tablet {
 	background: url("../img/img_1.jpg") center center no-repeat;
+	background-size: cover;
+}
+
+.bg-pc {
+	background: url("../img/img_2.jpg") center center no-repeat;
+	background-size: cover;
+}
+
+.bg-clock {
+	background: url("../img/img_3.jpg") center center no-repeat;
+	background-size: cover;
+}
+
+.bg-pet {
+	background: url("../img/img_4.jpg") center center no-repeat;
 	background-size: cover;
 }
 
@@ -174,4 +193,16 @@ h3 {
 figure {
 	border-radius: 1rem;
 	box-shadow: 10px 10px 5px #eee;
+}
+
+img {
+	max-width: 100%;
+}
+
+aside a {
+	text-decoration: underline;
+}
+
+footer img {
+	width: 100px;
 }
