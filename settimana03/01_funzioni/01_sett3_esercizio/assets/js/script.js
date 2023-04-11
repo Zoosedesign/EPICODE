@@ -13,12 +13,11 @@ REGOLE
 
 console.log('****ESERCIZIO 1****');
 
-const area = function (l1, l2) {
+function area(l1, l2) {
 	return l1 * l2;
 }
 
-const areaResult = area(3, 4);
-console.log(areaResult);
+console.log(area(4, 5));
 
 /* ESERCIZIO 2 OBB
  Scrivi una funzione di nome "crazySum", che riceve due numeri interi come parametri.
@@ -34,7 +33,7 @@ const crazySum = (par1, par2) => par1 === par2 ? (par1 + par2) * 3 : par1 + par2
 console.log(crazySum(3, 3));
 
 //oppure con if else
-const crazySum2 = function (par1, par2) {
+function crazySum2(par1, par2) {
 	if (par1 === par2) {
 		return (par1 + par2) * 3;
 	} else {
@@ -42,7 +41,7 @@ const crazySum2 = function (par1, par2) {
 	}
 };
 
-console.log(crazySum2(3, 3));
+console.log(crazySum2(4, 4));
 
 /* ESERCIZIO 3
  Scrivi una funzione di nome "crazyDiff" che calcola la differenza assoluta tra un numero fornito come parametro e 19.
@@ -51,7 +50,7 @@ console.log(crazySum2(3, 3));
 
 console.log('****ESERCIZIO 3****');
 
-const crazyDiff = function (valore) {
+function crazyDiff(valore) {
 	if (valore > 19) {
 		return Math.abs(valore - 19) * 3;
 	} else {
@@ -59,15 +58,15 @@ const crazyDiff = function (valore) {
 	}
 };
 
-console.log(crazyDiff(3));
+console.log(crazyDiff(24));
 
 /* ESERCIZIO 4 OBB
- Scrivi una funzione di nome "boundary" che accetta un numero intero n come parametro, e ritorna true se n è compreso tra 20 e 100 (incluso) oppure false se n è uguale a 400.
+ Scrivi una funzione di nome "boundary" che accetta un numero intero n come parametro, e ritorna true se n è compreso tra 20 e 100 (incluso) oppure se n è uguale a 400, false in tutti gli altri casi.
 */
 
 console.log('****ESERCIZIO 4****');
 
-const boundary = function (n) {
+function boundary(n) {
 	if ((n > 20 && n <= 100) || n === 400) {
 		return true;
 	} else {
@@ -75,7 +74,7 @@ const boundary = function (n) {
 	}
 };
 
-console.log(boundary(3));
+console.log(boundary(300));
 
 /* ESERCIZIO 5
  Scrivi una funzione di nome "epify" che accetta una stringa come parametro.
@@ -85,7 +84,7 @@ console.log(boundary(3));
 
 console.log('****ESERCIZIO 5****');
 
-const epify = function (str) {
+function epify(str) { //"str" significa stringa, in questo caso quella data come parametro
 	if (str.startsWith('EPICODE')) {
 		return str;
 	} else {
@@ -102,7 +101,7 @@ console.log(epify(`è un'azienda formatrice in ambito web`));
 
 console.log('****ESERCIZIO 6****');
 
-const check3and7 = function (n) {
+function check3and7(n) {
 	if (n >= 0 && (n % 3 === 0 || n % 7 === 0)) {
 		return true;
 	} else {
@@ -110,7 +109,7 @@ const check3and7 = function (n) {
 	}
 };
 
-console.log(check3and7(9));
+console.log(check3and7(13));
 
 /* ESERCIZIO 7
  Scrivi una funzione di nome "reverseString", il cui scopo è invertire una stringa fornita come parametro (es. "EPICODE" --> "EDOCIPE")
@@ -118,15 +117,15 @@ console.log(check3and7(9));
 
 console.log('****ESERCIZIO 7****');
 
-const reverseString = function (str) { // Definiamo la funzione "reverseString" con un parametro "str" per la stringa di input
+function reverseString(str) { // Definiamo la funzione "reverseString" con un parametro "str" per la stringa di input
 
-  let splitString = str.split(''); // Dividiamo la stringa di input in un array di caratteri
+	let splitString = str.split(''); // Dividiamo la stringa di input in un array di caratteri
 
-  let reverseString = splitString.reverse(); // Invertiamo l'ordine degli elementi nell'array
+	let reverseString = splitString.reverse(); // Invertiamo l'ordine degli elementi nell'array
 
-  let finalString = reverseString.join(''); // Uniamo gli elementi dell'array in una nuova stringa
+	let finalString = reverseString.join(''); // Uniamo gli elementi dell'array in una nuova stringa
 
-  return finalString; // Restituiamo la nuova stringa invertita
+	return finalString; // Restituiamo la nuova stringa invertita
 };
 
 console.log(reverseString('EPICODE'));
@@ -138,16 +137,25 @@ console.log(reverseString('EPICODE'));
 
 console.log('****ESERCIZIO 8****');
 
-const upperFirstPhrase = function (str) {
+function upperFirstPhrase(str) {
+	// Dividiamo la stringa in parole
 	let words = str.split(' ');
+	// Inizializziamo un array vuoto per memorizzare le parole trasformate
 	let finalString = [];
+	// Loop attraverso tutte le parole nella stringa
 	for (let i = 0; i < words.length; i++) {
+		// Prendiamo il primo carattere della parola
 		let firstChar = words[i].charAt(0);
+		// Convertiamo il primo carattere in maiuscolo
 		let uppercaseChar = firstChar.toUpperCase();
+		// Tagliamo la stringa a partire dal secondo carattere
 		let cutString = words[i].slice(1);
+		// Uniamo il primo carattere in maiuscolo con la stringa tagliata
 		let finalWord = uppercaseChar + cutString;
+		// Aggiungiamo la parola trasformata all'array finale
 		finalString.push(finalWord);
 	}
+	// Uniamo le parole trasformate in una stringa e la stampiamo in console
 	console.log(finalString.join(' '));
 };
 
@@ -160,7 +168,8 @@ upperFirstPhrase('hello world');
 
 console.log('****ESERCIZIO 9****');
 
-const cutString = function (str) {
+function cutString(str) {
+	//"slice 1" toglie il primo carattere mentre "lenght - 1" toglie l'ultimo
 	return str.slice(1, str.length - 1);
 };
 console.log(cutString('EPICODE'));
@@ -171,13 +180,23 @@ console.log(cutString('EPICODE'));
 
 console.log('****ESERCIZIO 10****');
 
-const giveMeRandom = function (n) {
+function giveMeRandom(n) {
+	// Inizializziamo un array vuoto
 	const arr = [];
+	// Loop che viene eseguito n volte
 	for (let i = 0; i < n; i++) {
-		arr.push(Math.floor(Math.random() * 10));
+		// Generiamo un numero casuale tra 0 e 1 con Math.random()
+		// Lo moltiplichiamo per 10 per ottenere un numero tra 0 e 10
+		// Infine, arrotondiamo il numero verso il basso con Math.floor()
+		let randomNum = Math.floor(Math.random() * 10);
+		// Aggiungiamo il numero casuale all'array
+		arr.push(randomNum);
 	}
+	// diamo come risultato l'array risultante
 	return arr;
-};
+}
+
+//il parametro "5" questa volta definisce quanti cicli e di conseguenza quanti numeri saranno presenti nell'array
 console.log(giveMeRandom(5));
 
 /* EXTRA 1
@@ -188,21 +207,28 @@ console.log(giveMeRandom(5));
 
 console.log('****EXTRA 1****');
 
-var newArr = [2,6,3,6,8,4,7,4,2];
+// Inizializziamo un nuovo array di 10 elementi, usando la funzione giveMeRandom creata nell'esercizio precedente
+const newArr = giveMeRandom(10);
 
+// Chiamiamo la funzione checkArray, passando il nuovo array come parametro
 checkArray(newArr);
 
 function checkArray(myArray) {
-    let somma = 0;
-    myArray.forEach(element => {
-        if (element > 5) {
-            console.log(`${element} è maggiore di 5`);
-            somma += element;
-        } else {
-            console.log(`${element} è minore di 5`);
-        }
-    });
-    console.log(`La somma dei numeri maggiori di 5 è ${somma}`);
+  // Inizializziamo una variabile per la somma dei numeri maggiori di 5
+  let somma = 0;
+  // Eseguiamo un loop attraverso tutti gli elementi dell'array
+  myArray.forEach(element => {
+    // Se l'elemento è maggiore di 5, stampiamo un messaggio e aggiungiamo il numero alla somma
+    if (element > 5) {
+      console.log(`${element} è maggiore di 5`);
+      somma += element;
+    // Altrimenti, stampiamo un messaggio diverso
+    } else {
+      console.log(`${element} è minore di 5`);
+    }
+  });
+  // Stampiamo la somma dei numeri maggiori di 5
+  console.log(`La somma dei numeri maggiori di 5 è ${somma}`);
 }
 
 /* EXTRA 2
@@ -214,21 +240,21 @@ function checkArray(myArray) {
 console.log('****EXTRA 2****');
 //creiamo array shoppingCart
 const shoppingCart = [
-  //inseriamo gli oggetti con le quattro proprietà
-  { id: 1, name: 'T-Shirt', price: 20, quantity: 2 },
-  { id: 2, name: 'Jeans', price: 50, quantity: 1 },
-  { id: 3, name: 'Sneakers', price: 80, quantity: 3 }
+	//inseriamo gli oggetti con le quattro proprietà
+	{ id: 1, name: 'T-Shirt', price: 20, quantity: 2 },
+	{ id: 2, name: 'Jeans', price: 50, quantity: 1 },
+	{ id: 3, name: 'Sneakers', price: 80, quantity: 3 }
 ];
 
 function shoppingCartTotal() {
-  let totale = 0; //dichiariamo variabile locale del totale
-  for (let i = 0; i < shoppingCart.length; i++) {
-    totale += shoppingCart[i].price * shoppingCart[i].quantity;
-  }
-  return totale;
+	let totale = 0; //dichiariamo variabile locale del totale
+	for (let i = 0; i < shoppingCart.length; i++) {
+		totale += shoppingCart[i].price * shoppingCart[i].quantity;
+	}
+	return totale;
 }
 
-console.log(shoppingCartTotal(shoppingCart)); // Output: 330
+console.log(shoppingCartTotal()); // Output: 330
 
 /* EXTRA 3
  Nel tuo eCommerce disponi di un'array di oggetti chiamato "shoppingCart". Ognuno di questi oggetti ha le seguenti proprietà: "price", "name", "id" e "quantity".
@@ -239,13 +265,11 @@ console.log(shoppingCartTotal(shoppingCart)); // Output: 330
 console.log('****EXTRA 3****');
 
 function addToShoppingCart() {
-  shoppingCart.push({ id: 4, name: 'Skirt', price: 15, quantity: 2 }); //aggiunge il nuovo oggetto a shoppingCart
-  return shoppingCart.length; //ritorna la nuova lunghezza di shoppingCart
+	shoppingCart.push({ id: 4, name: 'Skirt', price: 15, quantity: 2 }); //".push" aggiunge alla fine il nuovo oggetto a shoppingCart 
+	return shoppingCart
 }
 
-addToShoppingCart();
-
-console.log(shoppingCart);
+console.log(addToShoppingCart());
 
 /* EXTRA 4
  Nel tuo eCommerce disponi di un'array di oggetti chiamato "shoppingCart". Ognuno di questi oggetti ha le seguenti proprietà: "price", "name", "id" e "quantity".
@@ -256,16 +280,16 @@ console.log(shoppingCart);
 console.log('****EXTRA 4****');
 
 function maxShoppingCart() {
-  let maxPriceItem = shoppingCart[0]; // impostiamo il primo oggetto come il più costoso inizialmente
-  for (let i = 1; i < shoppingCart.length; i++) {
-    if (shoppingCart[i].price > maxPriceItem.price) { // confrontiamo il prezzo dell'oggetto corrente con il massimo prezzo
-      maxPriceItem = shoppingCart[i]; // se il prezzo corrente è maggiore, impostiamo l'oggetto corrente come il più costoso
-    }
-  }
-  return maxPriceItem; // ritorniamo l'oggetto più costoso trovato
+	let maxPriceItem = shoppingCart[0]; // impostiamo il primo oggetto come il più costoso inizialmente
+	for (let i = 1; i < shoppingCart.length; i++) {
+		if (shoppingCart[i].price > maxPriceItem.price) { // confrontiamo il prezzo dell'oggetto corrente con il massimo prezzo
+			maxPriceItem = shoppingCart[i]; // se il prezzo corrente è maggiore, impostiamo l'oggetto corrente come il più costoso
+		}
+	}
+	return maxPriceItem.price; // ritorniamo l'oggetto più costoso trovato
 }
 
-console.log(maxShoppingCart(shoppingCart).price);
+console.log(maxShoppingCart());
 
 /* EXTRA 5
  Nel tuo eCommerce disponi di un'array di oggetti chiamato "shoppingCart". Ognuno di questi oggetti ha le seguenti proprietà: "price", "name", "id" e "quantity".
@@ -276,7 +300,7 @@ console.log(maxShoppingCart(shoppingCart).price);
 console.log('****EXTRA 5****');
 
 function latestShoppingCart() {
-  return shoppingCart[shoppingCart.length - 1]; //"- 1" prende l'ultimo oggetto contenuto nell'array shopping cart partendo dalla fine, per il terzo avremmo dovuto fare - 2
+	return shoppingCart[shoppingCart.length - 1]; //"- 1" prende l'ultimo oggetto contenuto nell'array shopping cart partendo dalla fine, per il terzo avremmo dovuto fare - 2
 }
 
-console.log(latestShoppingCart(shoppingCart));
+console.log(latestShoppingCart());
