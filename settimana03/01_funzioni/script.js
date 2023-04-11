@@ -54,6 +54,7 @@ calcola = () => {
 
     document.getElementById('estratto').innerHTML = `Numero estratto ${estratto}`;
 
+    /*
     //aggiunta per imbrogliare risultato
     if (valore1 !== estratto) {
         //praticamente estrae e calsola fino a quando valore 1 non è uguale a estratto
@@ -61,6 +62,7 @@ calcola = () => {
         calcola();
     }
     //fine aggiunta per imbrogliare
+    */
 
     switch (true) {
         case valore1 === estratto:
