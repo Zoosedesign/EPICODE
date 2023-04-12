@@ -1,0 +1,29 @@
+PROCEDURA DI LOGIN CON BLOCCO DELLA PAGINA RISERVATA (rotta)
+
+Nella pagina di login l'utente dovrà inserire un valore in un campo di input; questo valore sarà memorizzato dal browser (localStorage) e utilizzato in una'altra pagina (area riservata) per salutare l'utente.
+Se l'utente non inserisce un valore e clicca sul button entra OPPURE scrive nella barra degli indirizzi il nome della pagina dell'area riservata (es. http://www.pippo.com/reserved.html), l'applicazione deve intercettare l'assenza del valore richiesto e indirizzare l'utente verso una pagina di errore.
+
+HTML
+
+index (login)
+pagina2 (todo - area riservata)
+errore(401)
+
+JS
+
+index
+todo
+
+INDEX
+1. campo di input dove scrivere il nome
+2. button per passare alla pagina successiva (leggere il valore del campo di input e memorizzarlo)
+2a. Innanzitutto leggere il valore, scriverlo (localStorage), passare alla pagina successiva
+
+PAGINA2
+1. Elemento HTML per scrivere il nome utente
+2. Controllo sull'esistenza di un nome utente (localStorage) ed eventuale reindirizzamento alla pagina di errore se il nome utente non c'è.
+3. Elemento che consenta l'uscita dall'area riservata (logout) ELIMINANDO i dati presenti
+
+ERRORE
+1. Messaggio di errore
+2. Link per tornare al login
