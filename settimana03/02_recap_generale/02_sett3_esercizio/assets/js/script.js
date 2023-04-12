@@ -4,8 +4,8 @@
 */
 
 function somma(par1, par2) {
-  let primiDue = par1.slice(0,2);
-  let ultimiTre = par2.slice(5,8);
+  let primiDue = par1.slice(0, 2);
+  let ultimiTre = par2.slice(5, 8);
   let unisco = (primiDue + ultimiTre).toUpperCase();
   return unisco;
 }
@@ -19,10 +19,10 @@ console.log(somma('pippo', 'paperino'));
 function randomArray(n) {
   const arr = [];
   for (let i = 0; i < n; i++) {
-		let randomNum = Math.floor(Math.random() * 100);
-		arr.push(randomNum);
-	}
-	return arr;
+    let randomNum = Math.floor(Math.random() * 100);
+    arr.push(randomNum);
+  }
+  return arr;
 }
 
 console.log(randomArray(10));
@@ -37,7 +37,7 @@ const newArray = [13, 45, 62, 23, 4];
 function filterArray(array) {
   const arr = [];
   array.forEach(element => {
-    if (element % 2 === 0){
+    if (element % 2 === 0) {
       arr.push(element);
       return;
     }
@@ -114,16 +114,32 @@ console.log(incremento2([1, 44, 5, 67], 10));
   es.: ["EPICODE", "is", "great"] => [7, 2, 5]
 */
 
-const fraseArray = []
-valoreCaratteri()
-
-function valoreCaratteri (str) {
-
+function lunghezzeStringhe(array) {
+  const lunghezze = []; // Array vuoto che conterrà le lunghezze delle stringhe
+  for (let i = 0; i < array.length; i++) { // Ciclo for che scorre l'array di stringhe
+    lunghezze.push(array[i].length); // array[i].lenght aggiunge la lunghezza totale della stringa
+  }
+  return lunghezze; // Ritorna l'array delle lunghezze
 }
+
+const fraseArray = ["EPICODE", "is", "great"];
+console.log(lunghezzeStringhe(fraseArray));
 
 /* ESERCIZIO 9
   Scrivi una funzione per creare un array contenente tutti i valori DISPARI da 1 a 99.
 */
+
+function valoriDispari() {
+  const arr = []; // array vuoto in cui inserire i numeri dispari
+  
+  for (let i = 1; i <= 99; i++) { // ciclo for che va da 1 a 99
+    if (i % 2 === 1) { // se il numero è dispari
+    }
+  }
+  return arr;
+}
+
+console.log(valoriDispari);
 
 /* Questo array di film verrà usato negli esercizi a seguire. Non modificarlo e scorri oltre per riprendere gli esercizi :) */
 const movies = [
