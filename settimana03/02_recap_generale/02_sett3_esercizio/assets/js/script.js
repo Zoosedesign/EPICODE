@@ -3,6 +3,8 @@
   prima e gli ultimi 3 della seconda. Converti la stringa risultante in maiuscolo e mostrala con un console.log().
 */
 
+console.log('****ESERCIZIO 1****');
+
 function somma(par1, par2) {
   let primiDue = par1.slice(0, 2);
   let ultimiTre = par2.slice(5, 8);
@@ -12,14 +14,26 @@ function somma(par1, par2) {
 
 console.log(somma('pippo', 'paperino'));
 
+//oppure
+console.log('****ESERCIZIO 1mod****');
+
+function sommaConcat(par1, par2) {
+  let nuovaStringa = par1.slice(0, 2).concat(par2.slice(5, 8));
+  return nuovaStringa.toUpperCase();
+}
+
+const conConcat = sommaConcat('pippo', 'paperino')
+console.log(`${conConcat} fatto con concat`);
+
 /* ESERCIZIO 2
   Scrivi una funzione che torni un array di 10 elementi; ognuno di essi deve essere un valore random compreso tra 0 e 100 (incluso).
 */
+console.log('****ESERCIZIO 2****');
 
 function randomArray(n) {
   const arr = [];
   for (let i = 0; i < n; i++) {
-    let randomNum = Math.floor(Math.random() * 100);
+    let randomNum = Math.floor(Math.random() * 101);
     arr.push(randomNum);
   }
   return arr;
@@ -27,9 +41,24 @@ function randomArray(n) {
 
 console.log(randomArray(10));
 
+console.log('****ESERCIZIO 2mod****');
+// Soluzione alternativa per essere sicuri che non si ripetano i numeri
+const dieciElementi = [];
+let j = 0;
+while (j < 10) {
+  let casuale = Math.floor(Math.random() * (100 + 1));
+  if (dieciElementi.includes(casuale) === false) {
+    dieciElementi.push(casuale);
+    j++;
+  }
+}
+
+console.log(dieciElementi);
+
 /* ESERCIZIO 3
   Scrivi una funzione per ricavare solamente i valori PARI da un array composto da soli valori numerici (suggerimento: il metodo filter può aiutare)
 */
+console.log('****ESERCIZIO 3****');
 
 //const newArray = randomArray(10);
 const newArray = [13, 45, 62, 23, 4];
@@ -50,6 +79,7 @@ console.log(filterArray(newArray));
 /* ESERCIZIO 4
   Scrivi una funzione per sommare i numeri contenuti in un array
 */
+console.log('****ESERCIZIO 4****');
 
 function sommaNumeri(array) {
   let somma = 0;
@@ -65,11 +95,12 @@ console.log(`${somma1} con metodo classico`);
 /* ESERCIZIO 5
   Scrivi una funzione per sommare i numeri contenuti in un array (usare REDUCE)
 */
+console.log('****ESERCIZIO 5****');
 
 function sommaNumeri2(array) {
-  return array.reduce((totale, n) => {
-    return totale + n; //In ogni iterazione, sommiamo l'elemento corrente all'accumulatore "0" e restituiamo il risultato.
-  }, 0);//impostiamo l'accumolatore iniziale a 0
+  return array.reduce((totale, n) =>
+    totale + n, //In ogni iterazione, sommiamo l'elemento corrente all'accumulatore "0" e restituiamo il risultato.
+    0);//impostiamo l'accumolatore iniziale a 0
 }
 
 const somma2 = sommaNumeri2(newArray);
@@ -84,6 +115,7 @@ console.log(`${somma3} con metodo reduce in una funzione freccia`);
 /* ESERCIZIO 6
   Scrivi una funzione che, dato un array di soli numeri e un numero n come parametri, ritorni un secondo array con tutti i valori del precedente incrementati di n
 */
+console.log('****ESERCIZIO 6****');
 
 //passiamo i due parametri, l'array e il n per l'incrementazione
 function incremento(arr, n) {
@@ -113,6 +145,7 @@ console.log(incremento2([1, 44, 5, 67], 10));
   Scrivi una funzione che, dato un array di stringhe, ritorni un nuovo array contenente le lunghezze delle rispettive stringhe dell'array di partenza
   es.: ["EPICODE", "is", "great"] => [7, 2, 5]
 */
+console.log('****ESERCIZIO 8****');
 
 function lunghezzeStringhe(array) {
   const lunghezze = []; // Array vuoto che conterrà le lunghezze delle stringhe
@@ -128,18 +161,20 @@ console.log(lunghezzeStringhe(fraseArray));
 /* ESERCIZIO 9
   Scrivi una funzione per creare un array contenente tutti i valori DISPARI da 1 a 99.
 */
+console.log('****ESERCIZIO 9****');
 
 function valoriDispari() {
   const arr = []; // array vuoto in cui inserire i numeri dispari
-  
+
   for (let i = 1; i <= 99; i++) { // ciclo for che va da 1 a 99
     if (i % 2 === 1) { // se il numero è dispari
+      arr.push(i);
     }
   }
   return arr;
 }
 
-console.log(valoriDispari);
+console.log(valoriDispari());
 
 /* Questo array di film verrà usato negli esercizi a seguire. Non modificarlo e scorri oltre per riprendere gli esercizi :) */
 const movies = [
