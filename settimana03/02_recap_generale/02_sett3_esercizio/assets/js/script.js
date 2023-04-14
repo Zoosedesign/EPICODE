@@ -406,3 +406,4 @@ btnScegli.addEventListener('click', function () {
 		}
 	}
 });
+
