@@ -22,13 +22,6 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 
-figure {
-	margin-block-start: 0 !important;
-	margin-block-end: 0;
-	margin-inline-start: 0;
-	margin-inline-end: 0;
-}
-
 html,
 body {
 	font-size: 0.9em;
