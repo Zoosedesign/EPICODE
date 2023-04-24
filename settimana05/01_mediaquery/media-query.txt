@@ -1,0 +1,25 @@
+576px
+
+768px
+
+992px
+
+1200px
+
+1440px
+
+
+MEDIA QUERY MOBILE FIRST (DALLA MISURA IN POI - A SALIRE)
+@media screen and (min-width: misura) {
+	istruzioni di modifica
+}
+
+Se scrivo min-width: 576px vuol dire che TUTTO il CSS è scritto per risoluzioni AL DI SOTTO del 576px e la media query modifica il CSS per misure SUPERIORI (da 576px in poi)
+
+
+MEDIA QUERY DESKTOP FIRST (FINO A QUELLA MISURA - A SCENDERE)
+@media screen and (max-width: misura) {
+	istruzioni di modifica
+}
+
+Se scrivo max-width: 576px vuol dire che TUTTO il CSS è scritto per risoluzioni AL DI SOPRA dei 576px e la media query modifica il CSS per misure INFERIORI (da 576px a scendere)
