@@ -249,6 +249,18 @@
             <p>Created with ❤️ at EPICODE</p>
         </div>
     </footer>
+    <script>
+        // window.onload è una funzione che verrà automaticamente eseguita all'avvio della pagina
+        window.onload = function () {
+          // impartisco il mio comportamento
+          // ogni volta che manipolate un elemento del DOM i passaggi da fare sono 2!
+          // 1) selezionare l'elemento dal DOM (querySelector, getElementById, ...)
+          let currentYearSpan = document.getElementById('current-year')
+          // 2) una volta ottenuto il suo riferimento, possiamo lavorarci (cambiarne il contenuto, le classi, l'id, ...)
+          currentYearSpan.innerText = new Date().getFullYear()
+          // getFullYear è un metodo invocabile su un oggetto Date che tornerà l'anno in corso
+        }
+      </script>
 </body>
 
 </html>
