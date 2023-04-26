@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+    <style>
+        /* repo github prof: irvelervel */
+        html {
+            box-sizing: border-box;
+        }
+
+        body {    
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        nav {
+            background-color: orangered;
+            color: white;
+            padding: 1em;
+            border-radius: 3px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li:not(:last-child) {
+            margin-right: 10px;
+        }
+
+        nav button {
+            background-color: white;
+            color: orangered;
+            border-radius: 50px;
+            padding: 3px 10px;
+            border: 0;
+        }
+
+        section {
+            display: flex;
+            padding: 30px;
+        }
+
+        section .card:not(:last-child) {
+            margin-right: 20px;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            width: 33.33%;
+            background-color: lightgray;
+        }
+
+        .card img {
+            max-width: 100%;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1; /* fa prendere lo spazio restante all'ultimo elemento  */
+            padding: 15px 30px;
+        }
+
+        .card button {
+            background-color: orangered;
+            color: white;
+            padding: 10px 0;
+            border: 0;
+        }
+
+        @media only screen and (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            form {
+                margin-top: 15px;
+            }
+
+            section {
+                flex-direction: column;
+            }
+
+            .card {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>Logo</li>
+            <li>Home</li>
+            <li>Products</li>
+            <li>Services</li>
+        </ul>
+        <form>
+            <input type="search" placeholder="Search">
+            <button>Go</button>
+        </form>
+    </nav>
+
+    <main>
+        <section>
+            <article class="card">
+                <img src="https://www.wallsauce.com/uploads/wallsauce-com/images/banners/new-website/orange.jpg">
+                <div class="card-body">
+                    <h3>Lorem ipsum dolor sit amet.</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam natus aliquid beatae voluptates sint itaque minus, eveniet aspernatur, consequatur sit quaerat commodi.</p>
+                </div>
+
+                <button>Go to page</button>
+            </article>
+
+            <article class="card">
+                <img src="https://www.wallsauce.com/uploads/wallsauce-com/images/banners/new-website/orange.jpg">
+                <div class="card-body">
+                    <h3>Lorem ipsum dolor sit amet.</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam natus aliquid beatae voluptates sint itaque minus, eveniet aspernatur, consequatur sit quaerat commodi. Beatae maiores tenetur rem dolore dignissimos minima ab.</p>
+                </div>
+
+                <button>Go to page</button>
+            </article>
+
+            <article class="card">
+                <img src="https://www.wallsauce.com/uploads/wallsauce-com/images/banners/new-website/orange.jpg">
+                <div class="card-body">
+                    <h3>Lorem ipsum dolor sit amet.</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam natus aliquid beatae voluptates sint itaque minus, eveniet aspernatur, consequatur sit quaerat commodi. Beatae maiores tenetur rem dolore dignissimos minima ab. Consequatur sit quaerat commodi. Beatae maiores tenetur rem dolore dignissimos minima ab.
+                    </p>
+                </div>
+
+                <button>Go to page</button>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+
+    </footer>
+</body>
+</html>
