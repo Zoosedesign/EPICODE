@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
     <style>
         /* repo github prof: irvelervel */
@@ -13,7 +14,7 @@
             box-sizing: border-box;
         }
 
-        body {    
+        body {
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         }
 
@@ -45,6 +46,7 @@
             border: 0;
         }
 
+        /* CARD STYLE */
         section {
             display: flex;
             padding: 30px;
@@ -68,7 +70,8 @@
         .card-body {
             display: flex;
             flex-direction: column;
-            flex-grow: 1; /* fa prendere lo spazio restante all'ultimo elemento  */
+            flex-grow: 1;
+            /* fa prendere lo spazio restante all'ultimo elemento  */
             padding: 15px 30px;
         }
 
@@ -79,12 +82,76 @@
             border: 0;
         }
 
+        footer {
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* FOOTER STYLE */
+        #top {
+            background-color: #04a2b0;
+            color: white;
+            flex-grow: 2.5;
+            display: flex;
+            flex-direction: column;
+            /* centro gli elementi su entrambi gli assi */
+            align-items: center;
+            justify-content: center;
+        }
+
+        #top p:first-child {
+            margin-bottom: 0;
+        }
+
+        #middle {
+            background-color: #015d5f;
+            color: white;
+            flex-grow: 0.5;
+            /* allinea verticalmente la ul */
+            display: flex;
+            align-items: center;
+        }
+
+        #middle ul {
+            display: flex;
+            justify-content: space-around;
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            padding: 1rem;
+            /* impostando il padre come flex, l'elemento ha cominciato a occupare solamente lo spazio strettamente necessario */
+            /* quindi per sfruttare tutta la larghezza setto la width al 100% del padre (#middle) */
+            width: 100%;
+        }
+
+        #bottom {
+            background-color: #9ed3ca;
+            flex-grow: 1.5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #bottom p {
+            margin: 0;
+        }
+
+        #icons-container {
+            font-size: 2em;
+        }
+
+        #icons-container i {
+            margin: 5px;
+        }
+
         @media only screen and (max-width: 600px) {
             nav {
                 flex-direction: column;
                 align-items: center;
             }
-            
+
             form {
                 margin-top: 15px;
             }
@@ -100,6 +167,7 @@
         }
     </style>
 </head>
+
 <body>
     <nav>
         <ul>
@@ -120,7 +188,8 @@
                 <img src="https://www.wallsauce.com/uploads/wallsauce-com/images/banners/new-website/orange.jpg">
                 <div class="card-body">
                     <h3>Lorem ipsum dolor sit amet.</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam natus aliquid beatae voluptates sint itaque minus, eveniet aspernatur, consequatur sit quaerat commodi.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam natus aliquid beatae
+                        voluptates sint itaque minus, eveniet aspernatur, consequatur sit quaerat commodi.</p>
                 </div>
 
                 <button>Go to page</button>
@@ -130,7 +199,9 @@
                 <img src="https://www.wallsauce.com/uploads/wallsauce-com/images/banners/new-website/orange.jpg">
                 <div class="card-body">
                     <h3>Lorem ipsum dolor sit amet.</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam natus aliquid beatae voluptates sint itaque minus, eveniet aspernatur, consequatur sit quaerat commodi. Beatae maiores tenetur rem dolore dignissimos minima ab.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam natus aliquid beatae
+                        voluptates sint itaque minus, eveniet aspernatur, consequatur sit quaerat commodi. Beatae
+                        maiores tenetur rem dolore dignissimos minima ab.</p>
                 </div>
 
                 <button>Go to page</button>
@@ -140,7 +211,10 @@
                 <img src="https://www.wallsauce.com/uploads/wallsauce-com/images/banners/new-website/orange.jpg">
                 <div class="card-body">
                     <h3>Lorem ipsum dolor sit amet.</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam natus aliquid beatae voluptates sint itaque minus, eveniet aspernatur, consequatur sit quaerat commodi. Beatae maiores tenetur rem dolore dignissimos minima ab. Consequatur sit quaerat commodi. Beatae maiores tenetur rem dolore dignissimos minima ab.
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam natus aliquid beatae
+                        voluptates sint itaque minus, eveniet aspernatur, consequatur sit quaerat commodi. Beatae
+                        maiores tenetur rem dolore dignissimos minima ab. Consequatur sit quaerat commodi. Beatae
+                        maiores tenetur rem dolore dignissimos minima ab.
                     </p>
                 </div>
 
@@ -150,7 +224,31 @@
     </main>
 
     <footer>
-
+        <div id="top">
+            <p>Questions?</p>
+            <p>
+                Write us at
+                <a href="mailto:example@example.com">example@example.com</a>
+            </p>
+            <div id="icons-container">
+                <i class="fab fa-facebook-square"></i>
+                <i class="fab fa-twitter-square"></i>
+                <i class="fab fa-youtube"></i>
+                <i class="fab fa-instagram"></i>
+            </div>
+        </div>
+        <div id="middle">
+            <ul>
+                <li>Privacy Policy</li>
+                <li>Terms of Use</li>
+                <li>Copyright</li>
+            </ul>
+        </div>
+        <div id="bottom">
+            <p><span id="current-year"></span>, all right reserved.</p>
+            <p>Created with ❤️ at EPICODE</p>
+        </div>
     </footer>
 </body>
+
 </html>
