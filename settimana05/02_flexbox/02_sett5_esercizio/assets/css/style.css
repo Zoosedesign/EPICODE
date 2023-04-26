@@ -1,0 +1,178 @@
+html {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body,
+p {
+    color: #742305;
+    margin: 0;
+}
+
+button {
+    border: 0;
+}
+
+.bg-yellow {
+    background-color: #fef7e2;
+}
+
+.bg-yellow2,
+nav li {
+    background-color: #ffdf7f;
+}
+
+.round {
+    border-radius: 40px;
+}
+
+.p-box {
+    padding: 25px;
+}
+
+.mt-0 {
+    margin-top: 0;
+}
+
+.mb {
+    margin-bottom: 25px;
+}
+
+/* FLEX LAYOUT */
+.d-flex {
+    display: flex;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.w-center {
+    justify-content: center;
+}
+
+.h-center {
+    align-items: center;
+}
+
+.space-center {
+    justify-content: space-evenly;
+}
+
+.m-center {
+    justify-content: space-between;
+}
+
+.txt-center {
+    text-align: center;
+}
+
+/* PAGE STYLE */
+nav {
+    width: 15%;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li:not(:last-child) {
+    margin-bottom: 25px;
+}
+
+nav li {
+    padding: 20px 15px;
+    border-radius: 100px;
+}
+
+nav #shop {
+    font-size: 1.2rem;
+}
+
+nav a {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+nav img {
+    width: 30px;
+}
+
+main {
+    width: 85%;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+h4 {
+    font-size: 1.5rem;
+}
+
+/* CARD STYLE */
+.card {
+    max-width: 19%;
+}
+
+.card img {
+    border-radius: 40px 40px 0 0;
+}
+
+.card button {
+    padding: 10px 40px;
+    border-radius: 100px;
+    align-self: center;
+}
+
+/* NEWS STYLE */
+#news img {
+    border-radius: 20px 0 0 20px;
+    max-width: 50%;
+}
+
+#news article:not(:last-child) {
+    margin-bottom: 25px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .card:last-child {
+        display: none;
+    }
+
+    .card {
+        max-width: 24%;
+    }
+
+    article {
+        flex-direction: column;
+    }
+
+    #news img {
+        border-radius: 20px 20px 0 0;
+        max-width: 100%;
+        height: 40%;
+        object-fit: cover;
+        /* per ritagliare immagine */
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .card:nth-child(n+4) {
+        display: none;
+    }
+
+    .card {
+        max-width: 32.33%;
+    }
+}
