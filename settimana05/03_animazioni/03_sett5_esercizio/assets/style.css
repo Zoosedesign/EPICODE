@@ -13,8 +13,62 @@ h3 {
     font-size: 2rem;
 }
 
-p {
+.container p {
     font-size: 1.5rem;
+}
+
+/* CARD CHOICE */
+.card-wrap {
+    display: flex;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 180px 0 100px 0;
+    color: #fff;
+    background-color: coral;
+}
+
+.card {
+    width: 20%;
+    padding: 30px;
+    background-color: #666;
+    border-radius: 40px;
+    border: 2px solid #000;
+    transition: all 200ms;
+}
+
+.card-wrap .card:first-child {
+    transform: rotate(-15deg);
+    z-index: 0;
+}
+
+.card:first-child:hover {
+    transform: rotate(-15deg) scale(1.2);
+    z-index: 3;
+}
+
+.card-wrap .card:nth-child(2) {
+    transform: translate(0, -80px);
+    z-index: 1;
+}
+
+.card:nth-child(2):hover {
+    transform: translate(0, -80px) scale(1.2);
+    z-index: 3;
+}
+
+.card-wrap .card:last-child {
+    transform: rotate(15deg);
+    z-index: 2;
+}
+
+.card:last-child:hover {
+    transform: rotate(15deg) scale(1.2);
+    z-index: 3;   
+}
+
+.card:hover {
+    background-color: orange;
+    color: #000;
 }
 
 /* POST IT STYLE */
