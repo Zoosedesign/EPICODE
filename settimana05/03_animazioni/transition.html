@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Transitions</title>
+    <style>
+      .box {
+        width: 150px;
+        height: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .ex-1 {
+        background-color: red;
+        color: white;
+        /* indichiamo qua la proprietà transition */
+        /* transition: proprietà durata curva-di-accelerazione ritardo */
+        transition: width 3s linear;
+      }
+
+      .ex-1:hover {
+        width: 500px;
+      }
+
+      .ex-2 {
+        background-color: purple;
+        color: white;
+        transition: all 3s;
+      }
+
+      .ex-2:hover {
+        width: 500px;
+        background-color: yellow;
+        color: black;
+      }
+
+      .ex-3 {
+        background-color: blue;
+        color: white;
+        transition: width 1s linear 0s;
+      }
+
+      .ex-3:hover {
+        width: 500px;
+        /* se io specifico una transizione AGGIUNTIVA sullo stato di hover,
+        questa verrà applicata in ENTRATA, mentre quella sull'elemento senza hover
+        verrà applicata in USCITA */
+        transition: width 3s ease-in 2000ms;
+      }
+
+      .ex-4 {
+        background-color: lime;
+        width: 75px;
+        height: 75px;
+        /* transition in uscita */
+        transition: all 1s linear;
+      }
+
+      .ex-4:hover {
+        background-color: orange;
+        transform: translate(500px) rotate(1080deg) scale(2.5);
+        transition: all 4s;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>PROPRIETÀ TRANSITION</h2>
+    <h4>BOX CHE SI ALLUNGA ON HOVER</h4>
+    <div class="box ex-1"><div>MI ALLUNGO</div></div>
+    <h4>BOX CHE SI ALLUNGA E CAMBIA COLORE ON HOVER</h4>
+    <div class="box ex-2"><div>MI ALLUNGO E CAMBIO COLORE</div></div>
+    <h4>BOX CHE SI ALLUNGA CON RITARDO</h4>
+    <div class="box ex-3"><div>MI ALLUNGO CON RITARDO</div></div>
+    <h4>BOX CHE ROTOLA E SI SPOSTA</h4>
+    <div class="box ex-4"><div>MI ROTOLO E SPOSTO</div></div>
+  </body>
+</html>

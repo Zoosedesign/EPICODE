@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Animations</title>
+    <style>
+      .box {
+        width: 150px;
+        height: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .box-1 {
+        /* animation: nome durata curva-di-accelerazione ritardo numero-di-esecuzioni */
+        animation: boxAnimation 6s ease 0s infinite;
+        /* animazione che parte in automatico */
+      }
+
+      .box-2 {
+        background-color: darkorchid;
+      }
+
+      .animated {
+        /* questa classe, se aggiunta a box-2, lo farà muovere */
+        animation: animateMe 4s linear 0s infinite;
+      }
+
+      /* definiamo un'animazione */
+      @keyframes boxAnimation {
+        0% {
+          transform: translate(0px);
+          background-color: orange;
+        }
+
+        75% {
+          transform: translate(500%);
+          background-color: green;
+        }
+
+        100% {
+          transform: translate(0px);
+          background-color: orange;
+        }
+      }
+
+      @keyframes animateMe {
+        0% {
+          color: white;
+          background-color: darkorchid;
+          font-size: 1em;
+        }
+        50% {
+          color: black;
+          background-color: lightpink;
+          font-size: 2em;
+        }
+        100% {
+          color: white;
+          background-color: darkorchid;
+          font-size: 1em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Animazioni in CSS</h2>
+    <div class="box box-1">
+      <div>I'M A BOX</div>
+    </div>
+    <button onclick="startStop()">CLICK ME!</button>
+    <div class="box box-2">
+      <div>I'M A BOX</div>
+    </div>
+    <script>
+      const startStop = function () {
+        // questa funzione verrà invocata al click del pulsante
+        // ho bisogno di aggiungere/togliere la classe "animated" dal div box-2
+        // 2 passaggi: selezionare l'elemento | agire sull'elemento
+        // 1) prendo un riferimento al div box-2
+        // document.getElementsByClassName('box-2')[0] <-- trova sempre lo stesso elemento, più efficente
+        let box2Reference = document.querySelector('.box-2')
+        // 2) aggiungere/togliere la classe "animated" da questo elemento
+        box2Reference.classList.toggle('animated')
+
+        // metodo alternativo (className è una proprietà, dobbiamo portarci dietro tutto il contenuto di class)
+        // box2Reference.className = box2Reference.className.includes('animated')
+        //   ? 'box box-2'
+        //   : 'box box-2 animated'
+      }
+    </script>
+  </body>
+</html>

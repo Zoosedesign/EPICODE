@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EPICODE Cards</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+      }
+
+      h2 {
+        margin: 0;
+      }
+
+      #cards {
+        display: flex;
+      }
+
+      #cards article {
+        width: 200px;
+        border: 1px solid black;
+        border-radius: 20px;
+        padding: 20px;
+        /* background-color: rgb(82, 82, 82); */
+        color: white;
+        position: relative;
+        transition: all 200ms linear;
+      }
+
+      #container {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #card-1 {
+        transform: rotate(-15deg) translate(30px, 50px);
+        z-index: 1;
+      }
+
+      #card-2 {
+        z-index: 2;
+      }
+
+      #card-3 {
+        transform: rotate(15deg) translate(-30px, 50px);
+        z-index: 3;
+      }
+
+      #cards article:hover {
+        z-index: 4;
+        color: black;
+        background-color: goldenrod !important;
+        transform: scale(1.3);
+        /* questa transform resetta il rotate a 0deg */
+      }
+    </style>
+  </head>
+  <body>
+    <main id="container">
+      <div id="cards">
+        <article id="card-1">
+          <h2>Card 1</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
+            fugiat atque nam esse placeat sed, deleniti, dolor itaque eos eius
+            dicta labore cumque tempora possimus delectus illo ratione magnam
+            corrupti?Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Obcaecati fugiat atque nam esse placeat sed, deleniti, dolor itaque
+            eos eius dicta labore cumque tempora possimus delectus illo ratione
+            magnam corrupti?
+          </p>
+        </article>
+        <article id="card-2">
+          <h2>Card 2</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
+            fugiat atque nam esse placeat sed, deleniti, dolor itaque eos eius
+            dicta labore cumque tempora possimus delectus illo ratione magnam
+            corrupti?Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Obcaecati fugiat atque nam esse placeat sed, deleniti, dolor itaque
+            eos eius dicta labore cumque tempora possimus delectus illo ratione
+            magnam corrupti?
+          </p>
+        </article>
+        <article id="card-3">
+          <h2>Card 3</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
+            fugiat atque nam esse placeat sed, deleniti, dolor itaque eos eius
+            dicta labore cumque tempora possimus delectus illo ratione magnam
+            corrupti?Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Obcaecati fugiat atque nam esse placeat sed, deleniti, dolor itaque
+            eos eius dicta labore cumque tempora possimus delectus illo ratione
+            magnam corrupti?
+          </p>
+        </article>
+      </div>
+    </main>
+    <script>
+      // 1) mirare
+      // document.querySelectorAll('article')
+      let articleReferenceArray = document.getElementsByTagName('article')
+
+      // 2) sparare
+      for (let i = 0; i < articleReferenceArray.length; i++) {
+        articleReferenceArray[i].style.backgroundColor =
+          '#' + ((Math.random() * 0xffffff) << 0).toString(16).padStart(6, '0')
+      }
+    </script>
+  </body>
+</html>
