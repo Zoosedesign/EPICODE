@@ -1,10 +1,13 @@
+* {
+    box-sizing: border-box;
+}
+
 html {
     font-family: Arial, Helvetica, sans-serif;
 }
 
 body,
 p {
-    box-sizing: border-box;
     color: #742305;
     margin: 0;
 }
@@ -187,7 +190,6 @@ h4 {
 @media only screen and (max-width: 825px) {
     #container {
         flex-direction: column;
-        width: calc(100% - 50px);
     }
 
     nav ul {
