@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Caveat', cursive;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+p {
+    font-size: 1.5rem;
+}
+
+/* POST IT STYLE */
+.bg-yellow {
+    background: linear-gradient(#fafbc9 70%, #999);
+}
+
+.bg-green {
+    background: linear-gradient(#c8f8ca 70%, #999);
+}
+
+.bg-purple {
+    background: linear-gradient(#c2c3ec 70%, #999);
+}
+
+.container {
+    display: flex;
+    background-color: #666;
+    flex-wrap: wrap;
+    padding: 30px 0 0 30px;
+}
+
+.container > div {
+    width: 25%;
+    padding-right: 30px;
+}
+
+article {
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 5px 5px 5px #333;
+}
+
+.container div:first-child,
+.container div:nth-child(5),
+.container div:nth-child(7) {
+    transform: rotate(-5deg);
+}
+
+.container div:nth-child(2),
+.container div:last-child {
+    transform: rotate(4deg);
+}
+
+.container div:nth-child(3),
+.container div:nth-child(6) {
+    transform: rotate(-4deg);
+}
+
+.container div:nth-child(4) {
+    transform: rotate(10deg);
+}
+
+/* ANIMATION TEXT STYLE
+1 creazione del testo e formattazione di 1 parola da far ruotare
+2 inserimento delle altre 2 parole
+3 sovrapporre le 3 parole
+4 mostrare 1 parola e nascondere le altre 2
+5 animare 1 parola (fadein - fadeout con spostamento)
+6 animare le altre 2 parole
+7 ritardare progressivamente l'animazione delle altre 2 parole 
+*/
