@@ -7,6 +7,7 @@
 body {
     margin: 0;
     font-family: 'Caveat', cursive;
+    background-color: #666;
 }
 
 h3 {
@@ -73,33 +74,38 @@ h3 {
 
 /* POST IT STYLE */
 .bg-yellow {
-    background: linear-gradient(#fafbc9 70%, #999);
+    background: linear-gradient(#fafbc9 70%, #999) content-box;
 }
 
 .bg-green {
-    background: linear-gradient(#c8f8ca 70%, #999);
+    background: linear-gradient(#c8f8ca 70%, #999) content-box;
 }
 
 .bg-purple {
-    background: linear-gradient(#c2c3ec 70%, #999);
+    background: linear-gradient(#c2c3ec 70%, #999) content-box;
 }
 
 .container {
     display: flex;
-    background-color: #666;
     flex-wrap: wrap;
     padding: 30px 0 0 30px;
+    margin: 100px;
 }
 
 .container > div {
     width: 25%;
+    height: 400px;
     padding-right: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 800ms;
 }
 
 article {
     padding: 30px;
     margin-bottom: 30px;
-    box-shadow: 5px 5px 5px #333;
+    z-index: 0;
 }
 
 .container div:first-child,
@@ -120,6 +126,11 @@ article {
 
 .container div:nth-child(4) {
     transform: rotate(10deg);
+}
+
+.container div:hover {
+    transform: rotate(0) scale(1.2) translateY(-1000px);
+    z-index: 3;
 }
 
 /* ANIMATION TEXT STYLE
