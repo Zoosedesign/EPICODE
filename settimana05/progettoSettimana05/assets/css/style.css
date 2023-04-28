@@ -1,25 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&family=Spectral:wght@200&display=swap');
+
 /* PERSONAL CSS RESET */
 * {
     box-sizing: border-box;
     vertical-align: baseline;
-    font-size: 0.9rem;
+    line-height: 1; /* la imposta all'altezza del carattere senza spazi extra */
 }
 
 html {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 body,
+h2,
 p {
     margin: 0;
 }
 
-hr {
-    border: 0.5px solid black;
+p,
+span,
+small {
+    color: rgb(117, 117, 117);
 }
 
-h1 {
-    line-height: 0;
+cite {
+    font-style: normal;
+    font-weight: bold;
 }
 
 nav ul {
@@ -27,14 +33,14 @@ nav ul {
     padding: 0;
 }
 
-a {
+a,
+cite {
     text-decoration: none;
-    color: #000;
+    color: #191919;
 }
 
 button {
     border: 0;
-    background-color: #000;
     border-radius: 100px;
     padding: 10px 20px;
 }
@@ -63,6 +69,10 @@ figure {
     flex-direction: column;
 }
 
+.row {
+    flex-direction: row;
+}
+
 .h-center {
     justify-content: center;
 }
@@ -75,35 +85,35 @@ figure {
     justify-content: flex-end;
 }
 
-.w-100 {
+.w100 {
     width: 100%;
 }
 
-.w-80 {
+.w80 {
     width: 80%;
 }
 
-.w-60 {
+.w60 {
     width: 60%;
 }
 
-.w-50 {
+.w50 {
     width: 50%;
 }
 
-.w-40 {
+.w40 {
     width: 40%;
 }
 
-.w-33 {
+.w33 {
     width: 33.33%;
 }
 
-.w-20 {
+.w20 {
     width: 20%;
 }
 
-.w-10 {
+.w10 {
     width: 10%;
 }
 
@@ -112,10 +122,54 @@ figure {
     padding: 15px;
 }
 
+.m-0 {
+    margin: 0;
+}
+
+.mt {
+    margin-top: 15px;
+}
+
+.mb {
+    margin-bottom: 15px;
+}
+
+.mr {
+    margin-right: 10px;
+}
+
+.mh {
+    margin: 15px 0;
+}
+
+.b-bottom {
+    border: 0.5px solid #191919;
+}
+
 /* PAGE STYLE */
-header,
-#top {
+.bg-yellow {
     background: #ffc017;
+}
+
+.bg-black {
+    background: #191919;
+}
+
+h3 {
+    font-size: 0.8rem;
+}
+
+.round {
+    border-radius: 50%;
+    width: 25px;
+    padding: 3.5px 0;
+}
+
+/* HEADER STYLE */
+header {
+    position: fixed;
+    top: 0;
+    z-index: 1;
 }
 
 h1 img {
@@ -124,4 +178,44 @@ h1 img {
 
 nav li {
     margin-right: 20px;
+    font-size: 0.9rem;
+}
+
+.card {
+    margin-bottom: 40px;
+}
+
+/* TOP STYLE */
+#top {
+    margin-top: 64px;
+}
+
+#top h2 {
+    font-family: 'Spectral', serif;
+    font-size: 5.5rem;
+}
+
+#top p {
+    color: #191919;
+    font-size: 1.4rem;
+}
+
+#top button {
+    width: 200px;
+}
+
+#top a {
+    font-size: 1.2rem;
+}
+
+/* TREND STYLE */
+#trend .number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: rgb(230, 230, 230);
+}
+
+/* margini a tutte le card tranne ai multipli di 3 */
+#trend .card-gap:not(:nth-child(3n)) {
+    padding-right: 50px;
 }
