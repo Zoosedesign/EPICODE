@@ -1,3 +1,4 @@
+//effetto scroll navbar
 var header = document.querySelector('header');
 header.style.backgroundColor = '#ffc017';
 var btnStarted = document.querySelector('button');
@@ -12,3 +13,10 @@ window.addEventListener('scroll', function() {
       btnStarted.style.backgroundColor = '#191919';
     }
 });
+
+//effetto m
+setInterval(() => {
+  const emme = document.querySelectorAll('g[stroke-linecap="butt"]');
+  const random = Math.round(Math.random() * (emme.length - 1))
+  emme[random].classList.toggle('opacity');
+}, 10);

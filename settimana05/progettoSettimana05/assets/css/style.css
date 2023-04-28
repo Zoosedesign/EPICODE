@@ -174,6 +174,10 @@ figure {
     background: #fff;
 }
 
+.opacity {
+    opacity: 0;
+}
+
 h3 {
     font-size: 0.8rem;
     text-transform: uppercase;
@@ -299,6 +303,17 @@ nav li {
     margin: 40px 0;
 }
 
+/* SCHERMI MOLTO AMPI */
+@media (min-width: 1458px) {
+    #top .w50 {
+        width: 65%;
+    }
+
+    #top .w40 {
+        width: 35%;
+    }
+}
+
 /* MEDIA QUERY GENRALI TABLET & CELL */
 @media (max-width: 1024px) {
     span.w10 {
@@ -309,8 +324,21 @@ nav li {
         margin-left: auto;
     }
 
-    #trend .w80 {
+    #trend .w80,
+    #blog.w50,
+    #keyword.w30 {
         width: 100%;
+    }
+
+    .container {
+        flex-direction: column-reverse;
+    }
+
+    #keyword {
+        padding-left: 0;
+        position: static;
+        top: 92px;
+        align-self: none;
     }
 }
 
@@ -345,10 +373,32 @@ nav li {
     #trend .card-gap:nth-child(odd) {
         padding: 0 10px 0 0;
     }
+
+    .container article.w80 {
+        width: 70%;
+    }
+
+    .container .card > img.w20 {
+        width: 30%;
+    }
 }
 
 /* MEDIA QUERY CELL */
 @media (max-width: 767px) {
+    .p-box {
+        padding: 15px 30px;
+    }
+
+    #top.p-box {
+        padding: 15px 0 15px 30px;
+    }
+
+    header li:nth-child(-n+3),
+    #top .w40 {
+        display: none;
+    }
+
+    #top .w50,
     #trend .w33 {
         width: 100%;
     }
@@ -356,5 +406,13 @@ nav li {
     /* seleziono tutti i figli */
     #trend .card-gap:nth-child(n) {
         padding: 0;
+    }
+
+    .container article.w80 {
+        width: 60%;
+    }
+
+    .container .card > img.w20 {
+        width: 40%;
     }
 }
