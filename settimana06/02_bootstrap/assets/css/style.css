@@ -1,0 +1,74 @@
+/* https://codepen.io/TurkAysenur/pen/LYRKpWe */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.nav-link,
+h1, h2, h3, h4 {
+    font-weight: bold;
+}
+
+.bg-amazing {
+    background: radial-gradient(50% 123.47% at 50% 50%, #212529 0%, #f5c344 100%),
+        linear-gradient(121.28deg, #306cf4 0%, #5cc8eb 100%),
+        linear-gradient(360deg, #5cc8eb 0%, #212529 100%),
+        radial-gradient(100% 164.72% at 100% 100%, #5cc8eb 0%, #212529 100%),
+        radial-gradient(100% 148.07% at 0% 0%, #f5c344 0%, #212529 100%);
+    background-blend-mode: screen, color-dodge, overlay, difference, normal;
+    background-repeat: no-repeat;
+}
+
+.bg-opacity {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+img {
+    filter:opacity(#306cf4)
+}
+
+body div:first-child {
+    border-radius: 40px;
+}
+
+header img {
+    height: 30px;
+}
+
+header .dropdown-menu {
+    margin-top: 6px !important;
+    transition: all 2s;
+    z-index: 0 !important;
+}
+
+header input::placeholder {
+    color: #999 !important;
+}
+
+header input[type="search"] {
+    width: 200px;
+    transition: width 1s ease;
+}
+
+header input[type="search"]:focus {
+    width: 300px;
+}
+
+#slider {
+    border-radius: 50px;
+}
+
+#slider .carousel-caption {
+    top: 3rem;
+    left: 3rem;
+    bottom: auto;
+    width: 40%;
+}
+
+#slider #linguetta > svg {
+    position: absolute;
+    top: calc(3rem + 240.8px);
+    left: 15%;
+}
+
