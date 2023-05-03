@@ -41,7 +41,8 @@ header img {
 }
 
 header .nav-item.bg-primary,
-#saldi .card-body a {
+#saldi .card-body a,
+#summer .card-body a {
     animation: shadow-timer 4s linear infinite;
 }
 
@@ -67,6 +68,10 @@ header .nav-item.bg-primary,
     }
 }
 
+header {
+    z-index: 1;
+}
+
 header .dropdown-menu {
     margin-top: 22px !important;
     transition: all 2s;
@@ -83,7 +88,7 @@ header input[type="search"] {
 }
 
 header input[type="search"]:focus {
-    width: 300px;
+    width: 260px;
 }
 
 #slider {
@@ -109,7 +114,8 @@ header input[type="search"]:focus {
     left: 15%;
 }
 
-#saldi .card-body {
+#saldi .card-body,
+#summer .card-body {
     height: 250px;
 }
 
