@@ -1,3 +1,8 @@
+header {
+    z-index: 1;
+    transform-style: flat;
+}
+
 header .dropdown-menu {
     margin-top: 22px !important;
     transition: all 2s;
@@ -15,4 +20,10 @@ header input[type="search"] {
 
 header input[type="search"]:focus {
     width: 260px;
+}
+
+header .dropdown-menu {
+    z-index: 0;
+    transform-style: flat;
+    transform: none;
 }

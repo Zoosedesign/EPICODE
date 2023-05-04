@@ -1,5 +1,10 @@
 /* https://codepen.io/TurkAysenur/pen/LYRKpWe */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+header {
+  z-index: 1;
+  transform-style: flat;
+}
+
 header .dropdown-menu {
   margin-top: 22px !important;
   transition: all 2s;
@@ -21,6 +26,12 @@ header input[type=search] {
 
 header input[type=search]:focus {
   width: 260px;
+}
+
+header .dropdown-menu {
+  z-index: 0;
+  transform-style: flat;
+  transform: none;
 }
 
 #slider .carousel-indicators [data-bs-target] {
