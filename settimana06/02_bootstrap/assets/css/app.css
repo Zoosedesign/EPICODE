@@ -146,7 +146,7 @@ header .nav-item.bg-primary,
   height: 250px;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 767px) {
   #saldi .card-body,
   #summer .card-body {
     height: 300px;
