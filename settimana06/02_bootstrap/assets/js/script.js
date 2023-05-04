@@ -16,36 +16,42 @@ const product = [
     text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem quia corporis amet, non est dolores?',
     img: 'assets/img/img03.jpg',
     img2: 'assets/img/img01.jpg',
+    month: 'GEN - FEB',
   },
   {
     title: 'Card title',
     text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem quia corporis amet, non est dolores?',
     img: 'assets/img/img03.jpg',
     img2: 'assets/img/img01.jpg',
+    month: 'APR - MAG',
   },
   {
     title: 'Card title',
     text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit?',
     img: 'assets/img/img03.jpg',
     img2: 'assets/img/img01.jpg',
+    month: 'APR - GIU',
   },
   {
     title: 'Card title',
     text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem quia corporis amet, non est dolores?',
     img: 'assets/img/img03.jpg',
     img2: 'assets/img/img01.jpg',
+    month: 'APR - LUG',
   },
   {
     title: 'Card title',
     text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem quia corporis amet, non est dolores?',
     img: 'assets/img/img03.jpg',
     img2: 'assets/img/img01.jpg',
+    month: 'LUG - SET',
   },
   {
     title: 'Card title',
     text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem quia corporis amet, non est dolores?',
     img: 'assets/img/img03.jpg',
     img2: 'assets/img/img01.jpg',
+    month: 'SET - OTT',
   },
 ];
 
@@ -53,7 +59,7 @@ const product = [
 const row = document.getElementById('saldi-product');
 
 for (let i = 0; i < 4; i++) {
-  row.innerHTML += `<div class="col-6 col-lg-4 col-xl-3 px-3 mb-5 mb-lg-0">
+  row.innerHTML += `<div class="col-6 col-lg-4 col-xl-3 px-3 mb-lg-0">
  <div class="card rounded-5 shadow">
   <img src="${product[i].img}" class="card-img-top" alt="residence maldive">
   <article class="card-body d-flex flex-column bg-white rounded-5 rounded-top-0">
@@ -71,11 +77,11 @@ row.lastElementChild.classList.add('d-lg-none', 'd-xl-block');
 const row2 = document.getElementById('summer-product');
 
 for (let i = 0; i < product.length; i++) {
-  row2.innerHTML += `<div class="col-6 col-xl-4 px-3 mb-5">
+  row2.innerHTML += `<div class="col-6 col-xl-4 px-3">
  <div class="card rounded-5 shadow">
   <img src="${product[i].img2}" class="card-img-top" alt="residence maldive">
   <span class="card-img-overlay">
-  <small class="badge bg-warning text-primary">HOT</small>
+  <small class="badge bg-warning  text-primary">HOT</small>
   </span>
   <article class="card-body d-flex flex-column bg-white rounded-5 rounded-top-0">
     <h4 class="card-title text-secondary">${product[i].title}</h4>
@@ -90,10 +96,12 @@ for (let i = 0; i < product.length; i++) {
 const row3 = document.getElementById('lastminute-product');
 
 for (let i = 0; i < product.length; i++) {
-  row3.innerHTML += `<div class="col-6 col-md-4 col-xl-2 px-1 mb-2">
-  <img src="${product[i].img2}" class="card-img-top" alt="residence maldive">
+  row3.innerHTML += `<div class="col-6 col-md-4 col-xl-2">
+  <div class="card bg-light border-0 px-1">
+  <img src="${product[i].img2}" class="card-img-top rounded-top-2 rounded-bottom-5" alt="residence maldive">
+  <span class="card-img-overlay">
+  <small class="badge bg-white shadow text-primary">${product[i].month}</small>
+  </span>
+  </div>
 </div>`
 }
-
-//aggiungo border radius ultimo elemento
-row3.lastElementChild.classList.add('rounded-be-0');
