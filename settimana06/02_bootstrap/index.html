@@ -14,7 +14,7 @@
 
 <body class="container-fluid bg-amazing p-3">
 
-  <div class="container bg-opacity shadow p-3">
+  <div class="container bg-opacity shadow p-3 rounded-6">
 
     <header class="container-fluid rounded-5 bg-light shadow p-4 d-flex flex-row sticky-top align-items-center">
       <a href="index.html"><img src="assets/img/circle_logo.svg" alt="logo"></a>
@@ -43,12 +43,12 @@
               <i class="fa-solid fa-umbrella-beach"></i><span class="d-none d-lg-inline"> Welcome summer</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link pe-0" href="#">
+            <a class="nav-link pe-0 pe-lg-3" href="#">
               <i class="fa-solid fa-person-walking-luggage"></i><span class="d-none d-lg-inline"> Last Minute</span>
             </a>
           </li>
           <li class="nav-item d-none d-xl-block">
-            <a class="nav-link" href="#">
+            <a class="nav-link pe-0" href="#">
               <i class="fa-regular fa-thumbs-up"></i> Recensioni
             </a>
           </li>
@@ -67,12 +67,14 @@
 
     <main>
       <!-- SLIDER -->
-      <section id="slider" class="bg-light mt-3 p-0">
+      <section id="slider" class="rounded-6 bg-light mt-3 p-0">
         <div id="carouselExampleCaptions" class="carousel slide p-3">
           <span class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+              aria-current="true" aria-label="Slide 1"></button>
 
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+              aria-label="Slide 2"></button>
           </span>
 
           <!-- CONTENUTO SLIDER -->
@@ -81,20 +83,23 @@
               <article class="carousel-item active">
                 <img src="assets/img/img01.jpg" class="d-block w-100 rounded-5" alt="yacht tour">
                 <div class="carousel-caption bg-white rounded-5 p-3 p-lg-5">
-                  <h2 class="text-primary">FEEL THE <br>FREED<i class="fa-solid fa-earth-americas"></i>M <span class="d-none d-lg-inline">;)</span></h2>
+                  <h2 class="text-primary">FEEL THE <br>FREED<i class="fa-solid fa-earth-americas"></i>M <span
+                      class="d-none d-lg-inline">;)</span></h2>
                   <p class="text-dark mt-2 mb-0">Scopri i tour e gli alberghi<br>più esclusivi!</p>
                 </div>
               </article>
               <article class="carousel-item">
                 <img src="assets/img/img02.jpg" class="d-block w-100 rounded-5" alt="tuffati in vacanza">
                 <div class="carousel-caption bg-white rounded-5 p-3 p-lg-5">
-                  <h2 class="text-primary">WELC<i class="fa-solid fa-earth-americas"></i>ME<br>SUMMER <span class="d-none d-lg-inline">;)</span></h2>
+                  <h2 class="text-primary">WELC<i class="fa-solid fa-earth-americas"></i>ME<br>SUMMER <span
+                      class="d-none d-lg-inline">;)</span></h2>
                   <p class="text-dark mt-2 mb-0">Scopri le destinazioni<br>più calde del momento!</p>
                 </div>
               </article>
             </div>
 
-            <svg class="d-none d-lg-block" viewBox="0 0 127.6 79.4" style="fill: #fff; height: 30px; width: auto;" xml:space="preserve">
+            <svg class="d-none d-lg-block" viewBox="0 0 127.6 79.4" style="fill: #fff; height: 30px; width: auto;"
+              xml:space="preserve">
               <path class="cls-1"
                 d="M82.2,0c2.4,20.1,7.1,42.8,18.1,54.9,11,12.1,27.3,21.3,27.3,21.3,0,0-12.6,3.2-31.2,3.2-30.5,0-78.8-19.51-96.4-79.4H82.2Z" />
             </svg>
@@ -115,20 +120,53 @@
         </div>
       </section>
 
-      <section id="saldi" class="bg-light mt-3 rounded-5 py-3 shadow">
-        <h3 class="text-primary ps-4 mb-3"><i class="fa-solid fa-circle-dollar-to-slot"></i> Saldi</h3>
+      <section id="saldi" class="bg-light mt-3 rounded-6 rounded-top-2 pt-3 pb-lg-3 shadow">
+        <div class="bg-line">
+          <h3 class="text-primary px-4 mb-3 bg-light"><i class="fa-solid fa-circle-dollar-to-slot"></i> Saldi</h3>
+        </div>
         <div id="saldi-product" class="d-flex flex-row flex-wrap">
 
-        <!-- area carte popolata con javascript -->
+          <!-- area carte popolata con javascript -->
 
         </div>
       </section>
 
-      <section id="summer" class="bg-light mt-3 rounded-5 py-3 shadow">
-        <h3 class="text-primary ps-4 mb-3"><i class="fa-solid fa-umbrella-beach"></i> Welcome Summer</h3>
+      <section id="summer" class="bg-light mt-3 rounded-6 rounded-top-2 py-3 shadow">
+        <div class="bg-line">
+          <h3 class="text-primary px-4 mb-3 bg-light"><i class="fa-solid fa-umbrella-beach"></i> Welcome Summer</h3>
+        </div>
         <div id="summer-product" class="d-flex flex-row flex-wrap">
 
-        <!-- area carte popolata con javascript -->
+          <!-- area carte popolata con javascript -->
+
+        </div>
+
+        <div class="bg-line">
+          <h3 class="text-primary px-4 mb-3 bg-light"><i class="fa-solid fa-wand-magic-sparkles"></i> Offerta del giorno
+          </h3>
+        </div>
+
+        <section class="d-flex flex-row">
+          <figure class="col-8 px-3 m-0 d-flex">
+            <img class="w-100 rounded-5 rounded-te-0 align-self-stretch" src="assets/img/img02.jpg" alt="tuffati in vacanza">
+          </figure>
+          <article class="col-4 ps-md-4 pe-3">
+            <h2 class="text-secondary">Fushifaru Maldives</h2>
+            <small>15.01.2021 - 31.01.2021</small>
+            <p>Ville a partire da 500€ <br class="d-none d-md-inline">non fartele sfuggire!</p>
+            <span class="badge bg-info text-white">BEST OFFER</span>
+          </article>
+        </section>
+
+      </section>
+
+      <section id="lastminute" class="bg-light mt-3 rounded-6 rounded-top-2 pt-3 shadow">
+        <div class="bg-line">
+          <h3 class="text-primary px-4 mb-3 bg-light"><i class="fa-solid fa-person-walking-luggage"></i> Last Minute</h3>
+        </div>
+        <div id="lastminute-product" class="d-flex flex-row flex-wrap px-1 pb-2">
+
+          <!-- area carte popolata con javascript -->
 
         </div>
       </section>

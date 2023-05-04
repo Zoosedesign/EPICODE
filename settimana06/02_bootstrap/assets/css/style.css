@@ -14,6 +14,26 @@ h4 {
     font-weight: bold;
 }
 
+h3 {
+    display: inline-block;
+}
+
+.rounded-6 {
+    border-radius: 3rem;
+}
+
+.rounded-te-0 {
+    border-top-right-radius: 0.4rem !important;
+}
+
+.rounded-bs-0 {
+    border-bottom-left-radius: 0.3rem !important;
+}
+
+.rounded-be-0 {
+    border-bottom-right-radius: 0.3rem !important;
+}
+
 .bg-amazing {
     background: radial-gradient(50% 123.47% at 50% 50%, #212529 0%, #f5c344 100%),
         linear-gradient(121.28deg, #306cf4 0%, #5cc8eb 100%),
@@ -24,16 +44,17 @@ h4 {
     background-repeat: no-repeat;
 }
 
+.bg-line {
+    background: linear-gradient(0deg, transparent calc(60% - 1px), #999 calc(60% - 1px), #999 calc(60% + 1px), transparent calc(60% + 1px));
+
+}
+
 .bg-opacity {
     background: rgba(255, 255, 255, 0.5);
 }
 
 img {
     filter: opacity(#306cf4)
-}
-
-body>div:first-child {
-    border-radius: 40px;
 }
 
 header img {
@@ -91,10 +112,6 @@ header input[type="search"]:focus {
     width: 260px;
 }
 
-#slider {
-    border-radius: 50px;
-}
-
 #slider .carousel-indicators [data-bs-target] {
     width: 15px;
     height: 15px;
@@ -108,10 +125,14 @@ header input[type="search"]:focus {
     width: 40%;
 }
 
-#slider #linguetta > svg {
+#slider #linguetta>svg {
     position: absolute;
     top: calc(3rem + 240.8px);
     left: 15%;
+}
+
+#summer .card-img-overlay {
+    left: auto;
 }
 
 #saldi .card-body,
@@ -119,8 +140,9 @@ header input[type="search"]:focus {
     height: 250px;
 }
 
-@media (min-width: 992px) and (max-width: 1199px) {
-    #saldi-product div:nth-child(4) {
-        display: none;
+@media (max-width: 576px) {
+    #saldi .card-body,
+    #summer .card-body {
+        height: 300px;
     }
 }
