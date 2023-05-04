@@ -15,7 +15,7 @@ header input::placeholder {
 
 header input[type="search"] {
     width: 200px;
-    transition: width 1s ease;
+    transition: all 1s ease;
 }
 
 header input[type="search"]:focus {
