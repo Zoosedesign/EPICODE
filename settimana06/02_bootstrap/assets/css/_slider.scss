@@ -1,0 +1,18 @@
+#slider .carousel-indicators [data-bs-target] {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+#slider .carousel-caption {
+    top: 3rem;
+    left: 3rem;
+    bottom: auto;
+    width: 40%;
+}
+
+#slider #linguetta>svg {
+    position: absolute;
+    top: calc(3rem + 240.8px);
+    left: 15%;
+}

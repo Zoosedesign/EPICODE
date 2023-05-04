@@ -1,6 +1,12 @@
 /* https://codepen.io/TurkAysenur/pen/LYRKpWe */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
+// elementi stile pagina parziali
+@import 'header';
+@import 'slider';
+
+// ------------------------------
+
 * {
     font-family: 'Montserrat', sans-serif;
     letter-spacing: 0.5px;
@@ -86,48 +92,6 @@ header .nav-item.bg-primary,
     100% {
         box-shadow: 5px 5px #f5c344, -5px -5px #5cc8eb;
     }
-}
-
-header {
-    z-index: 1;
-}
-
-header .dropdown-menu {
-    margin-top: 22px !important;
-    transition: all 2s;
-    z-index: 0 !important;
-}
-
-header input::placeholder {
-    color: #999 !important;
-}
-
-header input[type="search"] {
-    width: 200px;
-    transition: width 1s ease;
-}
-
-header input[type="search"]:focus {
-    width: 260px;
-}
-
-#slider .carousel-indicators [data-bs-target] {
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-}
-
-#slider .carousel-caption {
-    top: 3rem;
-    left: 3rem;
-    bottom: auto;
-    width: 40%;
-}
-
-#slider #linguetta>svg {
-    position: absolute;
-    top: calc(3rem + 240.8px);
-    left: 15%;
 }
 
 #summer .card-img-overlay {
