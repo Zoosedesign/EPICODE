@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+//colori
+$lime: rgba(26,203,152,1);
+$purple: rgba(117,80,254);
+$orange: rgba(194,129,53,1);
+$orange-light: rgba(255,238,218,1);
+
+.bg-lime {
+    background: $lime;
+}
+
+.bg-purple {
+    background: $purple;
+}
+
+.bg-orange {
+    background: $orange;
+}
+
+.bg-orangeLight {
+    background: $orange-light;
+}
+
+// stili generali
+button {
+    font-size: 12px !important;
+}
+
+ul {
+    list-style: none;
+}
+
+// cambio icona dropdown
+header .dropdown-toggle::after {
+    border: 0;
+    content: "v";
+    transform: scale(1.5, 0.5)translate(5px, 30%);
+}
+
+header #user img,
+header #notification {
+    height: 38px;
+}
+
+header #user ul span {
+    top: 40px;
+    left: 45px;
+}
+
+header .navbar-toggler {
+    transform: scale(0.8, 0.8);
+}
