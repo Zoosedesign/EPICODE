@@ -24,28 +24,39 @@
 </head>
 
 <body>
-    <header class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid px-3">
-            
-            <!-- logo -->
-            <h1>
-                <a href="index.html"><img src="assets/img/logo.svg" alt="school logo"></a>
-            </h1>
-            
-            <!-- menu hamburger -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    <header class="navbar navbar-expand-md bg-body-tertiary px-4">
+        <!-- logo -->
+        <h1>
+            <a href="index.html"><img src="assets/img/logo.svg" alt="school logo"></a>
+        </h1>
 
-            <!-- menu classico -->
-            <nav class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    
-                </ul>
-            </nav>
-        </div>
+        <!-- notifiche -->
+        <button type="button"
+            class="btn bg-body-secondary position-relative rounded-circle ms-auto me-2 order-md-3">
+            A
+            <span class="position-absolute top-0 p-1 mt-1 ms-1 bg-danger rounded-circle">
+            </span>
+        </button>
+
+        <!-- foto utente -->
+        <button id="utente" type="button" class="btn order-md-4 p-0 me-2 me-md-0">
+            <img class="rounded-circle" src="assets/img/avatar-1.jpg" alt="foto utente">
+            <span class="position-absolute bottom-0 p-1 mb-4 bg-success rounded-circle border-5 border-dark"></span>     
+        </button>
+
+        <!-- menu hamburger -->
+        <button class="navbar-toggler border-2" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- menu classico -->
+        <nav class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <!-- li popolati in js -->
+            </ul>
+        </nav>
     </header>
 
     <main>

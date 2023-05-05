@@ -66,10 +66,10 @@ const nav = [
 const ul = document.querySelector('ul');
 
 for (let i = 0; i < nav.length; i++) {
-    ul.innerHTML += `<li class="nav-item dropdown ms-2">
+    ul.innerHTML += `<li class="nav-item dropdown ps-3">
     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
         aria-expanded="false">${nav[i].title}</a>
-    <ul class="dropdown-menu">
+    <ul class="dropdown-menu border-0">
         <li><a class="dropdown-item" href="${nav[i].link1.url}">${nav[i].link1.item}</a></li>
         <li><a class="dropdown-item" href="${nav[i].link2.url}">${nav[i].link2.item}</a></li>
         <li>
