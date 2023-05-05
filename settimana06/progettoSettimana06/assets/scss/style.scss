@@ -6,12 +6,17 @@
 
 //colori
 $lime: rgba(26,203,152,1);
+$lime-dark: rgba(20, 173, 122,1);
 $purple: rgba(117,80,254);
 $orange: rgba(194,129,53,1);
 $orange-light: rgba(255,238,218,1);
 
 .bg-lime {
     background: $lime;
+}
+
+.bg-lime:hover {
+    background: $lime-dark !important;
 }
 
 .bg-purple {
@@ -34,12 +39,15 @@ button {
 ul {
     list-style: none;
 }
-
 // cambio icona dropdown
 header .dropdown-toggle::after {
     border: 0;
     content: "v";
     transform: scale(1.5, 0.5)translate(5px, 30%);
+}
+
+header .nav-link:hover {
+    color: $purple;
 }
 
 header #user img,
