@@ -139,7 +139,7 @@ for (let i = 4; i < homepage.length; i++) {
 aside.lastElementChild.classList.add('d-md-none', 'd-xl-flex');
 
 //////////////////////////////////////////////////////////
-//popolamento dropdown CARD
+//popolamento prima sezione lezioni
 const card = [
     {
         img1: {
@@ -231,13 +231,13 @@ const card = [
     },
 ];
 
-const cardbox = document.getElementById('cardbox');
+const cardbox1 = document.getElementById('cardbox1');
 
 for (let i = 0; i < card.length; i++) {
     // elimino le ultime due card a risoluzioni basse
     let classes = i >= card.length - 2 ? "d-none d-lg-block" : "";
     // creo le card
-    cardbox.innerHTML += `<div class="col-6 col-lg-3 px-3 ${classes}">
+    cardbox1.innerHTML += `<div class="col-6 col-lg-3 px-3 ${classes}">
     <article class="card">
         <img src="${card[i].img1.src}" class="card-img-top" alt="${card[i].img1.alt}">
         <div class="card-body pb-0">
@@ -268,6 +268,281 @@ for (let i = 0; i < card.length; i++) {
             <img class="rounded-circle" src="${card[i].img2.src}" style="width: 30px;"
                 alt="${card[i].img2.alt}">
             <small class="text-secondary ps-3">${card[i].cite}</small>
+            <svg width="16" height="16" fill="currentColor" class="ms-auto" viewBox="0 0 16 16">
+            ${bookmark}
+            </svg>
+        </div>
+    </article>
+</div>`
+}
+
+//////////////////////////////////////////////////////////
+//popolamento seconda sezione lezioni
+const card2 = [
+    {
+        img1: {
+            src: 'assets/img/course-html.jpg',
+            alt: 'corso HTML'
+        },
+        text: 'HTML Full Course - Build a Website Tutorial',
+        time: '3h 16m',
+        level: {
+            txt: 'Beginner',
+            svg: beginner,
+        },
+        star: `${star} ${star} ${star} ${emptyStar} ${emptyStar}`,
+        rating: '3,0',
+        review: '(1,600)',
+        price: '$550 ',
+        sale: '$700',
+        img2: {
+            src: 'assets/img/avatar-4.jpg',
+            alt: 'user author'
+        },
+        cite: 'Miston Wilson',
+    },
+    {
+        img1: {
+            src: 'assets/img/course-javascript.jpg',
+            alt: 'corso Javascript'
+        },
+        text: 'A complete beginner\'s Guide to Javascript',
+        time: '4h 10m',
+        level: {
+            txt: 'Advance',
+            svg: advance,
+        },
+        star: `${star} ${star} ${star} ${halfStar} ${emptyStar}`,
+        rating: '3,5',
+        review: '(7,500)',
+        price: '$700 ',
+        sale: '$850',
+        img2: {
+            src: 'assets/img/avatar-1.jpg',
+            alt: 'user author'
+        },
+        cite: 'Jenny Wilson',
+    },
+    {
+        img1: {
+            src: 'assets/img/course-node.jpg',
+            alt: 'corso Node'
+        },
+        text: 'Beginning Node.js, Express & MongoDB Development',
+        time: '2h 00m',
+        level: {
+            txt: 'Intermediate',
+            svg: intermediate,
+        },
+        star: `${star} ${star} ${star} ${star} ${emptyStar}`,
+        rating: '4,0',
+        review: '(15,700)',
+        price: '$800 ',
+        sale: '$950',
+        img2: {
+            src: 'assets/img/avatar-3.jpg',
+            alt: 'user author'
+        },
+        cite: 'Sina Ray',
+    },
+    {
+        img1: {
+            src: 'assets/img/course-react.jpg',
+            alt: 'corso React'
+        },
+        text: 'How to easily create a website with React',
+        time: '3h 55m',
+        level: {
+            txt: 'Advanced',
+            svg: advance,
+        },
+        star: `${star} ${star} ${star} ${star} ${halfStar}`,
+        rating: '4,5',
+        review: '(1,500)',
+        price: '$600 ',
+        sale: '$750',
+        img2: {
+            src: 'assets/img/avatar-2.jpg',
+            alt: 'user author'
+        },
+        cite: 'April Noms',
+    },
+];
+
+const cardbox2 = document.getElementById('cardbox2');
+
+for (let i = 0; i < card2.length; i++) {
+    // elimino le ultime due card a risoluzioni basse
+    let classes = i >= card2.length - 2 ? "d-none d-lg-block" : "";
+    // creo le card
+    cardbox2.innerHTML += `<div class="col-6 col-lg-3 px-3 ${classes}">
+    <article class="card">
+        <img src="${card2[i].img1.src}" class="card-img-top" alt="${card2[i].img1.alt}">
+        <div class="card-body pb-0">
+            <p class="card-text fw-bold">${card2[i].text}</p>
+        </div>
+        <ul class="list-group list-group-flush border-0">
+            <li class="list-group-item border-0 text-secondary fw-light d-flex flex-row align-items-center">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                ${clock}
+                </svg>
+                <p class="px-2 m-0">${card2[i].time}</p>
+                <svg width="16" height="16" fill="rgba(117,80,254)" viewBox="0 0 16 16">
+                ${card2[i].level.svg}
+                </svg>
+                <p class="px-2 m-0">${card2[i].level.txt}</p>
+            </li>
+            <li class="list-group-item border-0 text-secondary fw-light d-flex flex-row align-items-center">
+                <div class="pb-1">${card2[i].star}</div>
+                <p class="ps-2 m-0" style="color:#ffaa46;">${card2[i].rating}</p>
+                <p class="px-2 m-0">${card2[i].review}</p>
+            </li>
+            <li class="list-group-item mb-4">
+                <b>${card2[i].price} </b>
+                <del class="text-secondary fw-light">${card2[i].sale}</del>
+            </li>
+        </ul>
+        <div class="card-body border-top d-flex align-items-center">
+            <img class="rounded-circle" src="${card2[i].img2.src}" style="width: 30px;"
+                alt="${card2[i].img2.alt}">
+            <small class="text-secondary ps-3">${card2[i].cite}</small>
+            <svg width="16" height="16" fill="currentColor" class="ms-auto" viewBox="0 0 16 16">
+            ${bookmark}
+            </svg>
+        </div>
+    </article>
+</div>`
+}
+//////////////////////////////////////////////////////////
+//popolamento terza sezione lezioni
+const card3 = [
+    {
+        img1: {
+            src: 'assets/img/course-gatsby.jpg',
+            alt: 'corso Gatsby'
+        },
+        text: 'Revolutionize how you build the web',
+        time: '1h 46m',
+        level: {
+            txt: 'Intermediate',
+            svg: intermediate,
+        },
+        star: `${star} ${star} ${emptyStar} ${emptyStar} ${emptyStar}`,
+        rating: '2,0',
+        review: '(16,500)',
+        price: '$800 ',
+        sale: '$850',
+        img2: {
+            src: 'assets/img/avatar-3.jpg',
+            alt: 'user author'
+        },
+        cite: 'Jenny Wilson',
+    },
+    {
+        img1: {
+            src: 'assets/img/course-html.jpg',
+            alt: 'corso HTML'
+        },
+        text: 'HTML Full Course - Build a Website Tutorial',
+        time: '3h 16m',
+        level: {
+            txt: 'Beginner',
+            svg: beginner,
+        },
+        star: `${star} ${star} ${star} ${emptyStar} ${emptyStar}`,
+        rating: '3,0',
+        review: '(1,600)',
+        price: '$550 ',
+        sale: '$700',
+        img2: {
+            src: 'assets/img/avatar-4.jpg',
+            alt: 'user author'
+        },
+        cite: 'Miston Wilson',
+    },
+    {
+        img1: {
+            src: 'assets/img/course-node.jpg',
+            alt: 'corso Node'
+        },
+        text: 'Beginning Node.js, Express & MongoDB Development',
+        time: '2h 00m',
+        level: {
+            txt: 'Intermediate',
+            svg: intermediate,
+        },
+        star: `${star} ${star} ${star} ${star} ${emptyStar}`,
+        rating: '4,0',
+        review: '(15,700)',
+        price: '$800 ',
+        sale: '$950',
+        img2: {
+            src: 'assets/img/avatar-3.jpg',
+            alt: 'user author'
+        },
+        cite: 'Sina Ray',
+    },
+    {
+        img1: {
+            src: 'assets/img/course-laravel.jpg',
+            alt: 'corso Laravel'
+        },
+        text: 'Laravel: The Ultimate Beginner\'s Guide to Learn',
+        time: '1h 00m',
+        level: {
+            txt: 'Beginner',
+            svg: beginner,
+        },
+        star: `${star} ${star} ${star} ${star} ${halfStar}`,
+        rating: '4,5',
+        review: '(2,500)',
+        price: '$170 ',
+        sale: '$220',
+        img2: {
+            src: 'assets/img/avatar-7.jpg',
+            alt: 'user author'
+        },
+        cite: 'Sobo Rikhan',
+    },
+];
+
+const cardbox3 = document.getElementById('cardbox3');
+
+for (let i = 0; i < card3.length; i++) {
+    // elimino le ultime due card a risoluzioni basse
+    let classes = i >= card3.length - 2 ? "d-none d-lg-block" : "";
+    // creo le card
+    cardbox3.innerHTML += `<div class="col-6 col-lg-3 px-3 ${classes}">
+    <article class="card">
+        <img src="${card3[i].img1.src}" class="card-img-top" alt="${card3[i].img1.alt}">
+        <div class="card-body pb-0">
+            <p class="card-text fw-bold">${card3[i].text}</p>
+        </div>
+        <ul class="list-group list-group-flush border-0">
+            <li class="list-group-item border-0 text-secondary fw-light d-flex flex-row align-items-center">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                ${clock}
+                </svg>
+                <p class="px-2 m-0">${card3[i].time}</p>
+                <svg width="16" height="16" fill="rgba(117,80,254)" viewBox="0 0 16 16">
+                ${card3[i].level.svg}
+                </svg>
+                <p class="px-2 m-0">${card3[i].level.txt}</p>
+            </li>
+            <li class="list-group-item border-0 text-secondary fw-light d-flex flex-row align-items-center">
+                <div class="pb-1">${card3[i].star}</div>
+                <p class="ps-2 m-0" style="color:#ffaa46;">${card3[i].rating}</p>
+                <p class="px-2 m-0">${card3[i].review}</p>
+            </li>
+            <li class="list-group-item mb-4">
+                <b>${card3[i].price} </b>
+                <del class="text-secondary fw-light">${card3[i].sale}</del>
+            </li>
+        </ul>
+        <div class="card-body border-top d-flex align-items-center">
+            <img class="rounded-circle" src="${card3[i].img2.src}" style="width: 30px;"
+                alt="${card3[i].img2.alt}">
+            <small class="text-secondary ps-3">${card3[i].cite}</small>
             <svg width="16" height="16" fill="currentColor" class="ms-auto" viewBox="0 0 16 16">
             ${bookmark}
             </svg>
