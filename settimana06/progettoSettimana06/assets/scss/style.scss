@@ -63,3 +63,15 @@ header #user ul span {
 header .navbar-toggler {
     transform: scale(0.8, 0.8);
 }
+
+//freccie card
+.prev,
+.next {
+    margin-top: 200px !important;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    transform: scale(0.5,0.5);
+    filter: invert(1);
+}

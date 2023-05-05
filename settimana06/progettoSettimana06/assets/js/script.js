@@ -7,7 +7,11 @@ let people = '<path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8Zm-7.978-1A.261.2
 
 let bookmark = '<path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" />';
 
-let chart = '<path d="M1 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3zm5-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2z"/>';
+let beginner = '<path d="M9,7H7v7h2V7z M14,2v12h-2V2H14z M12,1c-0.6,0-1,0.4-1,1v12c0,0.6,0.4,1,1,1h2c0.6,0,1-0.4,1-1V2c0-0.6-0.4-1-1-1H12z M6,7c0-0.6,0.4-1,1-1h2c0.6,0,1,0.4,1,1v7c0,0.6-0.4,1-1,1H7c-0.6,0-1-0.4-1-1V7z M1,11c0-0.6,0.4-1,1-1h2c0.6,0,1,0.4,1,1v3c0,0.6-0.4,1-1,1H2c-0.6,0-1-0.4-1-1V11z"/>';
+
+let intermediate = '<path d="M14,2v12h-2V2H14z M12,1c-0.6,0-1,0.4-1,1v12c0,0.6,0.4,1,1,1h2c0.6,0,1-0.4,1-1V2c0-0.6-0.4-1-1-1H12z M6,7c0-0.6,0.4-1,1-1h2c0.6,0,1,0.4,1,1v7c0,0.6-0.4,1-1,1H7c-0.6,0-1-0.4-1-1V7z M1,11c0-0.6,0.4-1,1-1h2c0.6,0,1,0.4,1,1v3c0,0.6-0.4,1-1,1H2c-0.6,0-1-0.4-1-1V11z"/>';
+
+let advance = '<path d="M1 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3zm5-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2z"/>';
 
 let star = '<svg width="16" height="16" fill="#ffaa46" viewBox="0 0 16 16"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/></svg>';
 
@@ -144,7 +148,10 @@ const card = [
         },
         text: 'GraphQL: introduction to graphQL for beginners',
         time: '2h 40m',
-        level: 'Advance',
+        level: {
+            txt: 'Advance',
+            svg: advance,
+        },
         star: `${star} ${star} ${halfStar} ${emptyStar} ${emptyStar}`,
         rating: '2,5',
         review: '(1,500)',
@@ -163,7 +170,10 @@ const card = [
         },
         text: 'A complete beginner\'s Guide to Javascript',
         time: '4h 10m',
-        level: 'Advance',
+        level: {
+            txt: 'Advance',
+            svg: advance,
+        },
         star: `${star} ${star} ${star} ${halfStar} ${emptyStar}`,
         rating: '3,5',
         review: '(7,500)',
@@ -182,7 +192,10 @@ const card = [
         },
         text: 'Beginning Node.js, Express & MongoDB Development',
         time: '2h 00m',
-        level: 'Intermediate',
+        level: {
+            txt: 'Intermediate',
+            svg: intermediate,
+        },
         star: `${star} ${star} ${star} ${star} ${emptyStar}`,
         rating: '4,0',
         review: '(15,700)',
@@ -201,7 +214,10 @@ const card = [
         },
         text: 'Laravel: The Ultimate Beginner\'s Guide to Learn',
         time: '1h 00m',
-        level: 'Beginner',
+        level: {
+            txt: 'Beginner',
+            svg: beginner,
+        },
         star: `${star} ${star} ${star} ${star} ${halfStar}`,
         rating: '4,5',
         review: '(2,500)',
@@ -218,7 +234,10 @@ const card = [
 const cardbox = document.getElementById('cardbox');
 
 for (let i = 0; i < card.length; i++) {
-    cardbox.innerHTML += `<div class="col-3 px-3">
+    // elimino le ultime due card a risoluzioni basse
+    let classes = i >= card.length - 2 ? "d-none d-lg-block" : "";
+    // creo le card
+    cardbox.innerHTML += `<div class="col-6 col-lg-3 px-3 ${classes}">
     <article class="card">
         <img src="${card[i].img1.src}" class="card-img-top" alt="${card[i].img1.alt}">
         <div class="card-body pb-0">
@@ -231,9 +250,9 @@ for (let i = 0; i < card.length; i++) {
                 </svg>
                 <p class="px-2 m-0">${card[i].time}</p>
                 <svg width="16" height="16" fill="rgba(117,80,254)" viewBox="0 0 16 16">
-                ${chart}
+                ${card[i].level.svg}
                 </svg>
-                <p class="px-2 m-0">${card[i].level}</p>
+                <p class="px-2 m-0">${card[i].level.txt}</p>
             </li>
             <li class="list-group-item border-0 text-secondary fw-light d-flex flex-row align-items-center">
                 <div class="pb-1">${card[i].star}</div>
