@@ -215,10 +215,10 @@ const card = [
     },
 ];
 
-const recommended1 = document.getElementById('cardbox');
+const cardbox = document.getElementById('cardbox');
 
 for (let i = 0; i < card.length; i++) {
-    recommended1.innerHTML += `<div class="col-3 px-3">
+    cardbox.innerHTML += `<div class="col-3 px-3">
     <article class="card">
         <img src="${card[i].img1.src}" class="card-img-top" alt="${card[i].img1.alt}">
         <div class="card-body pb-0">
