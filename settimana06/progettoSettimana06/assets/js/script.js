@@ -298,142 +298,60 @@ const card = [
 ];
 
 const cardbox1 = document.getElementById('cardbox1');
-
-for (let i = 2; i < 6; i++) {
-    // elimino le ultime due card a risoluzioni basse
-    let classes = i >= card.length - 3 ? "d-none d-lg-block" : "";
-    // creo le card
-    cardbox1.innerHTML += `<div class="col-6 col-lg-3 px-3 ${classes}">
-    <article class="card">
-        <img src="${card[i].img1.src}" class="card-img-top" alt="${card[i].img1.alt}">
-        <div class="card-body pb-0">
-            <p class="card-text fw-bold">${card[i].text}</p>
-        </div>
-        <ul class="list-group list-group-flush border-0">
-            <li class="list-group-item border-0 text-secondary fw-light d-flex flex-row align-items-center">
-                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                ${clock}
-                </svg>
-                <p class="px-2 m-0">${card[i].time}</p>
-                <svg width="16" height="16" fill="rgba(117,80,254)" viewBox="0 0 16 16">
-                ${card[i].level.svg}
-                </svg>
-                <p class="px-2 m-0">${card[i].level.txt}</p>
-            </li>
-            <li class="list-group-item border-0 text-secondary fw-light d-flex flex-row align-items-center">
-                <div class="pb-1">${card[i].star}</div>
-                <p class="ps-2 m-0" style="color:#ffaa46;">${card[i].rating}</p>
-                <p class="px-2 m-0">${card[i].review}</p>
-            </li>
-            <li class="list-group-item mb-4">
-                <b>${card[i].price} </b>
-                <del class="text-secondary fw-light">${card[i].sale}</del>
-            </li>
-        </ul>
-        <div class="card-body border-top d-flex align-items-center">
-            <img class="rounded-circle" src="${card[i].img2.src}" style="width: 30px;"
-                alt="${card[i].img2.alt}">
-            <small class="text-secondary ps-3">${card[i].cite}</small>
-            <svg width="16" height="16" fill="currentColor" class="ms-auto" viewBox="0 0 16 16">
-            ${bookmark}
-            </svg>
-        </div>
-    </article>
-</div>`
-}
-
-//////////////////////////////////////////////////////////
-//popolamento seconda sezione lezioni
 const cardbox2 = document.getElementById('cardbox2');
-
-for (let i = 1; i < card.length; i++) {
-    // elimino le ultime due card a risoluzioni basse
-    let classes = i >= card.length - 3 ? "d-none d-lg-block" : "";
-    // creo le card
-    if (i === 1 || i === 3 || i === 4 || i === 6) {
-    cardbox2.innerHTML += `<div class="col-6 col-lg-3 px-3 ${classes}">
-    <article class="card">
-        <img src="${card[i].img1.src}" class="card-img-top" alt="${card[i].img1.alt}">
-        <div class="card-body pb-0">
-            <p class="card-text fw-bold">${card[i].text}</p>
-        </div>
-        <ul class="list-group list-group-flush border-0">
-            <li class="list-group-item border-0 text-secondary fw-light d-flex flex-row align-items-center">
-                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                ${clock}
-                </svg>
-                <p class="px-2 m-0">${card[i].time}</p>
-                <svg width="16" height="16" fill="rgba(117,80,254)" viewBox="0 0 16 16">
-                ${card[i].level.svg}
-                </svg>
-                <p class="px-2 m-0">${card[i].level.txt}</p>
-            </li>
-            <li class="list-group-item border-0 text-secondary fw-light d-flex flex-row align-items-center">
-                <div class="pb-1">${card[i].star}</div>
-                <p class="ps-2 m-0" style="color:#ffaa46;">${card[i].rating}</p>
-                <p class="px-2 m-0">${card[i].review}</p>
-            </li>
-            <li class="list-group-item mb-4">
-                <b>${card[i].price} </b>
-                <del class="text-secondary fw-light">${card[i].sale}</del>
-            </li>
-        </ul>
-        <div class="card-body border-top d-flex align-items-center">
-            <img class="rounded-circle" src="${card[i].img2.src}" style="width: 30px;"
-                alt="${card[i].img2.alt}">
-            <small class="text-secondary ps-3">${card[i].cite}</small>
-            <svg width="16" height="16" fill="currentColor" class="ms-auto" viewBox="0 0 16 16">
-            ${bookmark}
-            </svg>
-        </div>
-    </article>
-</div>`}
-}
-
-//////////////////////////////////////////////////////////
-//popolamento terza sezione lezioni
 const cardbox3 = document.getElementById('cardbox3');
 
-for (let i = 0; i < card.length; i++) {
+for (let i = 0; i < card.length; i++) {   
     // elimino le ultime due card a risoluzioni basse
     let classes = i >= card.length - 3 ? "d-none d-lg-block" : "";
-    // creo le card
+    // assegno lo "scheletro" della card
+    let structure = `<div class="col-6 col-lg-3 px-3 ${classes}">
+        <article class="card">
+            <img src="${card[i].img1.src}" class="card-img-top" alt="${card[i].img1.alt}">
+            <div class="card-body pb-0">
+                <p class="card-text fw-bold">${card[i].text}</p>
+            </div>
+            <ul class="list-group list-group-flush border-0">
+                <li class="list-group-item border-0 text-secondary fw-light d-flex flex-row align-items-center">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    ${clock}
+                    </svg>
+                    <p class="px-2 m-0">${card[i].time}</p>
+                    <svg width="16" height="16" fill="rgba(117,80,254)" viewBox="0 0 16 16">
+                    ${card[i].level.svg}
+                    </svg>
+                    <p class="px-2 m-0">${card[i].level.txt}</p>
+                </li>
+                <li class="list-group-item border-0 text-secondary fw-light d-flex flex-row align-items-center">
+                    <div class="pb-1">${card[i].star}</div>
+                    <p class="ps-2 m-0" style="color:#ffaa46;">${card[i].rating}</p>
+                    <p class="px-2 m-0">${card[i].review}</p>
+                </li>
+                <li class="list-group-item mb-4">
+                    <b>${card[i].price} </b>
+                    <del class="text-secondary fw-light">${card[i].sale}</del>
+                </li>
+            </ul>
+            <div class="card-body border-top d-flex align-items-center">
+                <img class="rounded-circle" src="${card[i].img2.src}" style="width: 30px;"
+                    alt="${card[i].img2.alt}">
+                <small class="text-secondary ps-3">${card[i].cite}</small>
+                <svg width="16" height="16" fill="currentColor" class="ms-auto" viewBox="0 0 16 16">
+                ${bookmark}
+                </svg>
+            </div>
+        </article>
+    </div>`;
+    // creo le card in base a cosa ci serve
+    if (i >= 2 && i <= 5) {
+        //popolamento prima sezione lezioni
+        cardbox1.innerHTML += structure;} 
+    
+    if (i === 1 || i === 3 || i === 4 || i === 6) {
+        //popolamento seconda sezione lezioni
+        cardbox2.innerHTML += structure;} 
+    
     if (i === 0 || i === 1 || i === 4 || i === 5) {
-    cardbox3.innerHTML += `<div class="col-6 col-lg-3 px-3 ${classes}">
-    <article class="card">
-        <img src="${card[i].img1.src}" class="card-img-top" alt="${card[i].img1.alt}">
-        <div class="card-body pb-0">
-            <p class="card-text fw-bold">${card[i].text}</p>
-        </div>
-        <ul class="list-group list-group-flush border-0">
-            <li class="list-group-item border-0 text-secondary fw-light d-flex flex-row align-items-center">
-                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                ${clock}
-                </svg>
-                <p class="px-2 m-0">${card[i].time}</p>
-                <svg width="16" height="16" fill="rgba(117,80,254)" viewBox="0 0 16 16">
-                ${card[i].level.svg}
-                </svg>
-                <p class="px-2 m-0">${card[i].level.txt}</p>
-            </li>
-            <li class="list-group-item border-0 text-secondary fw-light d-flex flex-row align-items-center">
-                <div class="pb-1">${card[i].star}</div>
-                <p class="ps-2 m-0" style="color:#ffaa46;">${card[i].rating}</p>
-                <p class="px-2 m-0">${card[i].review}</p>
-            </li>
-            <li class="list-group-item mb-4">
-                <b>${card[i].price} </b>
-                <del class="text-secondary fw-light">${card[i].sale}</del>
-            </li>
-        </ul>
-        <div class="card-body border-top d-flex align-items-center">
-            <img class="rounded-circle" src="${card[i].img2.src}" style="width: 30px;"
-                alt="${card[i].img2.alt}">
-            <small class="text-secondary ps-3">${card[i].cite}</small>
-            <svg width="16" height="16" fill="currentColor" class="ms-auto" viewBox="0 0 16 16">
-            ${bookmark}
-            </svg>
-        </div>
-    </article>
-</div>`}
+        //popolamento terza sezione lezioni
+        cardbox3.innerHTML += structure;}   
 }
