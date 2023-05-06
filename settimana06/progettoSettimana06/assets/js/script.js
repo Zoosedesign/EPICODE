@@ -316,16 +316,16 @@ for (let i = 0; i < card.length; i++) {
                     <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                     ${clock}
                     </svg>
-                    <p class="px-2 m-0">${card[i].time}</p>
+                    <small class="px-2">${card[i].time}</small>
                     <svg width="16" height="16" fill="rgba(117,80,254)" viewBox="0 0 16 16">
                     ${card[i].level.svg}
                     </svg>
-                    <p class="px-2 m-0">${card[i].level.txt}</p>
+                    <small class="px-2">${card[i].level.txt}</small>
                 </li>
                 <li class="list-group-item border-0 text-secondary fw-light d-flex flex-row align-items-center">
                     <div class="pb-1">${card[i].star}</div>
                     <p class="ps-2 m-0" style="color:#ffaa46;">${card[i].rating}</p>
-                    <p class="px-2 m-0">${card[i].review}</p>
+                    <small class="px-2">${card[i].review}</small>
                 </li>
                 <li class="list-group-item mb-4">
                     <b>${card[i].price} </b>
