@@ -302,10 +302,12 @@ const cardbox2 = document.getElementById('cardbox2');
 const cardbox3 = document.getElementById('cardbox3');
 
 for (let i = 0; i < card.length; i++) {   
-    // elimino le ultime due card a risoluzioni basse
-    let classes = i >= card.length - 3 ? "d-none d-lg-block" : "";
+    // elimino la penultima card fino a dimensione "lg"
+    let classThird = i == card.length - 3 ? "d-none d-lg-block" : "";
+    // elimino la ultima card fino a dimensione "md"
+    let classFourth = i == card.length - 2 ? "d-none d-md-block" : "";
     // assegno lo "scheletro" della card
-    let structure = `<div class="col-6 col-lg-3 px-3 ${classes}">
+    let structure = `<div class="col-6 col-md-4 col-lg-3 px-3 ${classThird} ${classFourth}">
         <article class="card">
             <img src="${card[i].img1.src}" class="card-img-top" alt="${card[i].img1.alt}">
             <div class="card-body pb-0">
