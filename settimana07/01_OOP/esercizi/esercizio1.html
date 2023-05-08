@@ -13,10 +13,6 @@ firstName, lastName, age, location
 
 Aggiungere un metodo che dichiara se è più grande o piccolo di un'altra persona -->
 
-<style>
-
-</style>
-
 <body>
     <h1>Esercizio1</h1>
 
@@ -24,20 +20,20 @@ Aggiungere un metodo che dichiara se è più grande o piccolo di un'altra person
         <label for="firstName">Nome:</label><br>
         <input type="text" id="firstName" required>
         <br>
-        <label for="lastName">Descrizione:</label><br>
+        <label for="lastName">Cognome:</label><br>
         <input type="text" id="lastName">
         <br>
-        <label for="age">Prezzo:</label><br>
+        <label for="age">età:</label><br>
         <input type="number" id="age" step="0" required>
         <br>
-        <label for="location">Descrizione:</label><br>
+        <label for="location">Città:</label><br>
         <input type="text" id="location">
         <br>
 
         <button type="submit">Crea identità</button>
     </form>
 
-    <h2>Prodotti nel Catalogo</h2>
+    <h2>Identity Card</h2>
     <div id="PersonList"></div>
 
     <script>
@@ -63,7 +59,8 @@ Aggiungere un metodo che dichiara se è più grande o piccolo di un'altra person
         // 2. Creazione dell'oggetto che conterrà le identità create
         class PersonCatalogue {
             constructor() {
-                this.identities = [];
+                this.identities = []; 
+                //arrai vuoto che conterrà i dati delle diverse persone
             }
 
             // 3. Metodo per aggiungere una persona a "PersonCatalogue"
@@ -93,9 +90,13 @@ Aggiungere un metodo che dichiara se è più grande o piccolo di un'altra person
             //la aggiungo all'elenco persone create in precedenza
             catalogo.addPerson(person);
             updatePersonList();
+
+            //per cancellare i campi
+            event.target.reset();
         });
 
         function updatePersonList() {
+            //necessaria per svuotare l'array e non avere doppioni
             PersonList.innerHTML = '';
             //inserisce i dati inseriti dall'utente
             for (const person of catalogo.identities) {
