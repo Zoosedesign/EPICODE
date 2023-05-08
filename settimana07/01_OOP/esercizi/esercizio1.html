@@ -49,9 +49,9 @@ Aggiungere un metodo che dichiara se è più grande o piccolo di un'altra person
             //aggiungere un metodo per verificare se è maggiorenne
             majorityAge() {
                 if (this.age >= 18) {
-                    return `${this.firstName} ha ${this.age} anni, quindi è maggiorenne`;
+                    return `${this.firstName.value} ha ${this.age.value} anni, quindi è maggiorenne`;
                 } else {
-                    return `${this.firstName} ha ${this.age} anni, quindi è minorenne`;
+                    return `${this.firstName.value} ha ${this.age.value} anni, quindi è minorenne`;
                 }
             }
         }
@@ -80,10 +80,10 @@ Aggiungere un metodo che dichiara se è più grande o piccolo di un'altra person
             event.preventDefault(); //impedisce alla pagina di resettarsi al click del bottone
 
             //passo i valori
-            const firstName = document.getElementById('firstName').value;
-            const lastName = document.getElementById('lastName').value;
-            const age = document.getElementById('age').value;
-            const location = document.getElementById('location').value;
+            const firstName = document.getElementById('firstName');
+            const lastName = document.getElementById('lastName');
+            const age = document.getElementById('age');
+            const location = document.getElementById('location');
 
             //uso la classe person e la riempo coi dati inseriti
             const person = new Person(firstName, lastName, age, location);
@@ -101,10 +101,10 @@ Aggiungere un metodo che dichiara se è più grande o piccolo di un'altra person
             //inserisce i dati inseriti dall'utente
             for (const person of catalogo.identities) {
                 PersonList.innerHTML += `<div>
-                    ${person.firstName}<br>
-                    ${person.lastName}<br>
-                    ${person.age}<br>
-                    ${person.location}<br>
+                    ${person.firstName.value}<br>
+                    ${person.lastName.value}<br>
+                    ${person.age.value}<br>
+                    ${person.location.value}<br>
                     ${person.majorityAge()}
                     </div>`
             }

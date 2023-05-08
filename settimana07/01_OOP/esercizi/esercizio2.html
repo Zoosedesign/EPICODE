@@ -34,6 +34,16 @@ Crea più istanze. -->
     <div id="list"></div>
 
     <script>
+        // ---------- ELEMENTI DOM ----------
+        const list = document.getElementById('list');
+            const animalForm = document.getElementById('animalForm');
+            const btnAdd = document.getElementById('btnAdd');
+            const nome = document.getElementById('nome');
+            const padrone = document.getElementById('padrone');
+            const specie = document.getElementById('specie');
+            const razza = document.getElementById('razza');
+            const ownerAlert = document.getElementById('ownerAlert');
+
         // ---------- CLASS PET ----------
         class Pet {
             constructor(_petName, _ownerName, _species, _breed) {
@@ -57,16 +67,6 @@ Crea più istanze. -->
 
             // impedisce alla pagina di resettarsi al click del bottone
             event.preventDefault();
-
-            //elemnti dom
-            const list = document.getElementById('list');
-            const animalForm = document.getElementById('animalForm');
-            const btnAdd = document.getElementById('btnAdd');
-            const nome = document.getElementById('nome');
-            const padrone = document.getElementById('padrone');
-            const specie = document.getElementById('specie');
-            const razza = document.getElementById('razza');
-            const ownerAlert = document.getElementById('ownerAlert');
 
             // genera un nuovo oggetto PET e lo inserisce in fondo al nostro array di archiviazione
             animalList.push(new Pet(nome.value, padrone.value, specie.value, razza.value));
