@@ -1,0 +1,187 @@
+<!--
+    Per sviluppare questa traccia, seguiamo questi step:
+
+Creare la classe Prodotto con le proprietà richieste.
+Creare la classe Catalogo con un array di oggetti Prodotto.
+Implementare i metodi nella classe Catalogo per aggiungere, rimuovere e cercare prodotti.
+Creare l'interfaccia utente HTML.
+Collegare l'interfaccia utente agli oggetti JavaScript.
+1) Iniziamo con la creazione delle classi Prodotto e Catalogo
+2) Dopo aver creato le classi Prodotto e Catalogo, creiamo l'interfaccia utente HTML.
+3) Infine, colleghiamo l'interfaccia utente agli oggetti JavaScript. (// Collegamento dell'interfaccia utente agli oggetti JavaScript
+const aggiungiForm = document.getElementById('aggiungiForm');
+const listaProdotti = document.getElementById('listaProdotti)
+
+In sintesi, n questo script:
+
+1. Selezioniamo gli elementi HTML del form e della lista dei prodotti.
+2. Creiamo un'istanza della classe `Catalogo` per memorizzare i prodotti.
+3. Aggiungiamo un listener per l'evento `submit` del form, in modo da creare un nuovo oggetto `Prodotto` e aggiungerlo al catalogo quando l'utente invia il form. 
+Dopodiché, aggiorniamo la lista dei prodotti e resettiamo il form.
+4. Creiamo una funzione `aggiornaListaProdotti()` che aggiorna il contenuto della lista dei prodotti in base ai prodotti presenti nel catalogo. 
+In questa funzione, iteriamo sui prodotti nel catalogo, creiamo un elemento `div` per ciascun prodotto e popoliamo il contenuto del `div` con le informazioni sul prodotto. 
+Inoltre, aggiungiamo un pulsante "Rimuovi" per rimuovere il prodotto dal catalogo e aggiornare la lista dei prodotti.
+
+-->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestione Catalogo Prodotti</title>
+</head>
+<body>
+  <h1>Catalogo Prodotti</h1>
+
+  <h2>Aggiungi Prodotto</h2>
+  <form id="aggiungiForm">
+    <label for="id">ID:</label>
+    <input type="text" id="id" required>
+    <br>
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" required>
+    <br>
+    <label for="descrizione">Descrizione:</label>
+    <input type="text" id="descrizione">
+    <br>
+    <label for="prezzo">Prezzo:</label>
+    <input type="number" id="prezzo" step="0.01" required>
+    <br>
+    <label for="quantita">Quantità:</label>
+    <input type="number" id="quantita" required>
+    <br>
+    <button type="submit">Aggiungi</button>
+  </form>
+
+  <input type="text" id="inputRicerca" placeholder="Inserisci ID prodotto">
+  <button id="bottoneRicerca">Cerca Prodotto</button>
+
+  <h2>Prodotti nel Catalogo</h2>
+  <div id="listaProdotti"></div>
+
+  <script>
+    // 1. Creazione della classe Prodotto
+class Prodotto {
+  constructor(id, nome, descrizione, prezzo, quantita) {
+    this.id = id;
+    this.nome = nome;
+    this.descrizione = descrizione;
+    this.prezzo = prezzo;
+    this.quantita = quantita;
+  }
+}
+
+// 2. Creazione della classe Catalogo
+class Catalogo {
+  constructor() {
+    this.prodotti = [];
+  }
+
+  // 3a. Metodo per aggiungere un prodotto
+  aggiungiProdotto(prodotto) {
+    this.prodotti.push(prodotto);
+  }
+
+  // 3b. Metodo per rimuovere un prodotto
+  rimuoviProdotto(id) {
+    // this.prodotti = this.prodotti.filter(prodotto => prodotto.id !== id);  METODO 1
+    //METODO 2
+    const index = this.prodotti.findIndex(prodotto => prodotto.id === id);
+    
+    if (index !== -1) {
+      this.prodotti.splice(index, 1);
+    }
+  }
+
+  // 3c. Metodo per cercare un prodotto
+  cercaProdotto(id) {
+    // return this.prodotti.find(prodotto => prodotto.id === id); METODO 1
+    console.log("ID",id);
+    //METODO 2
+    for (const prodotto of this.prodotti) {
+        console.log("prod",prodotto);
+      if (prodotto.id === id) {
+        return prodotto;
+      }
+    }
+
+    return null;
+
+  }
+}
+
+
+// Aggiungi questo codice dopo aver definito le classi Catalogo e Prodotto
+
+const inputRicerca = document.getElementById('inputRicerca');
+const bottoneRicerca = document.getElementById('bottoneRicerca');
+
+bottoneRicerca.addEventListener('click', () => {
+  //const id = parseInt(inputRicerca.value);
+  const id = inputRicerca.value;
+  /*if (isNaN(id)) {
+    alert('Inserisci un ID valido.');
+    return;
+  }*/
+  
+  const prodottoTrovato = catalogo.cercaProdotto(id);
+
+  if (prodottoTrovato) {
+    alert(`Prodotto trovato:\nID: ${prodottoTrovato.id}\nNome: ${prodottoTrovato.nome}\nDescrizione: ${prodottoTrovato.descrizione}\nPrezzo: €${prodottoTrovato.prezzo.toFixed(2)}\nQuantità: ${prodottoTrovato.quantita}`);
+  } else {
+    alert('Nessun prodotto trovato con l\'ID specificato.');
+  }
+});
+
+
+
+
+// Collegamento dell'interfaccia utente agli oggetti JavaScript
+const aggiungiForm = document.getElementById('aggiungiForm');
+const listaProdotti = document.getElementById('listaProdotti');
+const catalogo = new Catalogo();
+
+aggiungiForm.addEventListener('submit', (event) => {
+event.preventDefault();
+
+const id = document.getElementById('id').value;
+const nome = document.getElementById('nome').value;
+const descrizione = document.getElementById('descrizione').value;
+const prezzo = parseFloat(document.getElementById('prezzo').value);
+const quantita = parseInt(document.getElementById('quantita').value);
+
+const prodotto = new Prodotto(id, nome, descrizione, prezzo, quantita);
+catalogo.aggiungiProdotto(prodotto);
+
+aggiornaListaProdotti();
+aggiungiForm.reset();
+});
+
+function aggiornaListaProdotti() {
+  listaProdotti.innerHTML = '';
+
+  for (const prodotto of catalogo.prodotti) {
+    const prodottoDiv = document.createElement('div');
+    prodottoDiv.innerHTML = `
+      <strong>ID:</strong> ${prodotto.id}<br>
+      <strong>Nome:</strong> ${prodotto.nome}<br>
+      <strong>Descrizione:</strong> ${prodotto.descrizione}<br>
+      <strong>Prezzo:</strong> €${prodotto.prezzo.toFixed(2)}<br>
+      <strong>Quantità:</strong> ${prodotto.quantita}<br>
+    `;
+    
+    const rimuoviButton = document.createElement('button');
+    rimuoviButton.textContent = 'Rimuovi';
+    rimuoviButton.addEventListener('click', () => {
+      catalogo.rimuoviProdotto(prodotto.id);
+      aggiornaListaProdotti();
+    });
+
+    prodottoDiv.appendChild(rimuoviButton);
+    listaProdotti.appendChild(prodottoDiv);
+  }
+}
+
+</script>
+</body>
+</html>

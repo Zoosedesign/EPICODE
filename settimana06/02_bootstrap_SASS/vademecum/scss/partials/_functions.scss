@@ -1,0 +1,18 @@
+// @mixin dynamic-height($height, $padding) {
+//   min-height: $height;
+//   padding: $padding;
+// }
+
+@function dynamic-height($height, $padding) {
+  @return $height + $padding;
+}
+
+.example {
+  min-height: dynamic-height(300px, 30px);
+}
+.example-2 {
+  height: dynamic-height(300px, 30px);
+}
+
+// i mixin servono a tornare un blocco di codice css preconfigurato, le funzioni si occupano di computare un valore di ritorno e tornare quel singolo valore
+// da poter essere utilizzato in punti diversi del nostro codice

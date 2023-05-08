@@ -1,0 +1,270 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+.title-2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+}
+
+body {
+  margin: 0;
+}
+
+.example {
+  min-height: 330px;
+}
+
+.example-2 {
+  height: 330px;
+}
+
+body {
+  margin: 108px;
+  background-color: palevioletred;
+  color: rgb(250, 234, 249);
+}
+
+header {
+  padding-inline: 4rem;
+  display: flex;
+  align-items: center;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 18px;
+  font-weight: 900;
+}
+@media screen and (max-width: 576px) {
+  header {
+    flex-direction: column;
+  }
+}
+header nav {
+  border: 2px solid rgb(250, 234, 249);
+  margin-block: 2rem;
+  flex-grow: 1;
+}
+header nav ul {
+  -webkit-padding-start: 0;
+          padding-inline-start: 0;
+}
+header nav ul li {
+  background-color: aqua;
+  color: palevioletred;
+}
+header nav ul li > span {
+  color: rgb(255, 72, 0);
+}
+header nav ul li:hover {
+  background-color: rgb(255, 72, 0);
+}
+header button {
+  min-height: 127px;
+}
+
+h2, .title-2 {
+  position: relative;
+}
+h2:hover, .title-2:hover {
+  background-color: white;
+  color: palevioletred;
+}
+h2::before, .title-2::before {
+  content: "=>";
+  color: rgb(255, 72, 0);
+}
+
+.title-2::before {
+  color: blue;
+}
+
+.box-2, .box-1 {
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.box-1 {
+  background-color: rgb(250, 234, 249);
+}
+
+.box-2 {
+  background-color: rgb(255, 72, 0);
+}
+
+.box-3 {
+  width: 200px;
+  height: 200px;
+  padding: 10px 20px;
+  display: inline-block;
+  vertical-align: bottom;
+  text-transform: uppercase;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+  box-shadow: 0 10px 30px #001a00;
+  border: 3px solid #1aff1a;
+  background-color: green;
+  outline: green;
+  transition: all 0.3s;
+  position: relative;
+}
+.box-3:hover {
+  box-shadow: 0 3px 10px green;
+  background-color: white;
+  color: green;
+  z-index: 1;
+}
+
+.box-4 {
+  width: 200px;
+  height: 200px;
+  padding: 10px 20px;
+  display: inline-block;
+  vertical-align: bottom;
+  text-transform: uppercase;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+  box-shadow: 0 10px 30px #000099;
+  border: 3px solid #9999ff;
+  background-color: blue;
+  outline: blue;
+  transition: all 0.3s;
+  position: relative;
+}
+.box-4:hover {
+  box-shadow: 0 3px 10px blue;
+  background-color: white;
+  color: blue;
+  z-index: 1;
+}
+
+.box-5 {
+  width: 200px;
+  height: 200px;
+  padding: 10px 20px;
+  display: inline-block;
+  vertical-align: bottom;
+  text-transform: uppercase;
+  border-radius: 30px;
+  cursor: pointer;
+  color: black;
+  box-shadow: 0 10px 30px #992b00;
+  border: 3px solid #ffb699;
+  background-color: rgb(255, 72, 0);
+  outline: rgb(255, 72, 0);
+  transition: all 0.3s;
+  position: relative;
+}
+.box-5:hover {
+  box-shadow: 0 3px 10px rgb(255, 72, 0);
+  background-color: black;
+  color: rgb(255, 72, 0);
+  z-index: 1;
+}
+
+.custom-box-1 {
+  width: 150px;
+  height: 150px;
+  display: inline-block;
+  background-color: orange;
+  text-align: center;
+}
+
+.custom-box-2 {
+  width: 150px;
+  height: 150px;
+  display: inline-block;
+  background-image: url(https://picsum.photos/600/400);
+  background-size: cover;
+}
+
+.custom-pl-1 {
+  padding-left: 10px;
+  color: black;
+}
+
+.custom-pl-2 {
+  padding-left: 20px;
+  color: black;
+}
+
+.custom-pl-3 {
+  padding-left: 30px;
+  color: black;
+}
+
+.custom-pl-4 {
+  padding-left: 40px;
+  color: black;
+}
+
+.custom-pl-5 {
+  padding-left: 50px;
+  color: black;
+}
+
+.paragraph-green {
+  background-color: green;
+}
+
+.paragraph-navy {
+  background-color: navy;
+}
+
+.paragraph-yellow {
+  background-color: yellow;
+}
+
+.paragraph-pink {
+  background-color: pink;
+}
+
+.paragraph-plum {
+  background-color: plum;
+}
+
+.paragraph-red {
+  background-color: red;
+}
+
+.padding-inline-xs {
+  padding-inline: 10px;
+}
+
+.padding-inline-sm {
+  padding-inline: 14px;
+}
+
+.padding-inline-md {
+  padding-inline: 24px;
+}
+
+.padding-inline-lg {
+  padding-inline: 96px;
+}
+
+.padding-block-xs {
+  padding-block: 10px;
+}
+
+.padding-block-sm {
+  padding-block: 14px;
+}
+
+.padding-block-md {
+  padding-block: 24px;
+}
+
+.padding-block-lg {
+  padding-block: 96px;
+}/*# sourceMappingURL=style.css.map */

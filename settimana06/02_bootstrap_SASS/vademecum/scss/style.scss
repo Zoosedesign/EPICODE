@@ -1,0 +1,201 @@
+$bg-color: palevioletred;
+
+@import "./partials/resets";
+@import "./partials/colors";
+@import "./partials/sizes";
+@import "./partials/mixins";
+@import "./partials/functions";
+@import "./partials/misc";
+
+// 1) PARTIALS - si usano come prassi per suddividere il codice per aree di competenza
+// possiamo definire variabili, stili parziali, mixin, funzioni
+
+// si definiscono con un _ prima del nome: es. _resets.scss
+// essendo file parziali non verranno compilati direttamente, andranno quindi importati in un file principale: es. style.scss
+
+body {
+  margin: $large-size * 3;
+  background-color: $bg-color;
+  color: $text-white;
+}
+
+// 2) NESTING - selettori annidati (nidificati)
+
+// header {
+// }
+
+// header nav {
+// }
+
+// header nav ul {
+// }
+
+// header nav ul li {
+//   // come si faceva prima
+// }
+
+input {
+  // un selettore vuoto non verrà creato nella versione compilata
+}
+
+// d'ora in poi possiamo lavorare con strutture annidate che ci permettono di avere un codice molto più pulito e mantenibile nel tempo
+header {
+  padding-inline: 4rem;
+  display: flex;
+  align-items: center;
+
+  @media screen and (max-width: 576px) {
+    flex-direction: column;
+  }
+
+  // nesting di proprietà css combinate
+  font: {
+    family: "Courier New", Courier, monospace;
+    size: 18px;
+    weight: 900;
+  }
+
+  nav {
+    border: 2px solid $text-white;
+    margin-block: 2rem;
+    flex-grow: 1;
+    ul {
+      padding-inline-start: 0;
+      li {
+        background-color: aqua;
+        color: $bg-color;
+
+        & > span {
+          color: $color-red;
+        }
+
+        &:hover {
+          background-color: $color-red;
+        }
+      }
+    }
+  }
+  button {
+    min-height: 127px;
+  }
+}
+
+// 3) Parent selector &, permette di riferirsi al genitore di quel contesto, senza ripeterlo
+h2 {
+  position: relative;
+  &:hover {
+    background-color: white;
+    color: $bg-color;
+  }
+  &::before {
+    content: "=>";
+    color: $color-red;
+  }
+}
+
+// 4) EXTEND - @extend è in grado di ripetere tutto un blocco precedente di una classe/elemento/id
+.title-2 {
+  @extend h2;
+  &::before {
+    color: blue;
+  }
+}
+// ma sarebbe meglio sfruttarlo con un placeholder per chiarezza semantica
+
+// 5) PLACEHOLDERS - il placeholder non fa altro che incorporare un blocco css che può essere esteso
+%main-btn {
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.box-1 {
+  @extend %main-btn;
+  background-color: $text-white;
+}
+
+.box-2 {
+  @extend %main-btn;
+  background-color: $color-red;
+}
+
+// 6) MIXINS - vedi file partial _misc.scss per la definizione dei mixin
+
+.box-3 {
+  @include baseButton(
+    green
+  ); // il secondo e il terzo parametro sono omessi perché facoltativi in quanto hanno il loro valore di default
+}
+
+.box-4 {
+  @include baseButton(
+    $mainColor: blue
+  ); // questa sintassi può aiutare ad assegnare un valore direttamente senza necessariamente rispettare l'ordine dei parametri
+}
+
+.box-5 {
+  @include baseButton($color-red, black, 30px);
+  // li definiamo tutti in ordine perché vogliamo cambiare il comportamento di default e assegnamo come terzo valore quello derivante da un'altra variabile globale
+}
+
+// 7) INTERPOLAZIONE e CONDIZIONALI
+// il mixin customBox accetta un valore per size, uno per valore della proprietà, e uno per il nome della proprietà
+// internamente si autoregolerà per gestire il codice in base a quale proprietà gli passiamo tramite interpolazione di proprietà css e condizionali if/else
+.custom-box-1 {
+  @include customBox(150px, orange, "color");
+}
+
+.custom-box-2 {
+  @include customBox(150px, url(https://picsum.photos/600/400), "image");
+}
+
+// 8) CICLO FOR
+// anche in SASS abbiamo il costrutto for che ci permette di eseguire un blocco di codice un certo numero di volte
+
+// @for $contatore from 0 to 5  <start> to <end> to rappresenta il valore con end escluso ==> corrisponde a: i < arr.length
+// @for $contatore from 0 through 5 <start> through <end> to rappresenta il valore con end INCLUSO  ==> corrisponde a: i <= arr.length
+
+// useremo i cicli per automatizzare processi ripetitivi come la creazione/generazione di classi
+
+@for $i from 1 through 5 {
+  .custom-pl-#{$i} {
+    padding-left: $i * 10px;
+    color: black;
+  }
+}
+
+// valore di colorKeys è una List, quindi elementi separati da virgole che possono essere numeri, numeri con estensione(px) ecc..
+$colorKeys: green, navy, yellow, pink, plum, red;
+
+// CICLO EACH
+// la direttiva @each ci permette di iterare tra gli elementi di una lista
+// possiamo restituire determinate istruzione per ogni elemento ciclato della lista
+
+// @each $variabile in <list>
+@each $elem in $colorKeys {
+  .paragraph-#{$elem} {
+    background-color: $elem;
+  }
+}
+
+//la Map è una lista di elementi con coppie chiave-valore, può accettare variabili come valore
+$sizes: (
+  xs: 10px,
+  sm: 14px,
+  md: $medium-size,
+  lg: 96px
+);
+
+// usando una mappa come input occorrerà specificare due variabili per key e value
+@each $key, $value in $sizes {
+  .padding-inline-#{$key} {
+    padding-inline: $value;
+  }
+}
+
+@each $key, $value in $sizes {
+  .padding-block-#{$key} {
+    padding-block: $value;
+  }
+}

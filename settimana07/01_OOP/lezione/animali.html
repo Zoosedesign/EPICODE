@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animali</title>
+</head>
+<body>
+  <h1>Animali</h1>
+  <div id="listaAnimali"></div>
+
+    <script>
+    /*
+    Per creare una classe Animali e istanziare oggetti da essa, è possibile seguire questi passaggi:
+
+    1) Creare la classe Animali con un costruttore e un metodo per visualizzare le informazioni sull'animale.
+    2) Istanziare gli oggetti usando la classe Animali.
+    3) *Eventualmente* Modificare il DOM per mostrare le informazioni sugli oggetti creati. 
+    */
+   // Definizione della classe "Animali"
+    class Animali {
+        constructor(specie, nome, eta) {
+            this.specie = specie;
+            this.nome = nome;
+            this.eta = eta;
+        }
+
+        // Metodo per visualizzare le informazioni sull'animale
+        visualizzaInfo() {
+            return 'Specie: ' + this.specie + ' Nome: ' + this.nome + ' Età: ' + this.eta + ' anni';
+        }
+    }
+
+    // Istanziare oggetti dalla classe "Animali"
+    const animale1 = new Animali("Cane", "Fido", 3);
+    const animale2 = new Animali("Gatto", "Micio", 5);
+    const animale3 = new Animali("Gatto", "Pippo", 2);
+    
+    // Modificare il DOM per mostrare le informazioni sugli oggetti creati
+    const listaAnimali = document.getElementById("listaAnimali");
+
+    const animale1Info = document.createElement("p");
+    animale1Info.textContent = animale1.visualizzaInfo();
+    listaAnimali.appendChild(animale1Info);
+
+    const animale2Info = document.createElement("p");
+    animale2Info.textContent = animale2.visualizzaInfo();
+    listaAnimali.appendChild(animale2Info);
+
+    const animale3Info = document.createElement("p");
+    animale3Info.textContent = animale3.visualizzaInfo();
+    listaAnimali.appendChild(animale3Info);
+
+    </script>
+
+</body>
+</html>
+
+
+<html>
+    <body>
+    </body>
+</html>

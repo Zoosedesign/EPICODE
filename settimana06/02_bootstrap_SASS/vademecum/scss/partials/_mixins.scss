@@ -1,0 +1,49 @@
+// MIXIN
+// è un altro modo di estendere un blocco di proprietà css, in maniera più avanzata.
+//Aiuterà la creazione di codice dinamico grazie alla possibilità di passare valori dinamici come parametri
+
+@mixin baseButton($mainColor, $secondaryColor: white, $radius: 10px) {
+  width: 200px;
+  height: 200px;
+  padding: 10px 20px;
+  display: inline-block;
+  vertical-align: bottom;
+  text-transform: uppercase;
+  border-radius: $radius;
+  cursor: pointer;
+  color: $secondaryColor;
+  box-shadow: 0 10px 30px darken($mainColor, 20%);
+  border: 3px solid lighten($mainColor, 30%);
+  background-color: $mainColor;
+  outline: $mainColor;
+  transition: all 0.3s;
+  position: relative;
+  &:hover {
+    box-shadow: 0 3px 10px $mainColor;
+    background-color: $secondaryColor;
+    color: $mainColor;
+    z-index: 1;
+  }
+}
+// in js l'interpolazione si faceva con: `${nomeVar} una normale stringa vicino`
+// l'interpolazione di una proprietà
+@mixin customBox($size, $val, $property) {
+  width: $size;
+  height: $size;
+  display: inline-block;
+  background-#{$property}: $val; // background-image, background-color
+
+  // applicazione condizionale di una proprietà
+
+  //COSTRUTTO IF/ELSE
+  // questo ci permette di generare diversi blocchi di stile a seconda della
+  // valutazione di una condizione
+  // @if accetta un'espressione SASS come condizione, e ritornerà un blocco
+  // di stile, dei mixins, etc.
+  @if ($property == "image") {
+    background-size: cover;
+  } @else {
+    text-align: center;
+  }
+  //   background-image: $image;
+}
