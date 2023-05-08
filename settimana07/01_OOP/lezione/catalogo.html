@@ -159,7 +159,7 @@ aggiungiForm.reset();
 
 function aggiornaListaProdotti() {
   listaProdotti.innerHTML = '';
-
+  //inserisce per ogni id tutti i dati inseriti dall'utente
   for (const prodotto of catalogo.prodotti) {
     const prodottoDiv = document.createElement('div');
     prodottoDiv.innerHTML = `
@@ -170,6 +170,7 @@ function aggiornaListaProdotti() {
       <strong>Quantità:</strong> ${prodotto.quantita}<br>
     `;
     
+    //aggiunta del bottone per rimuovere l'elemnto creato
     const rimuoviButton = document.createElement('button');
     rimuoviButton.textContent = 'Rimuovi';
     rimuoviButton.addEventListener('click', () => {
