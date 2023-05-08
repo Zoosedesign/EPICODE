@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio 1</title>
+</head>
+<!-- Creazione classe User per creazione oggetti lato utente
+
+L'oggetto dovrà contenere i parametri:
+firstName, lastName, age, location
+
+Aggiungere un metodo che dichiara se è più grande o piccolo di un'altra persona -->
+
+<style>
+
+</style>
+
+<body>
+    <h1>Esercizio1</h1>
+
+    <form id="formPerson">
+        <label for="firstName">Nome:</label><br>
+        <input type="text" id="firstName" required>
+        <br>
+        <label for="lastName">Descrizione:</label><br>
+        <input type="text" id="lastName">
+        <br>
+        <label for="age">Prezzo:</label><br>
+        <input type="number" id="age" step="0" required>
+        <br>
+        <label for="location">Descrizione:</label><br>
+        <input type="text" id="location">
+        <br>
+
+        <button type="submit">Crea identità</button>
+    </form>
+
+    <h2>Prodotti nel Catalogo</h2>
+    <div id="PersonList"></div>
+
+    <script>
+        // 1. Classe contenente dati obbligatori identità Utente
+        class Person {
+            constructor(firstName, lastName, age, location) {
+                this.firstName = firstName;
+                this.lastName = lastName;
+                this.age = age;
+                this.location = location;
+            }
+
+            //aggiungere un metodo per verificare se è maggiorenne
+            majorityAge() {
+                if (this.age >= 18) {
+                    return `${this.firstName} ha ${this.age} anni, quindi è maggiorenne`;
+                } else {
+                    return `${this.firstName} ha ${this.age} anni, quindi è minorenne`;
+                }
+            }
+        }
+
+        // 2. Creazione dell'oggetto che conterrà le identità create
+        class PersonCatalogue {
+            constructor() {
+                this.identities = [];
+            }
+
+            // 3. Metodo per aggiungere una persona a "PersonCatalogue"
+            addPerson(identity) {
+                this.identities.push(identity);
+            }
+        }
+
+        // 4. Collego la creazione di oggetti agli elemnti nell'HTML
+        const formPerson = document.getElementById('formPerson');
+        const PersonList = document.getElementById('PersonList');
+        // richiamo l'oggetto 
+        const catalogo = new PersonCatalogue();
+
+        //gestisco la creazione al clic
+        formPerson.addEventListener('submit', (event) => {
+            event.preventDefault(); //impedisce alla pagina di resettarsi al click del bottone
+
+            //passo i valori
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const age = document.getElementById('age').value;
+            const location = document.getElementById('location').value;
+
+            //uso la classe person e la riempo coi dati inseriti
+            const person = new Person(firstName, lastName, age, location);
+            //la aggiungo all'elenco persone create in precedenza
+            catalogo.addPerson(person);
+            updatePersonList();
+        });
+
+        function updatePersonList() {
+            PersonList.innerHTML = '';
+            //inserisce i dati inseriti dall'utente
+            for (const person of catalogo.identities) {
+                PersonList.innerHTML += `<div>
+                    ${person.firstName}<br>
+                    ${person.lastName}<br>
+                    ${person.age}<br>
+                    ${person.location}<br>
+                    ${person.majorityAge()}
+                    </div>`
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio 2</title>
+</head>
+<!-- Creazione di oggetti "Pet"
+
+L'oggetto dovrà contenere i parametri:
+petName, ownerName, species, breed
+
+Se due animali hanno lo stesso padrone dovranno restituire true.
+Crea più istanze. -->
+
+<style>
+
+</style>
+
+<body>
+    <h1>Esercizio2</h1>
+
+    <form id="animalForm">
+        <label for="nome">Nome:</label><br>
+        <input type="text" id="nome" autocomplete="off"><br>
+        <label for="padrone">Padrone:</label><br>
+        <input type="text" id="padrone" autocomplete="off"><br>
+        <label for="specie">Specie:</label><br>
+        <input type="text" id="specie" autocomplete="off"><br>
+        <label for="razza">Razza:</label><br>
+        <input type="text" id="razza" autocomplete="off"><br>
+        <input type="submit" id="btnAdd" value="AGGIUNGI" class="btn px-5">
+        <span id="ownerAlert"></span>
+    </form>
+
+    <h2>Lista Animali</h2>
+    <div id="list"></div>
+
+    <script>
+        // ---------- CLASS PET ----------
+        class Pet {
+            constructor(_petName, _ownerName, _species, _breed) {
+                this.petName = _petName
+                this.ownerName = _ownerName
+                this.species = _species
+                this.breed = _breed
+            }
+
+            // verifica dello stesso padrone 
+            sameOwner(otherPet) {
+                return (this.ownerName === otherPet.ownerName);
+            }
+        }
+
+        // ---------- ARRAY ARCHIVIAZIONE LISTA ----------
+        const animalList = [];
+
+        // ---------- AGGIUNTA ANIMALE ----------
+        btnAdd.addEventListener('click', (event) => {
+
+            // impedisce alla pagina di resettarsi al click del bottone
+            event.preventDefault();
+
+            //elemnti dom
+            const list = document.getElementById('list');
+            const animalForm = document.getElementById('animalForm');
+            const btnAdd = document.getElementById('btnAdd');
+            const nome = document.getElementById('nome');
+            const padrone = document.getElementById('padrone');
+            const specie = document.getElementById('specie');
+            const razza = document.getElementById('razza');
+            const ownerAlert = document.getElementById('ownerAlert');
+
+            // genera un nuovo oggetto PET e lo inserisce in fondo al nostro array di archiviazione
+            animalList.push(new Pet(nome.value, padrone.value, specie.value, razza.value));
+
+            // generazione nuova card
+            const newCard = document.createElement('div');
+
+            // inserimento elementi della card
+            newCard.innerHTML = `<div class="rounded-4 p-3 animalCard m-3"><div class="h3 border-bottom">${nome.value}</div><p><b>Padrone:</b> ${padrone.value}</p><p><b>Specie:</b> ${specie.value}</p><p><b>Razza:</b> ${razza.value}</p></div>`;
+
+            // inserisci card nella lista
+            list.appendChild(newCard);
+
+            // resetta il form
+            animalForm.reset();
+        })
+
+
+    </script>
+</body>
+
+</html>
