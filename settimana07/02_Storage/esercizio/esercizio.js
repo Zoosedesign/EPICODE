@@ -33,7 +33,7 @@ clearButton.addEventListener('click', function () {
 // Inizializza il contatore o leggi il valore esistente
 var time = sessionStorage.getItem('timePast');
 if (time) {
-  time = Number(time);
+time = Number(time);
 } else {
   time = 0;
 }
@@ -42,7 +42,7 @@ if (time) {
 setInterval(function() {
   time++;
   // Aggiorna il valore del contatore nella pagina HTML
-  document.getElementById('counter').innerHTML = `Tempo trascorso: ${time} secondi`;
+  document.getElementById('counter').innerHTML = `Tempo trascorso: <b>${time} secondi</b>`;
   // Salva il valore del contatore in sessionStorage
   sessionStorage.setItem('timePast', time);
 }, 1000);

@@ -1,54 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blocco note in JS</title>
-    <style>
-      .container {
-        width: 500px;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-      }
 
-      h2 {
-        text-align: center;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blocco note in JS</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-      h2 span {
-        font-weight: normal;
-      }
+    html {
+      background: linear-gradient(60deg, purple 1%, lightcoral) no-repeat;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #333;
+    }
 
-      textarea {
-        width: 100%;
-      }
+    body {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+    }
 
-      .button-container {
-        display: flex;
-        justify-content: space-between;
-      }
-    </style>
-  </head>
-  <body>
+    .wrap {
+      width: 50%;
+      padding: 20px;
+      background: bisque;
+      border-radius: 20px;
+      box-shadow: -15px 15px 10px rgba(0,0,0,0.1);
+    }
 
+    .container {
+      display: flex;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 50px;
+    }
+
+    small {
+      margin-left: auto;
+    }
+
+    textarea {
+      width: 100%;
+      border-radius: 0 20px 0 20px;
+      border: 0;
+      padding: 20px;
+    }
+
+    .button-container {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      padding: 0 20px;
+    }
+
+    button:nth-child(2n) {
+      margin-left: auto;
+    }
+
+    button {
+      margin: 10px 0 10px 20px;
+      padding: 10px 20px;
+      background: lightcoral;
+      border: 0;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="wrap">
     <div class="container">
-      <h2>Blocco note <span id="counter"></span></h2>
-      <textarea
-        rows="15"
-        placeholder="Nessun contenuto trovato, inserisci del testo"
-      ></textarea>
-      <div class="button-container">
-        <button id="save-button">SALVA</button>
-        <button id="clear-button">SVUOTA MEMORIA</button>
-      </div>
+      <h1>BLOCCO NOTE</h2>
+      <small id="counter"></small>
     </div>
 
-    <div class="container">
+    <textarea rows="15" placeholder="Nessun contenuto trovato, inserisci del testo"></textarea>
+
+    <div class="button-container">
       <p></p>
+
+      <button id="save-button">SALVA</button>
+      <button id="clear-button">SVUOTA MEMORIA</button>
     </div>
 
-    <script src="esercizio.js"></script>
-  </body>
+  </section>
+
+
+  <script src="esercizio.js"></script>
+</body>
+
 </html>
