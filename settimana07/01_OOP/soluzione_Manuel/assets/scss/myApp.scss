@@ -1,0 +1,25 @@
+.myBack{
+    background: linear-gradient(45deg,rgb(247, 32, 236), rgb(232, 55, 143));
+    color: white;
+}
+
+#btnAdd{
+    background-color: rgb(147, 23, 200);
+    color: white;
+    &:hover{
+        background-color: rgb(157, 61, 198);
+    }
+}
+
+p{
+    margin: 0;
+}
+
+b{
+    font-size: 1.1em;
+}
+
+.animalCard{
+    background: linear-gradient(45deg, rgb(59, 185, 111), rgb(142, 181, 24));
+    width: max-content;
+}
