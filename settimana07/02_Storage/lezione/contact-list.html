@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rubrica in JS (con memoria!)</title>
+    <style>
+      .container {
+        width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      h2,
+      h3 {
+        text-align: center;
+      }
+
+      input {
+        width: 100%;
+        margin-bottom: 5px;
+      }
+
+      #button-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Rubrica in JS</h2>
+      <form>
+        <div>
+          <input placeholder="Nome" id="name" />
+        </div>
+        <div>
+          <input placeholder="Cognome" id="surname" />
+        </div>
+        <div>
+          <input type="tel" placeholder="Telefono" id="phone" />
+        </div>
+        <div id="button-container">
+          <button id="save-button">SALVA CONTATTO</button>
+        </div>
+      </form>
+      <h3>CONTATTI SALVATI</h3>
+      <ul></ul>
+    </div>
+    <script src="contact-list.js"></script>
+  </body>
+</html>
