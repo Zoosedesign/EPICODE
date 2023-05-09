@@ -30,7 +30,7 @@ clearButton.addEventListener('click', function () {
 })
 
 // ---------- TIMER ----------
-// Inizializza il contatore o leggi il valore esistente
+// Inizializza il contatore o leggi il valore esistente, lo mettiamo prima del setInterval e non dentro, perchè se no partirebbe un secondo dopo.
 var time = sessionStorage.getItem('timePast');
 if (time) {
 time = Number(time);
