@@ -10,10 +10,15 @@
         width: 500px;
         margin-left: auto;
         margin-right: auto;
+        text-align: center;
       }
 
       h2 {
         text-align: center;
+      }
+
+      h2 span {
+        font-weight: normal;
       }
 
       textarea {
@@ -27,8 +32,9 @@
     </style>
   </head>
   <body>
+
     <div class="container">
-      <h2>Blocco note</h2>
+      <h2>Blocco note <span id="counter"></span></h2>
       <textarea
         rows="15"
         placeholder="Nessun contenuto trovato, inserisci del testo"
@@ -38,6 +44,11 @@
         <button id="clear-button">SVUOTA MEMORIA</button>
       </div>
     </div>
+
+    <div class="container">
+      <p></p>
+    </div>
+
     <script src="esercizio.js"></script>
   </body>
 </html>

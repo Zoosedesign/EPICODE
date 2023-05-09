@@ -6,16 +6,18 @@ window.onload = () => {restoreContent()}
 let saveButton = document.getElementById('save-button');
 // seleziono button "SVUOTA MEMORIA" nell'HTML
 let clearButton = document.getElementById('clear-button');
-// prendo un riferimento nel DOM alla textarea
+
 let textArea = document.querySelector('textarea');
+let boxText = document.querySelector('p');
 
 // ---------- AREA BOTTONI ----------
 // inserisco cosa succede al click di salvataggio
 saveButton.addEventListener('click', function () {
-  // assegno ciò che verràscritta nella text area ad una variabile
+  // assegno ciò che verrà scritta nella text area ad una variabile
   let textAreaContent = textArea.value
   // salvo nel local storage ciò che viene scritto per non perderlo
   localStorage.setItem('savedText', textAreaContent)
+  textArea.value = ''
 })
 
 // inserisco cosa succede al click di cancellazione
@@ -23,13 +25,33 @@ clearButton.addEventListener('click', function () {
   // rimuovo il contenuto di savedText, eliminando la chiave
   localStorage.removeItem('savedText')
   // contemporaneamente svuoto anche il contenuto della textarea
-  textArea.value = ''
+  textArea.value = '';
+  boxText.innerHTML = '';
 })
 
+// ---------- TIMER ----------
+// Inizializza il contatore o leggi il valore esistente
+var time = sessionStorage.getItem('timePast');
+if (time) {
+  time = Number(time);
+} else {
+  time = 0;
+}
+
+// Aggiorna il contatore ogni secondo
+setInterval(function() {
+  time++;
+  // Aggiorna il valore del contatore nella pagina HTML
+  document.getElementById('counter').innerHTML = `Tempo trascorso: ${time} secondi`;
+  // Salva il valore del contatore in sessionStorage
+  sessionStorage.setItem('timePast', time);
+}, 1000);
+
+// ---------- RESTORE CONTENT ----------
 const restoreContent = () => {
-  // riempe la textarea se trova un local storage 
-  let localTextArea = localStorage.getItem('savedText') 
-  if (localTextArea) {
-    textArea.value = localTextArea
+  // riempe il paragrafo <p> se trova un local storage 
+  const savedText = localStorage.getItem('savedText');
+  if (savedText !== null) { 
+    boxText.innerHTML = `In precedenza era stato salvato: <b>${savedText}</b>.`;
   }
 }
