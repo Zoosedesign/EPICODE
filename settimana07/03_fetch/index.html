@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //--------------------RICHIAMARE DATI SERVER ESTERNO----------------------
+        const url = 'https://jsonplaceholder.typicode.com/users';
+            //JSONPlaceholder API: ottenere una lista di utenti.
+            //funziona come un if 
+            fetch(url)
+            //se questo parametro è vero va al punto 1. altrimenti andrà al punto 2.
+            .then(response => response.json())
+            // 1.
+            .then(users => {
+                console.log("DATI UTENTE: ");
+                //se dovesse servire recupero le coppie chiave valore nell'oggetto
+                console.log(users);
+                console.log("DATI GESTITI: ");
+                //di tutti i valori recupero solo nome e email perchè so che esistono
+                users.forEach(user => console.log(`${user.name} (${user.email})`));
+            })
+            // 2.
+            .catch(error => console.error('Errore durante il recupero degli utenti:', error));
+    </script>
+</body>
+</html>
