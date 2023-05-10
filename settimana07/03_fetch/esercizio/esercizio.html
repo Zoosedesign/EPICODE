@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" />
+</head>
+
+<style>
+    .card-img-top {
+        aspect-ratio: 1/1.5;
+        object-fit: fit;
+    }
+
+    h5 {
+        /* per non far andare a capo il titolo */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .card-link {
+        text-decoration: none;
+    }
+</style>
+
+<body>
+    <main class="container-fluid">
+
+        <section class="row row-wrap row-gap-5 p-5">
+
+        </section>
+    </main>
+
+    <script>
+        const booksBox = document.querySelector('section.row');
+
+        window.onload = () => {
+            fetch("https://striveschool-api.herokuapp.com/books")
+                .then((response) => { return response.json() })
+                .then(books => {
+                    books.forEach(book => {
+                        document.querySelector("section.row").innerHTML += `
+                        <div class="col-6 col-md-4 col-lg-3 px-3">
+                        <div class="card shadow">
+                        <img src="${book.img}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">${book.title}</h5>
+                             <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia possimus, odio nostrum repudiandae quam ducimus tenetur quae ipsam nisi libero a, sequi molestias culpa labore.</p>
+                        </div>
+                        <ul class="list-group list-group-flush flex-row justify-content-between">
+                             <li class="list-group-item"><b>genre:</b> ${book.category}</li>
+                             <li class="list-group-item"><b>${book.price}€</b></li>
+                        </ul>
+                        <div class="card-body d-flex justify-content-between">
+                             <button id="delete" class="btn btn-danger rounded-circle"><a href="#" class="text-white card-link">&#10005;</a></button>
+                             <button title="${book.title}" value="${book.price}" class="btn btn-primary ml-auto" onclick="AddToCart(event)"><a href="#" class="text-white card-link">COMPRA ORA</a></button>
+                        </div>
+                        </div>
+                        </div>`
+                    })
+                })
+                .catch(err => console.log(err))
+        }
+
+        //------------------ AGGIUNGI AL CARRELLO -------------------
+
+        //-------------------- ELIMINA ARTICOLI ---------------------
+        booksBox.addEventListener('click', (event) => {
+            //il metodo "closest()" trova il genitore più vicino col-6
+            const card = event.target.closest('.col-6').remove();
+        });
+
+    </script>
+</body>
+
+</html>
