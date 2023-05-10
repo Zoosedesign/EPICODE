@@ -1,30 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
         //--------------------RICHIAMARE DATI SERVER ESTERNO----------------------
         const url = 'https://jsonplaceholder.typicode.com/users';
-            //JSONPlaceholder API: ottenere una lista di utenti.
-            //funziona come un if 
-            fetch(url)
+        //JSONPlaceholder API: ottenere una lista di utenti.
+        //funziona come un if 
+        fetch(url)
             //se questo parametro è vero va al punto 1. altrimenti andrà al punto 2.
-            .then(response => response.json())
+            .then(response => response.json())//.blob(), etc ci sono diversi metodi di restituzione formato
             // 1.
             .then(users => {
-                console.log("DATI UTENTE: ");
+                console.log(" \nDATI UTENTE:\n------------------------------------- ");
                 //se dovesse servire recupero le coppie chiave valore nell'oggetto
                 console.log(users);
-                console.log("DATI GESTITI: ");
+                console.log(" \nDATI GESTITI:\n------------------------------------ ");
                 //di tutti i valori recupero solo nome e email perchè so che esistono
                 users.forEach(user => console.log(`${user.name} (${user.email})`));
             })
             // 2.
             .catch(error => console.error('Errore durante il recupero degli utenti:', error));
+
+
+        //--------------------SECONDO ESEMPIO----------------------
+        const url2 = 'https://dog.ceo/api/breeds/image/random';
+
+        //The Dog API: ottenere un'immagine casuale di un cane.
+        fetch(url2)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                document.write(`<img src="${data.message}">`);
+            })
+            .catch(error => console.error('Errore durante il recupero dell\'immagine del cane:', error));
+
+
+        //--------------------TERZO ESEMPIO----------------------
+        // API "Italy-Geojson" che fornisce informazioni sulle regioni, province e comuni italiani. 
+        // L'API è basata sui dati del progetto ISTAT e restituisce i dati in formato GeoJSON.
+        const url3 = 'https://raw.githubusercontent.com/openpolis/geojson-italy/master/geojson/limits_IT_regions.geojson';
+
+        fetch(url3)
+            .then(response => response.json())
+            .then(data => {
+                console.log(' \nREGIONI ITALIANE:\n------------------------------------');
+                // cerchiamo i dati nell'array "features"
+                data.features.forEach(region => console.log(region.properties.reg_name));
+            })
+            .catch(error => console.error('Errore durante il recupero delle regioni italiane:', error));
+
+
+        //--------------------QUARTO ESEMPIO----------------------
+        //un esempio per ottenere la lista delle province italiane:
+        const url4 = 'https://raw.githubusercontent.com/openpolis/geojson-italy/master/geojson/limits_IT_provinces.geojson';
+
+        fetch(url4)
+            .then(response => response.json())
+            .then(data => {
+                console.log(' \nPROVINCIE ITALIANE:\n------------------------------------');
+                data.features.forEach(province => console.log(province.properties.prov_name));
+            })
+            .catch(error => console.error('Errore durante il recupero delle province italiane:', error));
+
+
+        //--------------------QUINTO ESEMPIO----------------------
+        //JokeAPI: ottenere barzellette e scherzi casuali.
+        const url5 = 'https://v2.jokeapi.dev/joke/Any';
+
+        fetch(url5)
+            .then(response => response.json())
+            .then(joke => console.log(' \nBARZELLETTA:\n------------------------------------', joke.setup ? `${joke.setup} ${joke.delivery}` : joke.joke))
+            .catch(error => console.error('Errore durante il recupero della barzelletta:', error));
+
+
+        //--------------------SESTO ESEMPIO----------------------
+        //interroga reddit sull'argomento memes            
+        const url6 = 'https://www.reddit.com/r/memes/top.json?limit=10';
+
+        fetch(url6)
+            .then(response => response.json())
+            .then(data => {
+                const memes = data.data.children.map(child => {
+                    return {
+                        title: child.data.title,
+                        url: child.data.url,
+                        thumbnail: child.data.thumbnail
+                    };
+                });
+
+                console.log(' \nMEME RECUPERATI:\n------------------------------------', memes);
+            })
+            .catch(error => console.error('Errore durante il recupero dei meme:', error));
+
     </script>
 </body>
+
+</html>
+</script>
+</body>
+
 </html>
