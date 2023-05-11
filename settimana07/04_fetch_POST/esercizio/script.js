@@ -36,7 +36,7 @@ function searchImages(query) {
                       View
                     </button>
                     <button type="button" onclick="deleteCard(event)" class="btn btn-sm btn-danger">
-                      Delete
+                      Hide
                     </button>
                   </div>
                   <small class="text-muted">9 mins</small>
