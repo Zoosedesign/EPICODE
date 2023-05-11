@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recap fetch()</title>
+  </head>
+  <body>
+    <h2>fetch() method in JS</h2>
+    <p>
+      fetch() è il metodo più moderno per inviare una request da un client. Una
+      request è una "richiesta" inviata da un browser/app per: 1) richiedere
+      dati (GET) 2) creare nuovi dati (POST) 3) modificare un dato già esistente
+      (PUT) 4) eliminare un dato già esistente (DELETE)
+    </p>
+    <p>
+      Queste 4 operazioni in gergo rappresentano il cosiddetto "C R U D" (create
+      read update delete) Sono alla base del cosiddetto "PERSISTENT STORAGE".
+    </p>
+    <p>
+      Ad una request, solitamente il server (le API) risponderà con una response
+      ("risposta") Questa response, in un mondo perfetto, conterrà sempre un
+      esisto positivo della nostra operazione. Il modo più veloce e intuitivo
+      per comprendere il risultato di un'operazione remota è analizzare la
+      proprietà "ok" dell'oggetto response che otteniamo a seguito di una
+      request. Se ok è true, significa che la chiamata è andata a buon fine
+      (lettura/scrittura/modifica/eliminazione), in caso contrario sarà
+      necessario ripetere l'operazione. La proprietà ok rispecchia anche lo
+      status code dell'operazione:
+    </p>
+    <p>200, 201 -> operazione completata con successo</p>
+    <p>
+      400, 401, 404 -> richiesta errata (bad request, unauthorized, not found)
+    </p>
+    <p>500 -> internal server error</p>
+    <script src="./fetch.js"></script>
+  </body>
+</html>
