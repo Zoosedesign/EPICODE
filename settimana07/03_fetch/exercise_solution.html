@@ -66,7 +66,6 @@
         let booksArray = [];
         let cartArray = [];
 
-
         // ---------------- CREAZIONE CARD -----------------
         function createCard(book) {
             document.getElementById("booksList").innerHTML += `
@@ -100,7 +99,7 @@
 
             // crea una nuova mini-carta per il libro e aggiungila al carrello
             document.getElementById("cartList").innerHTML +=
-            `<div class="px-3 col-3 col-md-2 col-xl-1">
+                `<div class="px-3 col-3 col-md-2 col-xl-1">
             <article class="shadow card">
             <img src="${book.img}" class="card-img-top mb-2 img-fit" alt="">
             <span class="card-img-overlay">
@@ -119,7 +118,7 @@
 
         // aggiunge l'HTML del placeholder del libro nel carrello
         function populateCart(cartArray) {
-            cartArray.forEach((asin) => addCard(asin));
+            cartArray.forEach((asin) => addCart(asin));
         }
 
         // funzione per rimuovere un libro dal carrello
@@ -162,22 +161,23 @@
         window.onload = () => {
             // Cerca la lista dei libri ed elementi del carrelo nel sessionStorage
             const storedBooks = sessionStorage.getItem('books');
-            const storedCart = sessionStorage.getItem('cart');
-            console.log(storedCart)
             if (storedBooks) {
                 // Se la lista esiste, converte la stringa JSON in un array di oggetti JavaScript e la salva in "booksArray"
                 booksArray = JSON.parse(storedBooks);
                 // Riempi l'elenco dei libri con la lista dei libri salvata nel sessionStorage
                 populateList(booksArray);
-                if (storedCart) {
-                    cartArray = JSON.parse(storedCart);
-                    console.log(cartArray)
-                    // Riempi l'elenco dei libri con la lista dei libri salvata nel sessionStorage
-                    populateCart(cartArray);
-                }
             } else {
                 // Se la lista non esiste, chiama la funzione "carica" per ottenere la lista dei libri dal server
                 carica();
+            }
+
+            const storedCart = sessionStorage.getItem('cart');
+            console.log(storedCart)
+            if (storedCart) {
+                cartArray = JSON.parse(storedCart);
+                console.log(cartArray)
+                // Riempi l'elenco dei libri con la lista dei libri salvata nel sessionStorage
+                populateCart(cartArray);
             }
         }
     </script>
