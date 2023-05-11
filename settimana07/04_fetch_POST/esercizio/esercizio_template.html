@@ -120,13 +120,21 @@
     <section class="jumbotron text-center">
       <div class="container">
         <h1 class="jumbotron-heading">Album API example</h1>
-        <p class="lead text-muted">
-          This page will dynamically load pictures from the web, and display
-          them in a cool way!
+        <p class="lead text-muted mb-5">
+          This page will dynamically load pictures, and display in a cool way!
         </p>
-        <p>
-          <button id="search-duck" onclick="searchImages('duck')" class="btn btn-primary my-2 px-5 mr-5">Load Images</button>
-          <button id="search-pig" onclick="searchImages('pig')" class="btn btn-secondary my-2 px-5">Load Secondary Images</button>
+
+        <!---------- AGGIUNGO IL FORM ----------->
+        <form id="search-form">
+          <div class="input-group">
+            <input type="text" class="form-control" id="search-input" placeholder="Search image...">
+            <button class="btn btn-primary" type="submit">Cerca</button>
+          </div>
+        </form>
+
+        <p class="mt-5">
+          <button id="search-duck" onclick="searchImages('duck')" class="btn btn-primary my-2 px-5 mr-5">Duck Images</button>
+          <button id="search-pig" onclick="searchImages('pig')" class="btn btn-secondary my-2 px-5">Pig Images</button>
         </p>
       </div>
     </section>
