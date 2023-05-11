@@ -72,15 +72,15 @@
             <article class="card shadow bg-white">
               <img src="${book.img}" class="card-img-top img-fit" alt="...">
               <div class="card-body">
-                <h5 class="card-title mb-3">${book.title}</h5>
-                <p class="card-text mb-2">ID-code: ${book.asin}</p>
-                <p class="card-text mb-2">Category: ${book.category}</p>
+                <h5 class="card-title mb-3"><b>${book.title}</b></h5>
+                <p class="card-text mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum id ut libero dicta voluptatem, laborum eveniet omnis esse similique labore!</p>
+                <p class="card-text my-3"><b>Category:</b> ${book.category}</p>
                 <div class="d-flex justify-content-between">
                   <p class="card-text">${book.price}$</p>
-                  <button type="button" class="btn btn-danger" onclick="removeFromList('${book.asin}')">Delete</button>
+                  <button type="button" class="btn btn-danger rounded-circle" onclick="removeFromList('${book.asin}')">&#10005;</button>
                 </div>
               </div>
-              <button type="button" class="btn btn-warning" onclick="addCart('${book.asin}')">Add to cart</button>
+              <button type="button" class="btn btn-warning rounded-top-0" onclick="addCart('${book.asin}')">Add to cart</button>
             </article>
         </div>`;
         }
