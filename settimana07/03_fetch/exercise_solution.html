@@ -99,17 +99,14 @@
             if (!book) return;
 
             // crea una nuova mini-carta per il libro e aggiungila al carrello
-            const miniCard = document.createElement('div');
-            miniCard.classList.add('px-3', 'col-3', 'col-md-2', 'col-xl-1');
-            miniCard.innerHTML = `
+            document.getElementById("cartList").innerHTML +=
+            `<div class="px-3 col-3 col-md-2 col-xl-1">
             <article class="shadow card">
             <img src="${book.img}" class="card-img-top mb-2 img-fit" alt="">
             <span class="card-img-overlay">
             <button type="button" class="btn btn-danger" onclick="removeFromCart(this)">
             <small>&#10005;</small></button>
-            </span>
-            </article>`;
-            cartList.appendChild(miniCard);
+            </span></article></div>`;
 
             // aggiungi il libro all'array dei libri nel carrello
             cartArray.push(book);
