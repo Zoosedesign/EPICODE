@@ -32,10 +32,10 @@ function searchImages(query) {
                 </p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">
+                    <button type="button" class="btn btn-sm btn-secondary">
                       View
                     </button>
-                    <button type="button" onclick="deleteCard(event)" class="btn btn-sm btn-outline-secondary">
+                    <button type="button" onclick="deleteCard(event)" class="btn btn-sm btn-danger">
                       Delete
                     </button>
                   </div>
