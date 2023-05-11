@@ -1,4 +1,4 @@
-//-------------------- VARIABILI GLOBALI ------------------------
+//-------------------- GLOBAL VARIABLES ------------------------
 const searchForm = document.getElementById('search-form');
 const searchInput = document.getElementById('search-input');
 const apiKey = 'x8g58VNX0dYe9bETS6WALS6uk82AxyfPAFuKOtv7gJGPKfKkOhFIHGJB';
@@ -7,19 +7,19 @@ const apiKey = 'x8g58VNX0dYe9bETS6WALS6uk82AxyfPAFuKOtv7gJGPKfKkOhFIHGJB';
 //-------------------- SEARCH FORM ------------------------
 searchForm.addEventListener('submit', (event) => {
   event.preventDefault();
-  // il termine di ricerca (es:"cane") viene preso e tramite il metodo "trim()" vengono rimossi eventuali spazi vuoti all'inizio e alla fine in modo da evitare errori
+  // get the search term (e.g. "dog") and remove any leading or trailing spaces using the "trim()" method to avoid errors
   const formQuery = searchInput.value.trim();
 
   if (formQuery) {
-    // se la stringa di ricerca non è vuota effettuiamo la ricerca nell'API
+    // if the search string is not empty, perform the search in the API
     searchImages(formQuery);
   }
 });
 
-//-------------------- CREAZIONE CARD ------------------------
-//il bottone passerà la "query" cioè la parola di ricerca
+//-------------------- CREATE CARD ------------------------
+//the button will pass the "query", i.e. the search word
 async function searchImages(query) {
-  //svuoto il contenuto  di "queryCardBox" ogni volta che clicco uno dei due bottoni
+  //empty the content of "queryCardBox" every time I click one of the two buttons
   document.getElementById("queryCardBox").innerHTML = "";
   searchInput.value = "";
 
@@ -32,12 +32,12 @@ async function searchImages(query) {
     if (response.ok) {
       const data = await response.json();
 
-      //non metto solo duck ma aggiungo .photos per entrare all'interno
-      data.photos.forEach(duck => {
+      //add ".photos" to access the photos inside the array
+      data.photos.forEach(photo => {
         document.getElementById("queryCardBox").innerHTML +=
           `<div class="col-md-4">
           <div class="card mb-4 shadow-sm">
-          <img src="${duck.src.large}" class="card-img-top" alt="...">
+          <img src="${photo.src.large}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">Lorem Ipsum</h5>
               <p class="card-text">
@@ -54,7 +54,7 @@ async function searchImages(query) {
                     Hide
                   </button>
                 </div>
-                <small class="text-muted">${duck.id}</small>
+                <small class="text-muted">${photo.id}</small>
               </div>
             </div>
           </div>
@@ -66,6 +66,5 @@ async function searchImages(query) {
   }
 }
 
-
-//cancello la card di genitore più prossimo con ".col-md-4"
-deleteCard = (event) => event.target.closest('.col-md-4').remove();
+//delete the parent card with class "col-md-4"
+const deleteCard = (event) => event.target.closest('.col-md-4').remove();
