@@ -50,7 +50,7 @@
         <h2 class="mt-3">CART</h2>
 
         <aside class="container">
-        <div id="cart" class="mb-5 border border-dark rounded py-3 row row-gap-5"></div>
+            <div id="cartList" class="mb-5 border border-dark rounded py-3 row row-gap-5"></div>
         </aside>
 
         <div id="booksList" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-gap-5"></div>
@@ -62,8 +62,10 @@
         const urlAPI = 'https://striveschool-api.herokuapp.com/books';
         const APIrequest = new Request(urlAPI);
         const booksList = document.getElementById('booksList');
-        const cart = document.getElementById('cart');
+        const cartList = document.getElementById('cartList');
         let booksArray = [];
+        let cartArray = [];
+
 
         // ---------------- CREAZIONE CARD -----------------
         function createCard(book) {
@@ -107,7 +109,20 @@
             <small>&#10005;</small></button>
             </span>
             </article>`;
-            cart.appendChild(miniCard);
+            cartList.appendChild(miniCard);
+
+            // aggiungi il libro all'array dei libri nel carrello
+            cartArray.push(book);
+
+            //salvo il carrello nel session storage
+            sessionStorage.setItem('cart', JSON.stringify(cartArray));
+
+            removeFromList(asin);
+        }
+
+        // aggiunge l'HTML del placeholder del libro nel carrello
+        function populateCart(cartArray) {
+            cartArray.forEach((asin) => addCard(asin));
         }
 
         // funzione per rimuovere un libro dal carrello
@@ -128,8 +143,9 @@
         }
 
         function resetList() {
-            // Svuota l'HTML dell'elenco dei libri
+            // Svuota l'HTML dell'elenco dei libri e del carrello
             booksList.innerHTML = '';
+            cartList.innerHTML = '';
             // Chiama la funzione "carica" per riempire l'elenco con la lista dei libri dal server
             carica();
         }
@@ -147,13 +163,21 @@
         }
 
         window.onload = () => {
-            // Cerca la lista dei libri nel sessionStorage
+            // Cerca la lista dei libri ed elementi del carrelo nel sessionStorage
             const storedBooks = sessionStorage.getItem('books');
+            const storedCart = sessionStorage.getItem('cart');
+            console.log(storedCart)
             if (storedBooks) {
                 // Se la lista esiste, converte la stringa JSON in un array di oggetti JavaScript e la salva in "booksArray"
                 booksArray = JSON.parse(storedBooks);
                 // Riempi l'elenco dei libri con la lista dei libri salvata nel sessionStorage
                 populateList(booksArray);
+                if (storedCart) {
+                    cartArray = JSON.parse(storedCart);
+                    console.log(cartArray)
+                    // Riempi l'elenco dei libri con la lista dei libri salvata nel sessionStorage
+                    populateCart(cartArray);
+                }
             } else {
                 // Se la lista non esiste, chiama la funzione "carica" per ottenere la lista dei libri dal server
                 carica();
