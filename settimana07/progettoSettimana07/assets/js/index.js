@@ -20,28 +20,28 @@ const getProduct = function () {
         .then((products) => {
             products.forEach(product => {
                 document.getElementById('productBox').innerHTML +=
-                    `<div class="col-12 col-sm-6 col-lg-4 px-3">
-                <article class="card border-0 h-100">
-                  <div class="card-body d-flex flex-column pt-5">
+                    `<div class="col-12 col-sm-6 col-lg-4 px-3 text-dark">
+                <article class="card border-0 bg-transparent">
+                  <div class="card-body d-flex flex-column bg-white pt-4">
                     <img src="${product.imageUrl}" alt="product image">
                     <span class="card-img-overlay"><small>${product.brand}</small></span>
-                    <span id="plus" class="card-img-overlay shadow p-0">
-                    <a href="#" class="bg-primary px-3 pb-2 text-white text-decoration-none fs-1">&plus;</a>
+                    
+                    <span id="edit" class="card-img-overlay p-0">
+                    <a href="./backoffice.html?productID=${product._id}" class="btn btn-primary p-3">
+                    <svg width="25" height="25" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/><path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/></svg></a>
                     </span>
         
-                    <h3 class="card-title">${product.name}</h3>
+                    <h3 class="card-title mb-0 fw-medium">${product.name}</h3>
                     <hr>
                     <p class="card-text">
                     ${product.description}
                     </p>
-                    <small class="mt-auto ms-auto">a partire da: <b>${product.price}€</b></small>
-                  </div>
-        
-                  <div class="bg-dark d-flex">
-                    <button type="button" class="btn btn-primary rounded-top-0 fw-bold px-4 py-3">SCOPRI DI PI&Ugrave;</button>
-                  </div>
+                    <small class="mt-5 ms-auto">a partire da: <b class="fs-5 fw-semibold">${product.price}€</b></small>
+                  </div> 
                 </article>
-              </div>`
+                    <button class="btn btn-primary rounded-top-0 px-4 py-3 fw-semibold">SCOPRI DI PI&Ugrave;</button>
+            </div>`
             })
         })
         .catch((error) => {

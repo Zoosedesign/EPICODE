@@ -8,19 +8,16 @@ const APIkey = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDVkZjg1
 let urlContent = new URLSearchParams(window.location.search);
 
 //cerco se c'è qulacosa che identifichi il prodotto
-let productID = urlContent.get('eventId');
+let productID = urlContent.get('productID');
 
 if (productID) {
-    const save = document.getElementById('add-button');
-    const remove = document.getElementById('delete-button');
-    
     // ----------- CAMBIO DETTAGLI PAGINA --------------
     //cambio titolo pagina
     document.getElementsByTagName('h2')[0].innerText = `Modifica prodotto &nbsp; | &nbsp; area backoffice`;
 
     // ----------- ELIMINAZIONE PRODOTTO --------------
     //rimetto il tasto delete nel DOM
-    remove.classList.remove(d - none);
+    document.getElementById('delete-button').classList.remove('d-none');
     remove.addEventListener('click', () => {
         fetch(url + productID, {
             //cancelliamo il prodotto dal server se la scelta è "delete product"
@@ -43,7 +40,11 @@ if (productID) {
     })
 
     // ----------- MODIFICA PRODOTTO --------------
-    fetch(url + productID)
+    fetch(url + productID, {
+        headers: {
+            Authorization: APIkey,
+        },
+      })
         .then((response) => {
             if (response.ok) {
                 return response.json()
