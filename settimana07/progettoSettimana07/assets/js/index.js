@@ -21,10 +21,13 @@ const getProduct = function () {
             products.forEach(product => {
                 document.getElementById('productBox').innerHTML +=
                     `<div class="col-12 col-sm-6 col-lg-4 px-3">
-                <article class="card shadow h-100">
+                <article class="card border-0 h-100">
                   <div class="card-body d-flex flex-column pt-5">
                     <img src="${product.imageUrl}" alt="product image">
                     <span class="card-img-overlay"><small>${product.brand}</small></span>
+                    <span id="plus" class="card-img-overlay shadow p-0">
+                    <a href="#" class="bg-primary px-3 pb-2 text-white text-decoration-none fs-1">&plus;</a>
+                    </span>
         
                     <h3 class="card-title">${product.name}</h3>
                     <hr>
@@ -34,8 +37,8 @@ const getProduct = function () {
                     <small class="mt-auto ms-auto">a partire da: <b>${product.price}€</b></small>
                   </div>
         
-                  <div class="card-footer text-center py-4">
-                    <button type="button" class="btn btn-primary">SCOPRI DI PI&Ugrave;</button>
+                  <div class="bg-dark d-flex">
+                    <button type="button" class="btn btn-primary rounded-top-0 fw-bold px-4 py-3">SCOPRI DI PI&Ugrave;</button>
                   </div>
                 </article>
               </div>`
