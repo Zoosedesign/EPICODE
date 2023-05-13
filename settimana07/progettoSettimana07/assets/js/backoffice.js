@@ -29,10 +29,10 @@ if (productID) {
         })
             .then((response) => {
                 if (response.ok) {
-                    alert('the product has been deleted successfully')
+                    alert('Il prodotto è stato rimosso con successo!')
                     location.assign('./index.html')
                 } else {
-                    throw new Error('we encountered problems deleting the product from the server')
+                    throw new Error('Non è stato possibile eliminare il prodotto dal server, ci scusiamo per l\'inconveniente.')
                 }
             })
             .catch((error) => {
@@ -50,11 +50,10 @@ if (productID) {
             if (response.ok) {
                 return response.json()
             } else {
-                throw new Error('I can\'t recover the product')
+                throw new Error('Non è possibile recuperare i dati del prodotto.')
             }
         })
         .then((serverData) => {
-            console.log('data recovered successfully', serverData)
             //ripopoliamo il form con i dati recuperati
             document.getElementById('name').value = serverData.name;
             document.getElementById('description').value = serverData.description;
@@ -103,11 +102,11 @@ form.addEventListener('submit', function (event) {
         .then((response) => {
             if (response.ok) {
                 // il prodotto è stato salvato
-                alert(productID ? 'PRODUCT CHANGED!' : 'ADD PRODUCT!')
+                alert(productID ? 'Prodotto aggiornato con successo!' : 'Prodotto aggiunto con successo!')
                 location.assign('./index.html') // riporto alla pagina home
             } else {
-                alert('I can\'t save the product')
-                throw new Error('I can\'t save the product')
+                alert('Non è stato possibile salvare il prodotto')
+                throw new Error('Non è stato possibile salvare il prodotto')
             }
         })
         .catch((err) => {
