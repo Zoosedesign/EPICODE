@@ -9,7 +9,6 @@ let urlContent = new URLSearchParams(window.location.search);
 
 //cerco se c'è qualcosa che identifichi il prodotto
 let productID = urlContent.get('productID');
-console.log(url + productID)
 
 if (productID) {
     // ----------- CAMBIO DETTAGLI PAGINA --------------
@@ -41,7 +40,7 @@ if (productID) {
             })
     })
 
-    // ----------- MODIFICA PRODOTTO --------------
+    // ----------- GET RECUPERO DATI PRODOTTO --------------
     fetch(url + productID, {
         headers: {
             Authorization: APIkey,
@@ -68,7 +67,7 @@ if (productID) {
         })
 }
 
-// ----------- INVIO PRODOTTO --------------
+// ----------- RACCOLTA DATI FORM PRODOTTO --------------
 const form = document.getElementsByTagName('form')[0];
 form.addEventListener('submit', function (event) {
     //essendo un submit evito il refresh di default
@@ -90,7 +89,7 @@ form.addEventListener('submit', function (event) {
     }
 
     // ----------- FETCH PUT or POST --------------
-    //decido quale metodo eseguire in base, all'Url, infatti se presenterà un ID dovrà essere una modifica e quindi una PUT
+    //decido quale metodo eseguire in base, all'Url, se avrà un ID dovrà essere una modifica e quindi una PUT
     fetch(productID ? url + productID : url, {
         method: productID ? 'PUT' : 'POST',
         //il prodotto dobbiamo trasformarlo in una stringa
