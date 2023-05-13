@@ -1,3 +1,5 @@
+console.log('NOTA BENE:\nLa durata dei token è impostata a 14 giorni.\nSe cercherai di utilizzare questo Progetto in future ricorda che potrai ottenerne uno nuovo facendo una chiamata POST su:\nhttps://striveschool-api.herokuapp.com/api/account/login inviando come payload:{ “username”: “testusername@yourmail.com”, “password”:”pass” }')
+
 // ----------- VARIABILI GLOBALI --------------
 const url = 'https://striveschool-api.herokuapp.com/api/product/';
 const APIkey = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDVkZjg1Mjg4Zjc0MDAwMTQyODc0NDEiLCJpYXQiOjE2ODM4ODAwMTgsImV4cCI6MTY4NTA4OTYxOH0.8osLDa4EoNjHe8CzdsY8Akdm4YFWU0X0NwnIG1Ovv_Y'
