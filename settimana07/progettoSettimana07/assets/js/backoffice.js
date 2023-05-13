@@ -13,7 +13,7 @@ let productID = urlContent.get('productID');
 if (productID) {
     // ----------- CAMBIO DETTAGLI PAGINA --------------
     //cambio titolo pagina
-    document.getElementsByTagName('label')[0].innerText = `Modifica Prodotto`;
+    document.getElementsByTagName('label')[0].innerText = `MODIFICA PRODOTTO`;
 
     // ----------- ELIMINAZIONE PRODOTTO --------------
     //rendo dinamico il tasto delete nel dom
