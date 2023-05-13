@@ -7,7 +7,7 @@ const APIkey = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDVkZjg1
 //cerco nella barra degli indirizzi se ce qualche parametro aggiuntivo rispetto al mio "url"
 let urlContent = new URLSearchParams(window.location.search);
 
-//cerco se c'è qulacosa che identifichi il prodotto
+//cerco se c'è qualcosa che identifichi il prodotto
 let productID = urlContent.get('productID');
 console.log(url + productID)
 
@@ -17,8 +17,8 @@ if (productID) {
     document.getElementsByTagName('h2')[0].innerText = `Modifica prodotto \u00A0|\u00A0 area backoffice`;
 
     // ----------- ELIMINAZIONE PRODOTTO --------------
-    //rimetto il tasto delete nel DOM
-    let deleteProduct = document.getElementById('delete-button');
+    //rendo dinamico il tasto delete nel dom
+    const deleteProduct = document.getElementById('delete-button');
     deleteProduct.classList.remove('d-none');
     deleteProduct.addEventListener('click', () => {
         fetch(url + productID, {
@@ -46,7 +46,7 @@ if (productID) {
         headers: {
             Authorization: APIkey,
         },
-      })
+    })
         .then((response) => {
             if (response.ok) {
                 return response.json()
@@ -66,8 +66,6 @@ if (productID) {
         .catch((error) => {
             console.log(error)
         })
-} else {
-    // modalità CREAZIONE
 }
 
 // ----------- INVIO PRODOTTO --------------
@@ -76,11 +74,11 @@ form.addEventListener('submit', function (event) {
     //essendo un submit evito il refresh di default
     event.preventDefault();
 
-    let name = document.getElementById('name');
-    let description = document.getElementById('description');
-    let brand = document.getElementById('brand');
-    let img = document.getElementById('imageUrl');
-    let price = document.getElementById('price');
+    const name = document.getElementById('name');
+    const description = document.getElementById('description');
+    const brand = document.getElementById('brand');
+    const img = document.getElementById('imageUrl');
+    const price = document.getElementById('price');
 
     //raccolgo i dati dai vari Input
     let newProduct = {
