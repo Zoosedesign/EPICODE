@@ -30,15 +30,15 @@
     <nav class="navbar">
       <!-- logo -->
       <h1>
-        <a class="navbar-brand d-block d-md-none" href="./index.html"><img src="assets/img/logo.svg" alt="e-commerce logo"
-            height="50px" /></a>
-        <a class="navbar-brand d-none d-md-block" href="./index.html"><img src="assets/img/logo_esteso.svg" alt="e-commerce logo"
-            height="50px" /></a>
+        <a class="navbar-brand d-block d-md-none" href="./index.html"><img src="assets/img/logo.svg"
+            alt="e-commerce logo" height="50px" /></a>
+        <a class="navbar-brand d-none d-md-block" href="./index.html"><img src="assets/img/logo_esteso.svg"
+            alt="e-commerce logo" height="50px" /></a>
       </h1>
 
       <!-- foto utente -->
       <button type="button dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
-        class="btn position-relative pe-0 border-0 ms-auto">
+        class="btn position-relative pe-0 border-0">
         <img class="rounded-circle" src="./assets/img/img-profilo.jpg" alt="foto utente" height="50px" />
 
         <!-- puntino verde foto -->
@@ -92,15 +92,22 @@
   </header>
 
   <!--------------- CONTENUTO PAGINA -------------------->
-  <main class="container text-center d-flex align-items-center justify-content-center vh-100">
+  <main class="container text-center d-flex align-items-center justify-content-center vh-100 p-5 p-sm-0">
     <section class="col-12 col-md-8 col-lg-6">
-      <h2>Aggiungi prodotto &nbsp; | &nbsp; area backoffice</h2>
+      <h2>&lbrack; &nbsp; area Backoffice &nbsp; &rbrack;</h2>
 
       <!--------------- FORM -------------------->
       <form class="mt-5 text-start">
         <div class="mb-3">
-          <label for="name" class="form-label">Nome <small class="text-secondary">(required)</small></label>
-          <input type="text" class="form-control" id="name" aria-describedby="namefield" required />
+          <label for="name" class="form-label">Crea Prodotto</label>
+          <small class="text-secondary">(required)</small>
+        
+          <div class="d-flex">
+            <input type="text" class="form-control" id="name" aria-describedby="namefield" required />
+
+            <!--------------- BOTTONE RIMUOVI DAL SERVER -------------------->
+            <button type="button" class="btn btn-danger d-none py-0 px-2 ms-2 fs-3" id="delete-button">&#9746;</button>
+          </div>
         </div>
         <div class="mb-3">
           <label for="description" class="form-label">Descrizione <small
@@ -113,7 +120,8 @@
           <input type="text" class="form-control" id="brand" aria-describedby="brandfield" required />
         </div>
         <div class="mb-3">
-          <label for="imageUrl" class="form-label">URL immagine (https//...) <small class="text-secondary">(required)</small></label>
+          <label for="imageUrl" class="form-label">URL immagine (https//...) <small
+              class="text-secondary">(required)</small></label>
           <input type="text" class="form-control" id="imageUrl" aria-describedby="imgUrlfield" required />
         </div>
         <div class="mb-3">
@@ -122,12 +130,8 @@
             <input type="number" class="form-control" id="price" aria-describedby="pricefield" required />
 
             <!--------------- BOTTONE AGGIUNGI O MODIFICA -------------------->
-            <button type="submit" class="btn btn-primary fw-bold ps-4 pe-3 ms-5 rounded-end-0 rounded-pill" id="add-button">
-              SALVA
-            </button>
-            <!--------------- BOTTONE RIMUOVI DAL SERVER -------------------->
-            <button type="button" class="btn btn-danger d-none rounded-start-0 fw-bold" id="delete-button">
-              ELIMINA
+            <button type="submit" class="btn btn-primary py-0 ps-3 pe-2 ms-2 d-flex" id="add-button">
+              <b class="align-self-center">SALVA</b><span class="fs-3 ps-2">&oplus;</span>
             </button>
           </div>
         </div>
