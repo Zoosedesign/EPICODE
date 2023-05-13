@@ -9,16 +9,18 @@ let urlContent = new URLSearchParams(window.location.search);
 
 //cerco se c'è qulacosa che identifichi il prodotto
 let productID = urlContent.get('productID');
+console.log(url + productID)
 
 if (productID) {
     // ----------- CAMBIO DETTAGLI PAGINA --------------
     //cambio titolo pagina
-    document.getElementsByTagName('h2')[0].innerText = `Modifica prodotto &nbsp; | &nbsp; area backoffice`;
+    document.getElementsByTagName('h2')[0].innerText = `Modifica prodotto \u00A0|\u00A0 area backoffice`;
 
     // ----------- ELIMINAZIONE PRODOTTO --------------
     //rimetto il tasto delete nel DOM
-    document.getElementById('delete-button').classList.remove('d-none');
-    remove.addEventListener('click', () => {
+    let deleteProduct = document.getElementById('delete-button');
+    deleteProduct.classList.remove('d-none');
+    deleteProduct.addEventListener('click', () => {
         fetch(url + productID, {
             //cancelliamo il prodotto dal server se la scelta è "delete product"
             method: 'DELETE',
