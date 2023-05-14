@@ -56,14 +56,16 @@ header {
     height: 60px;
 }
 
-.card-body .card-img-overlay:nth-of-type(2) {
+.card-body .card-img-overlay:nth-of-type(2),
+#detailsBox article .btn {
     left: auto;
     bottom: auto;
     top: -10px;
     right: -10px;
 }
 
-.card-body .card-img-overlay:nth-of-type(2) a {
+.card-body .card-img-overlay:nth-of-type(2) a,
+#detailsBox article .btn {
     border-radius: 10px 10px 10px 0;
 }
 
@@ -89,14 +91,17 @@ header {
     min-height: 70vh;
 }
 
+#detailsBox > .btn {
+    position: absolute;
+    bottom: -22px;
+    left: calc(50% + 1.5rem);
+    width: calc(50% - 4.5rem);
+}
+
 #zoom {
     min-height: calc(70vh - 10rem);
     max-width: 100%;
     width: 500px;
-}
-
-#zoom {
-    cursor: zoom-in;
 }
 
 @media only screen and (max-width: 767px) {
@@ -104,12 +109,14 @@ header {
         flex-direction: column !important;
     }
 
-    #detailsBox div:first-child {
+    #detailsBox .w-50 {
         width: 100% !important;
     }
 
-    #zoom {
-        min-height: 400px;
-        background-position: center !important;
+    #detailsBox > .btn {
+        position: absolute;
+        bottom: -22px;
+        left: 3rem;
+        width: calc(100% - 6rem);
     }
 }
