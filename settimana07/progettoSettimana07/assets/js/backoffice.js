@@ -17,9 +17,8 @@ if (productID) {
 
     // ----------- ELIMINAZIONE PRODOTTO --------------
     //rendo dinamico il tasto delete nel dom
-    const deleteProduct = document.getElementById('delete-button');
-    deleteProduct.classList.remove('d-none');
-    deleteProduct.addEventListener('click', () => {
+    document.getElementById('pre-delete').classList.remove('d-none');
+    document.getElementById('delete-button').addEventListener('click', () => {
         fetch(url + productID, {
             //cancelliamo il prodotto dal server se la scelta è "delete product"
             method: 'DELETE',

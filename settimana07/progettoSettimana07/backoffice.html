@@ -24,7 +24,7 @@
 </head>
 <!--------------- HEADER -------------------->
 
-<body class="bg-dark text-white">
+<body class="text-white bg-dark">
 
   <header class="position-fixed top-0 container-fluid px-sm-5 bg-body-tertiary z-1 shadow">
     <nav class="navbar">
@@ -106,8 +106,16 @@
             <input type="text" class="form-control" id="name" aria-describedby="namefield" placeholder="nome articolo" required />
 
             <!--------------- BOTTONE RIMUOVI DAL SERVER -------------------->
-            <button type="button" class="btn btn-danger d-none py-0 px-2 ms-2 fs-3" id="delete-button">&#9746;</button>
+            <!-- pre-button -->
+            <button id="pre-delete" type="button" class="btn btn-danger d-none py-0 p-2 ms-2 fs-3" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+              &#9746;</button>
           </div>
+
+          <span class="collapse" id="collapseExample">
+            <div class="border border-danger p-3 mt-2">
+              Sei davvero certo di voler eliminare questo prodotto e tutti i suoi contenuti? Allora clicca qui: <button id="delete-button" class="btn btn-danger py-0 fw-semibold">RIMUOVI</button>
+            </div>
+          </span>
         </div>
         <div class="mb-3">
           <label for="description" class="form-label">Descrizione <small

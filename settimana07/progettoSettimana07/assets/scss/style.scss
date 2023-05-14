@@ -6,8 +6,12 @@
     opacity: 0.5;
 }
 
+.bg-design {
+    background: linear-gradient(175deg, #fff 0px, #fff calc(100% - 90px), #f3f3f3 0px, #f3f3f3);
+}
+
 header {
-    background-image: linear-gradient(60deg, #fff 0px, #fff calc(100% - 150px), #f3f3f3 0px, #f3f3f3);
+    background: linear-gradient(60deg, #fff 0px, #fff calc(100% - 150px), #f3f3f3 0px, #f3f3f3);
 }
 
 //   ------------ CARD STYLE ----------------
@@ -18,7 +22,6 @@ header {
 
 .card-body {
     border-radius: 15px 0 15px 0;
-    background-image: linear-gradient(175deg, #fff 0px, #fff calc(100% - 90px), #f3f3f3 0px, #f3f3f3);
 }
 
 .card img {
@@ -70,4 +73,43 @@ header {
     /*Il contenuto viene troncato alla sesta riga*/
     -webkit-line-clamp: 6;
     overflow: hidden;
+}
+
+//   ------------ BACK OFFICE ----------------
+#collapseExample div {
+    border-radius: 8px 0 8px 8px;
+}
+
+#delete-button {
+    font-size: 12px !important;
+}
+
+//   ------------ PRODUCT DETAILS ----------------
+#detailsBox {
+    min-height: 70vh;
+}
+
+#zoom {
+    min-height: calc(70vh - 10rem);
+    max-width: 100%;
+    width: 500px;
+}
+
+#zoom {
+    cursor: zoom-in;
+}
+
+@media only screen and (max-width: 767px) {
+    #detailsBox {
+        flex-direction: column !important;
+    }
+
+    #detailsBox div:first-child {
+        width: 100% !important;
+    }
+
+    #zoom {
+        min-height: 400px;
+        background-position: center !important;
+    }
 }
