@@ -16,6 +16,18 @@ const getProduct = async function () {
             throw new Error('Errore nel recupero dei prodotti!')
         }
         const products = await response.json()
+        
+        //ordino i prodotti in base al nome
+        products.sort((a, b) => {
+            if (a.name > b.name) {
+                return -1;
+            }
+            if (a.name < b.name) {
+                return 1;
+            }
+            return 0;
+        });
+
         products.forEach(product => {
             document.getElementById('productBox').innerHTML +=
                 `<div class="card-wrap col-12 col-sm-6 col-lg-4 p-4 text-dark">
