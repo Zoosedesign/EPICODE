@@ -305,7 +305,7 @@ for (let i = 0; i < card.length; i++) {
     // elimino la penultima card fino a dimensione "lg"
     let classThird = i == card.length - 3 ? "d-none d-lg-block" : "";
     // elimino la ultima card fino a dimensione "md"
-    let classFourth = i == card.length - 2 ? "d-none d-md-block" : "";
+    let classFourth = (i === card.length - 1 || i === card.length - 2) ? "d-none" : "d-md-block";
     // assegno lo "scheletro" della card
     let structure = `<div class="col-6 col-md-4 col-lg-3 px-3 ${classThird} ${classFourth}">
         <article class="card">
