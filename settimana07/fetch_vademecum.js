@@ -4,7 +4,16 @@
 // una fetch si compone di 2 parametri: l'URL della risorsa, e un oggetto di configurazione opzionale
 // in caso di inserimento del solo PRIMO parametro, come nell'esempio sotto, la chiamata utilizzerà
 // il metodo HTTP di default: GET
-fetch('https://jsonplaceholder.typicode.com/photos')
+const url = 'https://jsonplaceholder.typicode.com/photos';
+const APIkey = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDVkZjg1Mjg4Zjc0MDAwMTQyODc0NDEiLCJpYXQiOjE2ODM4ODAwMTgsImV4cCI6MTY4NTA4OTYxOH0.8osLDa4EoNjHe8CzdsY8Akdm4YFWU0X0NwnIG1Ovv_Y' //esempio password
+
+fetch(url, {
+  //se è GET si può non specificare perchè è di default
+  method: 'GET', // Specifica che la richiesta HTTP è di tipo GET.
+  headers: {
+    Authorization: `Bearer ${password}` // Aggiunge l'intestazione Authorization con la password fornita.
+  }
+})
   .then((response) => {
     // la fetch è stata risolta :)
     // il parametro response ci fornirà informazioni sulla chiamata andata a buon fine
