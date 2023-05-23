@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Banking</title>
+</head>
+
+<body>
+
+    <div class="son">
+        <h1>FIGLIO</h1>
+        <h3>Saldo : <span id="viewSonBalance">0</span> €</h3>
+        <form>
+            <input type="number" id="sd">
+            <button type="button" id="btnsd" onclick="addSonDeposit()">Versamento</button>
+
+            <br>
+
+            <input type="number" id="swd">
+            <button type="button" id="btnswd" onclick="addSonWithdraw()">Prelievo</button>
+        </form>
+    </div>
+
+    <div class="mother">
+        <h1>MADRE</h1>
+        <h3>Saldo : <span id="viewMotherBalance">0</span><span> €</span></h3>
+        <form>
+            <input type="number" id="md">
+            <button type="button" id="btnmd" onclick="addMotherDeposit()">Versamento<sup>*</sup></button><br>
+            <small><sup>*</sup>al versamento verrà applicato un tasso di interessi del 10%</small>
+
+            <br>
+
+            <input type="number" id="mwd">
+            <button type="button" id="btnmwd" onclick="addMotherWithdraw()">Prelievo</button>
+        </form>
+    </div>
+
+    <script src="./assets/js/bankApp.js"></script>
+</body>
+
+</html>
