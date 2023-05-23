@@ -49,10 +49,6 @@ const updateBalance = (
     displayId: string, // id area che mostrerà il saldo nel DOM
     action: 'deposit' | 'withdraw'
 ): void => {
-    console.log(inputId);
-    console.log(subject);
-    console.log(displayId);
-    console.log(action);
     const inputElement = document.getElementById(inputId) as HTMLInputElement;
     const amount = Number(inputElement.value);
 

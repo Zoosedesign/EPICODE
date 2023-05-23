@@ -42,10 +42,6 @@ const updateBalance = (inputId, // passo l'id dell'input
 subject, // passo il cliente che farà l'operazione
 displayId, // id area che mostrerà il saldo nel DOM
 action) => {
-    console.log(inputId);
-    console.log(subject);
-    console.log(displayId);
-    console.log(action);
     const inputElement = document.getElementById(inputId);
     const amount = Number(inputElement.value);
     if (action === 'deposit') {
