@@ -1,4 +1,4 @@
-var btn = document.getElementById('verifica') as  HTMLElement;
+var btn = document.getElementById('verifica') as HTMLElement;
 var risultato = document.getElementById('risultato') as HTMLElement | null;
 var estratto: number;
 var giocatore1 = document.getElementById('giocatore1') as HTMLInputElement | null;
