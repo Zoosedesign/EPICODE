@@ -45,21 +45,21 @@ const mother = new parentsAccount('Silvana', 'Casiraghi');
 //recupero gli importi di deposito e ritiro
 const updateBalance = (
     inputId: string, // passo l'id dell'input
-    subject: any, // passo il cliente che farà l'operazione
+    user: any, // passo il cliente che farà l'operazione
     displayId: string, // id area che mostrerà il saldo nel DOM
-    action: 'deposit' | 'withdraw'
+    action: 'deposit' | 'withdraw' // metto se è un'operazione di ritiro o accredito
 ): void => {
     const inputElement = document.getElementById(inputId) as HTMLInputElement;
     const amount = Number(inputElement.value);
 
     if (action === 'deposit') {
-        subject.bankDeposit(amount);
+        user.bankDeposit(amount);
     } else if (action === 'withdraw') {
-        subject.bankWithdraw(amount);
+        user.bankWithdraw(amount);
     }
 
     const balanceElement = document.getElementById(displayId) as HTMLSpanElement;
-    balanceElement.textContent = String(subject.displayBalance());
+    balanceElement.textContent = String(user.displayBalance());
 
     inputElement.value = "";
 };
@@ -67,6 +67,7 @@ const updateBalance = (
 // gestisco il deposito ed il ritiro per il figlio
 const sonDepositButton = document.getElementById('sonDepositButton') as HTMLButtonElement;
 sonDepositButton.addEventListener('click', () => {
+    //passo gli argomenti a update balance
     updateBalance('sd', son, 'viewSonBalance', 'deposit');
 });
 
