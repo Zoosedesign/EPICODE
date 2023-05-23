@@ -58,8 +58,8 @@ const updateBalance = (
         user.bankWithdraw(amount);
     }
 
-    const balanceElement = document.getElementById(displayId) as HTMLSpanElement;
-    balanceElement.textContent = String(user.displayBalance());
+    const balance = document.getElementById(displayId) as HTMLSpanElement;
+    balance.textContent = String(user.displayBalance());
 
     inputElement.value = "";
 };

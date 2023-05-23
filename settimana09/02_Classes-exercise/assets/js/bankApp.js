@@ -51,8 +51,8 @@ action // metto se è un'operazione di ritiro o accredito
     else if (action === 'withdraw') {
         user.bankWithdraw(amount);
     }
-    const balanceElement = document.getElementById(displayId);
-    balanceElement.textContent = String(user.displayBalance());
+    const balance = document.getElementById(displayId);
+    balance.textContent = String(user.displayBalance());
     inputElement.value = "";
 };
 // gestisco il deposito ed il ritiro per il figlio
