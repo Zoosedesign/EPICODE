@@ -1,88 +1,90 @@
-// Classe per gestire il conto bancario
-class BankAccount {
-  // Dati intestatario conto corrente
-  customerName: string;
-  customerSurname: string;
-  balanceInit: number = 0;
+// Creo la classe con i dati utili dei clienti della banca
+class bankAccount {
+    // dati intestatario conto corrente
+    customerName: string;
+    customerSurname: string;
+    balanceInit: number = 0;
+    // inizializzo i parametri che dovranno passare i valori per ogni cliente
+    constructor(name: string, surname: string) {
+        this.customerName = name;
+        this.customerSurname = surname;
+    }
 
-  constructor(name: string, surname: string) {
-    this.customerName = name;
-    this.customerSurname = surname;
-  }
+    // che il metodo per mostrare il saldo attuale del cliente
+    displayBalance(): number {
+        return this.balanceInit;
+    }
 
-  // Metodo per mostrare il saldo attuale del cliente
-  displayBalance(): number {
-    return this.balanceInit;
-  }
+    // creo il metodo per aggiungere un deposito sul saldo
+    bankDeposit(deposit: number): number {
+        return this.balanceInit += deposit;
+    }
 
-  // Metodo per aggiungere un deposito sul saldo
-  bankDeposit(deposit: number): number {
-    return (this.balanceInit += deposit);
-  }
-
-  // Metodo per ritirare soldi dal saldo
-  bankWithdraw(withdraw: number): number {
-    return (this.balanceInit -= withdraw);
-  }
+    // creo il metodo per ritirare soldi dal saldo
+    bankWithdraw(withdraw: number): number {
+        return this.balanceInit -= withdraw;
+    }
 }
 
-// Classe per gestire il conto bancario dei genitori con interessi aggiuntivi
-class ParentsAccount extends BankAccount {
-  constructor(name: string, surname: string) {
-    super(name, surname);
-  }
-
-  // Modifica il metodo di deposito per applicare interessi aggiuntivi
-  bankDeposit(deposit: number): number {
-    return (this.balanceInit += deposit + deposit * 0.1);
-  }
+// estendo la classe clienti della banca con una versione per genitori con il 10% di interesse sul deposito
+class parentsAccount extends bankAccount {
+    constructor(name: string, surname: string) {
+        super(name, surname)
+    }
+    // modifico il metodo con gli interessi extra dati ai genitori
+    bankDeposit(deposit: number): number {
+        return this.balanceInit += (deposit + (deposit * 0.1));
+    }
 }
 
-// Funzione per gestire il deposito o il prelievo
-function handleTransaction(account: BankAccount, amount: number, action: string): void {
-  if (action === "deposit") {
-    account.bankDeposit(amount);
-  } else if (action === "withdraw") {
-    account.bankWithdraw(amount);
-  }
+//genero i due clienti banca richiesti
+const son = new bankAccount('Andrea', 'Zucchetti');
+const mother = new parentsAccount('Silvana', 'Casiraghi');
 
-  // Aggiorna la visualizzazione del saldo
-  const balanceElement = document.getElementById(`view${account.constructor.name}Balance`);
-  if (balanceElement) {
-    balanceElement.textContent = account.displayBalance().toString();
-  }
-}
+//------------ VALORI IMMESSI NEL DOM ----------------
+//recupero gli importi di deposito e ritiro
+const updateBalance = (
+    inputId: string, // passo l'id dell'input
+    subject: any, // passo il cliente che farà l'operazione
+    displayId: string, // id area che mostrerà il saldo nel DOM
+    action: 'deposit' | 'withdraw'
+): void => {
+    console.log(inputId);
+    console.log(subject);
+    console.log(displayId);
+    console.log(action);
+    const inputElement = document.getElementById(inputId) as HTMLInputElement;
+    const amount = Number(inputElement.value);
 
-// Funzione per gestire l'invio del modulo
-function handleSubmit(formId: string, account: BankAccount, action: string): void {
-  const form = document.getElementById(formId) as HTMLFormElement;
-  const amountInput = form.querySelector("input[type='number']") as HTMLInputElement;
-  const amount = parseFloat(amountInput.value);
+    if (action === 'deposit') {
+        subject.bankDeposit(amount);
+    } else if (action === 'withdraw') {
+        subject.bankWithdraw(amount);
+    }
 
-  if (!isNaN(amount)) {
-    handleTransaction(account, amount, action);
-    form.reset();
-  }
-}
+    const balanceElement = document.getElementById(displayId) as HTMLSpanElement;
+    balanceElement.textContent = String(subject.displayBalance());
 
-// Creazione degli oggetti di conto bancario
-const son = new BankAccount("Andrea", "Zucchetti");
-const mother = new ParentsAccount("Silvana", "Casiraghi");
+    inputElement.value = "";
+};
 
-// Gestione dell'invio del modulo per il figlio
-function handleSonFormSubmit(): void {
-  handleSubmit("sonDeposit", son, "deposit");
-}
+// gestisco il deposito ed il ritiro per il figlio
+const sonDepositButton = document.getElementById('sonDepositButton') as HTMLButtonElement;
+sonDepositButton.addEventListener('click', () => {
+    updateBalance('sd', son, 'viewSonBalance', 'deposit');
+});
 
-function handleSonWithdrawFormSubmit(): void {
-  handleSubmit("sonWithDraw", son, "withdraw");
-}
+const sonWithdrawButton = document.getElementById('sonWithdrawButton') as HTMLButtonElement;
+sonWithdrawButton.addEventListener('click', () => {
+    updateBalance('sw', son, 'viewSonBalance', 'withdraw');
+});
+// gestisco il deposito ed il ritiro per la madre
+const motherDepositButton = document.getElementById('motherDepositButton') as HTMLButtonElement;
+motherDepositButton.addEventListener('click', () => {
+    updateBalance('md', mother, 'viewMotherBalance', 'deposit');
+});
 
-// Gestione dell'invio del modulo per la madre
-function handleMotherFormSubmit(): void {
-  handleSubmit("motherDeposit", mother, "deposit");
-}
-
-function handleMotherWithdrawFormSubmit(): void {
-  handleSubmit("motherWithDraw", mother, "withdraw");
-}
+const motherWithdrawButton = document.getElementById('motherWithdrawButton') as HTMLButtonElement;
+motherWithdrawButton.addEventListener('click', () => {
+    updateBalance('mw', mother, 'viewMotherBalance', 'withdraw');
+});
