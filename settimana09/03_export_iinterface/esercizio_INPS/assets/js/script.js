@@ -1,7 +1,4 @@
 "use strict";
-//redditività vari ATECO: 40% / 54% / 86% / 62% https://flextax.it/glossario/coefficiente-di-redditivita/
-//aliquota INPS: 26.23%
-//aliquota irpef: 15%
 //"public" è necessario per dichiarare i valori variabili negli argomenti del costruttore
 class partitaIVA {
     redditoTASSATO;
@@ -13,8 +10,8 @@ class partitaIVA {
     constructor(redditoTASSATO, redditoLordoAnnuo) {
         this.redditoTASSATO = redditoTASSATO;
         this.redditoLordoAnnuo = redditoLordoAnnuo;
-        this.tasseINPS = 0.2623,
-            this.tasseIRPEF = 0.15;
+        this.tasseINPS = 0.2623, //aliquota INPS: 26.23%
+            this.tasseIRPEF = 0.15; //aliquota irpef: 15%
     }
     getUtileTasse() {
         return Number(this.redditoLordoAnnuo * this.redditoTASSATO);
@@ -74,20 +71,48 @@ class settoreIntermediari extends partitaIVA {
     }
 }
 //--------- OPERAZIONI SUL DOM (STAMPA e RECUPERO INFORMAZIONI) ----------
-const alimentari1 = new settoreAlimentare(20000, 'Gianni');
-const alimentari2 = new settoreAlimentare(218000, 'Giorgio');
-console.log(alimentari1);
-const arrayAlimentari = [];
-arrayAlimentari.push(alimentari1);
-arrayAlimentari.push(alimentari2);
-console.log(arrayAlimentari);
-arrayAlimentari.forEach((el) => {
-    const ulAlimentari = document.querySelector('ol');
-    ulAlimentari.innerHTML +=
-        `<li><h3><b>${el.nomeCliente}</b> dato un fatturato di <b>${el.redditoLordoAnnuo}</b>, avrà:</h3>
-    <ul>
-    <li><b>${el.getTasseInps().toFixed(2)}</b> da pagare all'INPS</li>
-    <li><b>${el.getTasseIrpef().toFixed(2)}</b> da pagare all'IRPEF</li>
-    <li><b>${el.getRedditoNettoAnnuo().toFixed(2)}</b> di reddito annuale tolte le tasse applicate</li>
-    `;
-});
+function svuotaCampiInput() {
+    // Svuota i campi del form
+    document.getElementById('sceltaSettore').value = '';
+    document.getElementById('fatturato').value = '';
+    document.getElementById('nomeUser').value = '';
+}
+function aggiungiCliente() {
+    // recupero i valori dati agli input del form
+    let sceltaSettore = document.getElementById('sceltaSettore').value;
+    let fatturato = Number(document.getElementById('fatturato').value);
+    let nomeUser = document.getElementById('nomeUser').value;
+    const arrayClienti = [];
+    // assegno ad una variabile i valori, dopo aver verificato la classe di appartenenza in base al settore
+    let cliente;
+    switch (sceltaSettore) {
+        case 'settoreAlimentare':
+            cliente = new settoreAlimentare(fatturato, nomeUser);
+            break;
+        case 'settoreCommercio':
+            cliente = new settoreAmbulanti(fatturato, nomeUser);
+            break;
+        case 'settoreCostruzioni':
+            cliente = new settoreCostruzioni(fatturato, nomeUser);
+            break;
+        case 'settoreAmbulanti':
+            cliente = new settoreIntermediari(fatturato, nomeUser);
+            break;
+        default:
+            // Gestione nel caso in cui cliente sia undefined
+            console.error('Settore non valido');
+            return;
+    }
+    arrayClienti.push(cliente);
+    arrayClienti.forEach((el) => {
+        const clientiList = document.querySelector('ol');
+        clientiList.innerHTML +=
+            `<li><h3><b>${el.nomeCliente}</b> dato un fatturato di <b>${el.redditoLordoAnnuo}</b>, avrà:</h3>
+        <ul>
+        <li><b>${el.getTasseInps().toFixed(2)}</b> da pagare all'INPS</li>
+        <li><b>${el.getTasseIrpef().toFixed(2)}</b> da pagare all'IRPEF</li>
+        <li><b>${el.getRedditoNettoAnnuo().toFixed(2)}</b> di reddito annuale tolte le tasse applicate</li>
+        `;
+    });
+    svuotaCampiInput();
+}

@@ -1,7 +1,3 @@
-//redditività vari ATECO: 40% / 54% / 86% / 62% https://flextax.it/glossario/coefficiente-di-redditivita/
-//aliquota INPS: 26.23%
-//aliquota irpef: 15%
-
 //--------- CREO LO SCHELETRO DELLA PARTITA IVA ----------
 interface masterIVA {
     redditoTASSATO: number; // è variabile, quindi la metterò solo come parametro nel constructor
@@ -16,14 +12,14 @@ interface masterIVA {
 }
 
 //"public" è necessario per dichiarare i valori variabili negli argomenti del costruttore
-class partitaIVA implements masterIVA {  
+class partitaIVA implements masterIVA {
     //qua metto solo quelle fisse a cui darò un valore nel costruttore
     tasseINPS: number;
     tasseIRPEF: number;
     //qua passerò i valori variabili dati dall'utente o da noi in secondo momento, i nomi parametri non saranno anticipati da "_"
-    constructor(public redditoTASSATO: number,public redditoLordoAnnuo: number) { 
-            this.tasseINPS = 0.2623,
-            this.tasseIRPEF = 0.15
+    constructor(public redditoTASSATO: number, public redditoLordoAnnuo: number) {
+        this.tasseINPS = 0.2623, //aliquota INPS: 26.23%
+            this.tasseIRPEF = 0.15 //aliquota irpef: 15%
     }
     getUtileTasse() {
         return Number(this.redditoLordoAnnuo * this.redditoTASSATO);
@@ -76,17 +72,54 @@ class settoreIntermediari extends partitaIVA {
 }
 
 //--------- OPERAZIONI SUL DOM (STAMPA e RECUPERO INFORMAZIONI) ----------
+function svuotaCampiInput() {
+    // Svuota i campi del form
+    (document.getElementById('sceltaSettore') as HTMLInputElement).value = '';
+    (document.getElementById('fatturato') as HTMLInputElement).value = '';
+    (document.getElementById('nomeUser') as HTMLInputElement).value = '';
+}
 
+function aggiungiCliente() {
+    // recupero i valori dati agli input del form
+    let sceltaSettore = (document.getElementById('sceltaSettore') as HTMLInputElement).value;
+    let fatturato = Number((document.getElementById('fatturato') as HTMLInputElement).value);
+    let nomeUser = (document.getElementById('nomeUser') as HTMLInputElement).value;
 
-const arrayClienti: (settoreAlimentare | settoreAmbulanti | settoreCostruzioni | settoreIntermediari)[] = [];
+    const arrayClienti: (settoreAlimentare | settoreAmbulanti | settoreCostruzioni | settoreIntermediari)[] = [];
+    // assegno ad una variabile i valori, dopo aver verificato la classe di appartenenza in base al settore
+    let cliente;
 
-arrayClienti.forEach((el) => {
-    const ulAlimentari = document.querySelector('ol') as HTMLUListElement;
-    ulAlimentari.innerHTML += 
-    `<li><h3><b>${el.nomeCliente}</b> dato un fatturato di <b>${el.redditoLordoAnnuo}</b>, avrà:</h3>
-    <ul>
-    <li><b>${el.getTasseInps().toFixed(2)}</b> da pagare all'INPS</li>
-    <li><b>${el.getTasseIrpef().toFixed(2)}</b> da pagare all'IRPEF</li>
-    <li><b>${el.getRedditoNettoAnnuo().toFixed(2)}</b> di reddito annuale tolte le tasse applicate</li>
-    `
-})
+    switch (sceltaSettore) {
+        case 'settoreAlimentare':
+            cliente = new settoreAlimentare(fatturato, nomeUser);
+            break;
+        case 'settoreCommercio':
+            cliente = new settoreAmbulanti(fatturato, nomeUser);
+            break;
+        case 'settoreCostruzioni':
+            cliente = new settoreCostruzioni(fatturato, nomeUser);
+            break;
+        case 'settoreAmbulanti':
+            cliente = new settoreIntermediari(fatturato, nomeUser);
+            break;
+        default:
+            // Gestione nel caso in cui cliente sia undefined
+            console.error('Settore non valido');
+            return;
+    }
+
+    arrayClienti.push(cliente);
+
+    arrayClienti.forEach((el) => {
+        const clientiList = document.querySelector('ol') as HTMLUListElement;
+        clientiList.innerHTML +=
+            `<li><h3><b>${el.nomeCliente}</b> dato un fatturato di <b>${el.redditoLordoAnnuo}</b>, avrà:</h3>
+        <ul>
+        <li><b>${el.getTasseInps().toFixed(2)}</b> da pagare all'INPS</li>
+        <li><b>${el.getTasseIrpef().toFixed(2)}</b> da pagare all'IRPEF</li>
+        <li><b>${el.getRedditoNettoAnnuo().toFixed(2)}</b> di reddito annuale tolte le tasse applicate</li>
+        `
+    })
+    svuotaCampiInput();
+}
+
