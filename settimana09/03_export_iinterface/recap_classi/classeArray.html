@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classi e array</title>
+</head>
+
+<body>
+    <p id="voci"></p>
+    <input type="text" name="nuovaVoce" id="nuovaVoce">
+    <button type="button" id="aggiungi">Aggiungi</button>
+    <ul id="lista"></ul>
+
+    <script src="assets/js/classeArray.js"></script>
+</body>
+
+<script>
+    class Voce {
+        nomeVoce;
+        constructor(_nomeVoce) {
+            this.nomeVoce = _nomeVoce;
+        }
+        voceInserita() {
+            return `<b>${this.nomeVoce}</b>`;
+        }
+    }
+
+    var lista = document.querySelector('#lista');
+    var nuovaVoce = document.querySelector('#nuovaVoce');
+    var addBtn = document.querySelector('#aggiungi');
+
+    var elenco = [];
+
+    addBtn.addEventListener('click', () => {
+        if (nuovaVoce.value != '') {
+            let aggiunta = new Voce(nuovaVoce.value);
+            document.querySelector('#voci').innerHTML = `La voce ${aggiunta.voceInserita()} è stata inserita nell'array e viene scritta qui in modo isolato`;
+            elenco.push(aggiunta);
+            scriviLista();
+        }
+    });
+
+    function scriviLista() {
+        lista.innerHTML = '';
+        elenco.forEach((el, index) => {
+            lista.innerHTML += `<li>${el.voceInserita()}</li>`;
+        });
+        nuovaVoce.value = '';
+        console.log(elenco);
+    }
+
+</script>
+
+</html>
