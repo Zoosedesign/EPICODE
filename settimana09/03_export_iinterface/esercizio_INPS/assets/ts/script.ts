@@ -78,14 +78,14 @@ class settoreIntermediari extends partitaIVA {
 }
 
 //--------- OPERAZIONI SUL DOM (STAMPA e RECUPERO INFORMAZIONI) ----------
-function svuotaCampiInput() {
+const svuotaCampiInput = () => {
     // Svuota i campi del form
     (document.getElementById('sceltaSettore') as HTMLInputElement).value = '';
     (document.getElementById('fatturato') as HTMLInputElement).value = '';
     (document.getElementById('nomeUser') as HTMLInputElement).value = '';
 }
 
-function aggiungiCliente() {
+const aggiungiCliente = () => {
     // recupero i valori dati agli input del form
     let sceltaSettore = (document.getElementById('sceltaSettore') as HTMLInputElement).value;
     let fatturato = Number((document.getElementById('fatturato') as HTMLInputElement).value);
