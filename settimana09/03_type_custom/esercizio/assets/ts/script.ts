@@ -43,6 +43,18 @@ class Prodotto implements masterProdotto {
 
 }
 
+//-------- FETCH JSON ---------
+const fetchProdotti = async () => {
+    try {
+        const response = await fetch('./assets/database/abbigliamento.json');
+        if (response.ok) {
+            //passo i dati alla costante products per creare tutti i prodotti
+            const products = await response.json();
+            return products;
+        }
+    } catch { (err: string) => console.log(err) }
+}
+
 // CREO L'ARRAY DEGLI OGGETTI NEL JSON
 const loadProdotti = async () => {
     //creo l'array che conterrà tutti i products nel json
@@ -77,18 +89,6 @@ const loadProdotti = async () => {
           </div>
         </article>
     </div>`})
-}
-
-//-------- FETCH JSON ---------
-const fetchProdotti = async () => {
-    try {
-        const response = await fetch('./assets/database/abbigliamento.json');
-        if (response.ok) {
-            //passo i dati alla costante products per creare tutti i prodotti
-            const products = await response.json();
-            return products;
-        }
-    } catch { (err: string) => console.log(err) }
 }
 
 window.onload = () => loadProdotti()
