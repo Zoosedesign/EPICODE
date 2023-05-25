@@ -43,36 +43,36 @@ const fetchProdotti = () => __awaiter(void 0, void 0, void 0, function* () {
         // Estraggo i dati ricevuti dal JSON
         const products = yield response.json();
         //creo l'array che conterrà tutti i products nel json
-        const productArray = [];
-        products.forEach((prodotto) => {
-            //creo un prodotto per ogni oggetto presente nel json
+        let productArray = products.map((prodotto) => {
             const product = new Prodotto(prodotto.id, prodotto.codprod, prodotto.collezione, prodotto.capo, prodotto.modello, prodotto.quantita, prodotto.colore, prodotto.prezzoivaesclusa, prodotto.prezzoivainclusa, prodotto.disponibile, prodotto.saldo, prodotto.img);
-            productArray.push(product);
+            return product;
         });
-        // POPOLO IL DOM CON GLI ARTICOLI 
+        // POPOLO IL DOM CON GLI ARTICOLI
         productArray.forEach((prodotto) => {
             const productBox = document.getElementById('productBox');
-            productBox.innerHTML += `<div class="col-12 col-mb-6 col-lg-4 px-3">
-        <article class="card">
-          <img src="${prodotto.img}" style="aspect-ratio: 1/1.2; object-fit: fit;" class="card-img-top" alt="immagine prodotto">
-            <div class="card-img-overlay">
-            <small class="badge bg-danger"><del>${prodotto.prezzoivainclusa} €</del><ins class="bg-danger"> -${prodotto.saldo}%</ins></small>
-            </div>
-
-          <div class="card-body">
-            <h4 class="card-title">${prodotto.capo}</h4>
-            <div class="d-flex">
-            <p class="card-text">Colore: ${prodotto.colore}</p>
-            <p class="card-text mb-2 ms-auto">Disponibilità: ${prodotto.quantita} ${prodotto.disponibile}</p>
-            </div>
-            <p class="fs-2">${prodotto.getAcquisto()} €</p>
+            productBox.innerHTML += `
+          <div class="col-12 col-mb-6 col-lg-4 px-3">
+            <article class="card">
+              <img src="${prodotto.img}" style="aspect-ratio: 1/1.2; object-fit: fit;" class="card-img-top" alt="immagine prodotto">
+              <div class="card-img-overlay">
+                <small class="badge bg-danger"><del>${prodotto.prezzoivainclusa} €</del><ins class="bg-danger"> -${prodotto.saldo}%</ins></small>
+              </div>
+  
+              <div class="card-body">
+                <h4 class="card-title">${prodotto.capo}</h4>
+                <div class="d-flex">
+                  <p class="card-text">Colore: ${prodotto.colore}</p>
+                  <p class="card-text mb-2 ms-auto">Disponibilità: ${prodotto.quantita} ${prodotto.disponibile}</p>
+                </div>
+                <p class="fs-2">${prodotto.getAcquisto()} €</p>
+              </div>
+            </article>
           </div>
-        </article>
-        </div>`;
+        `;
         });
     }
-    catch (_a) {
-        (err) => console.log(err);
+    catch (error) {
+        console.log('Si è verificato un errore:', error);
     }
 });
 window.onload = () => fetchProdotti();
