@@ -11,6 +11,12 @@ interface masterIVA {
     getRedditoNettoAnnuo(): number;
 }
 
+//mi servirà come tipo dell'array
+interface masterIVAplus extends masterIVA {
+    codiceATECO: number;
+    nomeCliente: string;
+}
+
 //"public" è necessario per dichiarare i valori variabili negli argomenti del costruttore
 class partitaIVA implements masterIVA {
     //qua metto solo quelle fisse a cui darò un valore nel costruttore
@@ -85,7 +91,7 @@ function aggiungiCliente() {
     let fatturato = Number((document.getElementById('fatturato') as HTMLInputElement).value);
     let nomeUser = (document.getElementById('nomeUser') as HTMLInputElement).value;
 
-    const arrayClienti: (settoreAlimentare | settoreAmbulanti | settoreCostruzioni | settoreIntermediari)[] = [];
+    const arrayClienti: masterIVAplus[] = [];
     // assegno ad una variabile i valori, dopo aver verificato la classe di appartenenza in base al settore
     let cliente;
 
