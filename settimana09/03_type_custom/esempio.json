@@ -1,0 +1,35 @@
+{
+    "studenti": [
+        {
+            "nome": "Giuseppe",
+            "cognome": "Petrucci",
+            "id": 1
+        },
+        {
+            "nome": "Flavio",
+            "cognome": "Mammoliti",
+            "id": 2
+        },
+        {
+            "nome": "Andrea",
+            "cognome": "Zucchetti",
+            "id": 3
+        }
+    ],
+    "corsi" : [
+        {
+            "nomeCorso": "fs0223",
+            "tipoCorso": "Full Stack",
+            "durata": 3,
+            "full-time": true,
+            "id": 1
+        },
+        {
+            "nomeCorso": "FE0423",
+            "tipoCorso": "Front-End",
+            "durata": 5,
+            "full-time": false,
+            "id": 2
+        }
+    ]
+}
