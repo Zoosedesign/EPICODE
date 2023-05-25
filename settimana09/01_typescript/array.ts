@@ -2,7 +2,7 @@ let mioArray: string[] = ['Pippo','Pluto','Paperino'];
 
 mioArray.push('Gastone');
 
-let arrayMisto: (string | number)[] = ['Pippo', 5];
+let arrayMisto: (string | number)[] = ['Pippo', 5]; //può essere lungo all'infinito ma per forza di numeri e stringhe
 
 console.log(arrayMisto);
 
@@ -14,7 +14,7 @@ console.log(arrayMisto);
 
 // arrayMisto.push(false); Non posso farlo perché posso inserire soltanto valori di tipo string o number
 
-let tupla: [string, number, string] = ['Pippo', 15, 'Pluto'];
+let tupla: [string, number, string] = ['Pippo', 15, 'Pluto']; //array di tre elementi determinati, dovranno essere come in dichiarazione
 
 console.log(tupla);
 
