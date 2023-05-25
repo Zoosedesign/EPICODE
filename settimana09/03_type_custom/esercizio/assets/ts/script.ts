@@ -45,34 +45,27 @@ class Prodotto implements masterProdotto {
 
 //-------- FETCH JSON ---------
 const fetchProdotti = async () => {
-    try {
+    try { // Effettuo la richiesta a un endpoint utilizzando fetch()
         const response = await fetch('./assets/database/abbigliamento.json');
-        if (response.ok) {
-            //passo i dati alla costante products per creare tutti i prodotti
-            const products = await response.json();
-            return products;
+        if (!response.ok) {
+            throw new Error('Errore nella richiesta: ' + response.status);
         }
-    } catch { (err: string) => console.log(err) }
-}
+        // Estraggo i dati ricevuti dal JSON
+        const products = await response.json();
+        //creo l'array che conterrà tutti i products nel json
+        const productArray: masterProdotto[] = [];
 
-// CREO L'ARRAY DEGLI OGGETTI NEL JSON
-const loadProdotti = async () => {
-    //creo l'array che conterrà tutti i products nel json
-    const productArray: masterProdotto[] = [];
-    const products = await fetchProdotti();
+        products.forEach((prodotto: masterProdotto) => {
+            //creo un prodotto per ogni oggetto presente nel json
+            const product = new Prodotto(prodotto.id, prodotto.codprod, prodotto.collezione, prodotto.capo, prodotto.modello, prodotto.quantita, prodotto.colore, prodotto.prezzoivaesclusa, prodotto.prezzoivainclusa, prodotto.disponibile, prodotto.saldo, prodotto.img);
 
-    products.forEach((prodotto: masterProdotto) => {
-        //creo un prodotto per ogni oggetto presente nel json
-        const product = new Prodotto(prodotto.id, prodotto.codprod, prodotto.collezione, prodotto.capo, prodotto.modello, prodotto.quantita, prodotto.colore, prodotto.prezzoivaesclusa, prodotto.prezzoivainclusa, prodotto.disponibile, prodotto.saldo, prodotto.img);
+            productArray.push(product);
+        });
+        // POPOLO IL DOM CON GLI ARTICOLI 
+        productArray.forEach((prodotto: masterProdotto) => {
+            const productBox = document.getElementById('productBox') as HTMLDivElement;
 
-        productArray.push(product);
-    });
-
-    // POPOLO IL DOM CON GLI ARTICOLI 
-    productArray.forEach((prodotto: masterProdotto) => {
-        const productBox = document.getElementById('productBox') as HTMLDivElement;
-
-        productBox.innerHTML += `<div class="col-12 col-mb-6 col-lg-4 px-3">
+            productBox.innerHTML += `<div class="col-12 col-mb-6 col-lg-4 px-3">
         <article class="card">
           <img src="${prodotto.img}" style="aspect-ratio: 1/1.2; object-fit: fit;" class="card-img-top" alt="immagine prodotto">
             <div class="card-img-overlay">
@@ -88,7 +81,10 @@ const loadProdotti = async () => {
             <p class="fs-2">${prodotto.getAcquisto()} €</p>
           </div>
         </article>
-    </div>`})
+        </div>`})
+    } catch (error) {
+        console.log('Si è verificato un errore:', error);
+    }
 }
 
-window.onload = () => loadProdotti()
+window.onload = () => fetchProdotti()

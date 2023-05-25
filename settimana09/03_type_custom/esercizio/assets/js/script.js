@@ -33,20 +33,26 @@ class Prodotto {
     }
     ;
 }
-// CREO L'ARRAY DEGLI OGGETTI NEL JSON
-const loadProdotti = () => __awaiter(void 0, void 0, void 0, function* () {
-    //creo l'array che conterrà tutti i products nel json
-    const productArray = [];
-    const products = yield fetchProdotti();
-    products.forEach((prodotto) => {
-        //creo un prodotto per ogni oggetto presente nel json
-        const product = new Prodotto(prodotto.id, prodotto.codprod, prodotto.collezione, prodotto.capo, prodotto.modello, prodotto.quantita, prodotto.colore, prodotto.prezzoivaesclusa, prodotto.prezzoivainclusa, prodotto.disponibile, prodotto.saldo, prodotto.img);
-        productArray.push(product);
-    });
-    // POPOLO IL DOM CON GLI ARTICOLI 
-    productArray.forEach((prodotto) => {
-        const productBox = document.getElementById('productBox');
-        productBox.innerHTML += `<div class="col-12 col-mb-6 col-lg-4 px-3">
+//-------- FETCH JSON ---------
+const fetchProdotti = () => __awaiter(void 0, void 0, void 0, function* () {
+    try { // Effettuo la richiesta a un endpoint utilizzando fetch()
+        const response = yield fetch('./assets/database/abbigliamento.json');
+        if (!response.ok) {
+            throw new Error('Errore nella richiesta: ' + response.status);
+        }
+        // Estraggo i dati ricevuti dal JSON
+        const products = yield response.json();
+        //creo l'array che conterrà tutti i products nel json
+        const productArray = [];
+        products.forEach((prodotto) => {
+            //creo un prodotto per ogni oggetto presente nel json
+            const product = new Prodotto(prodotto.id, prodotto.codprod, prodotto.collezione, prodotto.capo, prodotto.modello, prodotto.quantita, prodotto.colore, prodotto.prezzoivaesclusa, prodotto.prezzoivainclusa, prodotto.disponibile, prodotto.saldo, prodotto.img);
+            productArray.push(product);
+        });
+        // POPOLO IL DOM CON GLI ARTICOLI 
+        productArray.forEach((prodotto) => {
+            const productBox = document.getElementById('productBox');
+            productBox.innerHTML += `<div class="col-12 col-mb-6 col-lg-4 px-3">
         <article class="card">
           <img src="${prodotto.img}" style="aspect-ratio: 1/1.2; object-fit: fit;" class="card-img-top" alt="immagine prodotto">
             <div class="card-img-overlay">
@@ -62,21 +68,11 @@ const loadProdotti = () => __awaiter(void 0, void 0, void 0, function* () {
             <p class="fs-2">${prodotto.getAcquisto()} €</p>
           </div>
         </article>
-    </div>`;
-    });
-});
-//-------- FETCH JSON ---------
-const fetchProdotti = () => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const response = yield fetch('./assets/database/abbigliamento.json');
-        if (response.ok) {
-            //passo i dati alla costante products per creare tutti i prodotti
-            const products = yield response.json();
-            return products;
-        }
+        </div>`;
+        });
     }
     catch (_a) {
         (err) => console.log(err);
     }
 });
-window.onload = () => loadProdotti();
+window.onload = () => fetchProdotti();
