@@ -16,6 +16,8 @@ class Utente {
         this.chiamate.push(chiamata);
         this.traffico += durata;
         this.credito -= this.tariffa * durata;
+        console.log("Traffico aggiornato:", this.traffico);
+        console.log("Chiamate aggiornate:", this.chiamate);
     }
     creditoResiduo() {
         return `Credito residuo: ${this.credito.toFixed(2)}€`;
@@ -38,29 +40,23 @@ sceltaUtente.addEventListener('change', () => {
     setUtenteCorrente(utenteScelto);
 });
 let utenteCorrente = null;
-function setUtenteCorrente(nomeUtente) {
+const setUtenteCorrente = (nomeUtente) => {
     console.log("Utente selezionato:", nomeUtente);
     switch (nomeUtente) {
         case 'Giovanni':
             utenteCorrente = Giovanni;
-            console.log("Traffico aggiornato:", Giovanni.traffico);
-            console.log("Chiamate aggiornate:", Giovanni.chiamate);
             break;
         case 'Luigi':
             utenteCorrente = Luigi;
-            console.log("Traffico aggiornato:", Luigi.traffico);
-            console.log("Chiamate aggiornate:", Luigi.chiamate);
             break;
         case 'Andrea':
             utenteCorrente = Andrea;
-            console.log("Traffico aggiornato:", Andrea.traffico);
-            console.log("Chiamate aggiornate:", Andrea.chiamate);
             break;
         default:
             utenteCorrente = null;
             break;
     }
-}
+};
 //------- GESTIONE COMPOSIZIONE NUMERO TELEFONICO --------
 //variabili globali
 let numeroComposto = '';
@@ -76,6 +72,7 @@ const composizioneNumero = (value) => {
     if (utenteCorrente) {
         //inserisco nell'utente selezionato il numero chiamato nell'array "chiamate"
         utenteCorrente.chiamate.push(Number(value));
+        console.log(utenteCorrente);
     }
 };
 // Funzione per gestire il clic sul pulsante di chiamata
@@ -94,16 +91,17 @@ const handleCallButtonClick = () => {
         if (utenteCorrente) {
             // Effettua la chiamata sull'utente corrente
             utenteCorrente.chiamata(Number(numeroComposto), durataChiamata);
+            console.log(utenteCorrente);
         }
         numeroComposto = '';
         updateNumber();
     }
 };
 // Funzione per aggiornare il display con il numero e il tempo trascorso
-function updateNumber() {
+const updateNumber = () => {
     const areaNumero = document.getElementById('numero');
     areaNumero.textContent = numeroComposto;
-}
+};
 // Aggiungi gli event listener ai bottoni numerici
 tastierino.forEach((button) => {
     button.addEventListener('click', () => composizioneNumero(button.value));

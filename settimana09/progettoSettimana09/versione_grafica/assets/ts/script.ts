@@ -118,7 +118,7 @@ const handleCallButtonClick = (): void => {
 
 
 // Funzione per aggiornare il display con il numero e il tempo trascorso
-const updateNumber = () => {
+const updateNumber = ():void => {
     const areaNumero = document.getElementById('numero') as HTMLHeadingElement;
     areaNumero.textContent = numeroComposto;
 }
