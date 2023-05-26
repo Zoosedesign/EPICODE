@@ -5,27 +5,26 @@ interface Telefonino {
     chiamate: number[]; //è un array contenente i numeri delle chiamate fatte
     traffico: number; // durata totale telefonate
     tariffa: number; //una telefonata costa .20€ al minuto
-    eliminate: number[]; //chiamte cancellate
+    eliminate: number[]; //chiamate cancellate
     //metodi richiesti
+    chiamata(chiamata: number, durata: number): void; //aggiorna il credito in base alla tariffa/min della telefonata, ed implementa n° chiamate 
     ricarica(money: number): void; //per ricaricare il credito
-    chiamata(chiamata: number, durata: number): void; //aggiorna il credito in base alla tariffa/min della telefonata, ed implementa n° chiamate
     creditoResiduo(): string; //per mostrare il credito rimasto
     numeroChiamate(): string; //per mostrare il n° di telefonate effettuate
     azzeraChiamate(): void; //per cancellare il registro chiamate
-    test(): string;
 }
 
 class Utente implements Telefonino {
     readonly tariffa: number = .2;
     constructor(public user: string, public numero: number, public credito: number, public chiamate: number[], public traffico: number, public eliminate: number[]) { }
 
-    ricarica(money: number): void {
-        this.credito += money;
-    }
     chiamata(chiamata: number, durata: number): void {
         this.chiamate.push(chiamata);
         this.traffico += durata;
-        this.credito -= this.tariffa * durata;
+        this.credito -= this.tariffa * (Math.floor(durataChiamata / 60)); //trasformo la durata da secondi a minuti
+    }
+    ricarica(money: number): void {
+        this.credito += money;
     }
     creditoResiduo(): string {
         return `Credito residuo: ${this.credito.toFixed(2)}€`;
@@ -37,14 +36,11 @@ class Utente implements Telefonino {
         this.eliminate = this.eliminate.concat(this.chiamate); // Memorizza il numero di chiamate da cancellare
         this.chiamate = []; // Resetta il numero di chiamate a zero
     }
-    test(): string {
-        return `Traffico aggiornato: ${this.traffico}\nChiamate aggiornate: ${this.chiamate}`;
-    }    
 }
 
-const Giovanni = new Utente('Giovanni Rossi', 3334567001, 0, [], 0, []); //primo Utente
-const Luigi = new Utente('Luigi Verdi', 3334567002, 0, [], 0, []); //secondo Utente
-const Andrea = new Utente('Andrea Bianchi', 3334567003, 0, [], 0, []); //terzo Utente
+const Giovanni = new Utente('Giovanni Rossi', 3334567001, 5, [], 0, []); //primo Utente
+const Luigi = new Utente('Luigi Verdi', 3334567002, 5, [], 0, []); //secondo Utente
+const Andrea = new Utente('Andrea Bianchi', 3334567003, 5, [], 0, []); //terzo Utente
 
 //------- SELEZIONE UTENTE --------
 const sceltaUtente = document.getElementById("sceltaUtente") as HTMLSelectElement;
@@ -55,9 +51,8 @@ sceltaUtente.addEventListener('change', () => {
 
 let utenteCorrente: Utente | null = null;
 
-const setUtenteCorrente = (nomeUtente: string):void => {
+const setUtenteCorrente = (nomeUtente: string): void => {
     console.log("Utente selezionato:", nomeUtente);
-    console.log(utenteCorrente?.test);
     switch (nomeUtente) {
         case 'Giovanni':
             utenteCorrente = Giovanni;
@@ -84,6 +79,7 @@ let durataChiamata: number = 0;
 //elementi DOM
 const tastierino = document.querySelectorAll('#tastiera button[value]') as NodeListOf<HTMLButtonElement>;
 const pulsanteChiamata = document.querySelector('#tastiera button.btn-success') as HTMLButtonElement;
+const areaNumero = document.getElementById('numero') as HTMLHeadingElement;
 
 // Funzione per gestire il clic su un bottone numerico
 const composizioneNumero = (value: string): void => {
@@ -93,31 +89,34 @@ const composizioneNumero = (value: string): void => {
 
 // Funzione per gestire il clic sul pulsante di chiamata
 const handleCallButtonClick = (): void => {
-    if (inizioChiamata === null) {
-        inizioChiamata = new Date();
-        pulsanteChiamata.classList.add("btn-danger");
-    } else {
-        // Termina la chiamata
-        pulsanteChiamata.classList.remove("btn-danger");
-        const fineChiamata = new Date();
-        durataChiamata = Math.floor((fineChiamata.getTime() - inizioChiamata.getTime()) / 1000);
-        inizioChiamata = null;
-        //se è stato selezionato l'utente salva la durata chiamata in traffico
-        if (utenteCorrente) {
-            console.log(utenteCorrente)
-            // Effettua la chiamata sull'utente corrente
-            utenteCorrente.chiamata(Number(numeroComposto), durataChiamata);
-            utenteCorrente.chiamate.push(Number(numeroComposto));
+    //avvio la chiamata solo se l'utente selezionato e abbiamo digitato un numero di almeno 5 numeri
+    if (areaNumero.textContent !== null && areaNumero.textContent.length >= 5 && utenteCorrente !== null) {
+        if (inizioChiamata === null) {
+            inizioChiamata = new Date();
+            pulsanteChiamata.classList.add("btn-danger");
+        } else {
+            // Termina la chiamata
+            pulsanteChiamata.classList.remove("btn-danger");
+            const fineChiamata = new Date();
+            durataChiamata = Math.floor((fineChiamata.getTime() - inizioChiamata.getTime()) / 1000);
+            inizioChiamata = null;
+            //se è stato selezionato l'utente salva la durata chiamata in traffico
+            if (utenteCorrente) {
+                console.log(utenteCorrente)
+                // Effettua la chiamata sull'utente corrente
+                utenteCorrente.chiamata(Number(numeroComposto), durataChiamata);
+            }
+            numeroComposto = '';
+            updateNumber();
         }
-        numeroComposto = '';
-        updateNumber();
+    } else {
+        alert('si prega di selezionare un utente e digitare un numero telefonico di almeno 10 cifre')
     }
 };
 
 
 // Funzione per aggiornare il display con il numero e il tempo trascorso
-const updateNumber = ():void => {
-    const areaNumero = document.getElementById('numero') as HTMLHeadingElement;
+const updateNumber = (): void => {
     areaNumero.textContent = numeroComposto;
 }
 
