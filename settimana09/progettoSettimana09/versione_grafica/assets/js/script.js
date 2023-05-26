@@ -76,6 +76,7 @@ const handleCallButtonClick = () => {
         if (inizioChiamata === null) {
             inizioChiamata = new Date();
             pulsanteChiamata.classList.add("btn-danger");
+            areaNumero.innerHTML = '<small>chiamata in corso...</small>';
         }
         else {
             // Termina la chiamata
