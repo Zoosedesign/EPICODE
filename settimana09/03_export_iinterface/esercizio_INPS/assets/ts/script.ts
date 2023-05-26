@@ -19,14 +19,12 @@ interface masterIVAplus extends masterIVA {
 
 //"public" è necessario per dichiarare i valori variabili negli argomenti del costruttore
 class partitaIVA implements masterIVA {
-    //qua metto solo quelle fisse a cui darò un valore nel costruttore
-    tasseINPS: number;
-    tasseIRPEF: number;
+    //qua metto solo quelle fisse che non devo dichiarare neanche nel costruttore grazie a readonly
+    readonly tasseINPS: number = 0.2623; 
+    readonly tasseIRPEF: number = 0.15
     //qua passerò i valori variabili dati dall'utente o da noi in secondo momento, i nomi parametri non saranno anticipati da "_"
-    constructor(public redditoTASSATO: number, public redditoLordoAnnuo: number) {
-        this.tasseINPS = 0.2623, //aliquota INPS: 26.23%
-            this.tasseIRPEF = 0.15 //aliquota irpef: 15%
-    }
+    constructor(public redditoTASSATO: number, public redditoLordoAnnuo: number) {}
+
     getUtileTasse() {
         return Number(this.redditoLordoAnnuo * this.redditoTASSATO);
     };
@@ -43,37 +41,33 @@ class partitaIVA implements masterIVA {
 
 //--------- MODULO SETTORE ALIMENTARE ----------
 class settoreAlimentare extends partitaIVA {
-    codiceATECO: number;
+    readonly codiceATECO: number = 10
     constructor(redditoLordoAnnuo: number, public nomeCliente: string, redditoTASSATO: number = 0.4) {
         super(redditoTASSATO, redditoLordoAnnuo);
-        this.codiceATECO = 10;
     }
 }
 
 //--------- MODULO SETTORE AMBULANTI ----------
 class settoreAmbulanti extends partitaIVA {
-    codiceATECO: number;
+    readonly codiceATECO: number = 47.82
     constructor(redditoLordoAnnuo: number, public nomeCliente: string, redditoTASSATO: number = 0.54) {
         super(redditoTASSATO, redditoLordoAnnuo);
-        this.codiceATECO = 47.82;
     }
 }
 
 //--------- MODULO SETTORE COSTRUZIONI ----------
 class settoreCostruzioni extends partitaIVA {
-    codiceATECO: number;
+    readonly codiceATECO: number = 68
     constructor(redditoLordoAnnuo: number, public nomeCliente: string, redditoTASSATO: number = 0.86) {
         super(redditoTASSATO, redditoLordoAnnuo);
-        this.codiceATECO = 68;
     }
 }
 
 //--------- MODULO SETTORE INTERMEDIARI ----------
 class settoreIntermediari extends partitaIVA {
-    codiceATECO: number;
+    readonly codiceATECO: number = 46.1
     constructor(redditoLordoAnnuo: number, public nomeCliente: string, redditoTASSATO: number = 0.62) {
         super(redditoTASSATO, redditoLordoAnnuo);
-        this.codiceATECO = 46.1;
     }
 }
 
