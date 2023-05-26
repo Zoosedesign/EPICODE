@@ -20,8 +20,8 @@ class Utente implements Telefonino {
 
     chiamata(chiamata: number, durata: number): void {
         this.chiamate.push(chiamata);
-        this.traffico += durata;
-        this.credito -= this.tariffa * (Math.floor(durataChiamata / 60)); //trasformo la durata da secondi a minuti
+        this.traffico += Number((durata / 60).toFixed(2)); //trasformo la durata da secondi a minuti
+        this.credito -= Number((this.tariffa * (durata / 60)).toFixed(2));
     }
     ricarica(money: number): void {
         this.credito += money;
@@ -99,6 +99,7 @@ const handleCallButtonClick = (): void => {
             pulsanteChiamata.classList.remove("btn-danger");
             const fineChiamata = new Date();
             durataChiamata = Math.floor((fineChiamata.getTime() - inizioChiamata.getTime()) / 1000);
+            console.log(durataChiamata);
             inizioChiamata = null;
             //se è stato selezionato l'utente salva la durata chiamata in traffico
             if (utenteCorrente) {
