@@ -25,6 +25,9 @@ class Utente implements Telefonino {
         this.chiamate.push(chiamata);
         this.traffico += durata;
         this.credito -= this.tariffa * durata;
+
+        console.log("Traffico aggiornato:", this.traffico);
+        console.log("Chiamate aggiornate:", this.chiamate);
     }
     creditoResiduo(): string {
         return `Credito residuo: ${this.credito.toFixed(2)}€`;
@@ -51,7 +54,7 @@ sceltaUtente.addEventListener('change', () => {
 
 let utenteCorrente: Utente | null = null;
 
-function setUtenteCorrente(nomeUtente: string) {
+const setUtenteCorrente = (nomeUtente: string):void => {
     console.log("Utente selezionato:", nomeUtente);
     switch (nomeUtente) {
         case 'Giovanni':
@@ -66,11 +69,6 @@ function setUtenteCorrente(nomeUtente: string) {
         default:
             utenteCorrente = null;
             break;
-    }
-    //vedo se alcuni dati vengono aggiornati
-    if (utenteCorrente === Giovanni) {
-        console.log("Traffico di Giovanni:", Giovanni.traffico);
-        console.log("Chiamate di Giovanni:", Giovanni.chiamate);
     }
 }
 
@@ -92,6 +90,7 @@ const composizioneNumero = (value: string): void => {
     if (utenteCorrente) {
         //inserisco nell'utente selezionato il numero chiamato nell'array "chiamate"
         utenteCorrente.chiamate.push(Number(value));
+        console.log(utenteCorrente);
     }
 };
 
@@ -110,6 +109,7 @@ const handleCallButtonClick = (): void => {
         if (utenteCorrente) {
             // Effettua la chiamata sull'utente corrente
             utenteCorrente.chiamata(Number(numeroComposto), durataChiamata);
+            console.log(utenteCorrente);
         }
         numeroComposto = '';
         updateNumber();
@@ -118,7 +118,7 @@ const handleCallButtonClick = (): void => {
 
 
 // Funzione per aggiornare il display con il numero e il tempo trascorso
-function updateNumber() {
+const updateNumber = () => {
     const areaNumero = document.getElementById('numero') as HTMLHeadingElement;
     areaNumero.textContent = numeroComposto;
 }

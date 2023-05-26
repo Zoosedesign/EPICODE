@@ -43,21 +43,22 @@ function setUtenteCorrente(nomeUtente) {
     switch (nomeUtente) {
         case 'Giovanni':
             utenteCorrente = Giovanni;
+            console.log("Traffico aggiornato:", Giovanni.traffico);
+            console.log("Chiamate aggiornate:", Giovanni.chiamate);
             break;
         case 'Luigi':
             utenteCorrente = Luigi;
+            console.log("Traffico aggiornato:", Luigi.traffico);
+            console.log("Chiamate aggiornate:", Luigi.chiamate);
             break;
         case 'Andrea':
             utenteCorrente = Andrea;
+            console.log("Traffico aggiornato:", Andrea.traffico);
+            console.log("Chiamate aggiornate:", Andrea.chiamate);
             break;
         default:
             utenteCorrente = null;
             break;
-    }
-    //vedo se alcuni dati vengono aggiornati
-    if (utenteCorrente === Giovanni) {
-        console.log("Traffico di Giovanni:", Giovanni.traffico);
-        console.log("Chiamate di Giovanni:", Giovanni.chiamate);
     }
 }
 //------- GESTIONE COMPOSIZIONE NUMERO TELEFONICO --------
