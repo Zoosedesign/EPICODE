@@ -28,7 +28,7 @@ class Utente {
         this.chiamate = []; // Resetta il numero di chiamate a zero
     }
     test() {
-        return `Traffico aggiornato:, ${this.traffico}\nChimate aggiornate ${this.chiamate}`;
+        return `Traffico aggiornato:, ${this.traffico}\nChiamate aggiornate ${this.chiamate}`;
     }
 }
 const Giovanni = new Utente('Giovanni Rossi', 3334567001, 0, [], 0, []); //primo Utente
@@ -71,9 +71,9 @@ const composizioneNumero = (value) => {
     numeroComposto += value;
     updateNumber();
     if (utenteCorrente) {
+        console.log(utenteCorrente);
         //inserisco nell'utente selezionato il numero chiamato nell'array "chiamate"
         utenteCorrente.chiamate.push(Number(value));
-        console.log(utenteCorrente);
     }
 };
 // Funzione per gestire il clic sul pulsante di chiamata
@@ -90,9 +90,9 @@ const handleCallButtonClick = () => {
         inizioChiamata = null;
         //se è stato selezionato l'utente salva la durata chiamata in traffico
         if (utenteCorrente) {
+            console.log(utenteCorrente);
             // Effettua la chiamata sull'utente corrente
             utenteCorrente.chiamata(Number(numeroComposto), durataChiamata);
-            console.log(utenteCorrente);
         }
         numeroComposto = '';
         updateNumber();

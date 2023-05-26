@@ -38,7 +38,7 @@ class Utente implements Telefonino {
         this.chiamate = []; // Resetta il numero di chiamate a zero
     }
     test(): string {
-        return `Traffico aggiornato:, ${this.traffico}\nChimate aggiornate ${this.chiamate}`;
+        return `Traffico aggiornato:, ${this.traffico}\nChiamate aggiornate ${this.chiamate}`;
     }
 }
 
@@ -89,9 +89,9 @@ const composizioneNumero = (value: string): void => {
     numeroComposto += value;
     updateNumber();
     if (utenteCorrente) {
+        console.log(utenteCorrente)
         //inserisco nell'utente selezionato il numero chiamato nell'array "chiamate"
         utenteCorrente.chiamate.push(Number(value));
-        console.log(utenteCorrente);
     }
 };
 
@@ -108,9 +108,9 @@ const handleCallButtonClick = (): void => {
         inizioChiamata = null;
         //se è stato selezionato l'utente salva la durata chiamata in traffico
         if (utenteCorrente) {
+            console.log(utenteCorrente)
             // Effettua la chiamata sull'utente corrente
             utenteCorrente.chiamata(Number(numeroComposto), durataChiamata);
-            console.log(utenteCorrente);
         }
         numeroComposto = '';
         updateNumber();
