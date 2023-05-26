@@ -16,8 +16,6 @@ class Utente {
         this.chiamate.push(chiamata);
         this.traffico += durata;
         this.credito -= this.tariffa * durata;
-        console.log("Traffico aggiornato:", this.traffico);
-        console.log("Chiamate aggiornate:", this.chiamate);
     }
     creditoResiduo() {
         return `Credito residuo: ${this.credito.toFixed(2)}€`;
@@ -28,6 +26,9 @@ class Utente {
     azzeraChiamate() {
         this.eliminate = this.eliminate.concat(this.chiamate); // Memorizza il numero di chiamate da cancellare
         this.chiamate = []; // Resetta il numero di chiamate a zero
+    }
+    test() {
+        return `Traffico aggiornato:, ${this.traffico}\nChimate aggiornate ${this.chiamate}`;
     }
 }
 const Giovanni = new Utente('Giovanni Rossi', 3334567001, 0, [], 0, []); //primo Utente
@@ -108,3 +109,6 @@ tastierino.forEach((button) => {
 });
 // Aggiungi l'event listener al pulsante di chiamata
 pulsanteChiamata.addEventListener('click', handleCallButtonClick);
+console.log(Giovanni.test());
+console.log(Luigi.test());
+console.log(Andrea.test());

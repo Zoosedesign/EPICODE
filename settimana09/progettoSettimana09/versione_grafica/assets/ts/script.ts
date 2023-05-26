@@ -12,6 +12,7 @@ interface Telefonino {
     creditoResiduo(): string; //per mostrare il credito rimasto
     numeroChiamate(): string; //per mostrare il n° di telefonate effettuate
     azzeraChiamate(): void; //per cancellare il registro chiamate
+    test(): string;
 }
 
 class Utente implements Telefonino {
@@ -25,9 +26,6 @@ class Utente implements Telefonino {
         this.chiamate.push(chiamata);
         this.traffico += durata;
         this.credito -= this.tariffa * durata;
-
-        console.log("Traffico aggiornato:", this.traffico);
-        console.log("Chiamate aggiornate:", this.chiamate);
     }
     creditoResiduo(): string {
         return `Credito residuo: ${this.credito.toFixed(2)}€`;
@@ -38,6 +36,9 @@ class Utente implements Telefonino {
     azzeraChiamate(): void {
         this.eliminate = this.eliminate.concat(this.chiamate); // Memorizza il numero di chiamate da cancellare
         this.chiamate = []; // Resetta il numero di chiamate a zero
+    }
+    test(): string {
+        return `Traffico aggiornato:, ${this.traffico}\nChimate aggiornate ${this.chiamate}`;
     }
 }
 
@@ -130,3 +131,7 @@ tastierino.forEach((button) => {
 
 // Aggiungi l'event listener al pulsante di chiamata
 pulsanteChiamata.addEventListener('click', handleCallButtonClick);
+
+console.log(Giovanni.test())
+console.log(Luigi.test())
+console.log(Andrea.test())
