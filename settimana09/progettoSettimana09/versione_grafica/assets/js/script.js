@@ -28,7 +28,7 @@ class Utente {
         this.chiamate = []; // Resetta il numero di chiamate a zero
     }
     test() {
-        return `Traffico aggiornato:, ${this.traffico}\nChiamate aggiornate ${this.chiamate}`;
+        return `Traffico aggiornato: ${this.traffico}\nChiamate aggiornate: ${this.chiamate}`;
     }
 }
 const Giovanni = new Utente('Giovanni Rossi', 3334567001, 0, [], 0, []); //primo Utente
@@ -43,6 +43,7 @@ sceltaUtente.addEventListener('change', () => {
 let utenteCorrente = null;
 const setUtenteCorrente = (nomeUtente) => {
     console.log("Utente selezionato:", nomeUtente);
+    console.log(utenteCorrente === null || utenteCorrente === void 0 ? void 0 : utenteCorrente.test);
     switch (nomeUtente) {
         case 'Giovanni':
             utenteCorrente = Giovanni;
@@ -70,11 +71,6 @@ const pulsanteChiamata = document.querySelector('#tastiera button.btn-success');
 const composizioneNumero = (value) => {
     numeroComposto += value;
     updateNumber();
-    if (utenteCorrente) {
-        console.log(utenteCorrente);
-        //inserisco nell'utente selezionato il numero chiamato nell'array "chiamate"
-        utenteCorrente.chiamate.push(Number(value));
-    }
 };
 // Funzione per gestire il clic sul pulsante di chiamata
 const handleCallButtonClick = () => {
@@ -93,6 +89,7 @@ const handleCallButtonClick = () => {
             console.log(utenteCorrente);
             // Effettua la chiamata sull'utente corrente
             utenteCorrente.chiamata(Number(numeroComposto), durataChiamata);
+            utenteCorrente.chiamate.push(Number(numeroComposto));
         }
         numeroComposto = '';
         updateNumber();
@@ -109,6 +106,3 @@ tastierino.forEach((button) => {
 });
 // Aggiungi l'event listener al pulsante di chiamata
 pulsanteChiamata.addEventListener('click', handleCallButtonClick);
-console.log(Giovanni.test());
-console.log(Luigi.test());
-console.log(Andrea.test());
