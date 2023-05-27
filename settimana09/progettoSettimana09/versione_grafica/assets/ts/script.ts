@@ -230,7 +230,11 @@ const appRecenti = (): void => {
             }
           });
 
-        areaPagine.innerHTML = "Contenuto per l'app Ricarica";
+          areaPagine.innerHTML = `<p><i class="bi bi-clock-history"></i> Recenti</p>`;
+          utenteCorrente.chiamate.forEach((chiamata, i) => {
+            areaPagine.innerHTML += `<div class="border-bottom border-secondary pt-2">
+                            <h5>${chiamata}</h5></div>`;
+          });
     } else {
         alert('SELEZIONARE UTENTE!')
     }
@@ -250,7 +254,16 @@ const appContatti = (): void => {
             }
           });
 
-        areaPagine.innerHTML = `area contatti`;
+        areaPagine.innerHTML = `<p><i class="bi bi-person-circle"></i> Contatti</p>
+        <div class="border-bottom border-secondary">
+        <small>${Giovanni.user}</small>
+        <h5>${Giovanni.numero}</h5></div>
+        <div class="border-bottom border-secondary">
+        <small>${Luigi.user}</small>
+        <h5>${Luigi.numero}</h5></div>
+        <div class="border-bottom border-secondary">
+        <small>${Andrea.user}</small>
+        <h5>${Andrea.numero}</h5></div>`;
     } else {
         alert('SELEZIONARE UTENTE!')
     }
