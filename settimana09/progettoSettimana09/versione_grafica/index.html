@@ -70,81 +70,84 @@
                     </select>
                 </form>
 
-                <!-------- AREA COMPOSIZIONE NUMERO -------->
-                <h1 class="mt-3 text-truncate lh-1 px-3" id="numero" style="height: 36px;"></h1>
+                <div id="page" class="mt-3" style="height: 412px;">
+                    <!-------- AREA COMPOSIZIONE NUMERO -------->
+                    <h1 class="text-truncate lh-1 px-3" id="numero" style="height: 36px;"></h1>
 
-                <!-------- TASTIERA TELEFONO -------->
-                <section id="tastiera" class="mt-5 text-center">
-                    <!-- 1 2 3 -->
-                    <div>
-                        <button type="button" class="btn bg-gray rounded-circle fs-3 lh-min" value="1">1<br>
-                            <span class="fs-8 fw-bolder">&nbsp;</span>
-                        </button>
-                        <button type="button" class="btn bg-gray rounded-circle fs-3 lh-min mx-2" value="2">2<br>
-                            <span class="fs-8 fw-bolder">A B C</span>
-                        </button>
-                        <button type="button" class="btn bg-gray rounded-circle fs-3 lh-min" value="3">3<br>
-                            <span class="fs-8 fw-bolder">D E F</span>
-                        </button>
-                    </div>
-                    <!-- 4 5 6 -->
-                    <div class="mt-3">
-                        <button type="button" class="btn bg-gray rounded-circle fs-3 lh-min" value="4">4<br>
-                            <span class="fs-8 fw-bolder">G H I</span>
-                        </button>
-                        <button type="button" class="btn bg-gray rounded-circle fs-3 lh-min mx-2" value="5">5<br>
-                            <span class="fs-8 fw-bolder">J K L</span>
-                        </button>
-                        <button type="button" class="btn bg-gray rounded-circle fs-3 lh-min" value="6">6<br>
-                            <span class="fs-8 fw-bolder">M N O</span>
-                        </button>
-                    </div>
-                    <!-- 7 8 9 -->
-                    <div class="mt-3">
-                        <button type="button" class="btn bg-gray rounded-circle fs-3 lh-min" value="7">7<br>
-                            <span class="fs-8 fw-bolder">P Q R S</span>
-                        </button>
-                        <button type="button" class="btn bg-gray rounded-circle fs-3 lh-min mx-2" value="8">8<br>
-                            <span class="fs-8 fw-bolder">T U V</span>
-                        </button>
-                        <button type="button" class="btn bg-gray rounded-circle fs-3 lh-min" value="9">9<br>
-                            <span class="fs-8 fw-bolder">W X Y Z</span>
-                        </button>
-                    </div>
-                    <!-- * 0 # -->
-                    <div class="mt-3">
-                        <button type="button" class="btn bg-gray rounded-circle fs-1 lh-min pt-3">*</button>
-                        <button type="button" class="btn bg-gray rounded-circle fs-3 lh-min mx-2" value="0">0<br>
-                            <span class="fs-7 fw-bolder">+</span>
-                        </button>
-                        <button type="button" class="btn bg-gray rounded-circle fs-5 lh-min fw-semibold pt-1">#<br>
-                        </button>
-                    </div>
-                    <!-- pulsante di chiamata -->
-                    <div class="mt-3">
-                        <button type="button" class="btn btn-success rounded-circle fs-3 lh-min mx-2">
-                            <svg width="28" height="28" fill="#fff" viewBox="0 0 16 20">
-                                <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
-                              </svg>
-                        </button>
-                    </div>
-                </section>
+                    <!-------- TASTIERA TELEFONO -------->
+                    <section id="tastiera" class="text-center mt-5">
+                        <!-- 1 2 3 -->
+                        <div>
+                            <button type="button" class="btn bg-gray rounded-circle fs-3 lh-min" value="1">1<br>
+                                <span class="fs-8 fw-bolder">&nbsp;</span>
+                            </button>
+                            <button type="button" class="btn bg-gray rounded-circle fs-3 lh-min mx-2" value="2">2<br>
+                                <span class="fs-8 fw-bolder">A B C</span>
+                            </button>
+                            <button type="button" class="btn bg-gray rounded-circle fs-3 lh-min" value="3">3<br>
+                                <span class="fs-8 fw-bolder">D E F</span>
+                            </button>
+                        </div>
+                        <!-- 4 5 6 -->
+                        <div class="mt-3">
+                            <button type="button" class="btn bg-gray rounded-circle fs-3 lh-min" value="4">4<br>
+                                <span class="fs-8 fw-bolder">G H I</span>
+                            </button>
+                            <button type="button" class="btn bg-gray rounded-circle fs-3 lh-min mx-2" value="5">5<br>
+                                <span class="fs-8 fw-bolder">J K L</span>
+                            </button>
+                            <button type="button" class="btn bg-gray rounded-circle fs-3 lh-min" value="6">6<br>
+                                <span class="fs-8 fw-bolder">M N O</span>
+                            </button>
+                        </div>
+                        <!-- 7 8 9 -->
+                        <div class="mt-3">
+                            <button type="button" class="btn bg-gray rounded-circle fs-3 lh-min" value="7">7<br>
+                                <span class="fs-8 fw-bolder">P Q R S</span>
+                            </button>
+                            <button type="button" class="btn bg-gray rounded-circle fs-3 lh-min mx-2" value="8">8<br>
+                                <span class="fs-8 fw-bolder">T U V</span>
+                            </button>
+                            <button type="button" class="btn bg-gray rounded-circle fs-3 lh-min" value="9">9<br>
+                                <span class="fs-8 fw-bolder">W X Y Z</span>
+                            </button>
+                        </div>
+                        <!-- * 0 # -->
+                        <div class="mt-3">
+                            <button type="button" class="btn bg-gray rounded-circle fs-1 lh-min pt-3">*</button>
+                            <button type="button" class="btn bg-gray rounded-circle fs-3 lh-min mx-2" value="0">0<br>
+                                <span class="fs-7 fw-bolder">+</span>
+                            </button>
+                            <button type="button" class="btn bg-gray rounded-circle fs-5 lh-min fw-semibold pt-1">#<br>
+                            </button>
+                        </div>
+                        <!-- pulsante di chiamata -->
+                        <div class="mt-3">
+                            <button type="button" class="btn btn-success rounded-circle fs-3 lh-min mx-2">
+                                <svg width="28" height="28" fill="#fff" viewBox="0 0 16 20">
+                                    <path fill-rule="evenodd"
+                                        d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </section>
+                </div>
 
                 <!-------- MENU IN BASSO -------->
                 <footer class="mt-4">
-                    <button type="button" class="btn fs-3 lh-min pt-3 text-secondary">
+                    <button type="button" class="btn fs-3 lh-min pt-3 text-secondary" onclick="appRicarica()">
                         <i class="bi bi-coin"></i><br>
                         <small class="fs-7">ricarica</small>
                     </button>
-                    <button type="button" class="btn fs-3 lh-min pt-3 text-secondary">
+                    <button type="button" class="btn fs-3 lh-min pt-3 text-secondary" onclick="appRecenti()">
                         <i class="bi bi-clock-history"></i><br>
                         <small class="fs-7">recenti</small>
                     </button>
-                    <button type="button" class="btn fs-3 lh-min pt-3 text-secondary">
+                    <button type="button" class="btn fs-3 lh-min pt-3 text-secondary" onclick="appContatti()">
                         <i class="bi bi-person-circle"></i><br>
                         <small class="fs-7">contatti</small>
                     </button>
-                    <button type="button" class="btn fs-3 lh-min pt-3 text-primary">
+                    <button type="button" class="btn fs-3 lh-min pt-3 text-primary" onclick="appTastiera()">
                         <i class="bi bi-grid-3x3-gap"></i><br>
                         <small class="fs-7">tastiera</small>
                     </button>
