@@ -95,6 +95,10 @@ const handleCallButtonClick = (): void => {
             inizioChiamata = new Date();
             pulsanteChiamata.classList.add("btn-danger");
             areaNumero.innerHTML = '<small class="fs-6">chiamata in corso...</small>'
+            //disabilito tasterino numerico
+            tastierino.forEach((button) => {
+                button.disabled = true;
+              });
         } else {
             // Termina la chiamata
             pulsanteChiamata.classList.remove("btn-danger");
@@ -102,6 +106,10 @@ const handleCallButtonClick = (): void => {
             durataChiamata = Math.floor((fineChiamata.getTime() - inizioChiamata.getTime()) / 1000);
             console.log(durataChiamata);
             inizioChiamata = null;
+            //riabilito il tasterino numerico
+            tastierino.forEach((button) => {
+                button.disabled = false;
+              });
             //se è stato selezionato l'utente salva la durata chiamata in traffico
             if (utenteCorrente) {
                 console.log(utenteCorrente)
@@ -124,7 +132,7 @@ const updateNumber = (): void => {
 
 // Aggiungi gli event listener ai bottoni numerici
 tastierino.forEach((button) => {
-    button.addEventListener('click', () => composizioneNumero(button.value));
+        button.addEventListener('click', () => composizioneNumero(button.value));
 });
 
 // Aggiungi l'event listener al pulsante di chiamata
