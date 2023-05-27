@@ -50,6 +50,8 @@ let paginaCorrente: string = 'appTastiera'
 
 //area pagine dinamiche
 const areaPagine = document.getElementById('page') as HTMLDivElement;
+const footerMenu = document.querySelector('footer') as HTMLElement;
+const iconePagine = footerMenu.querySelectorAll('button') as NodeListOf<HTMLButtonElement>;
 //pagina caricata di default
 window.onload = () => appTastiera()
 
@@ -178,15 +180,24 @@ const gestioneTastiera = (): void => {
 const appRicarica = (): void => {
     if (utenteCorrente !== null) {
         paginaCorrente = 'appRicarica'
+        //coloro di blu l'icona corretta
+        iconePagine.forEach((icona, i) => {
+            if (i === 0) {
+              icona.classList.add('text-primary');
+              icona.classList.remove('text-secondary');
+            } else {
+              icona.classList.remove('text-primary');
+              icona.classList.add('text-secondary');
+            }
+          });
 
         areaPagine.innerHTML = `
-        <form>
-          <label for="ricarica">Effettua la ricarica: </label>
-          <input type="number" name="ricarica" id="ricarica" placeholder="€" required>
-        </form>
-        <button type="submit" id="inviaRicarica">Invia</button>
-        <h3>Hai un credito residuo di:</h3>
-        <p id="creditoResiduo">${utenteCorrente!.credito}€</p>`;
+        <div class="d-flex justify-content-between pt-2">
+          <input type="number" name="ricarica" id="ricarica" placeholder="importo ricarica \u20AC" class="w-75" required>
+          <button type="submit" id="inviaRicarica" class="btn bg-gray fw-semibold text-secondary">OK</button>
+        </div>
+        <h5 class="mt-5 pt-5 text-dark">Benvenuto ${utenteCorrente.user.split(' ')[0]}!<br>Hai un credito residuo di:</h5>
+        <p id="creditoResiduo" class="fs-1 fw-light text-dark">${utenteCorrente!.credito}\u20AC</p>`;
 
         const inviaRicaricaBtn = document.getElementById('inviaRicarica') as HTMLButtonElement;
         const inputRicarica = document.getElementById('ricarica') as HTMLInputElement;
@@ -196,7 +207,7 @@ const appRicarica = (): void => {
             const valoreRicarica: number = Number(inputRicarica.value);
             utenteCorrente!.ricarica(valoreRicarica);
             // Aggiorno il credito residuo
-            creditoResiduo.textContent = `${utenteCorrente!.credito}€`;
+            creditoResiduo.textContent = `${utenteCorrente!.credito}\u20AC`;
             // Svuoto il campo input
             inputRicarica.value = '';
         });
@@ -208,6 +219,16 @@ const appRicarica = (): void => {
 const appRecenti = (): void => {
     if (utenteCorrente !== null) {
         paginaCorrente = 'appRecenti';
+        //coloro di blu l'icona corretta
+        iconePagine.forEach((icona, i) => {
+            if (i === 1) {
+              icona.classList.add('text-primary');
+              icona.classList.remove('text-secondary');
+            } else {
+              icona.classList.remove('text-primary');
+              icona.classList.add('text-secondary');
+            }
+          });
 
         areaPagine.innerHTML = "Contenuto per l'app Ricarica";
     } else {
@@ -218,6 +239,16 @@ const appRecenti = (): void => {
 const appContatti = (): void => {
     if (utenteCorrente !== null) {
         paginaCorrente = 'appContatti';
+        //coloro di blu l'icona corretta
+        iconePagine.forEach((icona, i) => {
+            if (i === 2) {
+              icona.classList.add('text-primary');
+              icona.classList.remove('text-secondary');
+            } else {
+              icona.classList.remove('text-primary');
+              icona.classList.add('text-secondary');
+            }
+          });
 
         areaPagine.innerHTML = `area contatti`;
     } else {
@@ -228,6 +259,16 @@ const appContatti = (): void => {
 const appTastiera = (): void => {
     paginaCorrente = 'appTastiera';
     numeroComposto = '';
+    //coloro di blu l'icona corretta
+    iconePagine.forEach((icona, i) => {
+        if (i === 3) {
+          icona.classList.add('text-primary');
+          icona.classList.remove('text-secondary');
+        } else {
+          icona.classList.remove('text-primary');
+          icona.classList.add('text-secondary');
+        }
+      });
     //cambio il dom
     areaPagine.innerHTML = `<h1 class="text-truncate lh-1 px-3" id="numero" style="height: 36px;"></h1>
     <section id="tastiera" class="text-center mt-5">
