@@ -47,6 +47,7 @@ let numeroComposto: string = '';
 let inizioChiamata: Date | null = null;
 let durataChiamata: number = 0;
 let paginaCorrente: string = 'appTastiera'
+
 //area pagine dinamiche
 const areaPagine = document.getElementById('page') as HTMLDivElement;
 //pagina caricata di default
@@ -79,7 +80,7 @@ const aggiornaContenutiPagine = (): void => {
 };
 
 //------- SELEZIONE UTENTE --------
-const sceltaUtente = document.getElementById("sceltaUtente") as HTMLSelectElement;
+const sceltaUtente = document.getElementById('sceltaUtente') as HTMLSelectElement;
 sceltaUtente.addEventListener('change', () => {
     const utenteScelto = sceltaUtente.value;
     setUtenteCorrente(utenteScelto);
@@ -88,7 +89,7 @@ sceltaUtente.addEventListener('change', () => {
 let utenteCorrente: Utente | null = null;
 
 const setUtenteCorrente = (nomeUtente: string): void => {
-    console.log("Utente selezionato:", nomeUtente);
+    console.log('Utente selezionato:', nomeUtente);
     switch (nomeUtente) {
         case 'Giovanni':
             utenteCorrente = Giovanni;
@@ -109,14 +110,18 @@ const setUtenteCorrente = (nomeUtente: string): void => {
 
 //------- GESTIONE COMPOSIZIONE NUMERO TELEFONICO --------
 const gestioneTastiera = (): void => {
-    //elementi DOM
     const tastierino = document.querySelectorAll('#tastiera button[value]') as NodeListOf<HTMLButtonElement>;
     const pulsanteChiamata = document.querySelector('#tastiera button.btn-success') as HTMLButtonElement;
     const areaNumero = document.getElementById('numero') as HTMLHeadingElement;
 
     // Funzione per gestire il clic su un bottone numerico
     const composizioneNumero = (value: string): void => {
-        numeroComposto += value;
+        if(value !== 'canc') {
+            numeroComposto += value;
+        } else {
+            //tolgo l'ultimo numero digitato
+            numeroComposto = numeroComposto.slice(0, -1);
+        }
         updateNumber();
     };
 
@@ -213,7 +218,7 @@ const appRecenti = (): void => {
 const appContatti = (): void => {
     if (utenteCorrente !== null) {
         paginaCorrente = 'appContatti';
-        
+
         areaPagine.innerHTML = `area contatti`;
     } else {
         alert('SELEZIONARE UTENTE!')
@@ -222,6 +227,7 @@ const appContatti = (): void => {
 
 const appTastiera = (): void => {
     paginaCorrente = 'appTastiera';
+    numeroComposto = '';
     //cambio il dom
     areaPagine.innerHTML = `<h1 class="text-truncate lh-1 px-3" id="numero" style="height: 36px;"></h1>
     <section id="tastiera" class="text-center mt-5">
@@ -259,11 +265,11 @@ const appTastiera = (): void => {
         </button>
     </div>
     <div class="mt-3">
-        <button type="button" class="btn bg-gray rounded-circle fs-1 lh-min pt-3">*</button>
+        <button type="button" class="btn bg-gray rounded-circle fs-1 lh-min pt-3" value="canc">*</button>
         <button type="button" class="btn bg-gray rounded-circle fs-3 lh-min mx-2" value="0">0<br>
             <span class="fs-7 fw-bolder">+</span>
         </button>
-        <button type="button" class="btn bg-gray rounded-circle fs-5 lh-min fw-semibold pt-1">#<br>
+        <button type="button" class="btn bg-gray rounded-circle fs-5 lh-min fw-semibold pt-1" value="canc">#<br>
         </button>
     </div>
     <!-- pulsante di chiamata -->

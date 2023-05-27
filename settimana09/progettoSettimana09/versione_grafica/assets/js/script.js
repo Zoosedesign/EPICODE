@@ -67,14 +67,14 @@ const aggiornaContenutiPagine = () => {
     }
 };
 //------- SELEZIONE UTENTE --------
-const sceltaUtente = document.getElementById("sceltaUtente");
+const sceltaUtente = document.getElementById('sceltaUtente');
 sceltaUtente.addEventListener('change', () => {
     const utenteScelto = sceltaUtente.value;
     setUtenteCorrente(utenteScelto);
 });
 let utenteCorrente = null;
 const setUtenteCorrente = (nomeUtente) => {
-    console.log("Utente selezionato:", nomeUtente);
+    console.log('Utente selezionato:', nomeUtente);
     switch (nomeUtente) {
         case 'Giovanni':
             utenteCorrente = Giovanni;
@@ -94,13 +94,18 @@ const setUtenteCorrente = (nomeUtente) => {
 };
 //------- GESTIONE COMPOSIZIONE NUMERO TELEFONICO --------
 const gestioneTastiera = () => {
-    //elementi DOM
     const tastierino = document.querySelectorAll('#tastiera button[value]');
     const pulsanteChiamata = document.querySelector('#tastiera button.btn-success');
     const areaNumero = document.getElementById('numero');
     // Funzione per gestire il clic su un bottone numerico
     const composizioneNumero = (value) => {
-        numeroComposto += value;
+        if (value !== 'canc') {
+            numeroComposto += value;
+        }
+        else {
+            //tolgo l'ultimo numero digitato
+            numeroComposto = numeroComposto.slice(0, -1);
+        }
         updateNumber();
     };
     // Funzione per gestire il clic sul pulsante di chiamata
@@ -198,6 +203,7 @@ const appContatti = () => {
 };
 const appTastiera = () => {
     paginaCorrente = 'appTastiera';
+    numeroComposto = '';
     //cambio il dom
     areaPagine.innerHTML = `<h1 class="text-truncate lh-1 px-3" id="numero" style="height: 36px;"></h1>
     <section id="tastiera" class="text-center mt-5">
@@ -235,11 +241,11 @@ const appTastiera = () => {
         </button>
     </div>
     <div class="mt-3">
-        <button type="button" class="btn bg-gray rounded-circle fs-1 lh-min pt-3">*</button>
+        <button type="button" class="btn bg-gray rounded-circle fs-1 lh-min pt-3" value="canc">*</button>
         <button type="button" class="btn bg-gray rounded-circle fs-3 lh-min mx-2" value="0">0<br>
             <span class="fs-7 fw-bolder">+</span>
         </button>
-        <button type="button" class="btn bg-gray rounded-circle fs-5 lh-min fw-semibold pt-1">#<br>
+        <button type="button" class="btn bg-gray rounded-circle fs-5 lh-min fw-semibold pt-1" value="canc">#<br>
         </button>
     </div>
     <!-- pulsante di chiamata -->
