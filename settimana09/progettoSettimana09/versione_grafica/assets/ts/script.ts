@@ -42,13 +42,37 @@ const Giovanni = new Utente('Giovanni Rossi', 3334567001, 5, [], 0, []); //primo
 const Luigi = new Utente('Luigi Verdi', 3334567002, 5, [], 0, []); //secondo Utente
 const Andrea = new Utente('Andrea Bianchi', 3334567003, 5, [], 0, []); //terzo Utente
 
+//------- VARIABILI GLOBALI -------------
+let numeroComposto: string = '';
+let inizioChiamata: Date | null = null;
+let durataChiamata: number = 0;
+let paginaCorrente: string = 'appTastiera'
+//area pagine dinamiche
+const areaPagine = document.getElementById('page') as HTMLDivElement;
+//pagina caricata di default
+window.onload = () => appTastiera()
+
 //------- AGGIORNO PAGINE IN BASE ALL'UTENTE -------------
 const aggiornaContenutiPagine = (): void => {
     if (utenteCorrente !== null) {
-        appRicarica();
-        appRecenti();
-        appContatti();
-        appTastiera();
+        //verifico il contenuto pagine e riapro la pagina corrente
+        switch (paginaCorrente) {
+            case 'appRicarica':
+                appRicarica();
+                break;
+            case 'appRecenti':
+                appRecenti();
+                break;
+            case 'appContatti':
+                appContatti();
+                break;
+            case 'appTastiera':
+                appTastiera();
+                break;
+            default:
+                alert('Pagina non valida');
+                break;
+        }
     } else {
         alert('SELEZIONARE UTENTE!');
     }
@@ -79,17 +103,11 @@ const setUtenteCorrente = (nomeUtente: string): void => {
             utenteCorrente = null;
             break;
     }
-    // AggiornO i contenuti delle pagine
+    // Aggiorno i contenuti delle pagine
     aggiornaContenutiPagine();
 }
 
 //------- GESTIONE COMPOSIZIONE NUMERO TELEFONICO --------
-
-//variabili globali
-let numeroComposto: string = '';
-let inizioChiamata: Date | null = null;
-let durataChiamata: number = 0;
-
 const gestioneTastiera = (): void => {
     //elementi DOM
     const tastierino = document.querySelectorAll('#tastiera button[value]') as NodeListOf<HTMLButtonElement>;
@@ -137,7 +155,6 @@ const gestioneTastiera = (): void => {
         }
     };
 
-
     // Funzione per aggiornare il display con il numero e il tempo trascorso
     const updateNumber = (): void => {
         areaNumero.textContent = numeroComposto;
@@ -152,15 +169,11 @@ const gestioneTastiera = (): void => {
     pulsanteChiamata.addEventListener('click', handleCallButtonClick);
 }
 
-window.onload = () => gestioneTastiera()
-
 //------- CREO LE DIVERSE PAGINE ------------------------------------
-const areaPagine = document.getElementById('page') as HTMLDivElement;
-
-
 const appRicarica = (): void => {
     if (utenteCorrente !== null) {
-        console.log(utenteCorrente);
+        paginaCorrente = 'appRicarica'
+
         areaPagine.innerHTML = `
         <form>
           <label for="ricarica">Effettua la ricarica: </label>
@@ -189,6 +202,8 @@ const appRicarica = (): void => {
 
 const appRecenti = (): void => {
     if (utenteCorrente !== null) {
+        paginaCorrente = 'appRecenti';
+
         areaPagine.innerHTML = "Contenuto per l'app Ricarica";
     } else {
         alert('SELEZIONARE UTENTE!')
@@ -197,6 +212,8 @@ const appRecenti = (): void => {
 
 const appContatti = (): void => {
     if (utenteCorrente !== null) {
+        paginaCorrente = 'appContatti';
+        
         areaPagine.innerHTML = `area contatti`;
     } else {
         alert('SELEZIONARE UTENTE!')
@@ -204,6 +221,7 @@ const appContatti = (): void => {
 }
 
 const appTastiera = (): void => {
+    paginaCorrente = 'appTastiera';
     //cambio il dom
     areaPagine.innerHTML = `<h1 class="text-truncate lh-1 px-3" id="numero" style="height: 36px;"></h1>
     <section id="tastiera" class="text-center mt-5">

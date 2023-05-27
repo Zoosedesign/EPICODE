@@ -31,13 +31,36 @@ class Utente {
 const Giovanni = new Utente('Giovanni Rossi', 3334567001, 5, [], 0, []); //primo Utente
 const Luigi = new Utente('Luigi Verdi', 3334567002, 5, [], 0, []); //secondo Utente
 const Andrea = new Utente('Andrea Bianchi', 3334567003, 5, [], 0, []); //terzo Utente
+//------- VARIABILI GLOBALI -------------
+let numeroComposto = '';
+let inizioChiamata = null;
+let durataChiamata = 0;
+let paginaCorrente = 'appTastiera';
+//area pagine dinamiche
+const areaPagine = document.getElementById('page');
+//pagina caricata di default
+window.onload = () => appTastiera();
 //------- AGGIORNO PAGINE IN BASE ALL'UTENTE -------------
 const aggiornaContenutiPagine = () => {
     if (utenteCorrente !== null) {
-        appRicarica();
-        appRecenti();
-        appContatti();
-        appTastiera();
+        //verifico il contenuto pagine e riapro la pagina corrente
+        switch (paginaCorrente) {
+            case 'appRicarica':
+                appRicarica();
+                break;
+            case 'appRecenti':
+                appRecenti();
+                break;
+            case 'appContatti':
+                appContatti();
+                break;
+            case 'appTastiera':
+                appTastiera();
+                break;
+            default:
+                alert('Pagina non valida');
+                break;
+        }
     }
     else {
         alert('SELEZIONARE UTENTE!');
@@ -66,14 +89,10 @@ const setUtenteCorrente = (nomeUtente) => {
             utenteCorrente = null;
             break;
     }
-    // AggiornO i contenuti delle pagine
+    // Aggiorno i contenuti delle pagine
     aggiornaContenutiPagine();
 };
 //------- GESTIONE COMPOSIZIONE NUMERO TELEFONICO --------
-//variabili globali
-let numeroComposto = '';
-let inizioChiamata = null;
-let durataChiamata = 0;
 const gestioneTastiera = () => {
     //elementi DOM
     const tastierino = document.querySelectorAll('#tastiera button[value]');
@@ -131,12 +150,10 @@ const gestioneTastiera = () => {
     // Aggiungi l'event listener al pulsante di chiamata
     pulsanteChiamata.addEventListener('click', handleCallButtonClick);
 };
-window.onload = () => gestioneTastiera();
 //------- CREO LE DIVERSE PAGINE ------------------------------------
-const areaPagine = document.getElementById('page');
 const appRicarica = () => {
     if (utenteCorrente !== null) {
-        console.log(utenteCorrente);
+        paginaCorrente = 'appRicarica';
         areaPagine.innerHTML = `
         <form>
           <label for="ricarica">Effettua la ricarica: </label>
@@ -163,6 +180,7 @@ const appRicarica = () => {
 };
 const appRecenti = () => {
     if (utenteCorrente !== null) {
+        paginaCorrente = 'appRecenti';
         areaPagine.innerHTML = "Contenuto per l'app Ricarica";
     }
     else {
@@ -171,6 +189,7 @@ const appRecenti = () => {
 };
 const appContatti = () => {
     if (utenteCorrente !== null) {
+        paginaCorrente = 'appContatti';
         areaPagine.innerHTML = `area contatti`;
     }
     else {
@@ -178,6 +197,7 @@ const appContatti = () => {
     }
 };
 const appTastiera = () => {
+    paginaCorrente = 'appTastiera';
     //cambio il dom
     areaPagine.innerHTML = `<h1 class="text-truncate lh-1 px-3" id="numero" style="height: 36px;"></h1>
     <section id="tastiera" class="text-center mt-5">
