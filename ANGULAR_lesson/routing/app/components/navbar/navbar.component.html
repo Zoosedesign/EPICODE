@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <!-- Link così costruito: aria-current definisce la pagina attualmente visualizzata (solo nel primo link); la direttiva [routerLink=""] richiama il path definito in app.module anteponendo lo /; la proprietà routerLinkActive definisce la presenza della classe active per illuminare il link attivo; la direttiva [routerLinkActive="{exact: true}"] consente il passaggio della classe active al link di volta in volta attivo (solo nel primo link) -->
+                    <a
+                        class="nav-link active"
+                        aria-current="page"
+                        [routerLink]="['/']"
+                        routerLinkActive="active"
+                        [routerLinkActiveOptions]="{ exact: true }"
+                        >Home</a
+                    >
+                </li>
+                <li class="nav-item">
+                    <a
+                        class="nav-link"
+                        [routerLink]="['/primo']"
+                        routerLinkActive="active"
+                        >Primo</a
+                    >
+                </li>
+                <li class="nav-item">
+                    <a
+                        class="nav-link"
+                        [routerLink]="['/secondo']"
+                        routerLinkActive="active"
+                        >Secondo</a
+                    >
+                </li>
+                <li class="nav-item">
+                    <a
+                        class="nav-link"
+                        [routerLink]="['/terzo']"
+                        routerLinkActive="active"
+                        >Terzo</a
+                    >
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
