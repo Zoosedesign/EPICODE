@@ -1,7 +1,7 @@
 <div *ngFor="let post of fetchGETService.data">
   <div class="card" *ngIf="!post.active">
     <!-- Mostra i dettagli del post nella card -->
-    <h2 class="text-black">{{ post.title }}</h2>
+    <h2>{{ post.title }}</h2>
     <p>{{ post.body }}</p>
   </div>
 </div>
