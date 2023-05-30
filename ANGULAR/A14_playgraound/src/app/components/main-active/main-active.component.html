@@ -1,5 +1,6 @@
 <main class="d-flex flex-row">
 
+  <!-- gli *ng hanno come riferimento il div in vui vengono messi, e non il figlio -->
   <section *ngFor="let post of fetchGETService.data" class="col-12 col-md-6 col-lg-4">
     <div *ngIf="post.active">
 
