@@ -12,7 +12,6 @@ export class FetchGETService {
     try {
       const response = await fetch(url);
       this.data = await response.json(); //ritorna i dati utilizzabili presi con la get
-      console.log(this.data)
     } catch (error) {
       console.error('Errore durante il recupero dei post:', error);
       throw error;

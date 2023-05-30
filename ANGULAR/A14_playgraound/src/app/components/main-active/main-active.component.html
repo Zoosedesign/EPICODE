@@ -1,7 +1,11 @@
-<div *ngFor="let post of fetchGETService.data">
-  <div class="card" *ngIf="post.active">
-    <!-- Mostra i dettagli del post nella card -->
-    <h2 class="text-black">{{ post.title }}</h2>
-    <p>{{ post.body }}</p>
+<main class="container-fluid bg-black">
+<section *ngFor="let post of fetchGETService.data" class="row">
+  <div class="col-12 col-md-6 col-lg-4">
+    <article class="card" *ngIf="post.active">
+      <!-- Mostra i dettagli del post nella card -->
+      <h2 class="text-black">{{ post.title }}</h2>
+      <p>{{ post.body }}</p>
+    </article>
   </div>
-</div>
+</section>
+</main>
