@@ -5,9 +5,9 @@ import { Route, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './components/main/main.component';
-import { MainActiveComponent } from './components/main-active/main-active.component';
-import { MainInactiveComponent } from './components/main-inactive/main-inactive.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { PostActiveComponent } from './components/post-active/post-active.component';
+import { PostInactiveComponent } from './components/post-inactive/post-inactive.component';
 
 const routes: Route[] = [ // costante creata sull'interfaccia route
     {
@@ -16,11 +16,11 @@ const routes: Route[] = [ // costante creata sull'interfaccia route
     },
     {
         path: 'active-post',
-        component: MainActiveComponent
+        component: PostActiveComponent
     },
     {
         path: 'inactive-post',
-        component: MainInactiveComponent
+        component: PostInactiveComponent
     }
 ];
 
@@ -29,9 +29,9 @@ const routes: Route[] = [ // costante creata sull'interfaccia route
   declarations: [
     AppComponent,
     MainComponent,
-    MainActiveComponent,
-    MainInactiveComponent,
-    NavbarComponent
+    NavbarComponent,
+    PostActiveComponent,
+    PostInactiveComponent
   ],
   imports: [
     BrowserModule,
