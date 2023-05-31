@@ -9,11 +9,11 @@ import { FetchGETService } from 'src/app/services/fetch-get.service';
 export class PostInactiveComponent implements OnInit {
 
   //metto nel costruttore il metodo della fetch importato
-  constructor(public fetchGETService: FetchGETService) { }
-
-  ngOnInit(): void {
+  constructor(public fetchGETService: FetchGETService) {
     //passo solo il link al service/metodo della fetch
     this.fetchGETService.getPost('./assets/json/db.json');
   }
+
+  ngOnInit(): void {}
 }
 
