@@ -12,7 +12,11 @@
         <!-- Mostra i dettagli del post nella card -->
         <h2>{{ post.title }}</h2>
         <p>{{ post.body }}</p>
+
+        <!-- bottone per cancellare i post e mandarli da active a inactive -->
+        <button class="btn btn-outline-dark border-2 w-100 fw-bold">DISATTIVA</button>
       </div>
+
       <small class="text-end text-white px-4 py-2" [ngClass]="{
         'bg-primary': post.type === 'educational',
         'bg-danger': post.type === 'politics',

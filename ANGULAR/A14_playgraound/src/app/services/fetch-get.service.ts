@@ -8,6 +8,8 @@ export class FetchGETService {
   data:Post[] = [];
   constructor() { }
   //tutte le operazioni che facevo normalmente in js diventano dei metodi riutilizzabili
+
+  //metodo GET
   async getPost(url: string) {
     try {
       const response = await fetch(url);
