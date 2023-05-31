@@ -2,13 +2,11 @@
 
   <!-- gli *ng hanno come riferimento il div in vui vengono messi, e non il figlio -->
   <div *ngFor="let post of fetchGETService.data" class="col-12 col-md-6 col-lg-4 px-4">
-    <div *ngIf="!post.active">
+    <article *ngIf="!post.active" class="card p-4">
 
-        <article class="card p-4">
           <!-- Mostra i dettagli del post nella card -->
           <h2>{{ post.title }}</h2>
           <p>{{ post.body }}</p>
-        </article>
-      </div>
+      </article>
     </div>
   </section>
