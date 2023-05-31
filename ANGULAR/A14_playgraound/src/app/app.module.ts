@@ -4,15 +4,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { Route, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { MainComponent } from './components/main/main.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PostActiveComponent } from './components/post-active/post-active.component';
 import { PostInactiveComponent } from './components/post-inactive/post-inactive.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Route[] = [ // costante creata sull'interfaccia route
     {
         path: '', // Percorso che sarà indicato nel link
-        component: MainComponent // Componente che si attiverà al click sul link
+        component: HomeComponent // Componente che si attiverà al click sul link
     },
     {
         path: 'active-post',
@@ -28,10 +28,10 @@ const routes: Route[] = [ // costante creata sull'interfaccia route
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent,
     NavbarComponent,
     PostActiveComponent,
-    PostInactiveComponent
+    PostInactiveComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

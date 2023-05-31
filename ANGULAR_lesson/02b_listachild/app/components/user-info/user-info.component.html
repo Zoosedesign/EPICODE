@@ -1,0 +1,9 @@
+<p
+    [ngClass]="{
+        'bg-success': user.studente,
+        'bg-primary': !user.studente,
+        'text-white': user.studente
+    }"
+>
+    {{ user.nome }} {{ user.cognome }}
+</p>
