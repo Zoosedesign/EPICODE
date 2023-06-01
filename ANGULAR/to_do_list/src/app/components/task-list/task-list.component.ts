@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Todo } from 'src/app/models/todo.interface';
+import { GestioneTaskService } from 'src/app/services/gestione-task.service';
+
 
 @Component({
   selector: 'app-task-list',
@@ -6,10 +9,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./task-list.component.scss']
 })
 export class TaskListComponent implements OnInit {
+  tasks: Todo[] = [];
 
-  constructor() { }
+  constructor(private gestione: GestioneTaskService) {
+    this.tasks = this.gestione.getTask();
+  }
 
   ngOnInit(): void {
   }
-
 }

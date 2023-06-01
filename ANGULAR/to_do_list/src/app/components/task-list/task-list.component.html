@@ -1,1 +1,22 @@
-<p>task-list works!</p>
+<main>
+  <ng-container *ngIf="tasks; else recuperoTask">
+    <section *ngIf="tasks.length > 0; else nessunaTask">
+      <div *ngFor="let task of tasks; let i = index">
+        <article>
+          <i class="bi bi-dot"></i> {{task.title}} <input type="checkbox">
+        </article>
+      </div>
+    </section>
+  </ng-container>
+
+  <!--------- TESTI ALTERNATIVI ---------->
+  <!-- creo il testo che si visualizzerà durante il caricamento -->
+  <ng-template #recuperoTask>
+    <p>Recupero Task...</p>
+  </ng-template>
+  <!-- creo il testo che si visualizzerà se non ci sarà nessuna task -->
+  <ng-template #nessunaTask>
+    <p>Recupero Task...</p>
+  </ng-template>
+
+</main>
