@@ -1,15 +1,57 @@
-/* You can add global styles to this file, and also import other style files */
-* {
-  box-sizing: border-box;
+//----- VARIABILI COLORE ------
+$purple:  #6f42c1;
+$gray: #e9ecef;
+$dark: #343a40;
+$green: #65d46f;
+$red: red;
+
+.bg-gray {
+  background: $gray;
 }
 
-.flex-v-center {
+.purple,
+.active {
+  color: $purple;
+  font-weight: bold;
+}
+
+.shadow {
+  box-shadow: 0 .2rem .5rem rgba(0,0,0,.15);
+}
+
+//----- STILE GENERALE ------
+* {
+  box-sizing: border-box;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+html {
+  font-family: Arial, Helvetica, sans-serif;
+  color: $dark;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-size: 1.2rem;
+}
+
+h1 {
+  line-height: 0;
+}
+
+//----- FLEXBOX ------
+
+.flex-h-center {
   display: flex;
   align-items: center;
 }
 
-.row {
-  flex-direction: row;
+.w-center {
+  justify-content: center;
 }
 
 .column {
@@ -17,5 +59,19 @@
 }
 
 .w-100 {
+  width: 100vw;
+}
+
+.w-max,
+[w-navbar] {
   width: 100%;
+}
+
+//----- SPAZIATURE ------
+.p-box {
+  padding: 15px 20px 15px 20px;
+}
+
+.ms {
+  margin-left: 3rem;
 }
