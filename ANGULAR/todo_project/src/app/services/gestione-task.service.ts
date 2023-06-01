@@ -5,18 +5,7 @@ import { Todo } from '../models/todo.interface';
   providedIn: 'root'
 })
 export class GestioneTaskService {
-  tasks: Todo[] = [
-    {
-       id: 1,
-       title: 'Far vedere array',
-       completed: false
-    },
-    {
-      id: 1,
-      title: 'Far vedere array',
-      completed: false
-   }
-  ]
+  tasks: Todo[] = []
 
   constructor() { }
   //metodo che prenderà l'array
