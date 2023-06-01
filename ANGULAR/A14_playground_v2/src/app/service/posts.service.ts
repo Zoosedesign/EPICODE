@@ -48,11 +48,13 @@ export class PostsService {
     async getPosts() {
         return this.posts;
     }
-
+//"Partial" dice che riceverà parte dei dati obbligatori dell'interfaccia post, in questo caso da "inactive-posts.component.ts"
     updatePost(data: Partial<Post>, id: number) {
-        this.posts = this.posts.map((post) =>
+        this.posts = this.posts.map((post) => //mappo tutto l'array
+//con l'operatore ternario prendi tutto il post "...post" e passo da cambiare "...data", che questo caso è active
             post.id == id ? { ...post, ...data } : post
         );
+//ritorno solo il post cambiato trovandolo con l'id passato
         return this.posts.find((post) => post.id == id) as Post;
     }
 }
