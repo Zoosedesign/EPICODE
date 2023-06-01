@@ -1,9 +1,13 @@
-<main>
+<main class="p-box flex-h-center w-center column">
+
+  <input type="text" [(ngModel)]="newTaskTitle" placeholder="Inserisci una nuova task">
+  <button (click)="add()">Aggiungi</button>
+
   <ng-container *ngIf="tasks; else recuperoTask">
     <ng-container *ngIf="tasks.length > 0; else nessunaTask">
       <div *ngFor="let task of tasks; let i = index">
-        <article>
-          <i class="bi bi-dot"></i> {{task.title}} <input type="checkbox">
+        <article class="p-box bg-gray rounded purple bold flex-h-center mb shadow">
+          {{task.title}}&nbsp;<input type="checkbox" class="active">
         </article>
       </div>
     </ng-container>
@@ -16,7 +20,7 @@
   </ng-template>
   <!-- creo il testo che si visualizzerà se non ci sarà nessuna task -->
   <ng-template #nessunaTask>
-    <p>Recupero Task...</p>
+    <p>Nessuna Task in attesa.</p>
   </ng-template>
 
 </main>

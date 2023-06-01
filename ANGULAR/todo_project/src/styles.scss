@@ -19,7 +19,7 @@ $red: red;
 }
 
 .shadow {
-  box-shadow: 0 .2rem .5rem rgba(0,0,0,.15);
+  box-shadow: 0 .2rem .2rem rgba(0,0,0,.15);
 }
 
 //----- STILE GENERALE ------
@@ -34,8 +34,16 @@ html {
   color: $dark;
 }
 
+main {
+  height: calc(100vh - 86px);
+}
+
 a {
   text-decoration: none;
+}
+
+a,
+.bold {
   font-weight: bold;
 }
 
@@ -73,14 +81,44 @@ h1 {
 
 //----- SPAZIATURE ------
 .p-box {
-  padding: 15px 20px 15px 20px;
+  padding: 10px 20px 10px 20px;
 }
 
 .ms {
   margin-left: 3rem;
 }
 
+.mb {
+  margin-bottom: 1rem;
+}
+
 //----- STILE ------
 .rounded {
   border-radius: 3rem;
+}
+
+//----- CHECKBOX PERSONALIZZATA ------
+input[type="checkbox"] {
+  cursor: pointer;
+  /* per cancellare stile di sistema checkbox */
+  appearance: none;
+  background-color: #fff;
+  width: 17px;
+  height: 17px;
+  border-radius: 100%;
+}
+
+/* Stile del segno di spunta */
+input[type="checkbox"]::before {
+  content: "\2688";
+  display: flex;
+  line-height: 0.7;
+  font-size: 16px;
+  margin-left: 1.7px;
+  visibility: hidden;
+}
+
+/* Stile del segno di spunta quando la checkbox è selezionata */
+input[type="checkbox"]:checked::before {
+  visibility: visible;
 }

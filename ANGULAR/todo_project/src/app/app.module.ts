@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Route, RouterModule } from '@angular/router'; // Import necessari per creare il routing
+import { FormsModule } from '@angular/forms'; //necessario per usare gli input e i form
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -29,7 +30,8 @@ const pagine: Route[] = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(pagine)
+    RouterModule.forRoot(pagine),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,10 +7,15 @@ import { Todo } from '../models/todo.interface';
 export class GestioneTaskService {
   tasks: Todo[] = [
     {
+       id: 1,
+       title: 'Far vedere array',
+       completed: false
+    },
+    {
       id: 1,
-      title: 'far vedere array',
+      title: 'Far vedere array',
       completed: false
-    }
+   }
   ]
 
   constructor() { }
@@ -28,5 +33,6 @@ export class GestioneTaskService {
       };
 
       this.tasks.push(newTask);
+      return console.log(this.tasks);
   }
 }
