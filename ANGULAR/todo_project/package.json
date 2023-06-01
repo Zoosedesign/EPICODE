@@ -1,5 +1,5 @@
 {
-  "name": "to-do-list",
+  "name": "todo-project",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -26,6 +26,7 @@
     "@angular-devkit/build-angular": "^14.2.11",
     "@angular/cli": "~14.2.11",
     "@angular/compiler-cli": "^14.2.0",
+    "@schematics/angular": "^16.0.4",
     "@types/jasmine": "~4.0.0",
     "jasmine-core": "~4.3.0",
     "karma": "~6.4.0",
