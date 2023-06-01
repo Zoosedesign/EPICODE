@@ -19,5 +19,6 @@ export class TaskListComponent implements OnInit {
 
   add() {
     this.gestione.addTask(this.newTaskTitle);
+    this.newTaskTitle = '';
   }
 }
