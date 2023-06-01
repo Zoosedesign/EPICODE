@@ -5,7 +5,13 @@ import { Todo } from '../models/todo.interface';
   providedIn: 'root'
 })
 export class GestioneTaskService {
-  tasks: Todo[] = []
+  tasks: Todo[] = [
+    {
+      id: 1,
+      title: 'far vedere array',
+      completed: false
+    }
+  ]
 
   constructor() { }
   //metodo che prenderà l'array

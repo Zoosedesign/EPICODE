@@ -1,12 +1,12 @@
 <main>
   <ng-container *ngIf="tasks; else recuperoTask">
-    <section *ngIf="tasks.length > 0; else nessunaTask">
+    <ng-container *ngIf="tasks.length > 0; else nessunaTask">
       <div *ngFor="let task of tasks; let i = index">
         <article>
           <i class="bi bi-dot"></i> {{task.title}} <input type="checkbox">
         </article>
       </div>
-    </section>
+    </ng-container>
   </ng-container>
 
   <!--------- TESTI ALTERNATIVI ---------->
@@ -20,3 +20,4 @@
   </ng-template>
 
 </main>
+

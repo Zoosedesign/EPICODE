@@ -12,7 +12,10 @@ $red: red;
 .purple,
 .active {
   color: $purple;
-  font-weight: bold;
+}
+
+.active {
+  border: 2px solid $purple;
 }
 
 .shadow {
@@ -33,6 +36,7 @@ html {
 
 a {
   text-decoration: none;
+  font-weight: bold;
 }
 
 body {
@@ -74,4 +78,9 @@ h1 {
 
 .ms {
   margin-left: 3rem;
+}
+
+//----- STILE ------
+.rounded {
+  border-radius: 3rem;
 }
