@@ -9,7 +9,7 @@ import { GestioneTaskService } from 'src/app/services/gestione-task.service';
   styleUrls: ['./task-list.component.scss']
 })
 export class TaskListComponent implements OnInit {
-  tasks: Todo[] = [];
+  tasks: Todo[];
 
   constructor(private gestione: GestioneTaskService) {
     this.tasks = this.gestione.getTask();
