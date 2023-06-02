@@ -31,9 +31,11 @@ export class TaskListComponent implements OnInit {
   //passo il valore true a completed per dichiarare eseguita la task
   completeTask(id: number, i: number): void {
     this.gestioneSrv.updateTask({ completed: true }, id);
-      setTimeout(() => {
-        this.tasks.splice(i, 1);
-      }, 2000);
+    setTimeout(() => {
+      this.tasks.splice(i, 1);
+    }, 2000);
+    // Aggiornamento manuale della vista
+    this.fetchTasks();
   }
 
   //verifico che il campo input non sia vuoto
