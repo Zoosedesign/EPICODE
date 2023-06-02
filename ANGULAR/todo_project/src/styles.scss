@@ -55,6 +55,16 @@ button {
   border: none;
 }
 
+button:hover {
+  transform: scale(1.2);
+}
+
+button:disabled {
+  color: $gray2;
+  cursor: default;
+  transform: scale(1);
+}
+
 input:focus {
   outline: 2px solid $purple;
 }
@@ -64,7 +74,9 @@ a {
 }
 
 a:hover {
-  background: $gray2;
+  background: $purple;
+  color: $gray;
+  transform: scale(1.1);
 }
 
 a,
@@ -119,8 +131,8 @@ h1 {
   padding: 10px 20px 10px 20px;
 }
 
-.my {
-  margin: 120px 0 100px 0;
+.bi::before {
+  vertical-align: -.135em;
 }
 
 .ms {
@@ -129,6 +141,14 @@ h1 {
 
 .mt {
   margin-top: 1rem;
+}
+
+.mt-m {
+  margin-top: 105.5px;
+}
+
+.mt-xl {
+  margin-top: 300px;
 }
 
 .mb {
@@ -142,6 +162,10 @@ h1 {
 
 .d-none {
   display: none;
+}
+
+.cursor-p {
+  cursor: pointer;
 }
 
 //----- INPUT + CHECKBOX PERSONALIZZATA ------

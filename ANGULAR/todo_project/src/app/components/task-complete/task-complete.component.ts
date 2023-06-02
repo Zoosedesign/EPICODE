@@ -14,11 +14,12 @@ export class TaskCompleteComponent implements OnInit {
     this.fetchTasks();
   }
 
+  //prendo solo le task completate
   async fetchTasks(): Promise<void> {
-    this.tasks = await this.gestioneSrv.getTask();
+    const allTasks = await this.gestioneSrv.getTask();
+    this.tasks = allTasks.filter(task => task.completed);
   }
 
   ngOnInit(): void {
   }
-
 }

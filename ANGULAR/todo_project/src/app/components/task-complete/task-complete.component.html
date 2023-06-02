@@ -2,10 +2,10 @@
 
   <ng-container *ngIf="tasks; else recuperoTask">
     <ng-container *ngIf="tasks.length > 0; else nessunaTask">
-      <h2 class="mt purple bg-line"><span class="bg-white p-box-xs">Task completate:</span></h2>
+      <h2 class="mt purple bg-line mt-m"><span class="bg-white p-box-xs">Task completate:</span></h2>
       <div class="flex-h-center p-box w-center flex-wrap">
       <article *ngFor="let task of tasks; let i = index" class="mt p-box bg-gray rounded purple bold flex-h-center mt shadow" [ngClass]="{'d-none': !task.completed}">
-          <p>{{task.title}}&nbsp;</p>
+          <p>{{task.title}}&nbsp;<i class="bi bi-check-circle-fill"></i></p>
       </article>
     </div>
     </ng-container>
@@ -14,11 +14,11 @@
   <!--------- TESTI ALTERNATIVI ---------->
   <!-- creo il testo che si visualizzerà durante il caricamento -->
   <ng-template #recuperoTask>
-    <h2 class="mt purple bg-line"><span class="bg-white p-box-xs">Recupero Task...</span></h2>
+    <h2 class="mt purple bg-line mt-m"><span class="bg-white p-box-xs">Recupero Task...</span></h2>
   </ng-template>
   <!-- creo il testo che si visualizzerà se non ci sarà nessuna task -->
   <ng-template #nessunaTask>
-    <h2 class="mt purple bg-line"><span class="bg-white p-box-xs">Nessuna Task completata</span></h2>
+    <h2 class="mt purple bg-line mt-m"><span class="bg-white p-box-xs">Nessuna Task completata</span></h2>
   </ng-template>
 
 </main>
