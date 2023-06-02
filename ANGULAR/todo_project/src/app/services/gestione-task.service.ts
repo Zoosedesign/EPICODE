@@ -9,19 +9,27 @@ export class GestioneTaskService {
 
   constructor() { }
   //metodo che prenderà l'array
-  getTask() {
-      return this.tasks;
+  getTask(): Todo[] {
+    console.log(this.tasks);
+    return this.tasks;
   }
 
   //metodo che creerà la task e la pusherà nell'array
-  addTask(title: string) {
-      const newTask: Todo = {
-        id: this.tasks.length + 1,
-        title: title,
-        completed: false,
-      };
+  addTask(title: string): void {
+    const newTask: Todo = {
+      id: this.tasks.length + 1,
+      title: title,
+      completed: false,
+    };
 
-      this.tasks.push(newTask);
-      return console.log(this.tasks);
+    this.tasks.push(newTask);
+  }
+
+  //metodo che ritornerà la task completata
+  updateTask(task_property: Partial<Todo>, id: number): void {
+    this.tasks = this.tasks.map((task) =>
+      task.id == id ? { ...task, ...task_property } : task
+    );
+    console.log(this.tasks);
   }
 }

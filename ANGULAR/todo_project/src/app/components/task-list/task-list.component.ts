@@ -11,14 +11,19 @@ export class TaskListComponent implements OnInit {
   tasks: Todo[];
   newTaskTitle: string = '';
 
-  constructor(private gestione: GestioneTaskService) {
-    this.tasks = this.gestione.getTask();
+  constructor(private gestioneSrv: GestioneTaskService) {
+    this.tasks = this.gestioneSrv.getTask();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
-  add() {
-    this.gestione.addTask(this.newTaskTitle);
+  completeTask(id: number, i: number): void {
+    this.gestioneSrv.updateTask({ completed: true }, id);
+    this.tasks.splice(i, 1);
+  }
+
+  add(): void {
+    this.gestioneSrv.addTask(this.newTaskTitle);
     this.newTaskTitle = '';
   }
 }

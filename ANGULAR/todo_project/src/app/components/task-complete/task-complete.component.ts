@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Todo } from 'src/app/models/todo.interface';
+import { GestioneTaskService } from 'src/app/services/gestione-task.service';
 
 @Component({
   selector: 'app-task-complete',
@@ -6,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./task-complete.component.scss']
 })
 export class TaskCompleteComponent implements OnInit {
+  tasks: Todo[];
 
-  constructor() { }
+  constructor(private gestioneSrv: GestioneTaskService) {
+    this.tasks = this.gestioneSrv.getTask();
+  }
 
   ngOnInit(): void {
   }
