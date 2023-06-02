@@ -9,9 +9,12 @@ export class GestioneTaskService {
 
   constructor() { }
   //metodo che prenderà l'array
-  getTask(): Todo[] {
-    console.log(this.tasks);
-    return this.tasks;
+  getTask(): Promise<Todo[]> {
+    return new Promise((response): void => {
+      setTimeout(() => {
+        response(this.tasks);
+      }, 2000);
+    });
   }
 
   //metodo che creerà la task e la pusherà nell'array
@@ -22,14 +25,18 @@ export class GestioneTaskService {
       completed: false,
     };
 
-    this.tasks.push(newTask);
+    new Promise((response): void => {
+      setTimeout(() => {
+        response(this.tasks.push(newTask));
+      }, 2000);
+    });
   }
+
 
   //metodo che ritornerà la task completata
   updateTask(task_property: Partial<Todo>, id: number): void {
     this.tasks = this.tasks.map((task) =>
       task.id == id ? { ...task, ...task_property } : task
     );
-    console.log(this.tasks);
   }
 }

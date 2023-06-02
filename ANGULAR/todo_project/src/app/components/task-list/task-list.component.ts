@@ -8,18 +8,26 @@ import { GestioneTaskService } from 'src/app/services/gestione-task.service';
   styleUrls: ['./task-list.component.scss']
 })
 export class TaskListComponent implements OnInit {
-  tasks: Todo[];
+  tasks!: Todo[];
   newTaskTitle: string = '';
 
   constructor(private gestioneSrv: GestioneTaskService) {
-    this.tasks = this.gestioneSrv.getTask();
+    this.fetchTasks();
+  }
+
+  async fetchTasks(): Promise<void> {
+    this.tasks = await this.gestioneSrv.getTask();
   }
 
   ngOnInit(): void { }
 
   completeTask(id: number, i: number): void {
     this.gestioneSrv.updateTask({ completed: true }, id);
-    this.tasks.splice(i, 1);
+    new Promise((response): void => {
+      setTimeout(() => {
+        response(this.tasks.splice(i, 1));
+      }, 2000);
+    });
   }
 
   add(): void {

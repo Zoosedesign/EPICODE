@@ -8,10 +8,14 @@ import { GestioneTaskService } from 'src/app/services/gestione-task.service';
   styleUrls: ['./task-complete.component.scss']
 })
 export class TaskCompleteComponent implements OnInit {
-  tasks: Todo[];
+  tasks!: Todo[];
 
   constructor(private gestioneSrv: GestioneTaskService) {
-    this.tasks = this.gestioneSrv.getTask();
+    this.fetchTasks();
+  }
+
+  async fetchTasks(): Promise<void> {
+    this.tasks = await this.gestioneSrv.getTask();
   }
 
   ngOnInit(): void {
