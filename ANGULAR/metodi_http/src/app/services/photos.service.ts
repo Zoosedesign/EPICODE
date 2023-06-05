@@ -7,20 +7,20 @@ import { Subject, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class PhotosService {
-baseURL = "https://jsonplaceholder.typicode.com"
+Url = "https://jsonplaceholder.typicode.com"
 
-favoritesSub = new Subject<number>() // Un subject è un tipo aprticolare di Observable che tiene sé stesso in osservazione, può essere sottoscritto come un qualsiasi observable e comunica il proprio valore
+favoritesSub = new Subject<number>() // Un subject è un tipo particolare di Observable che tiene sé stesso in osservazione, può essere sottoscritto come un qualsiasi observable e comunica il proprio valore
 favoritesCounter = 0
   constructor(private http:HttpClient) { }
 
   get(){
-    return this.http.get<Photo[]>(`${this.baseURL}/photos`).pipe(catchError(err =>{
+    return this.http.get<Photo[]>(`${this.Url}/photos`).pipe(catchError(err =>{
       return throwError(this.getErrorMess(err.status))
     }))
   }
 
   delete(id:number){
-    return this.http.delete(`${this.baseURL}/photos/${id}`).pipe(catchError(err=>{
+    return this.http.delete(`${this.Url}/photos/${id}`).pipe(catchError(err=>{
       return throwError(this.getErrorMess(err.status))
     }))
   }

@@ -18,22 +18,24 @@ import { PhotosService } from './services/photos.service';
   </style>
 
   <!------ HTML COMPONENT ------->
-    <div class="container mt-5">
+    <main class="container mt-5">
       <app-favorites></app-favorites>
-      <div *ngIf="photos; else loading" class="row">
-        <div  *ngFor="let photo of photos; let i = index" class="col-6 ccol">
-          <div class="card">
+      <!-- se gli arriverà l'array di oggetti passerà a ciclarlo, altrimenti si attiverà il loading template -->
+      <section *ngIf="photos; else loading" class="row">
+        <!-- creo gli elementi recuperati -->
+        <div *ngFor="let photo of photos; let i = index" class="col-6 ccol">
+          <article class="card">
             <img [src]="photo.thumbnailUrl" class="card-img-top" alt="..." />
             <div class="card-body">
               <h5 class="card-title">{{photo.title}}</h5>
               <a (click)="onDeletePhoto(photo.id,i)" class="btn btn-danger ">Elimina</a>
               <!-- Al click il button chiama il metodo onFavorite (riga 64) -->
-              <a (click)="onFavorite()" class="btn  btn-success ms-4">Mi piace</a>
+              <a (click)="onFavorite()" class="btn btn-success ms-4">Mi piace</a>
             </div>
-          </div>
+          </article>
         </div>
-      </div>
-    </div>
+  </section>
+  </main>
 
     <ng-template #loading>
     <div class="spinner-border" role="status">
