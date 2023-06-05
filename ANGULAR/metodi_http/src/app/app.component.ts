@@ -2,9 +2,12 @@ import { Component } from '@angular/core';
 import { Photo } from './models/photo';
 import { PhotosService } from './services/photos.service';
 
+//esempio di componente non suddiviso
 @Component({
   selector: 'app-root',
   template: `
+
+<!------ COMPONENT STYLE ------->
   <style>
     .ccol{
       margin-bottom: 2rem;
@@ -13,6 +16,8 @@ import { PhotosService } from './services/photos.service';
       height: 100%;
     }
   </style>
+
+  <!------ HTML COMPONENT ------->
     <div class="container mt-5">
       <app-favorites></app-favorites>
       <div *ngIf="photos; else loading" class="row">
@@ -29,40 +34,43 @@ import { PhotosService } from './services/photos.service';
         </div>
       </div>
     </div>
+
     <ng-template #loading>
     <div class="spinner-border" role="status">
-  <span class="visually-hidden">Loading...</span>
-</div>
+      <span class="visually-hidden">Loading...</span>
+    </div>
     </ng-template>
 
   `,
   styles: [``],
 })
+
+//------ SCRIPT COMPONENT ------->
 export class AppComponent {
   photos: Photo[] | undefined;
-  constructor(private photoSrv: PhotosService) {}
+  constructor(private photoSrv: PhotosService) { }
 
   ngOnInit(): void {
     this.photoSrv.get().subscribe((photos) => {
       this.photos = photos;
       console.log(photos);
-    },(err)=>{
+    }, (err) => {
       alert(err)
     });
   }
 
-  onDeletePhoto(id:number,index:number){
-    this.photoSrv.delete(id).subscribe((ris)=>{
+  onDeletePhoto(id: number, index: number) {
+    this.photoSrv.delete(id).subscribe((ris) => {
       console.log(ris)
-      this.photos?.splice(index,1)
-    },err=>{
+      this.photos?.splice(index, 1)
+    }, err => {
       alert(err)
     })
 
   }
 
   // Il metodo chiama il metodo addFavorite del service
-  onFavorite(){
+  onFavorite() {
     this.photoSrv.addFavorite()
   }
 }
