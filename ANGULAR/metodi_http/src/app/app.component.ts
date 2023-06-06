@@ -68,7 +68,6 @@ export class AppComponent {
     }, err => {
       alert(err)
     })
-
   }
 
   // Il metodo chiama il metodo addFavorite del service
