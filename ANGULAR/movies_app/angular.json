@@ -3,11 +3,14 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "movies-app": {
+    "FE0222A-Progetto-Settimana-12": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
         }
       },
       "root": "",
@@ -17,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/movies-app",
+            "outputPath": "dist/fe0222-a-progetto-settimana-12",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -28,6 +31,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -69,10 +73,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "movies-app:build:production"
+              "browserTarget": "FE0222A-Progetto-Settimana-12:build:production"
             },
             "development": {
-              "browserTarget": "movies-app:build:development"
+              "browserTarget": "FE0222A-Progetto-Settimana-12:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +84,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "movies-app:build"
+            "browserTarget": "FE0222A-Progetto-Settimana-12:build"
           }
         },
         "test": {
@@ -96,6 +100,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -104,7 +109,5 @@
       }
     }
   },
-  "cli": {
-    "analytics": "556412a3-c20a-4167-a1e7-e3861cf09339"
-  }
+  "defaultProject": "FE0222A-Progetto-Settimana-12"
 }

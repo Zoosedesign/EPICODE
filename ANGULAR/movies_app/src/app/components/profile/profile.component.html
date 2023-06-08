@@ -1,0 +1,15 @@
+<!-- <p>profile works!</p> -->
+<mat-tab-group>
+  <mat-tab label="Info Utente">
+    <h3>. . . . . ╰──╮ I tuoi Dati ╭──╯ . . . . .</h3>
+  <div class="info" *ngIf="users$|async as user">
+    <p class="info-label">Nome: {{user.user.name}}</p>
+    <p class="info-label">Email: {{user.user.email}}</p>
+  </div>
+
+  <h3>. . . . . ╰──╮ I tuoi Film Preferiti ╭──╯ . . . . .</h3>
+  <div class="info" *ngFor="let m of movies">
+    <p *ngIf="m.favId">・❥・ {{m.data.title}}</p>
+  </div>
+  </mat-tab>
+</mat-tab-group>
