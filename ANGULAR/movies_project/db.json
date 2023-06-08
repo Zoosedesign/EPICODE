@@ -1,0 +1,10 @@
+{
+  "user": [],
+  "movies": [
+    {
+      "id": 1,
+      "code": "A001",
+      "name": "AVATAR"
+    }
+  ]
+}
