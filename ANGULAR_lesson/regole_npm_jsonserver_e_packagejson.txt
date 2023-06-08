@@ -1,0 +1,30 @@
+<<Comando per simulare server in locale e gestire base dati + autorizzazioni>>
+
+npm i -D json-server json-server-auth 
+
+<<Comando per gestione token>>
+
+npm i @auth0/angular-jwt
+
+<<mandare live json server>>
+npx json-server --watch (directory file json)
+es. npx json-server --watch db.json
+
+<<consente ad angular di avviare più comandi contemporaneamente>> 
+npm i concurrently
+
+<<Modificare l'oggetto scripts in package.json con il seguente>>
+
+"scripts": {
+    "ng": "ng",
+    "start": "ng serve -o",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "backend": "json-server-auth --watch db.json --port 4201",
+    "fullstack": "concurrently \"npm run backend\" \"npm run start\""
+  }
+
+
+<<Sostituisce ng s -o + npx json-server --watch (directory file json)>>
+npm run fullstack
