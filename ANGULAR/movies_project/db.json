@@ -1,12 +1,176 @@
 {
-  "user": [
-
+  "users": [
+    {
+      "email": "n@p.com",
+      "password": "$2a$10$SmgrR2x18eeoJMFtk9N9FORmSTDG0ToOtqOS0Ik0jgiRWoAqe7sT2",
+      "name": "nicola toledo",
+      "id": 1
+    },
+    {
+      "email": "dario@dario.com",
+      "password": "$2a$10$ZLY63quWnMVo0lO951uFdOJRfUxeo8U6YJ/Cue06Vgp4Ad8S/CjaC",
+      "name": "Dario",
+      "id": 2
+    },
+    {
+      "email": "mario@rossi.com",
+      "password": "$2a$10$RsIosJKYgHyT8uo.bosI5uYpN0PVmA6xdnhjT4jIFcbKbVS2RsiRC",
+      "name": "Mario Rossi",
+      "id": 3
+    },
+    {
+      "email": "luca@iannice.gov",
+      "password": "$2a$10$5w60AiRs216q6mE4yxS5geckgGmD93VpzJP72A07rLlWL0bEH8mgO",
+      "name": "Luca Iannice",
+      "id": 4
+    },
+    {
+      "email": "gabriel@toncelli.com",
+      "password": "$2a$10$dUc3jYtuRxxmnln0QZn.ZeJPDfdXmW/QCPKLmVJ31FiOXe1wZoir2",
+      "name": "Gabriel",
+      "id": 5
+    }
   ],
-
-  "favourites": [
-
+  "favorites": [
+    {
+      "movieId": 578701,
+      "userId": 1,
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "movieId": 460465,
+      "id": 5
+    },
+    {
+      "userId": 2,
+      "movieId": 460465,
+      "id": 6
+    },
+    {
+      "userId": 2,
+      "movieId": 632357,
+      "id": 8
+    },
+    {
+      "userId": 3,
+      "movieId": 804435,
+      "id": 9
+    },
+    {
+      "userId": 3,
+      "movieId": 399566,
+      "id": 10
+    },
+    {
+      "userId": 4,
+      "movieId": 813258,
+      "id": 11
+    },
+    {
+      "userId": 4,
+      "movieId": 823855,
+      "id": 12
+    },
+    {
+      "userId": 5,
+      "movieId": 399566,
+      "id": 13
+    },
+    {
+      "userId": 5,
+      "movieId": 635302,
+      "id": 14
+    },
+    {
+      "userId": 5,
+      "movieId": 726684,
+      "id": 15
+    },
+    {
+      "userId": 5,
+      "movieId": 460465,
+      "id": 16
+    }
   ],
-
+  "genres": [
+    {
+      "id": 28,
+      "name": "Azione"
+    },
+    {
+      "id": 12,
+      "name": "Avventura"
+    },
+    {
+      "id": 16,
+      "name": "Animazione"
+    },
+    {
+      "id": 35,
+      "name": "Commedia"
+    },
+    {
+      "id": 80,
+      "name": "Crime"
+    },
+    {
+      "id": 99,
+      "name": "Documentario"
+    },
+    {
+      "id": 18,
+      "name": "Dramma"
+    },
+    {
+      "id": 10751,
+      "name": "Famiglia"
+    },
+    {
+      "id": 14,
+      "name": "Fantasy"
+    },
+    {
+      "id": 36,
+      "name": "Storia"
+    },
+    {
+      "id": 27,
+      "name": "Horror"
+    },
+    {
+      "id": 10402,
+      "name": "Musica"
+    },
+    {
+      "id": 9648,
+      "name": "Mistero"
+    },
+    {
+      "id": 10749,
+      "name": "Romance"
+    },
+    {
+      "id": 878,
+      "name": "Fantascienza"
+    },
+    {
+      "id": 10770,
+      "name": "televisione film"
+    },
+    {
+      "id": 53,
+      "name": "Thriller"
+    },
+    {
+      "id": 10752,
+      "name": "Guerra"
+    },
+    {
+      "id": 37,
+      "name": "Western"
+    }
+  ],
   "movies-popular": [
     {
       "adult": false,
