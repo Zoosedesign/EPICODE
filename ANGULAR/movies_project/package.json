@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "backend": "json-server-auth --watch db.json --port 4201",
+    "backend": "json-server-auth --watch db.json --port 4201 --delay 1000",
     "anteprima": "concurrently \"npm run backend\" \"npm run start\""
   },
   "private": true,
