@@ -9,10 +9,14 @@ import { MoviesService } from 'src/app/services/movies.service';
   styleUrls: ['./movies.component.scss']
 })
 export class MoviesComponent implements OnInit {
+  sub!: Subscription;
+  movies!: Movies[];
 
-  constructor() { }
+  constructor(private moviesSrv: MoviesService) { }
 
   ngOnInit(): void {
+    this.sub = this.moviesSrv.get().subscribe((data: Movies[]) => {
+      this.movies = data;
+    });
   }
-
 }

@@ -1,1 +1,15 @@
-<h1>MOVIES</h1>
+<main class="container">
+ <section class="d-flex flex-row">
+
+  <!-- elemnti card film che si ripeteranno -->
+  <div class="col-4" *ngFor="let movie of movies">
+  <div class="card">
+    <img [src]="'http://image.tmdb.org/t/p/w500' + movie.poster_path" class="card-img-top" alt="...">
+    <div class="card-body">
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+  </div>
+</div>
+
+ </section>
+</main>
