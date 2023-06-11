@@ -3,12 +3,11 @@
 
     <!-- elemnti card film che si ripeteranno -->
     <div class="col-6 col-lg-4 col-xxl-3 px-2 px-sm-4" *ngFor="let movie of movies">
-      <article class="card border-2 border-dark bg-dark">
+      <article class="card border-0 bg-black">
         <img [src]="'http://image.tmdb.org/t/p/w500' + movie.poster_path" class="card-img-top fit" alt="...">
-        <div class="card-body">
+        <div class="card-body border-bottom border-warning rounded-bottom-4">
           <h4 class="card-title text-gray text-truncate">{{movie.original_title}}</h4>
           <small class="card-text d-none d-sm-block text-secondary">{{movie.release_date}}</small>
-          <hr class="text-gray mb-0">
         </div>
       </article>
     </div>

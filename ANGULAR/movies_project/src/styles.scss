@@ -1,5 +1,17 @@
 .bg-stripes {
-  background: linear-gradient(60deg, #222529 0px, #222529 calc(100% - 150px), #f5c345 0px, #ca4349);
+  background: linear-gradient(60deg, #000 0px, #000 calc(100% - 150px), #f5c345 0px, #ca4349);
+}
+
+.bg-wallpaper {
+  background: linear-gradient(45deg,
+      #161A1A 25%,
+      #161A1A 25%,
+      #000 50%,
+      #161A1A 50%,
+      #161A1A 75%,
+      #000 75%,
+      #000);
+  background-size: 50px 50px;
 }
 
 .text-gray {
