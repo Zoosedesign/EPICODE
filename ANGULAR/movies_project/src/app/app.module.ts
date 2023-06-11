@@ -12,6 +12,7 @@ import { RegisterComponent } from './auth/register/register.component';
 const pagine: Route[] = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'movie/popular', component: MoviesComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' }
 ]
 

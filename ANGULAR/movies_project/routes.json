@@ -1,7 +1,5 @@
 {
-  "/api/*": "/$1",
-  "/movie/popular": "/movies-popular",
-  "/movie/popular/:id": "/movies-popular/:id",
-  "/movie/top_rated": "/movies-toprated",
-  "/reset": "/reset"
+  "api/movie/popular": "/movies-popular",
+  "api/favorites?userId=<userId": "/favourites/:userId",
+  "api/favorites": "/favourites"
 }
