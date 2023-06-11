@@ -12,22 +12,18 @@ import { User } from 'src/app/models/user.interface';
 })
 export class MoviesComponent implements OnInit {
   movies!: Movies[];
-  userId!: string;
 
   constructor(private moviesSrv: MoviesService, private router: Router) { }
 
   ngOnInit(): void {
     //recupero utente
-    const loggedInUser: string | null = sessionStorage.getItem('loggedInUser');
+    const loggedInUser: User | null = this.moviesSrv.recuperaUtente();
     if (!loggedInUser) {
       this.router.navigate(['login']); // Redirect to login se non esiste nessun user nel session storage
     } else {
-      const parsedUser: User = JSON.parse(loggedInUser);
-      if (parsedUser && parsedUser.id) {
-        this.userId = String(parsedUser.id);
-        this.router.navigate(['movie/popular'], { queryParams: { userId: this.userId } });
-      }
+      this.router.navigate(['movie/popular'], { queryParams: { userId: loggedInUser.id } });
     }
+
     //recupero film
     this.moviesSrv.get().subscribe((data: Movies[]) => {
       this.movies = data;

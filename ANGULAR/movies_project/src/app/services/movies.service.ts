@@ -4,9 +4,7 @@ import { HttpClient } from '@angular/common/http'; //necessario per usare richie
 
 //passo le interfacce
 import { Movies } from '../models/movies.interface';
-import { Favourites } from '../models/favourites.interface.ts';
-//importo l'operatore take per ottenere solo il primo valore emesso
-import { take } from 'rxjs';
+import { User } from '../models/user.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -19,5 +17,10 @@ export class MoviesService {
 
   get() {
     return this.http.get<Movies[]>(`${this.url}movies-popular`);
+  }
+
+  recuperaUtente(): User | null {
+    const userString: string | null = sessionStorage.getItem('loggedInUser');
+    return userString ? JSON.parse(userString) : null;
   }
 }
