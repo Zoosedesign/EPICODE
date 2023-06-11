@@ -1,1 +1,53 @@
-<h1>REGISTER</h1>
+<app-navbar></app-navbar>
+
+<main class="container-fluid d-flex vh-100 justify-content-center align-items-center">
+
+  <section class="col-12 col-sm-8 col-md-6 col-xl-4 col-xxl-3 p-5 bg-black text-gray border-bottom border-warning rounded-4">
+    <div class="text-center">
+      <h1>Registrati!</h1>
+      <p class="text-secondary">Diventa parte della nostra community !!</p>
+    </div>
+    <!-- login form -->
+    <form class="mt-5" [formGroup]="registerForm" (ngSubmit)="register()">
+      <div class="mb-3">
+        <div class="d-flex">
+          <label for="user" class="form-label">Nome</label>
+          <!-- verifiche campo nome -->
+          <small class="text-warning ms-auto"
+            *ngIf="registerForm.get('name')?.invalid && registerForm.get('name')?.touched">Il nome è obbligatorio</small>
+        </div>
+
+        <input formControlName="name" type="text" class="form-control bg-secondary" id="user">
+      </div>
+
+      <div class="mb-3">
+        <div class="d-flex">
+          <label for="email" class="form-label">Email</label>
+          <!-- verifiche campo mail -->
+          <small class="text-warning ms-auto" *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">L'email non è valida</small>
+        </div>
+
+        <input formControlName="email" type="email" class="form-control bg-secondary" id="email"
+          aria-describedby="emailHelp">
+      </div>
+
+      <div class="mb-3">
+        <div class="d-flex">
+        <label for="password" class="form-label">Password</label>
+        <!-- verifiche campo password -->
+        <small class="text-warning ms-auto" style="margin-right: 60px;"
+            *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">obbligatoria</small>
+        </div>
+        <div class="d-flex">
+          <input formControlName="password" type="password" class="form-control bg-secondary" id="password">
+
+          <button type="submit" class="btn btn-warning ms-3 fs-3 px-2 lh-1" [disabled]="!registerForm.valid">&oplus;</button>
+        </div>
+      </div>
+    </form>
+
+
+
+
+  </section>
+</main>

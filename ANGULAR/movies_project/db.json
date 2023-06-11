@@ -29,6 +29,12 @@
       "password": "$2a$10$dUc3jYtuRxxmnln0QZn.ZeJPDfdXmW/QCPKLmVJ31FiOXe1wZoir2",
       "name": "Gabriel",
       "id": 5
+    },
+    {
+      "email": "andreazuchetti@streamnetworks.com",
+      "password": "$2a$10$XOvEQXufF9MHdBHWK3ZV7.uthR3bSWtZyw/kaJByhB8TFWI9yPzxa",
+      "name": "Andrea Zucchetti",
+      "id": 6
     }
   ],
   "favorites": [

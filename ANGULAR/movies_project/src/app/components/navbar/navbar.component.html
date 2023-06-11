@@ -9,6 +9,6 @@
     </h1>
 
     <!-- area personale utente -->
-    <app-user-area></app-user-area>
+    <app-user-area *ngIf="currentPath !== '/login' && currentPath !== '/register'"></app-user-area>
   </nav>
 </header>
