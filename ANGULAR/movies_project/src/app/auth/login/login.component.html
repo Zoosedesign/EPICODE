@@ -2,27 +2,41 @@
 
 <main class="container-fluid d-flex vh-100 justify-content-center align-items-center">
 
-  <section class="col-12 col-sm-8 col-md-6 col-xl-4 col-xxl-3 p-5 bg-black text-gray border-bottom border-warning rounded-4">
+  <section
+    class="col-12 col-sm-8 col-md-6 col-xl-4 col-xxl-3 p-5 bg-black text-gray border-bottom border-warning rounded-4">
     <div class="text-center">
       <h1>Login</h1>
       <p class="text-secondary">Please enter email & password !!</p>
     </div>
     <!-- login form -->
-    <form class="mt-5">
+    <form class="mt-5" [formGroup]="loginForm" (ngSubmit)="login()">
       <div class="mb-3">
-        <label for="email" class="form-label">Email address</label>
-        <input type="email" class="form-control bg-secondary" id="email" aria-describedby="emailHelp">
-      </div>
-      <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
-
         <div class="d-flex">
-          <input type="password" class="form-control bg-secondary" id="password">
+          <label for="email" class="form-label">Email</label>
+          <!-- verifiche campo mail -->
+          <small class="text-warning ms-auto"
+            *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">L'email non è
+            valida</small>
+        </div>
 
-          <button type="submit" class="btn btn-warning ms-3">Login</button>
+        <input formControlName="email" type="email" class="form-control bg-secondary" id="email"
+          aria-describedby="emailHelp">
+      </div>
+
+      <div class="mb-3">
+        <div class="d-flex">
+          <label for="password" class="form-label">Password</label>
+          <!-- verifiche campo password -->
+          <small class="text-warning ms-auto" style="margin-right: 60px;"
+            *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">obbligatoria</small>
+        </div>
+        <div class="d-flex">
+          <input formControlName="password" type="password" class="form-control bg-secondary" id="password">
+
+          <button type="submit" class="btn btn-warning ms-3 fs-3 px-2 lh-1"
+            [disabled]="!loginForm.valid">&oplus;</button>
         </div>
       </div>
-      <p class="text-secondary">Nuovo utente? <a routerLink="/register" class="link-warning link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Registrati!</a></p>
     </form>
 
   </section>

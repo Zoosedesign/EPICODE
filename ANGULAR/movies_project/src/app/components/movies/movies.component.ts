@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
 import { Movies } from 'src/app/models/movies.interface';
 import { MoviesService } from 'src/app/services/movies.service';
+
+import { Router } from '@angular/router';
+import { User } from 'src/app/models/user.interface';
 
 @Component({
   selector: 'app-movies',
@@ -10,10 +12,23 @@ import { MoviesService } from 'src/app/services/movies.service';
 })
 export class MoviesComponent implements OnInit {
   movies!: Movies[];
+  userId!: string;
 
-  constructor(private moviesSrv: MoviesService) { }
+  constructor(private moviesSrv: MoviesService, private router: Router) { }
 
   ngOnInit(): void {
+    //recupero utente
+    const loggedInUser: string | null = sessionStorage.getItem('loggedInUser');
+    if (!loggedInUser) {
+      this.router.navigate(['login']); // Redirect to login se non esiste nessun user nel session storage
+    } else {
+      const parsedUser: User = JSON.parse(loggedInUser);
+      if (parsedUser && parsedUser.id) {
+        this.userId = String(parsedUser.id);
+        this.router.navigate(['movie/popular'], { queryParams: { userId: this.userId } });
+      }
+    }
+    //recupero film
     this.moviesSrv.get().subscribe((data: Movies[]) => {
       this.movies = data;
     });
