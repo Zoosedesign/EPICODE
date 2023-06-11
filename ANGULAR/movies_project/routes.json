@@ -1,5 +1,6 @@
 {
-  "api/movie/popular": "/movies-popular",
-  "api/favorites?userId=<userId": "/favourites/:userId",
-  "api/favorites": "/favourites"
+  "/users*": "/users$1",
+  "/movies-popular*": "api/movies-popular",
+  "/favourites/:userId*": "api/favorites?userId=<userId",
+  "/favorites*": "api/favourites"
 }
