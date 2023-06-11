@@ -18,6 +18,6 @@ export class MoviesService {
   constructor(private http: HttpClient) { }
 
   get() {
-    return this.http.get<Movies[]>(`${this.url}/movies-popular`);
+    return this.http.get<Movies[]>(`${this.url}/movie/popular`);
   }
 }
