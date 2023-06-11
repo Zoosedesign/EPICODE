@@ -34,9 +34,11 @@
           <input formControlName="password" type="password" class="form-control bg-secondary" id="password">
 
           <button type="submit" class="btn btn-warning ms-3 fs-3 px-2 lh-1"
-            [disabled]="!loginForm.valid">&oplus;</button>
+            [disabled]="!loginForm.valid"><i class="bi bi-check-circle"></i></button>
         </div>
       </div>
+      <!-- opzione vai a registrami -->
+      <p>Prima visita?<a [routerLink]="'/register'" class="link-warning link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"> Registrati!</a></p>
     </form>
 
   </section>

@@ -10,12 +10,16 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { UserAreaComponent } from './components/user-area/user-area.component';
+import { FavouritesComponent } from './components/favourites/favourites.component';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
 
 const pagine: Route[] = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'movie/popular', component: MoviesComponent }
+  { path: 'movie/popular', component: MoviesComponent },
+  { path: 'movie/favourites', component: FavouritesComponent },
+  { path: 'details', component: UserDetailsComponent },
 ]
 
 @NgModule({
@@ -25,7 +29,9 @@ const pagine: Route[] = [
     LoginComponent,
     RegisterComponent,
     NavbarComponent,
-    UserAreaComponent
+    UserAreaComponent,
+    FavouritesComponent,
+    UserDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -16,21 +16,21 @@
 
   <hr class="dropdown-divider" />
 
-  <a class="dropdown-item d-flex gap-2 z-1" href="">
+  <a class="dropdown-item d-flex gap-2 z-1" [routerLink]="['movie/popular']" routerLinkActive="text-warning" riaCurrentWhenActive="page">
     <i class="bi bi-star"></i>Popular Movies
   </a>
 
-  <a class="dropdown-item d-flex gap-2" href="">
+  <a class="dropdown-item d-flex gap-2" [routerLink]="['movie/favourites']" routerLinkActive="text-warning">
     <i class="bi bi-heart"></i>Favourites
   </a>
 
-  <a class="dropdown-item d-flex gap-2" href="">
-    <i class="bi bi-gear"></i>Back office
+  <a class="dropdown-item d-flex gap-2" [routerLink]="['details']" routerLinkActive="text-warning">
+    <i class="bi bi-gear"></i>Area personale
   </a>
 
   <hr class="dropdown-divider" />
 
-  <a class="dropdown-item d-flex gap-2" href="./index.html">
+  <a class="btn dropdown-item d-flex gap-2" (click)="signOut()">
     <i class="bi bi-power"></i>Sign Out
   </a>
 </section>

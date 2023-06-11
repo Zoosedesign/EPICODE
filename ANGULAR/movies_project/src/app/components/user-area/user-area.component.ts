@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-area',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserAreaComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  signOut(): void {
+    // Svuota il valore del sessionStorage "loggedInUser"
+    sessionStorage.removeItem('loggedInUser');
+
+    // Reindirizza l'utente alla pagina di login
+    this.router.navigate(['login']);
   }
 
 }
