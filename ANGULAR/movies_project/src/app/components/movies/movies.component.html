@@ -1,55 +1,17 @@
-<h1>MOVIES</h1>
-<main class="container">
- <section class="d-flex flex-row">
+<main class="container pt-5">
+  <section class="d-flex flex-row flex-wrap pt-sm-4 mt-5 row-gap-3 row-gap-sm-5">
 
-  <!-- elemnti card film che si ripeteranno -->
-  <div class="col-4" *ngFor="let movie of movies">
-  <div class="card">
-    <img [src]="'http://image.tmdb.org/t/p/w500' + movie.poster_path" class="card-img-top" alt="...">
-    <div class="card-body">
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <!-- elemnti card film che si ripeteranno -->
+    <div class="col-6 col-lg-4 col-xxl-3 px-2 px-sm-4" *ngFor="let movie of movies">
+      <article class="card border-2 border-dark bg-dark">
+        <img [src]="'http://image.tmdb.org/t/p/w500' + movie.poster_path" class="card-img-top fit" alt="...">
+        <div class="card-body">
+          <h4 class="card-title text-gray text-truncate">{{movie.original_title}}</h4>
+          <small class="card-text d-none d-sm-block text-secondary">{{movie.release_date}}</small>
+          <hr class="text-gray mb-0">
+        </div>
+      </article>
     </div>
-  </div>
-</div>
 
- </section>
+  </section>
 </main>
-
-<!-- {
-  "users": [
-    {
-      "email": "n@p.com",
-      "password": "$2a$10$SmgrR2x18eeoJMFtk9N9FORmSTDG0ToOtqOS0Ik0jgiRWoAqe7sT2",
-      "name": "nicola toledo",
-      "id": 1
-    }
-  ],
-  "favorites": [
-  {
-    "movieId": 578701,
-    "userId": 1,
-    "id": 4
-  }
-]
-"movies-popular": [
-    {
-      "adult": false,
-      "backdrop_path": "/6ELCZlTA5lGUops70hKdB83WJxH.jpg",
-      "genre_ids": [
-        28,
-        14,
-        12
-      ],
-      "id": 460465,
-      "original_language": "en",
-      "original_title": "Mortal Kombat",
-      "overview": "Un pugile fallito scopre un segreto di famiglia che lo conduce ad un torneo mistico chiamato Mortal Kombat. Qui incontra un gruppo di guerrieri che combattono fino alla morte per salvare i regni dal malvagio stregone Shang Tsung.",
-      "popularity": 1909.664,
-      "poster_path": "/iW03OMEI3htIAV1P8FwM867PLIj.jpg",
-      "release_date": "2021-04-07",
-      "title": "Mortal Kombat",
-      "video": false,
-      "vote_average": 7.6,
-      "vote_count": 2659
-    }
-    ]} -->

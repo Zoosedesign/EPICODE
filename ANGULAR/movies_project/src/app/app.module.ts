@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { MoviesComponent } from './components/movies/movies.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { UserAreaComponent } from './components/user-area/user-area.component';
 
 const pagine: Route[] = [
   { path: 'login', component: LoginComponent },
@@ -21,7 +23,9 @@ const pagine: Route[] = [
     AppComponent,
     MoviesComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    NavbarComponent,
+    UserAreaComponent
   ],
   imports: [
     BrowserModule,

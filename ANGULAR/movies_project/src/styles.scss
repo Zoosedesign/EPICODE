@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+.bg-stripes {
+  background: linear-gradient(60deg, #222529 0px, #222529 calc(100% - 150px), #f5c345 0px, #ca4349);
+}
+
+.text-gray {
+  color: #aeb5bc;
+}
+
+.fit {
+  aspect-ratio: 1/1.5;
+  object-fit: fit;
+}
