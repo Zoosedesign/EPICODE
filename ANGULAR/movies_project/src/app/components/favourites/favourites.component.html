@@ -7,15 +7,20 @@
     <span class="col-3 col-sm-4 col-lg-5 bg-line"></span>
   </div>
 
-  <section class="container d-flex flex-row flex-wrap mb-5 row-gap-3 row-gap-sm-5">
+  <section class="container d-flex flex-row flex-wrap mb-5 row-gap-5">
 
     <!-- elemnti card film che si ripeteranno -->
     <div class="col-6 col-lg-4 col-xxl-3 px-2 px-sm-4" *ngFor="let movie of movies">
       <article class="card border-0 bg-dark">
-        <img [src]="'http://image.tmdb.org/t/p/w500' + movie.poster_path" class="card-img-top fit" alt="...">
+        <div class="card-img-overlay bg-angle-bottom" style="margin-bottom: 85px;"></div>
+
+        <img [src]="'http://image.tmdb.org/t/p/w500' + movie.poster_path" class="card-img-top fit rounded-top-0" alt="...">
+        <div id="like" class="card-img-overlay">
+          <a class="btn"><i class="bi bi-suit-heart text-warning bg-angle-left ps-5 p-2 pb-5 fs-3"></i></a>
+        </div>
         <div class="card-body border-bottom border-warning rounded-bottom-4">
           <h4 class="card-title text-gray text-truncate">{{movie.original_title}}</h4>
-          <small class="card-text d-none d-sm-block text-secondary">{{movie.release_date}}</small>
+          <small class="card-text text-secondary">{{movie.release_date}}</small>
         </div>
       </article>
     </div>

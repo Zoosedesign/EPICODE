@@ -11,6 +11,18 @@ h2, h4 {
   background: linear-gradient(60deg, #212529 0px, #212529 calc(100% - 150px), #f5c345 0px, #ca4349);
 }
 
+.bg-angle-bottom {
+  background: linear-gradient(184deg, transparent 0px, transparent calc(100% - 30px), #212529 0px, #212529);
+}
+
+.bg-angle-top {
+  background: linear-gradient(184deg, #ca4349 0px, #f5c345 calc(100% - 90%), #212529 0px, #212529);
+}
+
+.bg-angle-left {
+  background: linear-gradient(48deg, transparent 0px, transparent calc(100% - 50%), #212529 0px, #212529);
+}
+
 .bg-wallpaper {
   background: linear-gradient(45deg,
       #161A1A 25%,
@@ -34,4 +46,10 @@ h2, h4 {
 .fit {
   aspect-ratio: 1/1.5;
   object-fit: fit;
+}
+
+#like {
+  top: -20px;
+  right: -30px;
+  left: auto;
 }

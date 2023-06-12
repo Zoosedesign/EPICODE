@@ -2,13 +2,13 @@
 
 <main class="container-fluid d-flex vh-100 justify-content-center align-items-center text-gray">
 
-  <section class="col-12 col-sm-8 col-md-6 col-xl-4 col-xxl-3 p-5 bg-dark border-bottom border-warning rounded-4">
+  <section class="col-12 col-sm-8 col-md-6 col-xl-4 col-xxl-3 p-5 bg-angle-top border-bottom border-warning rounded-bottom-4">
     <div class="text-center">
-      <h2>REGISTRATI!</h2>
+      <h2 class="mt-4">REGISTRATI!</h2>
       <p class="text-secondary">Diventa parte della nostra community !!</p>
     </div>
     <!-- login form -->
-    <form class="mt-5" [formGroup]="registerForm" (ngSubmit)="register()">
+    <form class="mt-3" [formGroup]="registerForm" (ngSubmit)="register()">
       <div class="mb-3">
         <div class="d-flex">
           <label for="user" class="form-label">Nome</label>
