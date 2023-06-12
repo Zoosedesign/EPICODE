@@ -13,7 +13,9 @@ import { Favourites } from 'src/app/models/favourites.interface.ts';
   styleUrls: ['./favourites.component.scss']
 })
 export class FavouritesComponent implements OnInit {
-  movies!: Movies[]
+  movies!: Movies[];
+  favourites!: number[];
+
   constructor(private moviesSrv: MoviesService, private router: Router) { }
 
   ngOnInit(): void {
@@ -23,13 +25,17 @@ export class FavouritesComponent implements OnInit {
       this.router.navigate(['login']); // Redirect to login se non esiste nessun user nel session storage
     } else {
       this.moviesSrv.getFavoritesByUserId(loggedInUser.id).subscribe((userFavorites: Favourites[]) => {
-        const movieIds = userFavorites.map((favorite) => favorite.movieId);
-        //verifica
-        console.log('Movie IDs:', movieIds);
+        this.favourites = userFavorites.map((favorite) => favorite.movieId);
       });
 
-        this.router.navigate(['movie/favourites'], { queryParams: { userId: loggedInUser.id } });
-      }
+      //recupero film
+      this.moviesSrv.get().subscribe((data: Movies[]) => {
+        // filtro i risultato tramite l'array favourites
+        this.movies = data.filter((movie: Movies) => this.favourites.includes(movie.id));
+      });
+
+      this.router.navigate(['movie/favourites'], { queryParams: { userId: loggedInUser.id } });
+    }
   }
 
-  }
+}
