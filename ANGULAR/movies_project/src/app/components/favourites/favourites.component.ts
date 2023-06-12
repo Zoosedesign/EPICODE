@@ -14,7 +14,7 @@ export class FavouritesComponent implements OnInit {
 
   ngOnInit(): void {
     //recupero utente
-    const loggedInUser: User | null = this.moviesSrv.recuperaUtente();
+    const loggedInUser: User = this.moviesSrv.recuperaUtente();
     if (!loggedInUser) {
       this.router.navigate(['login']); // Redirect to login se non esiste nessun user nel session storage
     } else {

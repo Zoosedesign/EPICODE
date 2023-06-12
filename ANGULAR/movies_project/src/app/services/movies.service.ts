@@ -19,7 +19,7 @@ export class MoviesService {
     return this.http.get<Movies[]>(`${this.url}movies-popular`);
   }
 
-  recuperaUtente(): User | null {
+  recuperaUtente(): User {
     const userString: string | null = sessionStorage.getItem('loggedInUser');
     return userString ? JSON.parse(userString) : null;
   }

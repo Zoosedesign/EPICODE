@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user.interface';
+import { MoviesService } from 'src/app/services/movies.service';
 
 @Component({
   selector: 'app-user-area',
@@ -10,11 +11,10 @@ import { User } from 'src/app/models/user.interface';
 export class UserAreaComponent implements OnInit {
   loggedInUser!: User;
 
-  constructor(private router: Router) { }
+  constructor(private moviesSrv: MoviesService,private router: Router) { }
 
   ngOnInit(): void {
-    const userString: string | null = sessionStorage.getItem('loggedInUser');
-    this.loggedInUser = userString ? JSON.parse(userString) : null;
+    this.loggedInUser = this.moviesSrv.recuperaUtente();
   }
 
   signOut(): void {
