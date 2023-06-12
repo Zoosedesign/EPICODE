@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:wght@400;700&display=swap');
+h2, h4 {
+  font-family: 'Sofia Sans Extra Condensed', sans-serif;
+}
+
+* {
+  letter-spacing: 1px;
+}
+
 .bg-stripes {
   background: linear-gradient(60deg, #212529 0px, #212529 calc(100% - 150px), #f5c345 0px, #ca4349);
 }
@@ -12,6 +21,10 @@
       #000 75%,
       #000);
   background-size: 50px 50px;
+}
+
+.bg-line {
+  background: linear-gradient(0deg, transparent calc(50% - 1px), #aeb5bc calc(50% - 1px), #aeb5bc calc(50% + 1px), transparent calc(50% + 1px));
 }
 
 .text-gray {
