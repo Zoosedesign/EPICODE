@@ -5,6 +5,8 @@ import { HttpClient } from '@angular/common/http'; //necessario per usare richie
 //passo le interfacce
 import { Movies } from '../models/movies.interface';
 import { User } from '../models/user.interface';
+import { Observable } from 'rxjs';
+import { Favourites } from '../models/favourites.interface.ts';
 
 @Injectable({
   providedIn: 'root'
@@ -15,12 +17,21 @@ export class MoviesService {
 
   constructor(private http: HttpClient) { }
 
+  recuperaUtente(): User {
+    const userString: string | null = sessionStorage.getItem('loggedInUser');
+    return userString ? JSON.parse(userString) : null;
+  }
+
   get() {
     return this.http.get<Movies[]>(`${this.url}movies-popular`);
   }
 
-  recuperaUtente(): User {
-    const userString: string | null = sessionStorage.getItem('loggedInUser');
-    return userString ? JSON.parse(userString) : null;
+  getFavoritesByUserId(userId: number): Observable<Favourites[]> {
+    return this.http.get<Favourites[]>(`${this.url}favorites`);
+  }
+
+  getMoviesByKeyword(keyword: string): Observable<Movies[]> {
+    const url = `${this.url}movies-popular?keyword=${keyword}`;
+    return this.http.get<Movies[]>(url);
   }
 }
