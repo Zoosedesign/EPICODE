@@ -26,7 +26,7 @@ export class MoviesComponent implements OnInit {
       this.router.navigate(['login']); // Redirect to login se non esiste nessun user nel session storage
     } else {
       this.userId = loggedInUser.id;
-      this.router.navigate(['movie/popular'], { queryParams: { userId: this.userId } });
+      this.router.navigate(['movie/popular'], { queryParams: { userId: loggedInUser.id } });
     }
 
     //recupero film

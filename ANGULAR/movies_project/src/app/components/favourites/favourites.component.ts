@@ -14,7 +14,10 @@ import { Favourites } from 'src/app/models/favourites.interface.ts';
 })
 export class FavouritesComponent implements OnInit {
   movies!: Movies[];
-  favourites!: number[];
+  movieIds!: number[];
+  userId!: number;
+  //gestore colorazione icona
+  isLiked: boolean = false;
 
   constructor(private moviesSrv: MoviesService, private router: Router) { }
 
@@ -24,18 +27,26 @@ export class FavouritesComponent implements OnInit {
     if (!loggedInUser) {
       this.router.navigate(['login']); // Redirect to login se non esiste nessun user nel session storage
     } else {
+      this.userId = loggedInUser.id;
+      this.router.navigate(['movie/favourites'], { queryParams: { userId: loggedInUser.id } });
+
+      //recupero tutti i movieId dei film preferiti
       this.moviesSrv.getFavoritesByUserId(loggedInUser.id).subscribe((userFavorites: Favourites[]) => {
-        this.favourites = userFavorites.map((favorite) => favorite.movieId);
+        this.movieIds = userFavorites.map((favorite) => favorite.movieId);
       });
 
       //recupero film
       this.moviesSrv.get().subscribe((data: Movies[]) => {
         // filtro i risultato tramite l'array favourites
-        this.movies = data.filter((movie: Movies) => this.favourites.includes(movie.id));
+        this.movies = data.filter((movie: Movies) => this.movieIds.includes(movie.id));
       });
-
-      this.router.navigate(['movie/favourites'], { queryParams: { userId: loggedInUser.id } });
     }
   }
 
+  //metodo like
+  toggleLike(userId: number, movieId: number): void {
+    this.moviesSrv.toggleLike(userId, movieId)
+      // Dopo aver completato il toggleLike, ricarica la pagina corrente
+        window.location.reload();
+  }
 }
