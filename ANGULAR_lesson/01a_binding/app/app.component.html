@@ -1,5 +1,0 @@
-<div class="container text-center">
-    <h1>Inserimento nomi e modifica stati</h1>
-    <app-new-user></app-new-user> <!-- Avvia il componente new-user -->
-    <app-users [user]="user" [id]="i" *ngFor="let user of users; let i = index"></app-users> <!-- Avvia il componente users ciclando l'array e passando allo stesso componente i dati user e id, che il componente riceverà in @Input -->
-</div>
