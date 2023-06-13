@@ -31,7 +31,7 @@ export class FavouritesComponent implements OnInit {
       this.router.navigate(['movie/favourites'], { queryParams: { userId: loggedInUser.id } });
 
       //recupero tutti i movieId dei film preferiti
-      this.moviesSrv.getFavoritesByUserId(loggedInUser.id).subscribe((userFavorites: Favourites[]) => {
+      this.moviesSrv.getFavorites(loggedInUser.id).subscribe((userFavorites: Favourites[]) => {
         this.movieIds = userFavorites.map((favorite) => favorite.movieId);
       });
 

@@ -26,8 +26,12 @@ export class MoviesService {
     return this.http.get<Movies[]>(`${this.url}movies-popular`);
   }
 
-  getFavoritesByUserId(userId: number): Observable<Favourites[]> {
-    return this.http.get<Favourites[]>(`${this.url}favorites?userId=${userId}`);
+  getFavorites(userId?: number): Observable<Favourites[]> {
+    if (userId) {
+      return this.http.get<Favourites[]>(`${this.url}favorites?userId=${userId}`);
+    } else {
+      return this.http.get<Favourites[]>(`${this.url}favorites`);
+    }
   }
 
   likes(userId: number, movieId: number): Observable<Favourites> {
@@ -45,7 +49,7 @@ export class MoviesService {
 
   //-------- METODO GESTIONE FAVORITI --------
   toggleLike(userId: number, movieId: number) {
-    this.getFavoritesByUserId(userId).subscribe(favorites => {
+    this.getFavorites(userId).subscribe(favorites => {
       //filtro ulteriormente grazie al movieId
       const selectedMovie: Favourites | undefined = favorites.find(favorite => favorite.movieId === movieId);
       const objectId: number | null = selectedMovie ? selectedMovie.id : null;

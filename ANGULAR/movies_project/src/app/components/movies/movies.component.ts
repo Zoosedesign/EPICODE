@@ -13,9 +13,10 @@ import { Favourites } from 'src/app/models/favourites.interface.ts';
 })
 export class MoviesComponent implements OnInit {
   movies!: Movies[];
+  favoriteMovies!: Favourites[];
   userId!: number;
 
-  constructor(private moviesSrv: MoviesService, private router: Router) {}
+  constructor(private moviesSrv: MoviesService, private router: Router) { }
 
   ngOnInit(): void {
     //recupero utente
@@ -31,10 +32,27 @@ export class MoviesComponent implements OnInit {
     this.moviesSrv.get().subscribe((data: Movies[]) => {
       this.movies = data;
     });
+
+    //recupero film preferiti
+    this.moviesSrv.getFavorites(this.userId).subscribe((favorites: Favourites[]) => {
+      this.favoriteMovies = favorites;
+    });
   }
 
   //metodo like
   toggleLike(userId: number, movieId: number) {
-    this.moviesSrv.toggleLike(userId, movieId)
+    this.moviesSrv.toggleLike(userId, movieId);
+  }
+
+  //resistuirà true se troverà una corrispondenza
+  isMovieLiked(movieId: number): boolean {
+    return this.favoriteMovies?.some((favorite: Favourites) => favorite.movieId === movieId) ?? false;
+  }
+
+  //cambia solograficamente l'icona
+  toggleIcon(event: Event) {
+    const heart = event.target as HTMLElement;
+    heart.classList.toggle('bi-suit-heart-fill');
+    heart.classList.toggle('bi-suit-heart');
   }
 }
