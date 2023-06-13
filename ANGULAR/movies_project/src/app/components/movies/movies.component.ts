@@ -37,20 +37,6 @@ export class MoviesComponent implements OnInit {
 
   //metodo like
   toggleLike(userId: number, movieId: number) {
-    this.moviesSrv.getFavoritesByUserId(userId).subscribe(favorites => {
-      //filtro ulteriormente grazie al movieId
-      const selectedMovie: Favourites | undefined = favorites.find(favorite => favorite.movieId === movieId);
-      const objectId: number | null = selectedMovie ? selectedMovie.id : null;
-
-      if (objectId) {
-        this.moviesSrv.unlike(objectId).subscribe(() => {
-          console.log('Movie unliked!');
-        });
-      } else {
-        this.moviesSrv.likes(userId, movieId).subscribe(() => {
-          console.log('Movie liked!');
-        });
-      }
-    });
+    this.moviesSrv.toggleLike(userId, movieId)
   }
 }
