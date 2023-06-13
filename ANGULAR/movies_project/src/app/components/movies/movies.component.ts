@@ -49,7 +49,7 @@ export class MoviesComponent implements OnInit {
     return this.favoriteMovies?.some((favorite: Favourites) => favorite.movieId === movieId) ?? false;
   }
 
-  //cambia solograficamente l'icona
+  //cambia solo graficamente l'icona per avere un feedback immediato
   toggleIcon(event: Event) {
     const heart = event.target as HTMLElement;
     heart.classList.toggle('bi-suit-heart-fill');
