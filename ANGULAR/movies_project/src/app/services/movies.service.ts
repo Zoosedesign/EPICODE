@@ -44,7 +44,7 @@ export class MoviesService {
   }
 
   //-------- METODO GESTIONE FAVORITI --------
-  toggleLike(userId: number, movieId: number) {
+  toggleLike(userId: number, movieId: number, callback?: () => void): void {
     this.getFavoritesByUserId(userId).subscribe(favorites => {
       //filtro ulteriormente grazie al movieId
       const selectedMovie: Favourites | undefined = favorites.find(favorite => favorite.movieId === movieId);
@@ -52,13 +52,18 @@ export class MoviesService {
 
       if (objectId) {
         this.unlike(objectId).subscribe(() => {
-          console.log('Movie unliked!');
+          if (callback) {
+            callback(); // permette di eseguire il refresh dopo il completamento dell'operazione
+          }
         });
       } else {
         this.likes(userId, movieId).subscribe(() => {
-          console.log('Movie liked!');
+          if (callback) {
+            callback(); // permette di eseguire il refresh dopo il completamento dell'operazione
+          }
         });
       }
     });
   }
+
 }

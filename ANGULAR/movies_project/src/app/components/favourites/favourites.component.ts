@@ -45,8 +45,9 @@ export class FavouritesComponent implements OnInit {
 
   //metodo like
   toggleLike(userId: number, movieId: number): void {
-    this.moviesSrv.toggleLike(userId, movieId)
+    this.moviesSrv.toggleLike(userId, movieId, () => {
       // Dopo aver completato il toggleLike, ricarica la pagina corrente
-        window.location.reload();
+      window.location.reload();
+    });
   }
 }
