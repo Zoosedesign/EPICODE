@@ -8,8 +8,8 @@ import { AppComponent } from './app.component';
 import { MoviesComponent } from './components/movies/movies.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { UserAreaComponent } from './components/user-area/user-area.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { UserAreaComponent } from './shared/user-area/user-area.component';
 import { FavouritesComponent } from './components/favourites/favourites.component';
 
 const pagine: Route[] = [
