@@ -26,8 +26,20 @@ export class MoviesService {
     return this.http.get<Movies[]>(`${this.url}movies-popular`);
   }
 
-  getFavoritesByUserId(userId: number):
-  Observable<Favourites[]> {
+  getFavoritesByUserId(userId: number): Observable<Favourites[]> {
     return this.http.get<Favourites[]>(`${this.url}favorites?userId=${userId}`);
+  }
+
+  likes(userId: number, movieId: number): Observable<Favourites> {
+    const data = {
+      userId: Number(userId),
+      movieId: Number(movieId)
+    };
+
+    return this.http.post<Favourites>(`${this.url}favorites`, data);
+  }
+
+  unlike(objectId: number): Observable<Favourites> {
+    return this.http.delete<Favourites>(`${this.url}favorites/${objectId}`);
   }
 }

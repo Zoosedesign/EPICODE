@@ -31,7 +31,7 @@
       "id": 5
     },
     {
-      "email": "andreazucchetti@streamnetworks.com",
+      "email": "andreazucchetti@stream.com",
       "password": "$2a$10$XOvEQXufF9MHdBHWK3ZV7.uthR3bSWtZyw/kaJByhB8TFWI9yPzxa",
       "name": "Andrea Zucchetti",
       "id": 6
@@ -100,8 +100,13 @@
     },
     {
       "userId": 6,
-      "movieId": 726684,
+      "movieId": 635302,
       "id": 17
+    },
+    {
+      "userId": 6,
+      "movieId": 503736,
+      "id": 18
     }
   ],
   "movies-popular": [
