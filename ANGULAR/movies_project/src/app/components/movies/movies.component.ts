@@ -14,8 +14,6 @@ import { Favourites } from 'src/app/models/favourites.interface.ts';
 export class MoviesComponent implements OnInit {
   movies!: Movies[];
   userId!: number;
-  //gestore colorazione icona
-  isLiked: boolean = false;
 
   constructor(private moviesSrv: MoviesService, private router: Router) {}
 

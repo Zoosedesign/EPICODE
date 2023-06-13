@@ -44,10 +44,11 @@ export class FavouritesComponent implements OnInit {
   }
 
   //metodo like
-  toggleLike(userId: number, movieId: number): void {
-    this.moviesSrv.toggleLike(userId, movieId, () => {
-      // Dopo aver completato il toggleLike, ricarica la pagina corrente
-      window.location.reload();
-    });
+  toggleLike(userId: number, movieId: number, event: Event) {
+    this.moviesSrv.toggleLike(userId, movieId);
+    const targetElement = event.target as HTMLElement;
+    const card = targetElement.closest('.col-6') as HTMLElement;
+    // nascondo l'elemnto che è più immediato invece di refreshare tutta la pagina
+    card.classList.add('d-none');
   }
 }

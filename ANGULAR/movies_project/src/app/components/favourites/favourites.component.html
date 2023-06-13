@@ -16,7 +16,7 @@
 
         <img [src]="'http://image.tmdb.org/t/p/w500' + movie.poster_path" class="card-img-top fit rounded-top-0" alt="...">
         <div id="like" class="card-img-overlay">
-          <a class="btn" (click)="toggleLike(userId, movie.id)"><i class="bi text-warning bg-angle-left ps-5 p-2 pb-5 fs-3" [ngClass]="{'bi-suit-heart': !isLiked, 'bi-suit-heart-fill': isLiked}"></i></a>
+          <a class="btn" (click)="toggleLike(userId, movie.id, $event)"><i class="bi bi-suit-heart-fill text-warning bg-angle-left ps-5 p-2 pb-5 fs-3"></i></a>
         </div>
         <div class="card-body border-bottom border-warning rounded-bottom-4">
           <h4 class="card-title text-gray text-truncate">{{movie.original_title}}</h4>

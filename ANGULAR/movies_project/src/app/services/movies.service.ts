@@ -22,7 +22,7 @@ export class MoviesService {
     return userString ? JSON.parse(userString) : null;
   }
 
-  get() {
+  get(): Observable<Movies[]> {
     return this.http.get<Movies[]>(`${this.url}movies-popular`);
   }
 
@@ -44,7 +44,7 @@ export class MoviesService {
   }
 
   //-------- METODO GESTIONE FAVORITI --------
-  toggleLike(userId: number, movieId: number, callback?: () => void): void {
+  toggleLike(userId: number, movieId: number) {
     this.getFavoritesByUserId(userId).subscribe(favorites => {
       //filtro ulteriormente grazie al movieId
       const selectedMovie: Favourites | undefined = favorites.find(favorite => favorite.movieId === movieId);
@@ -52,15 +52,11 @@ export class MoviesService {
 
       if (objectId) {
         this.unlike(objectId).subscribe(() => {
-          if (callback) {
-            callback(); // permette di eseguire il refresh dopo il completamento dell'operazione
-          }
+          console.log('Movie unliked!');
         });
       } else {
         this.likes(userId, movieId).subscribe(() => {
-          if (callback) {
-            callback(); // permette di eseguire il refresh dopo il completamento dell'operazione
-          }
+          console.log('Movie liked!');
         });
       }
     });
