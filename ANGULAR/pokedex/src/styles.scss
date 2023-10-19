@@ -1,1 +1,43 @@
-/* You can add global styles to this file, and also import other style files */
+//https://www.onlinepalette.com/pokemon/?utm_content=cmp-true
+$red: #FB1B1B;
+$gray: #DFDFDF;
+$yellow: #FFCC00;
+$blue: #0A285F;
+$lightblue: #0075BE;
+
+* {
+  box-sizing: border-box;
+  letter-spacing: 1px;
+}
+
+body, h1 {
+  margin: 0;
+}
+
+.container {
+  display: grid;
+  place-items: center;
+  width: 100%;
+}
+
+.container--full {
+  @extend .container;
+  height: 100vh;
+}
+
+.container--max {
+  @extend .container;
+  height: 100%;
+}
+
+.bg-blue {
+  background: $blue;
+}
+
+.bg-red {
+  background-color: $red;
+}
+
+.p-box {
+  padding: 30px;
+}
