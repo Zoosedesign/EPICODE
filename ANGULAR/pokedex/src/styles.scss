@@ -1,9 +1,4 @@
-//https://www.onlinepalette.com/pokemon/?utm_content=cmp-true
-$red: #FB1B1B;
-$gray: #DFDFDF;
-$yellow: #FFCC00;
-$blue: #0A285F;
-$lightblue: #0075BE;
+@import '/src/styles/colors.scss';
 
 * {
   box-sizing: border-box;
@@ -28,6 +23,7 @@ body, h1 {
 .container--max {
   @extend .container;
   height: 100%;
+  overflow-y: auto;
 }
 
 .bg-blue {
@@ -39,5 +35,5 @@ body, h1 {
 }
 
 .p-box {
-  padding: 30px;
+  padding: 30px 15px;
 }

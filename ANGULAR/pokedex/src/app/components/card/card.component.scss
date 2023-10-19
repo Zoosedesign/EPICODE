@@ -1,0 +1,47 @@
+@import '/src/styles/colors.scss';
+
+.cards {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 30px;
+}
+
+.cards--card {
+  display: flex;
+  padding: 0 15px;
+  width: 33.33%;
+}
+
+.cards--card-article {
+  background: $gray;
+}
+
+.cards--card-article > * {
+  padding: 0 15px;
+}
+
+.truncate {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cards--card-image {
+  max-width: 100%;
+}
+
+.cards--card-title {
+  @extend .truncate;
+  -webkit-line-clamp: 1;
+}
+
+.cards--card-text {
+  @extend .truncate;
+  -webkit-line-clamp: 4;
+}
+
+.cards--card-footer {
+  background: $lightblue;
+  margin-top: 30px;
+}
