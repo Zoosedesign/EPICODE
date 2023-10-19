@@ -26,7 +26,7 @@ export class CardComponent implements OnInit {
           this.pokemons.push(pokemon);
         })
       });
-      console.log(this.pokemons)
+      console.log(this.pokemons);
     })
   }
 }

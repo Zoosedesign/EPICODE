@@ -2,8 +2,10 @@
 
   <div class="cards--card" *ngFor="let pokemon of pokemons">
     <article class="cards--card-article">
+
       <img src="{{pokemon.sprites.other['official-artwork'].front_default}}" alt="pokemon image" class="cards--card-image">
-      <h3 class="cards--card-title">POKEMON 1</h3>
+
+      <h3 class="cards--card-title">{{pokemon.name}}</h3>
       <p class="cards--card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, impedit provident. Pariatur ut, optio
         placeat, laborum, ipsam veritatis exercitationem quisquam alias cum in molestiae. Impedit delectus maxime
         excepturi ea doloribus!</p>

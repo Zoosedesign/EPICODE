@@ -29,11 +29,14 @@
 
 .cards--card-image {
   max-width: 100%;
+  margin-top: 30px;
 }
 
 .cards--card-title {
   @extend .truncate;
   -webkit-line-clamp: 1;
+  text-transform: uppercase;
+  text-align: center
 }
 
 .cards--card-text {
