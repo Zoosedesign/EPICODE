@@ -10,7 +10,7 @@
         placeat, laborum, ipsam veritatis exercitationem quisquam alias cum in molestiae. Impedit delectus maxime
         excepturi ea doloribus!</p>
       <div class="cards--card-footer">
-        <small>caratteristica</small>
+        <small *ngFor="let type of pokemon.types">{{type.type.name}}</small>
       </div>
     </article>
   </div>

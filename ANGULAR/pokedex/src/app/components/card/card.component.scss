@@ -11,6 +11,18 @@
   display: flex;
   padding: 0 15px;
   width: 33.33%;
+
+  @media screen and (max-width: 450px) {
+    width: 100%;
+  }
+
+  @media screen and (min-width: 451px) and (max-width: 900px) {
+    width: 50%;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 25%;
+  }
 }
 
 .cards--card-article {
@@ -21,15 +33,15 @@
   padding: 0 15px;
 }
 
+.cards--card-image {
+  max-width: 100%;
+  margin-top: 30px;
+}
+
 .truncate {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
-}
-
-.cards--card-image {
-  max-width: 100%;
-  margin-top: 30px;
 }
 
 .cards--card-title {
@@ -47,4 +59,10 @@
 .cards--card-footer {
   background: $lightblue;
   margin-top: 30px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.cards--card-footer small {
+  margin: 15px 0;
 }

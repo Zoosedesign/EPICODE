@@ -1,3 +1,11 @@
+export interface PokemonType {
+  slot: 1;
+  type: {
+    name: string;
+    url: string;
+  }
+}
+
 export interface Pokemon {
   name: string;
   height: number;
@@ -9,5 +17,5 @@ export interface Pokemon {
       };
     };
   };
-  types: object;
+  types: PokemonType[];
 }

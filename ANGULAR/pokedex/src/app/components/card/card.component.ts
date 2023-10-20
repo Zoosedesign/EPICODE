@@ -10,7 +10,7 @@ import { Pokemon } from 'src/app/models/pokemon.interface';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit {
-  pokemons: Pokemon[] = []
+  pokemons: Pokemon[] = [];
 
   constructor(private PokemonSrv: PokemonService) { }
 
@@ -31,8 +31,9 @@ export class CardComponent implements OnInit {
             this.pokemons.push(pokemon);
           })
         });
-        localStorage.setItem('pokedex', JSON.stringify(this.pokemons));
       })
+      console.log(this.pokemons)
+      //localStorage.setItem('pokedex', JSON.stringify(this.pokemons));
     }
   }
 }
