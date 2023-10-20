@@ -11,9 +11,9 @@ REGOLE
 */
 const pets = ['dog', 'cat', 'hamster', 'redfish']
 
-for(let i = 0; i < pets.length; i++){
-  console.log(pets[i])
-}
+pets.forEach(pet => {
+  console.log(pet)
+})
 
 /* ESERCIZIO 2
     Scrivi del codice per ordinare alfabeticamente gli elementi dell'array "pets" e stampa l'array ordinato in console.
@@ -60,9 +60,9 @@ const cars = [
   },
 ]
 
-for(let i = 0; i < cars.length; i++){
-  cars[i].licensePlate = 'EY821ZR';
-}
+cars.forEach((car, index) => {
+  car.licensePlate = `EY82${index}ZR`;
+})
 
 console.log(cars)
 
@@ -71,7 +71,7 @@ console.log(cars)
     Successivamente, rimuovi l'ultimo elemento della proprietà "trims" da ogni auto e stampa l'array in console.
 */
 
-cars.push({brands:'Citroen',model:'Ds3',color:'darkblue',trims: ['life', 'style', 'r-line'],});
+cars.push({brands:'Citroen',licensePlate: 'EY823ZR',model:'Ds3',color:'darkblue',trims: ['life', 'style', 'r-line'],});
 
 for(let i = 0; i < cars.length; i++){
   cars[i].trims.pop();
@@ -82,12 +82,8 @@ console.log(cars);
 /* ESERCIZIO 7
     Scrivi del codice per salvare il primo elemento della proprietà "trims" di ogni auto nel nuovo array "justTrims", sotto definito e stampa in console l'array justTrims così popolato.
 */
-const justTrims = []
 
-for (let i = 0; i < cars.length; i++) {
-  const firstTrimsElement = cars[i].trims[0];
-  justTrims.push(firstTrimsElement);
-}
+const justTrims = cars.map(car => car.trims[0]);
 
 console.log(justTrims);
 
