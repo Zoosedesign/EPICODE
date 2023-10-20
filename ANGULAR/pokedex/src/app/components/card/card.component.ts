@@ -19,14 +19,20 @@ export class CardComponent implements OnInit {
   }
 
   getPokemon(): void {
-    this.PokemonSrv.loadContent<Pagination>('https://pokeapi.co/api/v2/pokemon?limit=151').subscribe(data => {
-      const pokemonsUrl: Pokemons[] = data.results;
-      pokemonsUrl.forEach(pokemonUrl => {
-        this.PokemonSrv.loadContent<Pokemon>(pokemonUrl.url).subscribe(pokemon => {
-          this.pokemons.push(pokemon);
-        })
-      });
-      console.log(this.pokemons);
-    })
+    const localData: string | null = localStorage.getItem('pokedex');
+
+    if (localData) {
+      this.pokemons = JSON.parse(localData);
+    } else {
+      this.PokemonSrv.loadContent<Pagination>('https://pokeapi.co/api/v2/pokemon?limit=151').subscribe(data => {
+        const pokemonsUrl: Pokemons[] = data.results;
+        pokemonsUrl.forEach(pokemonUrl => {
+          this.PokemonSrv.loadContent<Pokemon>(pokemonUrl.url).subscribe(pokemon => {
+            this.pokemons.push(pokemon);
+          })
+        });
+        localStorage.setItem('pokedex', JSON.stringify(this.pokemons));
+      })
+    }
   }
 }
