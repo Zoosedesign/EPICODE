@@ -14,7 +14,7 @@ REGOLE
 */
 console.log('----- Esercizio A -----');
 
-let sum = 10 + 20;
+const sum = 10 + 20;
 console.log(sum);
 
 /* ESERCIZIO B
@@ -30,7 +30,7 @@ console.log(random);
 */
 console.log('----- Esercizio C -----');
 
-let me = {
+const me = {
   name: 'Andrea',
   surname: 'Zucchetti',
   age: '32'
@@ -59,7 +59,7 @@ console.log(me);
 */
 console.log('----- Esercizio F -----');
 
-me.skills[3] = 'angular';
+me.skills.push('angular');
 console.log(me);
 
 /* ESERCIZIO G
